@@ -4,6 +4,7 @@
 
   "requireParenthesesAroundIIFE": true,
   "validateLineBreaks": "LF",
+  "validateIndentation": 2,
 
   "disallowKeywords": ["with"],
   "disallowSpacesInsideObjectBrackets": null,
