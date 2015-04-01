@@ -91,3 +91,4 @@ gulp.task('replaceHTML', function() {
 
 /* Production */
 gulp.task('production', ['sass', 'minify-css', 'replaceHTML', 'build']);
+gulp.task('localtest', ['production', 'webserver']);
