@@ -1,6 +1,6 @@
-# Project Name #
+ # Populr.io #
 
-<!-- 
+<!--  
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
 There is an approach called "working backwards" that is widely used at Amazon. They work backwards from the customer, rather than starting with an idea for a product and trying to bolt customers onto it. While working backwards can be applied to any specific product decision, using this approach is especially important when developing new products or features.
@@ -18,27 +18,42 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+Populr.io
+
+
+
+
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Internet content consumers, social media users
+Visualize  the movers and shakers of the internet.
+
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+Ever wonder how the celebrity A-list is generated? Populr combines social, news, and media data to rank who’s trending right now.
 
 ## Problem ##
   > Describe the problem your product solves.
+There is no centralized resource to compare and rank the most popular figures on the internet.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+Populr’s scraping and ranking algorithm let’s users visualize the top trending celebrities and their impact relative to one another.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+“We provide the most scientific perspective on celebrity 
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+Visit our page to see how your favorite celebrities are ranking.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+I used to think Kim Kardashian was breaking the internet, but now I know she owns it!
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+Check out Populr.io today to make new discoveries about your favorite celebs.
