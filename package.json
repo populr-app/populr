@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/persnickety-vagabond/populr",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "reflux": "^0.2.7"
   }
 }
