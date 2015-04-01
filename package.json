@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/persnickety-vagabond/populr",
   "dependencies": {
+    "body-parser": "^1.12.2",
     "browserify": "^9.0.4",
     "express": "^4.12.3",
     "gulp": "^3.8.11",
@@ -28,6 +29,7 @@
     "gulp-server-livereload": "^1.2.1",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.1.0",
+    "morgan": "^1.5.2",
     "react-router": "^0.13.2",
     "reactify": "^1.1.0",
     "reflux": "^0.2.7",

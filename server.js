@@ -5,6 +5,6 @@ var app = require('./server/config');
 var port = process.env.PORT || 9000;
 
 // Starts server on provided port
-app.listen(port, function(){
+app.listen(port, function() {
   console.log('listening on 9000');
 });
