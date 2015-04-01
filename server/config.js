@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use('/api/alist', aListRouter);
-require('/aList/aListRoutes.js')(aListRouter);
+require('./aList/aListRoutes.js')(aListRouter);
 
 app.use('/api/people', peopleRouter);
-require('/people/peopleRoutes.js')(peopleRouter);
+require('./people/peopleRoutes.js')(peopleRouter);

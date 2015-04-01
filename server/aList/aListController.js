@@ -10,7 +10,7 @@ module.exports = {
 
 // top25 will send the top 25 weighted influences back to the client
 function top25(req, res, next) {
-  next();
+  res.send(dummyData);
 }
 
 // Potentially a future feature, but will maybe fuzzy query the
@@ -18,3 +18,12 @@ function top25(req, res, next) {
 function search(req, res, next) {
   next();
 }
+
+var dummyData = {
+  people: [
+    {name:'Garrett', influence: 10},
+    {name:'Will', influence: 20},
+    {name:'Mark', influence: 30},
+    {name:'Danny', influence: 40},
+  ]
+};
