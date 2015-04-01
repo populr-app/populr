@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "test",
+    "postinstall": "gulp production"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,12 @@
   },
   "homepage": "https://github.com/persnickety-vagabond/populr",
   "dependencies": {
-    "express": "^4.12.3"
+    "browserify": "^9.0.4",
+    "express": "^4.12.3",
+    "gulp": "^3.8.11",
+    "react-router": "^0.13.2",
+    "reactify": "^1.1.0",
+    "reflux": "^0.2.7",
+    "sass": "^0.5.0"
   }
 }
