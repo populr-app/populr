@@ -1,12 +1,12 @@
-# Project Name
+# Populr.io
 
 > Pithy project description
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Danny Delott
+  - __Scrum Master__: Mark Marcantano
+  - __Development Team Members__: Will Wung, Garrett Cox
 
 ## Table of Contents
 
