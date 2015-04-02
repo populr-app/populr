@@ -44,7 +44,7 @@ gulp.task('watch', function() {
       .pipe(gulp.dest(path.DEST_BUILD));
     console.log('updated');
   })
-  .bundle
+  .bundle()
   .pipe(source(path.OUT))
   .pipe(gulp.dest(path.DEST_BUILD));
 });
@@ -103,6 +103,6 @@ gulp.task('replaceHTML', function() {
 });
 
 /* Production */
-gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML']);
+gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML', 'watch']);
 gulp.task('heroku', gulpSequence('sass', 'minify-css', 'build', 'replaceHTML'))
 gulp.task('localtest', ['production', 'webserver']);
