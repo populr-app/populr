@@ -12,7 +12,8 @@ var mocha = require('gulp-mocha');
 var jasmine = require('gulp-jasmine');
 var jest = require('gulp-jest');
 var minifyCSS = require('gulp-minify-css');
-var gulpSequence = require('gulp-sequence')
+var gulpSequence = require('gulp-sequence');
+var shell = require('gulp-shell');
 
 var path = {
   HTML: './client/src/index.html',
@@ -99,8 +100,12 @@ gulp.task('replaceHTML', function() {
       css: './css/main.css',
       js: './js/' + path.OUT
     }))
-    .pipe(gulp.dest(path.DEST))
+    .pipe(gulp.dest(path.DEST));
 });
+
+gulp.task('jsdoc', shell.task([
+  './node_modules/jsdoc/jsdoc.js ./server ./client -r'
+]));
 
 /* Production */
 gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML', 'watch']);
