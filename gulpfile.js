@@ -103,4 +103,5 @@ gulp.task('replaceHTML', function() {
 
 /* Production */
 gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML']);
+gulp.task('heroku', ['production', 'production'])
 gulp.task('localtest', ['production', 'webserver']);
