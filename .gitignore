@@ -3,3 +3,4 @@ client/bower_components
 node_modules
 client/build
 client/dists
+keys.js
