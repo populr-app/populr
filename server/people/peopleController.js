@@ -1,7 +1,7 @@
 
 // Controller for the people api route
 
-var People = require('./peopleModel.js');
+var People = require('../database/people.js');
 
 module.exports = {
   query: query
@@ -11,4 +11,3 @@ module.exports = {
 function query(req, res, next) {
   next();
 }
-

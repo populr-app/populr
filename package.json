@@ -38,12 +38,18 @@
     "jsdoc": "^3.3.0-beta3",
     "morgan": "^1.5.2",
     "oauth": "^0.9.12",
+<<<<<<< HEAD
     "react": "^0.13.1",
+=======
+    "pg": "^4.3.0",
+    "pg-hstore": "^2.3.2",
+>>>>>>> (fix) change name of top controller & routes
     "react-router": "^0.13.2",
     "react-tools": "^0.13.1",
     "reactify": "^1.1.0",
     "reflux": "^0.2.7",
     "sass": "^0.5.0",
+    "sequelize": "^2.0.5",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.1.0"
   }
