@@ -112,7 +112,6 @@ gulp.task('jsdoc', shell.task([
 gulp.task('jest', function() {
   return gulp.src('_tests_')
     .pipe(jest({
-      scriptPreprocessor: './spec/support/preprocessor.js',
       unmockedModulePathPatterns: [
         'node_modules/react'
       ],
