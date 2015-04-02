@@ -12,6 +12,7 @@ var mocha = require('gulp-mocha');
 var jasmine = require('gulp-jasmine');
 var jest = require('gulp-jest');
 var minifyCSS = require('gulp-minify-css');
+var gulpSequence = require('gulp-sequence')
 
 var path = {
   HTML: './client/src/index.html',
@@ -103,5 +104,5 @@ gulp.task('replaceHTML', function() {
 
 /* Production */
 gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML']);
-gulp.task('heroku', ['production', 'production'])
+gulp.task('heroku', gulpSequence('sass', 'minify-css', 'build', 'replaceHTML'))
 gulp.task('localtest', ['production', 'webserver']);
