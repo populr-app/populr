@@ -9,7 +9,7 @@ var aListRouter = express.Router();
 var peopleRouter = express.Router();
 
 /*  Configuration  */
-app.use(express.static(__dirname + '/../client/src'));
+app.use(express.static(__dirname + '/../client/dist/public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
