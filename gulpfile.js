@@ -103,9 +103,31 @@ gulp.task('replaceHTML', function() {
     .pipe(gulp.dest(path.DEST));
 });
 
+/* JSDoc */
 gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js ./server ./client -r'
 ]));
+
+/* React Unit Testing (Jest) */
+gulp.task('jest', function() {
+  return gulp.src('_tests_')
+    .pipe(jest({
+      scriptPreprocessor: './spec/support/preprocessor.js',
+      unmockedModulePathPatterns: [
+        'node_modules/react'
+      ],
+      testDirectoryName: 'spec',
+      testPathIgnorePatterns: [
+        'node_modules',
+        'spec/support'
+      ],
+      moduleFileExtensions: [
+        'js',
+        'json',
+        'react'
+      ]
+    }));
+});
 
 /* Production */
 gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML', 'watch']);
