@@ -1,7 +1,7 @@
 
 // Database model for peoples twitter data
 
-var uri = process.env.POSTGRESURI || 'postgres://localhost:5432/GarrettCox';
+var uri = process.env.POSTGRES_URI || 'postgres://localhost:5432/yourname';
 var Sequelize = require('sequelize');
 var People = require('./people.js');
 var sql = new Sequelize(uri);

@@ -1,7 +1,7 @@
 
 // Database model for everyone in our database
 
-var uri = process.env.POSTGRESURI || 'postgres://localhost:5432/GarrettCox';
+var uri = process.env.POSTGRES_URI || 'postgres://localhost:5432/yourname';
 var Sequelize = require('sequelize');
 var sql = new Sequelize(uri);
 

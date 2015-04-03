@@ -1,7 +1,7 @@
 
 // Database model for the top 100 people
 
-var uri = process.env.POSTGRESURI || 'postgres://localhost:5432/GarrettCox';
+var uri = process.env.POSTGRES_URI || 'postgres://localhost:5432/yourname';
 var Sequelize = require('sequelize');
 var People = require('./people.js');
 var sql = new Sequelize(uri);
