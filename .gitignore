@@ -4,3 +4,4 @@ node_modules
 client/build
 keys.js
 client/dist
+out
