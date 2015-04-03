@@ -5,7 +5,7 @@ var morgan = require('morgan');
 
 /*  Declarations  */
 module.exports = app = express();
-var aListRouter = express.Router();
+var topRouter = express.Router();
 var peopleRouter = express.Router();
 
 /*  Configuration  */
@@ -13,8 +13,8 @@ app.use(express.static(__dirname + '/../client/dist/public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use('/api/alist', aListRouter);
-require('./aList/aListRoutes.js')(aListRouter);
+app.use('/api/top', topRouter);
+require('./top/topRoutes.js')(topRouter);
 
 app.use('/api/people', peopleRouter);
 require('./people/peopleRoutes.js')(peopleRouter);
