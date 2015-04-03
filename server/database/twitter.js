@@ -1,10 +1,9 @@
 
 // Database model for peoples twitter data
 
-var uri = process.env.HEROKU_POSTGRESQL_OLIVE_URL || 'postgres://localhost:5432/yourname';
 var Sequelize = require('sequelize');
 var People = require('./people.js');
-var sql = new Sequelize(uri);
+var sql = require('./connection.js');
 
 module.exports = sql.define('twitter', {
   handle: { type: Sequelize.STRING },
