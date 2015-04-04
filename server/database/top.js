@@ -11,4 +11,4 @@ module.exports = sql.define('top', {
   rank: { type: Sequelize.INTEGER}
 });
 
-// module.exports.sync();
+module.exports.sync();

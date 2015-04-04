@@ -15,4 +15,4 @@ module.exports = sql.define('twitter', {
   mentionsChange: { type: Sequelize.INTEGER }
 });
 
-// module.exports.sync();
+module.exports.sync();

@@ -11,4 +11,4 @@ module.exports = sql.define('people', {
   lastUpdate: {type: Sequelize.DATE}
 });
 
-// module.exports.sync();
+module.exports.sync();
