@@ -6,6 +6,7 @@ var People = require('./people.js');
 var sql = require('./connection.js');
 
 module.exports = sql.define('twitter', {
+  id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },
   handle: { type: Sequelize.STRING },
   tcId: {type: Sequelize.STRING },
   followers: { type: Sequelize.INTEGER },
@@ -14,5 +15,4 @@ module.exports = sql.define('twitter', {
   mentionsChange: { type: Sequelize.INTEGER }
 });
 
-module.exports.belongsTo(People);
-module.exports.sync();
+// module.exports.sync();

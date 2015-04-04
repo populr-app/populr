@@ -5,5 +5,6 @@ var peopleController = require('./peopleController.js');
 
 module.exports = function(app) {
   app.route('/')
-    .get(peopleController.query);
+    .get(peopleController.query)
+    .post(peopleController.add);
 };
