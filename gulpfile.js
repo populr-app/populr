@@ -14,7 +14,7 @@ var jest = require('gulp-jest');
 var minifyCSS = require('gulp-minify-css');
 var gulpSequence = require('gulp-sequence');
 var shell = require('gulp-shell');
-var autoprefixer = require('autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
 
 var path = {
@@ -60,9 +60,11 @@ gulp.task('copy', function() {
 });
 
 /* Compiles SCSS to CSS and minifies CSS */
+/* autoprefixer adds browser prefixes */
 gulp.task('styles', function() {
   return gulp.src(path.SASS)
     .pipe(sass({style: 'expanded'}))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(path.CSS_MIN_OUT))
     .pipe(minifyCSS())
     .pipe(gulp.dest(path.CSS_MIN_OUT))
