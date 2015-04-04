@@ -14,11 +14,13 @@ var jest = require('gulp-jest');
 var minifyCSS = require('gulp-minify-css');
 var gulpSequence = require('gulp-sequence');
 var shell = require('gulp-shell');
+var autoprefixer = require('autoprefixer');
+var notify = require('gulp-notify');
 
 var path = {
   HTML: './client/src/index.html',
   HTML_DIST: './client/dist/public/index.html',
-  SASS: './client/src/sass/main.scss',
+  SASS: './client/src/sass/**/*.scss',
   CSS_OUT: './client/build/css/',
   CSS_MIN_OUT: './client/dist/public/css/',
   ENTRY_POINT: './client/src/js/App.jsx',
@@ -31,6 +33,7 @@ var path = {
 /* Watcher */
 gulp.task('watch', function() {
   gulp.watch(path.HTML, []);
+  gulp.watch(path.SASS, ['styles']);
   var watcher = watchify(browserify({
     entries: [path.ENTRY_POINT],
     transform: [reactify],
@@ -56,18 +59,14 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./client/dist/public'));
 });
 
-/* Convert SCSS to CSS */
-gulp.task('sass', function() {
-  gulp.src(path.SASS)
-    .pipe(sass())
-    .pipe(gulp.dest(path.CSS_OUT));
-});
-
-/* Minify CSS */
-gulp.task('minify-css', function() {
-  return gulp.src(path.CSS_OUT + 'main.css')
-    .pipe(minifyCSS({keepBreaks: true}))
-    .pipe(gulp.dest(path.CSS_MIN_OUT));
+/* Compiles SCSS to CSS and minifies CSS */
+gulp.task('styles', function() {
+  return gulp.src(path.SASS)
+    .pipe(sass({style: 'expanded'}))
+    .pipe(gulp.dest(path.CSS_MIN_OUT))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(path.CSS_MIN_OUT))
+    .pipe(notify('Styles compiled and minified'));
 });
 
 /* BUILD */
@@ -129,6 +128,6 @@ gulp.task('jest', function() {
 });
 
 /* Production */
-gulp.task('production', ['sass', 'minify-css', 'build', 'replaceHTML', 'watch']);
-gulp.task('heroku', gulpSequence('sass', 'minify-css', 'build', 'replaceHTML'))
+gulp.task('production', ['styles', 'build', 'replaceHTML', 'watch']);
+gulp.task('heroku', gulpSequence('styles', 'build', 'replaceHTML'))
 gulp.task('localtest', ['production', 'webserver']);
