@@ -68,7 +68,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(path.CSS_MIN_OUT))
     .pipe(minifyCSS())
     .pipe(gulp.dest(path.CSS_MIN_OUT))
-    .pipe(notify('Styles compiled and minified'));
+    .pipe(notify('Styles compiled and minified!'));
 });
 
 /* BUILD */
@@ -80,7 +80,8 @@ gulp.task('build', function() {
   .bundle()
   .pipe(source(path.OUT))
   .pipe(streamify(uglify('bundle.min.js')))
-  .pipe(gulp.dest('./client/dist/public/js'));
+  .pipe(gulp.dest('./client/dist/public/js'))
+  .pipe(notify('Build complete!'));
 });
 
 /* Creates local web server for testing */
