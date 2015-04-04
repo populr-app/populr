@@ -13,3 +13,8 @@ module.exports = {
 function query(req, res, next) {
   next();
 }
+
+function add(req, res, next){
+  next();
+}
+
