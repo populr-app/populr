@@ -3,5 +3,5 @@ client/bower_components
 node_modules
 client/build
 keys.js
-client/dist
+client/dist/**
 out
