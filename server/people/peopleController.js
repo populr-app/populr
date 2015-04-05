@@ -17,77 +17,63 @@ function query(req, res, next) {
 }
 
 // Adds a person to the database with the given social data
+// Can take arrays of people, or just a single person object
 function add(req, res, next) {
-
-  req.body.forEach(PeopleAdd);
-
-
-  function PeopleAdd(obj){
-
-    var query = {where: {fullName: obj.fullName}};
-    People.findOne(query).then(function(foundPerson){
-
-      if (!foundPerson){
-
-        People.create(obj).then(function(newPerson){
-          Ok('${a} created in People table', newPerson.get().id);
-          var id = newPerson.get().id;
-          if (obj.twitter) TwitterAdd(id, obj.twitter);
-          if (obj.wiki) WikiAdd(id, obj.wiki);
-        });
-
-      } else {
-
-        Ok('${a} found in People table', foundPerson.get().id);
-        var id = foundPerson.get().id;
-        if (obj.twitter) TwitterAdd(id, obj.twitter);
-        if (obj.wiki) WikiAdd(id, obj.wiki);
-
-      }
-    });
+  if (req.body.people){
+    req.body.people.forEach(PeopleAdd);
+  } else {
+    res.send('no');
   }
-
-  function TwitterAdd(id, obj){
-    var query = {where: {id: id}};
-    Twitter.findOne(query).then(function(foundTwitter){
-
-      if (!foundTwitter){
-
-        obj.id = id;
-        Twitter.create(obj).then(function(newTwitter){
-          Ok('${a} created in Twitter table', newTwitter.get().id);
-        });
-
-      } else {
-
-        obj.followersChange = obj.followers - foundTwitter.get().followers;
-        foundTwitter.update(obj).then(function(){
-          Ok('${a} updated in Twitter table', foundTwitter.get().id);
-        });
-
-      }
-    });
-  }
-
-  function WikiAdd(id, obj){
-    Err('This funcionality hasnt been finished');
-  }
-
 }
 
-// Dummy Test
 
-// var request = {};
-// request.body = [
-//   {
-//     fullName: 'Garrett Cox',
-//     twitter: {
-//       handle: 'garrettjoecox',
-//       tcId: 1003,
-//       followers: 120,
-//       mentions: 50
-//     }
-//   }
-// ];
+function PeopleAdd(obj){
+  var query = {where: {fullName: obj.fullName}};
+  People.findOne(query).then(function(foundPerson){
 
-// add(request);
+    if (!foundPerson){
+
+      People.create(obj).then(function(newPerson){
+        Ok('${a} created in People table', newPerson.get().id);
+        var id = newPerson.get().id;
+        if (obj.twitter) TwitterAdd(id, obj.twitter);
+        if (obj.wikipedia) WikipediaAdd(id, obj.wikipedia);
+      });
+
+    } else {
+
+      Ok('${a} found in People table', foundPerson.get().id);
+      var id = foundPerson.get().id;
+      if (obj.twitter) TwitterAdd(id, obj.twitter);
+      if (obj.wikipedia) WikipediaAdd(id, obj.wikipedia);
+
+    }
+  });
+}
+
+function TwitterAdd(id, obj){
+  var query = {where: {id: id}};
+  Twitter.findOne(query).then(function(foundTwitter){
+
+    if (!foundTwitter){
+
+      obj.id = id;
+      Twitter.create(obj).then(function(newTwitter){
+        Ok('${a} created in Twitter table', newTwitter.get().id);
+      });
+
+    } else {
+
+      obj.followersChange = obj.followers - foundTwitter.get().followers;
+      if (isNaN(obj.followersChange)) obj.followersChange = 0;
+      foundTwitter.update(obj).then(function(){
+        Ok('${a} updated in Twitter table', foundTwitter.get().id);
+      });
+
+    }
+  });
+}
+
+function WikipediaAdd(id, obj){
+  Err('This funcionality hasnt been finished');
+}
