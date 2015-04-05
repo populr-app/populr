@@ -9,10 +9,10 @@ module.exports = sql.define('twitter', {
   id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },
   handle: { type: Sequelize.STRING },
   tcId: {type: Sequelize.STRING },
-  followers: { type: Sequelize.INTEGER },
-  followersChange: { type: Sequelize.INTEGER },
-  mentions: { type: Sequelize.INTEGER },
-  mentionsChange: { type: Sequelize.INTEGER }
+  followers: { type: Sequelize.INTEGER, defaultValue: 0 },
+  followersChange: { type: Sequelize.INTEGER, defaultValue: 0 },
+  mentions: { type: Sequelize.INTEGER, defaultValue: 0 },
+  mentionsChange: { type: Sequelize.INTEGER, defaultValue: 0 }
 });
 
 module.exports.sync();
