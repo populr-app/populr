@@ -3,6 +3,7 @@
 
 var People = require('../database/people.js');
 var Twitter = require('../database/twitter.js');
+var Wikipedia = require('../database/wikipedia.js');
 var Ok = require('../helpers/logger').Ok;
 var Err = require('../helpers/logger').Err;
 
@@ -25,7 +26,6 @@ function add(req, res, next) {
     res.send('no');
   }
 }
-
 
 function PeopleAdd(obj){
   var query = {where: {fullName: obj.fullName}};
@@ -75,5 +75,35 @@ function TwitterAdd(id, obj){
 }
 
 function WikipediaAdd(id, obj){
-  Err('This funcionality hasnt been finished');
+  var query = {where: {id: id}};
+  Wikipedia.findOne(query).then(function(foundWikipedia){
+
+    if (!foundWikipedia){
+
+      obj.id = id;
+      Wikipedia.create(obj).then(function(newWikipedia){
+        Ok('${a} created in Wikipedia table', newWikipedia.get().id);
+      });
+
+    } else {
+
+      foundWikipedia.update(obj).then(function(){
+        Ok('${a} updated in Wikipedia table', foundWikipedia.get().id);
+      });
+
+    }
+  });
 }
+
+// Uncomment to test with smalldata
+
+// var fs = require('fs-utils');
+
+// fs.readFile('smalldata.json', function(err, data) {
+//   if (!err) {
+//     var req = { body: JSON.parse(data) };
+//     add(req);
+//   } else {
+//     Err(err);
+//   }
+// });
