@@ -4,7 +4,7 @@
 var peopleController = require('./peopleController.js');
 
 module.exports = function(app) {
-  app.route('/')
-    .get(peopleController.query)
-    .post(peopleController.add);
+  app.param('id', peopleController.attach);
+  app.post('/', peopleController.add);
+  app.get('/:id', peopleController.query);
 };

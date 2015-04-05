@@ -6,15 +6,49 @@ var Twitter = require('../database/twitter.js');
 var Wikipedia = require('../database/wikipedia.js');
 var Ok = require('../helpers/logger').Ok;
 var Err = require('../helpers/logger').Err;
+var validate = require('validator');
 
 module.exports = {
   query: query,
-  add: add
+  add: add,
+  attach: attach
 };
 
-// query will send back the requested person's dataset
+function attach(req, res, next, id){
+  if (validate.isUUID(id)){
+    req.query = {where: {id: id}};
+    next();
+  } else {
+    req.query = {where: {fullName: id}};
+    next();
+  }
+}
+
+// Query will send back the requested person's dataset
+// Can request by UUID or fullName
+// TODO: deal with response
 function query(req, res, next) {
-  next();
+  People.findOne(req.query).then(function(data){
+    if (!data){
+      res.send('Invalid Query');
+    } else {
+      checkTwitter(data.get());
+    }
+  });
+
+  function checkTwitter(data){
+    Twitter.findOne({where: {id: data.id}}).then(function(twitterData){
+      if (twitterData) data.twitter = twitterData.get();
+      checkWikipedia(data);
+    });
+  }
+
+  function checkWikipedia(data){
+    Wikipedia.findOne({where: {id: data.id}}).then(function(wikipediaData){
+      if (wikipediaData) data.twitter = wikipediaData.get();
+      res.send(data);
+    });
+  }
 }
 
 // Adds a person to the database with the given social data
@@ -23,7 +57,7 @@ function add(req, res, next) {
   if (req.body.people){
     req.body.people.forEach(PeopleAdd);
   } else {
-    res.send('no');
+    res.send('Invalid post');
   }
 }
 
@@ -96,7 +130,6 @@ function WikipediaAdd(id, obj){
 }
 
 // Uncomment to test with smalldata
-
 // var fs = require('fs-utils');
 
 // fs.readFile('smalldata.json', function(err, data) {
