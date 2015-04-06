@@ -132,7 +132,7 @@ function WikipediaAdd(id, obj){
 // Uncomment to test with smalldata
 // var fs = require('fs-utils');
 
-// fs.readFile('smalldata.json', function(err, data) {
+// fs.readFile('data.json', function(err, data) {
 //   if (!err) {
 //     var req = { body: JSON.parse(data) };
 //     add(req);
