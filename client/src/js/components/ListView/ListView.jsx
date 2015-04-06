@@ -4,6 +4,9 @@ var PeopleStore = require('../../stores/PeopleStore.jsx');
 var GoogleAnalytics = require('../partials/GoogleAnalytics.js');
 
 var ListView = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState: function(){
     return { people: PeopleStore.getPeople() };
   },
