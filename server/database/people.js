@@ -9,7 +9,6 @@ module.exports = sql.define('people', {
   fullName: { type: Sequelize.STRING },
   score: { type: Sequelize.INTEGER, defaultValue: 0},
   scoreChange: { type: Sequelize.INTEGER, defaultValue: 0},
-  lastUpdate: {type: Sequelize.DATE}
 });
 
 module.exports.sync();
