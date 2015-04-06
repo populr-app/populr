@@ -19,7 +19,9 @@ var notify = require('gulp-notify');
 
 var path = {
   HTML: './client/src/index.html',
-  HTML_DIST: './client/dist/public/index.html',
+  HTML_DIST: './client/dist/public',
+  IMG: './client/src/img/*',
+  IMG_DIST: './client/dist/public/img',
   SASS: './client/src/sass/**/*.scss',
   CSS_OUT: './client/build/css/',
   CSS_MIN_OUT: './client/dist/public/css/',
@@ -34,6 +36,7 @@ var path = {
 gulp.task('watch', function() {
   gulp.watch(path.HTML, []);
   gulp.watch(path.SASS, ['styles']);
+  gulp.watch(path.IMG, ['copyIMG']);
   var watcher = watchify(browserify({
     entries: [path.ENTRY_POINT],
     transform: [reactify],
@@ -56,7 +59,14 @@ gulp.task('watch', function() {
 /* Copy HTML to public directory */
 gulp.task('copy', function() {
   gulp.src(path.HTML)
-    .pipe(gulp.dest('./client/dist/public'));
+    .pipe(gulp.dest(path.HTML_DIST));
+});
+
+/* Copy image folder to public directory */
+gulp.task('copyIMG', function() {
+  gulp.src(path.IMG)
+    .pipe(gulp.dest(path.IMG_DIST))
+    .pipe(notify('images copied'));
 });
 
 /* Compiles SCSS to CSS and minifies CSS */
@@ -131,6 +141,6 @@ gulp.task('jest', function() {
 });
 
 /* Production */
-gulp.task('production', ['styles', 'build', 'replaceHTML', 'watch']);
+gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);
 gulp.task('heroku', gulpSequence('styles', 'build', 'replaceHTML'))
 gulp.task('localtest', ['production', 'webserver']);
