@@ -1,3 +1,5 @@
+/* Base configuration */ 
+
 body {
 	margin: 0;
 }
@@ -6,12 +8,28 @@ html, body {
 	height: 100%;
 }
 
-.logo img{
-	width: 100px;
-	height: auto;
-	margin: 25px auto;
+.logo {
+	width: 80px;
+	margin: 30px auto;
 
-	position: absolute;
-	right: 0;
-	left: 0;
+	img {
+		width: 80px;
+		height: auto;	
+	}
 }
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+/* Base configuration variables */
+$base-font-size: 14px;
