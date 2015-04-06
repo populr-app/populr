@@ -2,7 +2,7 @@ var Logo = React.createClass({
   render: function(){
     return (
         <div className="logo">
-          <img src="" />
+          <img src="../img/populr.svg" />
         </div>
         
       );

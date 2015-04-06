@@ -5,3 +5,13 @@ body {
 html, body {
 	height: 100%;
 }
+
+.logo img{
+	width: 100px;
+	height: auto;
+	margin: 25px auto;
+
+	position: absolute;
+	right: 0;
+	left: 0;
+}
