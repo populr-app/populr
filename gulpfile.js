@@ -56,12 +56,6 @@ gulp.task('watch', function() {
   .pipe(gulp.dest(path.DEST_BUILD));
 });
 
-/* Copy HTML to public directory */
-gulp.task('copy', function() {
-  gulp.src(path.HTML)
-    .pipe(gulp.dest(path.HTML_DIST));
-});
-
 /* Copy image folder to public directory */
 gulp.task('copyIMG', function() {
   gulp.src(path.IMG)
@@ -142,5 +136,5 @@ gulp.task('jest', function() {
 
 /* Production */
 gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);
-gulp.task('heroku', gulpSequence('styles', 'build', 'replaceHTML'))
+gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML'))
 gulp.task('localtest', ['production', 'webserver']);
