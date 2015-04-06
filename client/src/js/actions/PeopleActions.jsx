@@ -1,1 +1,7 @@
-//TODO: people actions go here yo
+var Reflux = require('reflux');
+
+var PeopleActions = Reflux.createActions([
+  'loadPeople'
+  ]);
+
+module.exports = PeopleActions;
