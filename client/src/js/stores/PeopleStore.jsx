@@ -18,6 +18,9 @@ var PeopleStore = Reflux.createStore({
           _people = key.people; //push data to store
           context.trigger(_people);
       });
+  },
+  getPeople: function() {
+    return _people;
   }
 });
 
