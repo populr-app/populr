@@ -1,5 +1,6 @@
 var DetailsSidebar = require('./DetailsSideBar.jsx');
 var DetailsMain = require('./DetailsMain.jsx');
+var GoogleAnalytics = require('../partials/GoogleAnalytics.js');
 
 var DetailsView = React.createClass({
   render: function(){
@@ -8,6 +9,7 @@ var DetailsView = React.createClass({
           <h1> Details </h1>
           <DetailsSidebar />
           <DetailsMain />
+          <GoogleAnalytics />
         </div>
       );
   }
