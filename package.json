@@ -51,6 +51,7 @@
     "reflux": "^0.2.7",
     "sass": "^0.5.0",
     "sequelize": "^2.0.5",
+    "twitter": "^1.2.5",
     "validator": "^3.37.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.1.0"
