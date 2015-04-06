@@ -1,6 +1,7 @@
 var ListSideBar = require('./ListSideBar.jsx');
 var ListMain = require('./ListMain.jsx');
 var PeopleStore = require('../../stores/PeopleStore.jsx');
+var GoogleAnalytics = require('../partials/GoogleAnalytics.js');
 
 var ListView = React.createClass({
   getInitialState: function(){
@@ -11,6 +12,7 @@ var ListView = React.createClass({
         <div className="list-view">
           <ListSideBar />
           <ListMain />
+          <GoogleAnalytics />
         </div>
       );
   }
