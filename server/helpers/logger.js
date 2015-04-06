@@ -10,8 +10,8 @@ Object.defineProperties(String.prototype, {
 
 var ai = '['.blue + 'populr'.magenta + ']'.blue;
 var colon = ':'.blue;
-var error = '['.blue + 'Error'.red + ']'.blue;
-var ok = '['.blue + 'Ok'.green + ']'.blue;
+var error = '[ '.blue + 'Error '.red + ']'.blue;
+var ok = '['.blue + 'Success'.green + ']'.blue;
 
 module.exports.Pre = function(string, a, b, c, d){
   if (!string){ console.log(''); return; };
