@@ -4,13 +4,11 @@ var keys = require('../../keys.js');
 var https = require('https');
 var http = require('http');
 
-module.exports = function(){
+var oauth2 = new OAuth2(keys.twitter.key, keys.twitter.secret, 'https://api.twitter.com/', null, 'oauth2/token', null);
 
-  var oauth2 = new OAuth2(keys.twitter.key, keys.twitter.secret, 'https://api.twitter.com/', null, 'oauth2/token', null);
+oauth2.getOAuthAccessToken('', {grant_type: 'client_credentials'}, function(e, token) {
 
-  oauth2.getOAuthAccessToken('', {grant_type: 'client_credentials'}, function (e, token) {
-
-    var options = {
+  var options = {
       hostname: 'api.twitter.com',
       path: '/1.1/users/show.json?screen_name=garrettjoecox',
       headers: {
@@ -18,7 +16,7 @@ module.exports = function(){
       }
     };
 
-    https.get(options, function(result) {
+  https.get(options, function(result) {
       var buffer = '';
       result.setEncoding('utf8');
       result.on('data', function(data) {
@@ -36,8 +34,8 @@ module.exports = function(){
         me.twitter.followers = tweetData.followers_count;
         var postData = JSON.stringify({people:[me]});
         var options = {
-          hostname: 'populr.herokuapp.com',
-          port: 80,
+          hostname: 'localhost',
+          port: 9000,
           path: '/api/people',
           method: 'POST',
           headers: {
@@ -49,7 +47,7 @@ module.exports = function(){
           console.log('STATUS: ' + res.statusCode);
           console.log('HEADERS: ' + JSON.stringify(res.headers));
           res.setEncoding('utf8');
-          res.on('data', function (chunk) {
+          res.on('data', function(chunk) {
             console.log('BODY: ' + chunk);
           });
         });
@@ -60,5 +58,5 @@ module.exports = function(){
         req.end();
       });
     });
-  });
-};
+});
+
