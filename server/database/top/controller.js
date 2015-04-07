@@ -1,4 +1,6 @@
 
+/* Routes Handlers */
+
 module.exports.get = function() {
   console.log('get');
 };
@@ -6,3 +8,7 @@ module.exports.get = function() {
 module.exports.post = function() {
   console.log('post');
 };
+
+/* Methods */
+
+

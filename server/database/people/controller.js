@@ -2,11 +2,11 @@
 var validate = require('validator');
 var People = require('./model');
 var twitterController = require('../twitter/controller');
-var wikipediaController = require('../wikipedia/controller');
+var wikipediaController = require('../wikipedia/controller'); // <-- New Api Here
 
 /* Routes Handlers */
 
-module.exports.attach = function(req, res, next, id) {
+module.exports.attachParam = function(req, res, next, id) {
   if (validate.isUUID(id)) {
     req.body = {id: id};
     next();
@@ -19,56 +19,33 @@ module.exports.attach = function(req, res, next, id) {
 module.exports.get = function(req, res, next) {
   var person = req.body;
   module.exports.query({where: person})
-    .then(twitterController.query)
-    .then(wikipediaController.query)
+    .then(twitterController.attachData) // <-- New Api Here
     .then(function(data) {
-      if (!data) res.send('Invalid Query');
+      if (!data) res.send('Invalid GET');
       else res.send(data);
     });
 };
 
-// BOSS OF A POST METHOD RIGHT HERE
-
 module.exports.post = function(req, res, next) {
   if (Array.isArray(req.body.people)) {
-    req.body.people.forEach(function(person) {
-      module.exports.query({where: {fullName: person.fullName}})
+    req.body.people.forEach(function(personObj) {
+      module.exports.add(personObj)
+        .then(twitterController.add) // <-- New Api Here
         .then(function(data) {
-          if (!data) {
-            return People.create(person)
-              .then(function(taco) {
-                person.id = taco.get().id;
-                return person;
-              });
-          } else {
-            person.id = data.id;
-            return person;
-          }
-        })
-        .then(twitterController.createOrUpdate)
-        .then(wikipediaController.createOrUpdate);
+          if (!data) res.send('Invalid POST');
+          else res.send(data);
+        });
     });
-  } else if (req.body.fullName) {
-    module.exports.query({where: {fullName: req.body.fullName}})
-      .then(function(data) {
-        if (!data) {
-          return People.create(req.body)
-            .then(function(taco) {
-              req.body.id = taco.get().id;
-              return req.body;
-            });
-        } else {
-          req.body.id = data.id;
-          return req.body;
-        }
-      })
-      .then(twitterController.createOrUpdate)
+  } else if (req.body.fullName || req.body.id) {
+    module.exports.add(req.body)
+      .then(twitterController.add) // <-- New Api Here
       .then(function(data) {
         console.log(data);
+        if (!data) res.send('Invalid POST');
+        else res.send(data);
       });
-      // .then(wikipediaController.createOrUpdate);
   } else {
-    res.send('Invalid Post');
+    res.send('Invalid POST');
   }
 };
 
@@ -81,6 +58,22 @@ module.exports.query = function(query) {
       return null;
     } else {
       return data.get();
+    }
+  });
+};
+
+module.exports.add = function(personObj) {
+  if (!personObj.id && !personObj.fullName) return null;
+  var query = personObj.id ? { where: { id: personObj.id } } : { where: { fullName: personObj.fullName } };
+  return module.exports.query(query).then(function(foundPerson) {
+    if (!foundPerson) {
+      return People.create(personObj).then(function(newPerson) {
+        personObj.id = newPerson.get().id;
+        return personObj;
+      });
+    } else {
+      personObj.id = foundPerson.id;
+      return personObj;
     }
   });
 };

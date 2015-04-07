@@ -9,33 +9,40 @@ module.exports.post = function() {
   console.log('post');
 };
 
-module.exports.query = function(person) {
-  if (!person) return null;
-  return Twitter.findOne({where: {id:person.id}}).then(function(data) {
-    if (!data) {
-      return person;
+module.exports.query = function(query) {
+  if (!query) return null;
+  return Twitter.findOne(query).then(function(foundTwitter) {
+    if (!foundTwitter) {
+      return null;
     } else {
-      person.twitter = data.get();
-      return person;
+      return foundTwitter.get();
     }
   });
 };
 
-module.exports.createOrUpdate = function(person) {
-  if (!person.twitter) return person;
-  return Twitter.findOne({where: {id:person.id}}).then(function(data) {
-    if (!data) {
-      person.twitter.id = person.id;
-      return Twitter.create(person.twitter).then(function(newData) {
-        person.twitter = newData.get();
-        return person;
+module.exports.attachData = function(personObj) {
+  if (!personObj) return null;
+  var query = { where: { id: personObj.id } };
+  return module.exports.query(query).then(function(foundTwitter) {
+    if (!foundTwitter) return personObj;
+    else {
+      personObj.twitter = foundTwitter;
+      return personObj;
+    }
+  });
+};
+
+module.exports.add = function(personObj) {
+  if (!personObj.twitter) return personObj;
+  var query = { where: { id: personObj.id } };
+  return module.exports.query(query).then(function(foundTwitter) {
+    if (!foundTwitter) {
+      personObj.twitter.id = personObj.id;
+      return Twitter.create(personObj.twitter).then(function(newTwitter) {
+        return personObj;
       });
     } else {
-      person.twitter.followersChange = person.twitter.followers - data.get().followers;
-      return data.update(person.twitter).then(function(newData) {
-        person.twitter = newData.get();
-        return person;
-      });
+      return personObj;
     }
   });
 };
