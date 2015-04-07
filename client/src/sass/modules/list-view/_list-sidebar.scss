@@ -14,7 +14,8 @@
 		transition: color ease-in-out 0.5s;
 	}
 
-	a:hover {
+	a:hover, a:active, a:focus {
 		color: #fff;
+		text-decoration: none;
 	}
 }
