@@ -8,7 +8,7 @@ module.exports = sql.define('top', {
   rank: { type: Sequelize.INTEGER},
   lastRank: { type: Sequelize.INTEGER},
   score: { type: Sequelize.INTEGER, defaultValue: 0},
-  lastScore: { type: Sequelize.INTEGER, defaultValue: 0},
+  scoreChange: { type: Sequelize.INTEGER, defaultValue: 0},
   wikipedia: { type: Sequelize.TEXT }
 });
 
