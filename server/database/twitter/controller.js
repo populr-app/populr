@@ -1,5 +1,6 @@
 
 var Twitter = require('./model');
+var log = require('../../helpers/logger').log;
 
 /* Routes Handlers (not yet implemented) */
 
@@ -27,8 +28,9 @@ module.exports.attachData = function(personObj) {
   if (!personObj) return null;
   var query = { where: { id: personObj.id } };
   return module.exports.query(query).then(function(foundTwitter) {
-    if (!foundTwitter) return personObj;
-    else {
+    if (!foundTwitter) {
+      return personObj;
+    } else {
       personObj.twitter = foundTwitter;
       return personObj;
     }

@@ -1,3 +1,4 @@
+
 var Sequelize = require('sequelize');
 
 var uri = process.env.HEROKU_POSTGRESQL_OLIVE_URL || 'postgres://localhost:5432/yourname';

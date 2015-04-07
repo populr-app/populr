@@ -12,7 +12,7 @@ var wikipediaRouter = express.Router();
 
 /*  Configuration  */
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/dist/public'));
 
 app.use('/api/top', topRouter);
@@ -28,6 +28,6 @@ app.use('/api/wikipedia', wikipediaRouter);
 require('./router.js').wikipedia(wikipediaRouter);
 
 /*  serves index on default  */
-// app.use(function(req, res){
-  // res.redirect('/');
-// });
+app.use(function(req, res){
+  res.redirect('/');
+});

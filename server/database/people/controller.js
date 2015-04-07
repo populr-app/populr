@@ -3,6 +3,7 @@ var validate = require('validator');
 var People = require('./model');
 var twitterController = require('../twitter/controller');
 var wikipediaController = require('../wikipedia/controller');
+var log = require('../../helpers/logger').log;
 
 /* Routes Handlers */
 
@@ -22,8 +23,10 @@ module.exports.get = function(req, res, next) {
     .then(twitterController.attachData)
     .then(wikipediaController.attachData)
     .then(function(data) {
-      if (!data) res.send('Invalid GET');
-      else res.send(data);
+      if (!data) res.send(person.id || person.fullName + ' Not found');
+      else {
+        res.send(data);
+      }
     });
 };
 
@@ -80,7 +83,3 @@ module.exports.add = function(personObj) {
     }
   });
 };
-
-// For testing ONLY
-// var req = {body: require('../../../clientData.json')};
-// module.exports.post(req);
