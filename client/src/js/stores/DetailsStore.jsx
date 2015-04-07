@@ -17,7 +17,8 @@ var DetailsStore = Reflux.createStore({
           _details = data; //push data to store
           context.trigger(_details);
       });
-      return _details;
+      // return _details;
+      return {fullName: "Maria"};
   }
 });
 
