@@ -3,6 +3,7 @@ window.React = React;
 var Router = require('react-router');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
+var NotFoundRoute = Router.NotFoundRoute;
 var RouteHandler = Router.RouteHandler;
 
 // Include view components
@@ -24,14 +25,15 @@ var App = React.createClass({
 
 var routes = (
   <Route name="app" path="/" handler={App}>
-    <Route name="details" handler={DetailsView}/>
+    <DefaultRoute handler={ListView}/>
+    <Route name="details" path="details/?:fullName?" handler={DetailsView}/>
     <Route name="about" handler={AboutView}/>
     <Route name="docs" handler={DocsView}/>
-    <DefaultRoute handler={ListView}/>
+    <NotFoundRoute handler={ListView}/>
   </Route>
 );
 
-Router.run(routes, Router.HistoryLocation, function (Handler) {
+Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(<Handler/>, document.getElementById('app'));
 });
 
