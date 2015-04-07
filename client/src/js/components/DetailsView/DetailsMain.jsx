@@ -1,3 +1,5 @@
+var DetailsHeader = require('./DetailsHeader.jsx');
+var DetailsContainer = require('./DetailsContainer.jsx');
 var DetailsStore = require('../../stores/DetailsStore.jsx');
 
 var DetailsMain = React.createClass({
@@ -7,7 +9,8 @@ var DetailsMain = React.createClass({
   render: function(){
     return (
         <div className="details-main">
-          {this.state.details}
+          <DetailsHeader />
+          <DetailsContainer details={this.state.details}  />
         </div>
       );
   }
