@@ -5,9 +5,9 @@ var Footer = React.createClass({
   },
   render: function(){
     return (
-      <div className="footer">
-        &copy; Copyright {this.state.year} | Populr.io 
-      </div>
+      <footer className="footer">
+        <span>&copy; {this.state.year} Populr.io</span>
+      </footer>
       )
   }
 });

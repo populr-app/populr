@@ -2,3 +2,13 @@
 	background: #D8D8D8;
 	opacity: 0.4;
 }
+
+h1.list-header__title {
+	font-weight: 100;
+	margin-bottom: 0;
+}
+
+p.list-header__about {
+	max-width: 650px;
+	line-height: 30px;
+}

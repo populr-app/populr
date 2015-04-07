@@ -16,7 +16,7 @@ var DocsView = require('./components/DocsView/DocsView.jsx');
 var App = React.createClass({
   render: function(){
     return (
-        <div className="app">
+        <div className="app-inner">
           <RouteHandler />
         </div>
       );

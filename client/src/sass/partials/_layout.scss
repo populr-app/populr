@@ -3,3 +3,53 @@
 	width: 100%;
 	height: 180px;
 }
+
+.footer {
+	text-align: center;
+	font-size: 9px;
+	color: #D8D8D8;
+	font-weight: 300;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 30px;
+}
+
+/* Sidebar people list navigation */
+ul.people-nav {
+	li {
+		text-align: center;
+		padding: 15px 0;
+		font-size: $base-font-size;
+		font-size: 12px;
+
+		a {
+			font-weight: 100;
+		}
+	}
+}
+
+/* Style for current section of list view */
+li.people-nav--selected {
+	background: $primary-dark;
+	border-left: 3px solid $peach;
+	
+	a {
+		color: #fff;
+	}
+}
+
+/* Style for view nav */
+ul.view-nav {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 50px;
+
+	li {
+		font-size: 10px;
+		padding: 15px 0;
+	}
+}
