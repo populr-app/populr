@@ -80,3 +80,7 @@ module.exports.add = function(personObj) {
     }
   });
 };
+
+// For testing ONLY
+// var req = {body: require('../../../clientData.json')};
+// module.exports.post(req);
