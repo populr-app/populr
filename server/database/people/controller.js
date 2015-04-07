@@ -2,7 +2,7 @@
 var validate = require('validator');
 var People = require('./model');
 var twitterController = require('../twitter/controller');
-var wikipediaController = require('../wikipedia/controller'); // <-- New Api Here
+var wikipediaController = require('../wikipedia/controller');
 
 /* Routes Handlers */
 
@@ -18,8 +18,9 @@ module.exports.attachParam = function(req, res, next, id) {
 
 module.exports.get = function(req, res, next) {
   var person = req.body;
-  module.exports.query({where: person})
-    .then(twitterController.attachData) // <-- New Api Here
+  module.exports.query({where: person}) // <-- New Api Here
+    .then(twitterController.attachData)
+    .then(wikipediaController.attachData)
     .then(function(data) {
       if (!data) res.send('Invalid GET');
       else res.send(data);
@@ -29,16 +30,18 @@ module.exports.get = function(req, res, next) {
 module.exports.post = function(req, res, next) {
   if (Array.isArray(req.body.people)) {
     req.body.people.forEach(function(personObj) {
-      module.exports.add(personObj)
-        .then(twitterController.add) // <-- New Api Here
+      module.exports.add(personObj) // <-- New Api Here
+        .then(twitterController.add)
+        .then(wikipediaController.add)
         .then(function(data) {
           if (!data) res.send('Invalid POST');
           else res.send(data);
         });
     });
   } else if (req.body.fullName || req.body.id) {
-    module.exports.add(req.body)
-      .then(twitterController.add) // <-- New Api Here
+    module.exports.add(req.body) // <-- New Api Here
+      .then(twitterController.add)
+      .then(wikipediaController.add)
       .then(function(data) {
         console.log(data);
         if (!data) res.send('Invalid POST');
