@@ -1,9 +1,6 @@
 
-// Database model for peoples twitter data
-
 var Sequelize = require('sequelize');
-var People = require('./people.js');
-var sql = require('./connection.js');
+var sql = require('../connection.js');
 
 module.exports = sql.define('twitter', {
   id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },

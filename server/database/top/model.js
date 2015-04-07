@@ -1,9 +1,6 @@
 
-// Database model for the top 100 people
-
 var Sequelize = require('sequelize');
-var People = require('./people.js');
-var sql = require('./connection.js');
+var sql = require('../connection.js');
 
 module.exports = sql.define('top', {
   id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },
@@ -13,6 +10,5 @@ module.exports = sql.define('top', {
   lastScore: { type: Sequelize.INTEGER, defaultValue: 0},
   wiki: { type: Sequelize.TEXT }
 });
-  //pic ?
 
 module.exports.sync();
