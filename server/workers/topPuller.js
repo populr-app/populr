@@ -11,6 +11,8 @@ module.exports = function() {
         person.rank = i + 1;
         Top.create(person);
       }
+    } else {
+      require('../helpers/loadData');
     }
   });
 };

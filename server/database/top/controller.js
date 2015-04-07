@@ -27,8 +27,9 @@ module.exports.query = function(which) {
       require('../../workers/topPuller')();
       return 'Updating Top';
     } else {
-      lists = {a: [], b: [], c: [], d: []};
+      lists = {a: [], b: [], c: [], d: [], all: []};
       data.forEach(function(person, index) {
+        all.push(person.get());
         if (index <= 49) lists.a.push(person.get());
         else if (index <= 99) lists.b.push(person.get());
         else if (index <= 149) lists.c.push(person.get());
