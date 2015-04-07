@@ -1,6 +1,11 @@
 .list-header {
-	background: #D8D8D8;
-	opacity: 0.4;
+	opacity: 0.65;
+	background: #f8f8f8;
+
+	canvas {
+		position: absolute;
+		top: 0;
+	}
 }
 
 h1.list-header__title {

@@ -3,16 +3,20 @@ var Link = require('react-router').Link;
 var ListItem = React.createClass({
   render: function(){
     return (
-      <Link to="details" params={this.props.person}>
-        <li className="person-item">
+      <li className="person-item">
+        <div className="person-rank-circle">
           <span className="person-rank">{this.props.person.rank}</span>
-          <span className="person-name">{this.props.person.fullName}</span>
-          <span className="person-score">{this.props.person.score}</span>
-          <span className="person-last-score">{this.props.person.lastScore}</span>
-          <span className="person-last-rank">{this.props.person.lastRank}</span>
-        </li>
-      </Link>  
-      )
+        </div>
+        <div className="person-info-wrapper">
+        <div className="person-details">
+          <Link to="details" params={this.props.person}>
+            <span className="person-name">{this.props.person.fullName}</span>
+            <span className="person-profession">Profession</span>
+          </Link>
+        </div>
+        </div>
+      </li>
+    )
   }
 });
 

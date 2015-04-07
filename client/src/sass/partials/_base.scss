@@ -31,6 +31,11 @@ a {
 	text-decoration: none;
 }
 
+a:hover, a:active, a:focus {
+	color: #fff;
+	text-decoration: none !important;
+}
+
 ul {
 	padding: 0;
 }
