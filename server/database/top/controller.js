@@ -22,7 +22,7 @@ module.exports.get = function(req, res) {
 // Optionally takes a list name (a, b, c, d) and returns the
 // requested list or all 4 lists (sorted)
 module.exports.query = function(which) {
-  return Top.findAll({order: 'rank DESC'}).then(function(data) {
+  return Top.findAll({order: 'rank ASC'}).then(function(data) {
     if (!data.length) {
       require('../../workers/topPuller')();
       return 'Updating Top';
