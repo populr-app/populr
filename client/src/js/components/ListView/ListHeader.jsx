@@ -1,7 +1,7 @@
 var ListHeader = React.createClass({
   render: function(){
     return (
-        <div className="list-header header-block" id="particles-js">
+        <div className="list-header header-block">
         	<div className="container">
         		<div className="row">
 	        		<h1 className="list-header__title col-md-12 col-sm-12">Intelligent Social Metrics</h1>
