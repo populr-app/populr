@@ -10,7 +10,7 @@ module.exports.top = function(app) {
 
 module.exports.people = function(app) {
   app.get('/:id', peopleController.get);
-  app.param('id', peopleController.attach);
+  app.param('id', peopleController.attachParam);
   app.post('/', peopleController.post);
 };
 
