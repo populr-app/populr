@@ -22,14 +22,14 @@ module.exports.get = function(req, res) {
 // Optionally takes a list name (a, b, c, d) and returns the
 // requested list or all 4 lists (sorted)
 module.exports.query = function(which) {
-  return Top.findAll({order: 'rank DESC'}).then(function(data) {
+  return Top.findAll({order: 'rank ASC'}).then(function(data) {
     if (!data.length) {
       require('../../workers/topPuller')();
       return 'Updating Top';
     } else {
       lists = {a: [], b: [], c: [], d: [], all: []};
       data.forEach(function(person, index) {
-        all.push(person.get());
+        lists.all.push(person.get());
         if (index <= 49) lists.a.push(person.get());
         else if (index <= 99) lists.b.push(person.get());
         else if (index <= 149) lists.c.push(person.get());
