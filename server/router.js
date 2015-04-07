@@ -17,9 +17,7 @@ module.exports.people = function(app) {
 };
 
 module.exports.twitter = function(app) {
-
 };
 
 module.exports.wikipedia = function(app) {
-
 };
