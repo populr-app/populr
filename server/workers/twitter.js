@@ -1,40 +1,45 @@
-var keys = require('../../keys.js');
-var Twitter = require('twitter');
-var fs = require('fs-utils');
+var TwitterApi = require('twitter');
+var sleep = require('sleep');
 var People = require('../database/people.js');
+var Twitter = require('../database/twitter.js');
+var keys = require('../../keys.js');
 
-People.findAll().then(function(data){
-
-  data.forEach(function(person){
-    console.log(person.get('fullName'));
-  });
-});
-
-fs.readFile('../../data.json', function(err, data) {
-  if (!err) {
-   // console.log(JSON.parse(data).people);
-  } else {
-    Err(err);
-  }
-});
-
-var client = new Twitter({
+// Sets twitter credentials
+var client = new TwitterApi({
   consumer_key: keys.twitter.consumerKey,
   consumer_secret: keys.twitter.consumerSecret,
   access_token_key: keys.twitter.accessToken,
   access_token_secret: keys.twitter.accessTokenSecret
 });
 
-var params = {
-  screen_name: 'katyperry'
-};
+// Queries People table
+People.findAll().then(function(people) {
 
-client.get('users/show', params, function(error, tweets, response) {
+  // Initializes the final result object
+  var result = {};
+  result.people = [];
 
-  if (!error) {
-    console.log(tweets.followers_count);
-  } else {
-    console.log(client);
-    console.log(error);
-  }
+  // Gets the twitter handle and update the followers count
+  people.forEach(function(person) {
+
+    // Queries the Twitter table
+    Twitter.find(person.get('id')).then(function(twitter){
+
+      // Adds full name to new person object
+      var newPerson = {'fullName': person.get('fullName')};
+
+      // Pings the Twitter API
+      client.get('users/show', {'screen_name': twitter.get('handle')}, function(error, tweets, response) {
+
+        if (!error) {
+          newPerson.twitter = {'followers': tweets.followers_count};
+          result.people.push(newPerson);
+          sleep.sleep(5); // wait for 5 seconds to avoid rate-limiting
+        } else { console.log(error); }
+
+      });
+    });
+  });
+
+
 });
