@@ -1,8 +1,15 @@
-/* Base configuration */ 
+/* Base configuration variables */
+$base-font-size: 14px;
+$primary: #4B5086;
+$primary-dark: #393c65;
+$peach: #E48263;
 
+/* Base configuration */ 
 body {
 	margin: 0;
 	font-family: "proxima-nova", sans-serif;
+	font-size: $base-font-size;
+	font-weight: 300;
 }
 
 html, body {
@@ -31,6 +38,3 @@ ul {
 li {
 	list-style: none;
 }
-
-/* Base configuration variables */
-$base-font-size: 14px;
