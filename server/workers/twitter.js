@@ -1,8 +1,9 @@
 var TwitterApi = require('twitter');
 var sleep = require('sleep');
-var People = require('../database/people.js');
-var Twitter = require('../database/twitter.js');
+var PeopleDB = require('../database/people.js');
+var TwitterDB = require('../database/twitter.js');
 var keys = require('../../keys.js');
+var Populr = require('../people/peopleController.js');
 
 // Sets twitter credentials
 var client = new TwitterApi({
@@ -13,7 +14,7 @@ var client = new TwitterApi({
 });
 
 // Queries People table
-People.findAll().then(function(people) {
+PeopleDB.findAll().then(function(people) {
 
   // Initializes the final result object
   var result = {};
@@ -23,7 +24,7 @@ People.findAll().then(function(people) {
   people.forEach(function(person) {
 
     // Queries the Twitter table
-    Twitter.find(person.get('id')).then(function(twitter){
+    TwitterDB.find(person.get('id')).then(function(twitter){
 
       // Adds full name to new person object
       var newPerson = {'fullName': person.get('fullName')};
@@ -32,14 +33,16 @@ People.findAll().then(function(people) {
       client.get('users/show', {'screen_name': twitter.get('handle')}, function(error, tweets, response) {
 
         if (!error) {
-          newPerson.twitter = {'followers': tweets.followers_count};
+          newPerson.twitter = {};
+          newPerson.twitter.followers = tweets.followers_count;
+          newPerson.twitter.followersChange =  tweets.followers_count - twitter.get('followers') ;
           result.people.push(newPerson);
+          console.log(JSON.stringify(result));
           sleep.sleep(5); // wait for 5 seconds to avoid rate-limiting
         } else { console.log(error); }
 
       });
     });
   });
-
 
 });
