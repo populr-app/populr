@@ -1,5 +1,6 @@
 
 var Template = require('./model');
+var log = require('../../helpers/logger').log;
 
 /* Routes Handlers (not yet implemented) */
 
