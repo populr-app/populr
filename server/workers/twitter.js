@@ -3,7 +3,6 @@ var CronJob = require('cron').CronJob;
 var TwitterDB = require('../database/twitter/model.js');
 var Populr = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
-var keys = require('../../keys.js');
 
 new CronJob('* */15 * * * *', worker, function() { console.log('finished'); }, true, 'America/Los_Angeles');
 
@@ -11,10 +10,10 @@ function worker() {
 
   // Sets twitter credentials
   var client = new TwitterApi({
-    consumer_key: keys.twitter.consumerKey,
-    consumer_secret: keys.twitter.consumerSecret,
-    access_token_key: keys.twitter.accessToken,
-    access_token_secret: keys.twitter.accessTokenSecret
+    consumer_key: process.env.TWITTER_CK || require('../../keys.js').twitter.consumerKey,
+    consumer_secret: process.env.TWITTER_CS || require('../../keys.js').twitter.consumerSecret,
+    access_token_key: process.env.TWITTER_AK || require('../../keys.js').twitter.accessToken,
+    access_token_secret: process.env.TWITTER_AS || require('../../keys.js').twitter.accessTokenSecret
   });
 
   // Queries the Twitter table and builds an object.
