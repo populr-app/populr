@@ -19,16 +19,7 @@ module.exports.attachParam = function(req, res, next, id) {
 
 module.exports.get = function(req, res, next) {
   var person = req.body;
-  module.exports.query({where: person})
-    .then(function(data) {
-      if (data) {
-        log('${a}: Sending through pipeline', data.id);
-      }
-
-      return data;
-    })
-    .then(twitterController.attachData)
-    .then(wikipediaController.attachData)
+  module.exports.attachData({where: person})
     .then(function(data) {
       if (!data) {
         log('Invalid GET');
@@ -94,6 +85,19 @@ module.exports.query = function(query) {
       }
     });
   }
+};
+
+module.exports.attachData = function(query) {
+  return module.exports.query(query)
+    .then(function(data) {
+      if (data) {
+        log('${a}: Sending through pipeline', data.id);
+      }
+
+      return data;
+    })
+    .then(twitterController.attachData)
+    .then(wikipediaController.attachData);
 };
 
 module.exports.add = function(personObj) {
