@@ -139,5 +139,5 @@ gulp.task('jest', function() {
 
 /* Production */
 gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);
-gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML'))
+gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML', 'twitter-worker'));
 gulp.task('localtest', ['production', 'webserver']);
