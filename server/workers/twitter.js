@@ -5,7 +5,9 @@ var Populr = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
 var keys = require('../../keys.js');
 
-new CronJob('* */15 * * * *', function() {
+new CronJob('* */15 * * * *', worker, function() { console.log('finished'); }, true, 'America/Los_Angeles');
+
+function worker() {
 
   // Sets twitter credentials
   var client = new TwitterApi({
@@ -75,4 +77,6 @@ new CronJob('* */15 * * * *', function() {
       });
     });
   });
-}, function() { console.log('finished'); }, true, 'America/Los_Angeles');
+};
+
+taco();
