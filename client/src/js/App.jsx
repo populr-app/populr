@@ -12,6 +12,9 @@ var DetailsView = require('./components/DetailsView/DetailsView.jsx');
 var AboutView = require('./components/AboutView/AboutView.jsx');
 var DocsView = require('./components/DocsView/DocsView.jsx');
 
+var PeopleStore = require('./stores/PeopleStore.jsx');
+var PeopleActions = require('./actions/PeopleActions.jsx');
+
 /* Main App */
 var App = React.createClass({
   render: function(){

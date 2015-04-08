@@ -114,6 +114,9 @@ gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js ./server ./client -r'
 ]));
 
+/* Twitter worker */
+gulp.task('twitter-worker', shell.task([
+  'node ./server/workers/twitter.js']))
 /* React Unit Testing (Jest) */
 gulp.task('jest', function() {
   return gulp.src('_tests_')
@@ -136,5 +139,5 @@ gulp.task('jest', function() {
 
 /* Production */
 gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);
-gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML'))
+gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML', 'twitter-worker'));
 gulp.task('localtest', ['production', 'webserver']);

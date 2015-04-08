@@ -28,6 +28,6 @@ app.use('/api/wikipedia', wikipediaRouter);
 require('./router.js').wikipedia(wikipediaRouter);
 
 /*  serves index on default  */
-app.use(function(req, res){
+app.use(function(req, res) {
   res.redirect('/');
 });
