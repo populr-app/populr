@@ -114,9 +114,11 @@ gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js ./server ./client -r'
 ]));
 
-/* Twitter worker */
-gulp.task('twitter-worker', shell.task([
-  'node ./server/workers/twitter.js']))
+/* Run workers */
+gulp.task('runWorkers', function() {
+  require('./server/workers/twitter')();
+});
+
 /* React Unit Testing (Jest) */
 gulp.task('jest', function() {
   return gulp.src('_tests_')

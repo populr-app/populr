@@ -1,12 +1,9 @@
 var TwitterApi = require('twitter');
-var CronJob = require('cron').CronJob;
 var TwitterDB = require('../database/twitter/model.js');
 var Populr = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
 
-new CronJob('* */15 * * * *', worker, function() { console.log('finished'); }, true, 'America/Los_Angeles');
-
-function worker() {
+module.exports = function() {
 
   // Sets twitter credentials
   var client = new TwitterApi({
@@ -76,6 +73,4 @@ function worker() {
       });
     });
   });
-}
-
-worker();
+};
