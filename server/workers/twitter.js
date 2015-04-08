@@ -1,9 +1,9 @@
 var TwitterApi = require('twitter');
-var sleep = require('sleep');
-var PeopleDB = require('../database/people.js');
-var TwitterDB = require('../database/twitter.js');
+var Sleep = require('sleep');
+var TwitterDB = require('../database/twitter/model.js');
+var Populr = require('../database/twitter/controller.js');
+var Utils = require('./utils.js');
 var keys = require('../../keys.js');
-var Populr = require('../people/peopleController.js');
 
 // Sets twitter credentials
 var client = new TwitterApi({
@@ -13,36 +13,66 @@ var client = new TwitterApi({
   access_token_secret: keys.twitter.accessTokenSecret
 });
 
-// Queries People table
-PeopleDB.findAll().then(function(people) {
+// Queries the Twitter table and builds an object.
+// Keys are the twitter handles,
+// Values are an array of the ids, number of followers, and the twitter score.
+TwitterDB.findAll().then(function(twitter) {
 
-  // Initializes the final result object
-  var result = {};
-  result.people = [];
+  var handles = {};
+  twitter.forEach(function(entry) {
 
-  // Gets the twitter handle and update the followers count
-  people.forEach(function(person) {
+    var id = handles[entry.get('handle')] = [];
+    id.push(entry.get('id'));
+    id.push(entry.get('followers'));
+    id.push(entry.get('score'));
 
-    // Queries the Twitter table
-    TwitterDB.find(person.get('id')).then(function(twitter){
-
-      // Adds full name to new person object
-      var newPerson = {'fullName': person.get('fullName')};
-
-      // Pings the Twitter API
-      client.get('users/show', {'screen_name': twitter.get('handle')}, function(error, tweets, response) {
-
-        if (!error) {
-          newPerson.twitter = {};
-          newPerson.twitter.followers = tweets.followers_count;
-          newPerson.twitter.followersChange =  tweets.followers_count - twitter.get('followers') ;
-          result.people.push(newPerson);
-          console.log(JSON.stringify(result));
-          sleep.sleep(5); // wait for 5 seconds to avoid rate-limiting
-        } else { console.log(error); }
-
-      });
-    });
   });
 
+  return handles;
+
+}).then(function(handles) {
+
+  // Separate handles into 100-item string chunks
+  var separated = Utils.separateArray(Object.keys(handles), 100);
+
+  // Pings the Twitter API with 100 handles at a time
+  separated.forEach(function(handlesList) {
+
+    client.get('users/lookup', {'screen_name': handlesList.join()}, function(error, users, response) {
+
+      if (!error) {
+        users.forEach(function(user) {
+
+          var id = handles[user.screen_name][0];
+          var handle = user.screen_name;
+          var followers = user.followers_count;
+          var followersChange = followers - handles[handle][1];
+          var score = followers + followersChange;
+          var scoreChange = score - handles[handle][2];
+
+          var person = {
+            'id': id,
+            'twitter': {
+              'handle': handle,
+              'followers': followers,
+              'followersChange': followersChange,
+              'score': score,
+              'scoreChange': scoreChange
+            }
+          };
+
+          // Builds the result object to send to the Populr API
+          var result = {
+            'body': {
+              'people': person
+            }
+          };
+
+          // TODO: SEND RESULT OBJECT TO POPULR API
+          Populr.add();
+        });
+      }else { console.log(error); }
+
+    });
+  });
 });
