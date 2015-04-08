@@ -28,7 +28,7 @@ var App = React.createClass({
 
 var routes = (
   <Route name="app" path="/" handler={App}>
-    <DefaultRoute handler={ListView}/>
+    <DefaultRoute name="home" handler={ListView}/>
     <Route name="details" path="details/?:fullName?" handler={DetailsView}/>
     <Route name="about" handler={AboutView}/>
     <Route name="docs" handler={DocsView}/>
