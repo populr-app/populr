@@ -1,5 +1,4 @@
 var TwitterApi = require('twitter');
-var Sleep = require('sleep');
 var TwitterDB = require('../database/twitter/model.js');
 var Populr = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
@@ -21,10 +20,10 @@ TwitterDB.findAll().then(function(twitter) {
   var handles = {};
   twitter.forEach(function(entry) {
 
-    var id = handles[entry.get('handle')] = [];
-    id.push(entry.get('id'));
-    id.push(entry.get('followers'));
-    id.push(entry.get('score'));
+    var obj = handles[entry.get('handle')] = [];
+    obj[0] = entry.get('id');
+    obj[1] = entry.get('followers');
+    obj[2] = entry.get('score');
 
   });
 
@@ -37,15 +36,16 @@ TwitterDB.findAll().then(function(twitter) {
 
   // Pings the Twitter API with 100 handles at a time
   separated.forEach(function(screenNames) {
-
     client.get('users/lookup', {'screen_name': screenNames.join()}, function(error, users, response) {
 
       if (!error) {
         users.forEach(function(user) {
 
-          var id = handles[user.screen_name][0];
           var handle = user.screen_name;
           var followers = user.followers_count;
+          var profilePic = user.profile_image_url;
+          var backgroundPic = user.profile_background_image_url;
+          var id = handles[handle][0];
           var followersChange = followers - handles[handle][1];
           var score = followers + followersChange;
           var scoreChange = score - handles[handle][2];
@@ -54,6 +54,8 @@ TwitterDB.findAll().then(function(twitter) {
             'id': id,
             'twitter': {
               'handle': handle,
+              'profilePic': profilePic,
+              'backgroundPic': backgroundPic,
               'followers': followers,
               'followersChange': followersChange,
               'score': score,
