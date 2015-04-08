@@ -36,9 +36,9 @@ TwitterDB.findAll().then(function(twitter) {
   var separated = Utils.separateArray(Object.keys(handles), 100);
 
   // Pings the Twitter API with 100 handles at a time
-  separated.forEach(function(handlesList) {
+  separated.forEach(function(screenNames) {
 
-    client.get('users/lookup', {'screen_name': handlesList.join()}, function(error, users, response) {
+    client.get('users/lookup', {'screen_name': screenNames.join()}, function(error, users, response) {
 
       if (!error) {
         users.forEach(function(user) {
@@ -50,7 +50,7 @@ TwitterDB.findAll().then(function(twitter) {
           var score = followers + followersChange;
           var scoreChange = score - handles[handle][2];
 
-          var person = {
+          var update = {
             'id': id,
             'twitter': {
               'handle': handle,
@@ -61,15 +61,9 @@ TwitterDB.findAll().then(function(twitter) {
             }
           };
 
-          // Builds the result object to send to the Populr API
-          var result = {
-            'body': {
-              'people': person
-            }
-          };
+          // Sends update object to Twitter table
+          Populr.add(update);
 
-          // TODO: SEND RESULT OBJECT TO POPULR API
-          Populr.add();
         });
       }else { console.log(error); }
 
