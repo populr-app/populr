@@ -40,6 +40,7 @@ module.exports.attachData = function(personObj) {
 // Adds or updates an entry in the database, takes a person object
 // that has an ID and a given dataset
 // TODO: Update
+// Ex: {id: '', twitter: {}}
 module.exports.add = function(personObj) {
   if (!personObj.twitter) return personObj;
   var query = { where: { id: personObj.id } };

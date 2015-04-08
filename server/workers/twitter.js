@@ -1,7 +1,8 @@
 var TwitterApi = require('twitter');
-var sleep = require('sleep');
-var People = require('../database/people.js');
-var Twitter = require('../database/twitter.js');
+var Sleep = require('sleep');
+var TwitterDB = require('../database/twitter/model.js');
+var Populr = require('../database/twitter/controller.js');
+var Utils = require('./utils.js');
 var keys = require('../../keys.js');
 
 // Sets twitter credentials
@@ -12,34 +13,60 @@ var client = new TwitterApi({
   access_token_secret: keys.twitter.accessTokenSecret
 });
 
-// Queries People table
-People.findAll().then(function(people) {
+// Queries the Twitter table and builds an object.
+// Keys are the twitter handles,
+// Values are an array of the ids, number of followers, and the twitter score.
+TwitterDB.findAll().then(function(twitter) {
 
-  // Initializes the final result object
-  var result = {};
-  result.people = [];
+  var handles = {};
+  twitter.forEach(function(entry) {
 
-  // Gets the twitter handle and update the followers count
-  people.forEach(function(person) {
+    var id = handles[entry.get('handle')] = [];
+    id.push(entry.get('id'));
+    id.push(entry.get('followers'));
+    id.push(entry.get('score'));
 
-    // Queries the Twitter table
-    Twitter.find(person.get('id')).then(function(twitter){
-
-      // Adds full name to new person object
-      var newPerson = {'fullName': person.get('fullName')};
-
-      // Pings the Twitter API
-      client.get('users/show', {'screen_name': twitter.get('handle')}, function(error, tweets, response) {
-
-        if (!error) {
-          newPerson.twitter = {'followers': tweets.followers_count};
-          result.people.push(newPerson);
-          sleep.sleep(5); // wait for 5 seconds to avoid rate-limiting
-        } else { console.log(error); }
-
-      });
-    });
   });
 
+  return handles;
 
+}).then(function(handles) {
+
+  // Separate handles into 100-item string chunks
+  var separated = Utils.separateArray(Object.keys(handles), 100);
+
+  // Pings the Twitter API with 100 handles at a time
+  separated.forEach(function(screenNames) {
+
+    client.get('users/lookup', {'screen_name': screenNames.join()}, function(error, users, response) {
+
+      if (!error) {
+        users.forEach(function(user) {
+
+          var id = handles[user.screen_name][0];
+          var handle = user.screen_name;
+          var followers = user.followers_count;
+          var followersChange = followers - handles[handle][1];
+          var score = followers + followersChange;
+          var scoreChange = score - handles[handle][2];
+
+          var update = {
+            'id': id,
+            'twitter': {
+              'handle': handle,
+              'followers': followers,
+              'followersChange': followersChange,
+              'score': score,
+              'scoreChange': scoreChange
+            }
+          };
+
+          // Sends update object to Twitter table
+          Populr.add(update);
+
+        });
+      }else { console.log(error); }
+
+    });
+  });
 });
