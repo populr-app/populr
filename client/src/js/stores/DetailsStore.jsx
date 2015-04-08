@@ -5,21 +5,16 @@ var _details = [];
 
 var DetailsStore = Reflux.createStore({
   init: function() {
-    this.listenTo(DetailsActions.loadDetails, this.load);
+    this.listenTo(DetailsActions.loadComplete, this.onLoadComplete);
   },
 
-  load: function(name) {
-    var _this = this;
-    $.ajax({
-        type: 'GET',
-        url: '/api/people/' + name
-      }).done(function(data) {
-        console.log(data);
-        _details = data;
-        _this.trigger(_details);
-      });
+  onLoadComplete: function(data){
+    _details = data;
+    this.trigger(_details);
+  },
 
-    return {fullName: 'Maria'};
+  getDetails: function(){
+    return _details;
   }
 });
 
