@@ -2,7 +2,6 @@ var ListItem = require('./ListItem.jsx');
 
 var ListContainer = React.createClass({
   render: function(){
-    console.log(this.props.people);
     return (
         <div className="list-container">
           <div className="container">
