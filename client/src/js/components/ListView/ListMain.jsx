@@ -6,10 +6,10 @@ var PeopleActions = require('../../actions/PeopleActions.jsx');
 var ListMain = React.createClass({
 	getInitialState: function() {
 		return {
-			aList: {},
-			bList: {},
-			cList: {},
-			dList: {}
+			aList: [],
+			bList: [],
+			cList: [],
+			dList: []
 		};
 	},
   componentWillMount: function() {
