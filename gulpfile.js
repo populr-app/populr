@@ -26,6 +26,7 @@ var path = {
   CSS_OUT: './client/build/css/',
   CSS_MIN_OUT: './client/dist/public/css/',
   ENTRY_POINT: './client/src/js/App.jsx',
+  ENTRY_POINT_JS: './client/src/js/main.js',
   DEST: './client/dist/public/',
   OUT: 'bundle.js',
   MINIFIED_OUT: 'bundle.min.js',
@@ -78,7 +79,7 @@ gulp.task('styles', function() {
 /* BUILD */
 gulp.task('build', function() {
   browserify({
-    entries: [path.ENTRY_POINT],
+    entries: [path.ENTRY_POINT, path.ENTRY_POINT_JS],
     transform: [reactify]
   })
   .bundle()
