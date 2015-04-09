@@ -28,10 +28,7 @@ ul.people-nav {
 li.people-nav--selected {
 	background: $primary-dark;
 	border-left: 3px solid $peach;
-	
-	a {
-		color: #fff;
-	}
+	color: #fff;
 }
 
 /* Style for view nav */
