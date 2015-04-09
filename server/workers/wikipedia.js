@@ -1,5 +1,5 @@
 var WikipediaApi = require('wtf_wikipedia');
-var CronJob = require('cron').CronJob;
+var Sleep = require('sleep');
 var PeopleDB = require('../database/people/model.js');
 var WikipediaDB = require('../database/wikipedia/model.js');
 var Populr = require('../database/wikipedia/controller.js');
@@ -20,34 +20,34 @@ PeopleDB.findAll().then(function(people) {
 
 }).then(function(wikis) {
 
+  // Gets full names from wikis object
   var names = Object.keys(wikis);
 
+  // Loops over names, querying them in Wikipedia
   names.forEach(function(name) {
 
-    try {
-      WikipediaApi.from_api(name, 'en', function(markup) {
+    WikipediaApi.from_api(name, 'en', function(markup) {
+      if(!markup){ console.log(name); return;}
+      var id = wikis[name][0];
+      var fullName = name;
+      var occupation = parseJob(markup);
+      var extract = parseExtract(markup);
+      var url = 'http://en.wikipedia.org/wiki/' + encodeURIComponent(fullName);
 
-        var id = wikis[name][0];
-        var fullName = name;
-        var occupation = parseJob(markup);
-        var extract = parseExtract(markup);
-        var url = 'http://en.wikipedia.org/wiki/' + encodeURIComponent(fullName);
+      var update = {
+        'id': id,
+        'wikipedia': {
+          'fullName': fullName,
+          'occupation': occupation,
+          'extract': extract,
+          'url': url
+        }
+      };
 
-        var update = {
-          'id': id,
-          'wikipedia': {
-            'fullName': fullName,
-            'occupation': occupation,
-            'extract': extract,
-            'url': url
-          }
-        };
+      // update Wikipedia table
+      Populr.add(update);
 
-        // update Wikipedia table
-        Populr.add(update);
-
-      });
-    }catch (err) { console.log(err); }
+    });
   });
 });
 
@@ -61,7 +61,15 @@ function parseJob(markup) {
   arr.splice(0, 1);
 
   // get their job
-  return arr.join(' is ').replace(/^a /, '').replace(/^an /, '').replace(/^the /, '');
+  var job = arr.join(' is ').replace(/^a /, '').replace(/^an /, '').replace(/^the /, '');
+  job = job.split(' who')[0];
+  job = job.split(', where')[0];
+  job = job.split(' from')[0];
+  job = job.split('; ')[0];
+  job = job.replace(/[,.:;!@#$%^&*()+ ]+$/, '');
+
+  // if job description is over 90 characters, is probably bad.
+  return job.length > 90 ? '' : job;
 };
 
 function parseExtract(markup) {
