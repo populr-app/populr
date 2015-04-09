@@ -32,8 +32,9 @@ var processNames = function(){
     }else{
       var results = []
       names.forEach(function(nameObj){
+        console.log("Counting occurrences for: " + nameObj.fullName);
         var num = occurrences(data, nameObj.fullName, false)
-        results.push({id: nameObj.id, sites:{count: num, countChange: num - nameObj.lastCount}})
+        results.push({id: nameObj.id, sites:{count: num, countChange: num - nameObj.sites.count}})
       });
       // Writesresults to siteMetrics file
       console.log("Writing to siteDataMetrics file...");
