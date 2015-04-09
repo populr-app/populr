@@ -116,8 +116,21 @@ gulp.task('jsdoc', shell.task([
 ]));
 
 /* Run workers */
-gulp.task('runWorkers', function() {
+gulp.task('runScrapers', function() {
   require('./server/workers/twitter')();
+});
+
+gulp.task('loadfromJSON', function() {
+  var data = {body: require('./data/clientData')};
+  require('./server/database/people/controller').post(data, {send: function() {}});
+});
+
+gulp.task('updateTop', function() {
+  require('./server/workers/topUpdater')();
+});
+
+gulp.task('updatePeopleScores', function() {
+  require('./server/workers/peopleScoreUpdater')();
 });
 
 /* React Unit Testing (Jest) */
