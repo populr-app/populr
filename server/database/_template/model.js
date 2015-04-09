@@ -1,4 +1,8 @@
-
+/**
+ * Template model
+ * @module template/model
+ * @see module:template/controller
+ */
 var Sequelize = require('sequelize');
 var sql = require('../connection.js');
 

@@ -112,7 +112,7 @@ gulp.task('replaceHTML', function() {
 
 /* JSDoc */
 gulp.task('jsdoc', shell.task([
-  './node_modules/jsdoc/jsdoc.js ./server ./client -r'
+  './node_modules/jsdoc/jsdoc.js ./server -r'
 ]));
 
 /* Run workers */
