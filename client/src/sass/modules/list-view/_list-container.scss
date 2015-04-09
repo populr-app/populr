@@ -1,9 +1,5 @@
 .list-container {
-	background: #f8f8f8;
-	width: 100%;
-	height: auto;
-	margin-top: 180px;
-	padding: 10px 0;
+	@include center-container
 }
 
 .list-container__title {
