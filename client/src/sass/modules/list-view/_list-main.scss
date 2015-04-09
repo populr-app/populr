@@ -1,6 +1,3 @@
 .list-main {
-	position: relative;
-	margin-left: 175px;
-	height: 100vh;
-	overflow-y: scroll;
+	@include main;
 }

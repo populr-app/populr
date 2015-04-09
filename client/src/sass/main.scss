@@ -2,10 +2,16 @@
 @import 'partials/layout';
 @import 'partials/typography';
 @import 'partials/utilities';
+@import 'partials/media_queries';
 
 @import 'modules/list-view/list-sidebar';
 @import 'modules/list-view/list-main';
 @import 'modules/list-view/list-header';
 @import 'modules/list-view/list-container';
+
+@import 'modules/details-view/details-sidebar';
+@import 'modules/details-view/details-main';
+@import 'modules/details-view/details-header';
+@import 'modules/details-view/details-container';
 
 @import 'vendor/bootstrap';
