@@ -2,7 +2,7 @@
     "fullName": "Justin Bieber",
     "twitter": {
         "handle": "justinbieber",
-        "tcId": "27260086",
+        "twitterId": "27260086",
         "followers": 62360643
     },
     "wikipedia": {
@@ -16,7 +16,7 @@
     "fullName": "Barack Obama",
     "twitter": {
         "handle": "BarackObama",
-        "tcId": "813286",
+        "twitterId": "813286",
         "followers": 57570516
     },
     "wikipedia": {
@@ -30,7 +30,7 @@
     "fullName": "Taylor Swift",
     "twitter": {
         "handle": "taylorswift13",
-        "tcId": "17919972",
+        "twitterId": "17919972",
         "followers": 55591274
     },
     "wikipedia": {
@@ -44,7 +44,7 @@
     "fullName": "Lady Gaga",
     "twitter": {
         "handle": "ladygaga",
-        "tcId": "14230524",
+        "twitterId": "14230524",
         "followers": 45437974
     },
     "wikipedia": {
@@ -58,7 +58,7 @@
     "fullName": "Justin Timberlake",
     "twitter": {
         "handle": "jtimberlake",
-        "tcId": "26565946",
+        "twitterId": "26565946",
         "followers": 43940217
     },
     "wikipedia": {
@@ -72,7 +72,7 @@
     "fullName": "Rihanna",
     "twitter": {
         "handle": "rihanna",
-        "tcId": "79293791",
+        "twitterId": "79293791",
         "followers": 43324274
     },
     "wikipedia": {
@@ -86,7 +86,7 @@
     "fullName": "Britney Spears",
     "twitter": {
         "handle": "britneyspears",
-        "tcId": "16409683",
+        "twitterId": "16409683",
         "followers": 41393976
     },
     "wikipedia": {
@@ -100,7 +100,7 @@
     "fullName": "Cristiano Ronaldo",
     "twitter": {
         "handle": "Cristiano",
-        "tcId": "155659213",
+        "twitterId": "155659213",
         "followers": 34716771
     },
     "wikipedia": {
@@ -114,7 +114,7 @@
     "fullName": "Jennifer Lopez",
     "twitter": {
         "handle": "JLo",
-        "tcId": "85603854",
+        "twitterId": "85603854",
         "followers": 31582522
     },
     "wikipedia": {
@@ -128,7 +128,7 @@
     "fullName": "Shakira",
     "twitter": {
         "handle": "shakira",
-        "tcId": "44409004",
+        "twitterId": "44409004",
         "followers": 30170606
     },
     "wikipedia": {
@@ -142,7 +142,7 @@
     "fullName": "Selena Gomez",
     "twitter": {
         "handle": "selenagomez",
-        "tcId": "23375688",
+        "twitterId": "23375688",
         "followers": 28158172
     },
     "wikipedia": {
@@ -156,7 +156,7 @@
     "fullName": "Demi Lovato",
     "twitter": {
         "handle": "ddlovato",
-        "tcId": "21111883",
+        "twitterId": "21111883",
         "followers": 27813232
     },
     "wikipedia": {
@@ -170,7 +170,7 @@
     "fullName": "Ariana Grande",
     "twitter": {
         "handle": "ArianaGrande",
-        "tcId": "34507480",
+        "twitterId": "34507480",
         "followers": 27344741
     },
     "wikipedia": {
@@ -184,7 +184,7 @@
     "fullName": "Oprah Winfrey",
     "twitter": {
         "handle": "Oprah",
-        "tcId": "19397785",
+        "twitterId": "19397785",
         "followers": 27088242
     },
     "wikipedia": {
@@ -198,7 +198,7 @@
     "fullName": "Jimmy Fallon",
     "twitter": {
         "handle": "jimmyfallon",
-        "tcId": "15485441",
+        "twitterId": "15485441",
         "followers": 23683696
     },
     "wikipedia": {
@@ -212,7 +212,7 @@
     "fullName": "Adele",
     "twitter": {
         "handle": "OfficialAdele",
-        "tcId": "184910040",
+        "twitterId": "184910040",
         "followers": 22369324
     },
     "wikipedia": {
@@ -226,7 +226,7 @@
     "fullName": "Alicia Keys",
     "twitter": {
         "handle": "aliciakeys",
-        "tcId": "35094637",
+        "twitterId": "35094637",
         "followers": 21493370
     },
     "wikipedia": {
@@ -240,7 +240,7 @@
     "fullName": "Bill Gates",
     "twitter": {
         "handle": "BillGates",
-        "tcId": "50393960",
+        "twitterId": "50393960",
         "followers": 21150831
     },
     "wikipedia": {
@@ -254,7 +254,7 @@
     "fullName": "Bruno Mars",
     "twitter": {
         "handle": "BrunoMars",
-        "tcId": "100220864",
+        "twitterId": "100220864",
         "followers": 20481328
     },
     "wikipedia": {
@@ -268,7 +268,7 @@
     "fullName": "Louis Tomlinson",
     "twitter": {
         "handle": "Louis_Tomlinson",
-        "tcId": "84279963",
+        "twitterId": "84279963",
         "followers": 19201474
     },
     "wikipedia": {
@@ -282,7 +282,7 @@
     "fullName": "Nicki Minaj",
     "twitter": {
         "handle": "NICKIMINAJ",
-        "tcId": "35787166",
+        "twitterId": "35787166",
         "followers": 19117861
     },
     "wikipedia": {
@@ -296,7 +296,7 @@
     "fullName": "Avril Lavigne",
     "twitter": {
         "handle": "AvrilLavigne",
-        "tcId": "73992972",
+        "twitterId": "73992972",
         "followers": 18473037
     },
     "wikipedia": {
@@ -310,7 +310,7 @@
     "fullName": "Kevin Hart",
     "twitter": {
         "handle": "KevinHart4real",
-        "tcId": "23151437",
+        "twitterId": "23151437",
         "followers": 18208378
     },
     "wikipedia": {
@@ -324,7 +324,7 @@
     "fullName": "Emma Watson",
     "twitter": {
         "handle": "EmWatson",
-        "tcId": "166739404",
+        "twitterId": "166739404",
         "followers": 17284688
     },
     "wikipedia": {
@@ -338,7 +338,7 @@
     "fullName": "David Guetta",
     "twitter": {
         "handle": "davidguetta",
-        "tcId": "23976386",
+        "twitterId": "23976386",
         "followers": 17204936
     },
     "wikipedia": {
@@ -352,7 +352,7 @@
     "fullName": "Ashton Kutcher",
     "twitter": {
         "handle": "aplusk",
-        "tcId": "19058681",
+        "twitterId": "19058681",
         "followers": 16797211
     },
     "wikipedia": {
@@ -366,7 +366,7 @@
     "fullName": "Daniel Tosh",
     "twitter": {
         "handle": "danieltosh",
-        "tcId": "25521487",
+        "twitterId": "25521487",
         "followers": 16130193
     },
     "wikipedia": {
@@ -380,7 +380,7 @@
     "fullName": "Mariah Carey",
     "twitter": {
         "handle": "MariahCarey",
-        "tcId": "19248106",
+        "twitterId": "19248106",
         "followers": 15428701
     },
     "wikipedia": {
@@ -394,7 +394,7 @@
     "fullName": "Neil Patrick Harris",
     "twitter": {
         "handle": "ActuallyNPH",
-        "tcId": "90420314",
+        "twitterId": "90420314",
         "followers": 14967740
     },
     "wikipedia": {
@@ -408,7 +408,7 @@
     "fullName": "Christina Aguilera",
     "twitter": {
         "handle": "xtina",
-        "tcId": "268439864",
+        "twitterId": "268439864",
         "followers": 14467690
     },
     "wikipedia": {
@@ -422,7 +422,7 @@
     "fullName": "Chris Brown",
     "twitter": {
         "handle": "chrisbrown",
-        "tcId": "119509520",
+        "twitterId": "119509520",
         "followers": 14151706
     },
     "wikipedia": {
@@ -436,7 +436,7 @@
     "fullName": "Jim Carrey",
     "twitter": {
         "handle": "JimCarrey",
-        "tcId": "52551600",
+        "twitterId": "52551600",
         "followers": 14125756
     },
     "wikipedia": {
@@ -450,7 +450,7 @@
     "fullName": "Amitabh Bachchan",
     "twitter": {
         "handle": "SrBachchan",
-        "tcId": "145125358",
+        "twitterId": "145125358",
         "followers": 14054980
     },
     "wikipedia": {
@@ -464,7 +464,7 @@
     "fullName": "Kourtney Kardashian",
     "twitter": {
         "handle": "kourtneykardash",
-        "tcId": "23617610",
+        "twitterId": "23617610",
         "followers": 13950788
     },
     "wikipedia": {
@@ -478,7 +478,7 @@
     "fullName": "Ryan Seacrest",
     "twitter": {
         "handle": "RyanSeacrest",
-        "tcId": "16190898",
+        "twitterId": "16190898",
         "followers": 13363699
     },
     "wikipedia": {
@@ -492,7 +492,7 @@
     "fullName": "Paris Hilton",
     "twitter": {
         "handle": "ParisHilton",
-        "tcId": "24929621",
+        "twitterId": "24929621",
         "followers": 13245892
     },
     "wikipedia": {
@@ -506,7 +506,7 @@
     "fullName": "Ed Sheeran",
     "twitter": {
         "handle": "edsheeran",
-        "tcId": "85452649",
+        "twitterId": "85452649",
         "followers": 13167712
     },
     "wikipedia": {
@@ -520,7 +520,7 @@
     "fullName": "Will.i.am",
     "twitter": {
         "handle": "iamwill",
-        "tcId": "49573859",
+        "twitterId": "49573859",
         "followers": 13101305
     },
     "wikipedia": {
@@ -534,7 +534,7 @@
     "fullName": "Agnez Mo",
     "twitter": {
         "handle": "agnezmo",
-        "tcId": "42420346",
+        "twitterId": "42420346",
         "followers": 12807589
     },
     "wikipedia": {
@@ -548,7 +548,7 @@
     "fullName": "Ivete Sangalo",
     "twitter": {
         "handle": "ivetesangalo",
-        "tcId": "14502789",
+        "twitterId": "14502789",
         "followers": 12570948
     },
     "wikipedia": {
@@ -562,7 +562,7 @@
     "fullName": "Tyra Banks",
     "twitter": {
         "handle": "tyrabanks",
-        "tcId": "53153263",
+        "twitterId": "53153263",
         "followers": 12379781
     },
     "wikipedia": {
@@ -576,7 +576,7 @@
     "fullName": "Alejandro Sanz",
     "twitter": {
         "handle": "AlejandroSanz",
-        "tcId": "43152482",
+        "twitterId": "43152482",
         "followers": 12251852
     },
     "wikipedia": {
@@ -590,7 +590,7 @@
     "fullName": "Snoop Dogg",
     "twitter": {
         "handle": "SnoopDogg",
-        "tcId": "3004231",
+        "twitterId": "3004231",
         "followers": 12104443
     },
     "wikipedia": {
@@ -604,7 +604,7 @@
     "fullName": "Shah Rukh Khan",
     "twitter": {
         "handle": "iamsrk",
-        "tcId": "101311381",
+        "twitterId": "101311381",
         "followers": 12098838
     },
     "wikipedia": {
@@ -618,7 +618,7 @@
     "fullName": "Aamir Khan",
     "twitter": {
         "handle": "aamir_khan",
-        "tcId": "88856792",
+        "twitterId": "88856792",
         "followers": 11995661
     },
     "wikipedia": {
@@ -632,7 +632,7 @@
     "fullName": "Ricky Martin",
     "twitter": {
         "handle": "ricky_martin",
-        "tcId": "40255499",
+        "twitterId": "40255499",
         "followers": 11954480
     },
     "wikipedia": {
@@ -646,7 +646,7 @@
     "fullName": "Kanye West",
     "twitter": {
         "handle": "kanyewest",
-        "tcId": "169686021",
+        "twitterId": "169686021",
         "followers": 11876482
     },
     "wikipedia": {
@@ -660,7 +660,7 @@
     "fullName": "Simon Cowell",
     "twitter": {
         "handle": "SimonCowell",
-        "tcId": "413487212",
+        "twitterId": "413487212",
         "followers": 11723495
     },
     "wikipedia": {
@@ -674,7 +674,7 @@
     "fullName": "Blake Shelton",
     "twitter": {
         "handle": "blakeshelton",
-        "tcId": "14920785",
+        "twitterId": "14920785",
         "followers": 11580179
     },
     "wikipedia": {
@@ -688,7 +688,7 @@
     "fullName": "Charlie Sheen",
     "twitter": {
         "handle": "charliesheen",
-        "tcId": "259379883",
+        "twitterId": "259379883",
         "followers": 11446091
     },
     "wikipedia": {
@@ -702,7 +702,7 @@
     "fullName": "Salman Khan",
     "twitter": {
         "handle": "BeingSalmanKhan",
-        "tcId": "132385468",
+        "twitterId": "132385468",
         "followers": 11318026
     },
     "wikipedia": {
@@ -716,7 +716,7 @@
     "fullName": "Narendra Modi",
     "twitter": {
         "handle": "narendramodi",
-        "tcId": "18839785",
+        "twitterId": "18839785",
         "followers": 11193962
     },
     "wikipedia": {
@@ -730,7 +730,7 @@
     "fullName": "Wayne Rooney",
     "twitter": {
         "handle": "WayneRooney",
-        "tcId": "285332860",
+        "twitterId": "285332860",
         "followers": 10995694
     },
     "wikipedia": {
@@ -744,7 +744,7 @@
     "fullName": "Claudia Leitte",
     "twitter": {
         "handle": "ClaudiaLeitte",
-        "tcId": "48332360",
+        "twitterId": "48332360",
         "followers": 10866439
     },
     "wikipedia": {
@@ -758,7 +758,7 @@
     "fullName": "Carly Rae Jepsen",
     "twitter": {
         "handle": "carlyraejepsen",
-        "tcId": "24852465",
+        "twitterId": "24852465",
         "followers": 10737511
     },
     "wikipedia": {
@@ -772,7 +772,7 @@
     "fullName": "Andrés Iniesta",
     "twitter": {
         "handle": "andresiniesta8",
-        "tcId": "90836187",
+        "twitterId": "90836187",
         "followers": 10652092
     },
     "wikipedia": {
@@ -786,7 +786,7 @@
     "fullName": "Zac Efron",
     "twitter": {
         "handle": "ZacEfron",
-        "tcId": "492399548",
+        "twitterId": "492399548",
         "followers": 10548346
     },
     "wikipedia": {
@@ -800,7 +800,7 @@
     "fullName": "Gerard Piqué",
     "twitter": {
         "handle": "3gerardpique",
-        "tcId": "224223563",
+        "twitterId": "224223563",
         "followers": 10404920
     },
     "wikipedia": {
@@ -814,7 +814,7 @@
     "fullName": "Luciano Huck",
     "twitter": {
         "handle": "LucianoHuck",
-        "tcId": "43023158",
+        "twitterId": "43023158",
         "followers": 10392759
     },
     "wikipedia": {
@@ -828,7 +828,7 @@
     "fullName": "Juanes",
     "twitter": {
         "handle": "juanes",
-        "tcId": "47288005",
+        "twitterId": "47288005",
         "followers": 10342998
     },
     "wikipedia": {
@@ -842,7 +842,7 @@
     "fullName": "Ludacris",
     "twitter": {
         "handle": "Ludacris",
-        "tcId": "17696167",
+        "twitterId": "17696167",
         "followers": 10294604
     },
     "wikipedia": {
@@ -856,7 +856,7 @@
     "fullName": "Marcos Mion",
     "twitter": {
         "handle": "marcosmion",
-        "tcId": "36152770",
+        "twitterId": "36152770",
         "followers": 10238931
     },
     "wikipedia": {
@@ -870,7 +870,7 @@
     "fullName": "Kelly Clarkson",
     "twitter": {
         "handle": "kelly_clarkson",
-        "tcId": "23690344",
+        "twitterId": "23690344",
         "followers": 10182340
     },
     "wikipedia": {
@@ -884,7 +884,7 @@
     "fullName": "Kendall Jenner",
     "twitter": {
         "handle": "KendallJenner",
-        "tcId": "157140968",
+        "twitterId": "157140968",
         "followers": 10124670
     },
     "wikipedia": {
@@ -898,7 +898,7 @@
     "fullName": "Paulina Rubio",
     "twitter": {
         "handle": "paurubio",
-        "tcId": "23605048",
+        "twitterId": "23605048",
         "followers": 10012950
     },
     "wikipedia": {
@@ -912,7 +912,7 @@
     "fullName": "Paulo Coelho",
     "twitter": {
         "handle": "paulocoelho",
-        "tcId": "5520952",
+        "twitterId": "5520952",
         "followers": 9969624
     },
     "wikipedia": {
@@ -926,7 +926,7 @@
     "fullName": "Kevin Durant",
     "twitter": {
         "handle": "KDTrey5",
-        "tcId": "35936474",
+        "twitterId": "35936474",
         "followers": 9707420
     },
     "wikipedia": {
@@ -940,7 +940,7 @@
     "fullName": "Tom Hanks",
     "twitter": {
         "handle": "tomhanks",
-        "tcId": "50374439",
+        "twitterId": "50374439",
         "followers": 9637020
     },
     "wikipedia": {
@@ -954,7 +954,7 @@
     "fullName": "Danilo Gentili",
     "twitter": {
         "handle": "DaniloGentili",
-        "tcId": "14213711",
+        "twitterId": "14213711",
         "followers": 9540308
     },
     "wikipedia": {
@@ -968,7 +968,7 @@
     "fullName": "Russell Brand",
     "twitter": {
         "handle": "rustyrockets",
-        "tcId": "19562228",
+        "twitterId": "19562228",
         "followers": 9387396
     },
     "wikipedia": {
@@ -982,7 +982,7 @@
     "fullName": "Nick Jonas",
     "twitter": {
         "handle": "nickjonas",
-        "tcId": "56783491",
+        "twitterId": "56783491",
         "followers": 9369639
     },
     "wikipedia": {
@@ -996,7 +996,7 @@
     "fullName": "Mesut Özil",
     "twitter": {
         "handle": "MesutOzil1088",
-        "tcId": "533085085",
+        "twitterId": "533085085",
         "followers": 9263749
     },
     "wikipedia": {
@@ -1010,7 +1010,7 @@
     "fullName": "Stephen Fry",
     "twitter": {
         "handle": "stephenfry",
-        "tcId": "15439395",
+        "twitterId": "15439395",
         "followers": 9208911
     },
     "wikipedia": {
@@ -1024,7 +1024,7 @@
     "fullName": "Hrithik Roshan",
     "twitter": {
         "handle": "iHrithik",
-        "tcId": "113419517",
+        "twitterId": "113419517",
         "followers": 9097144
     },
     "wikipedia": {
@@ -1038,7 +1038,7 @@
     "fullName": "Luna Maya",
     "twitter": {
         "handle": "LunaMaya26",
-        "tcId": "128841198",
+        "twitterId": "128841198",
         "followers": 9086550
     },
     "wikipedia": {
@@ -1052,7 +1052,7 @@
     "fullName": "Xabi Alonso",
     "twitter": {
         "handle": "XabiAlonso",
-        "tcId": "183387449",
+        "twitterId": "183387449",
         "followers": 9061649
     },
     "wikipedia": {
@@ -1066,7 +1066,7 @@
     "fullName": "Lindsay Lohan",
     "twitter": {
         "handle": "lindsaylohan",
-        "tcId": "65992743",
+        "twitterId": "65992743",
         "followers": 8918294
     },
     "wikipedia": {
@@ -1080,7 +1080,7 @@
     "fullName": "Victoria Justice",
     "twitter": {
         "handle": "VictoriaJustice",
-        "tcId": "50037051",
+        "twitterId": "50037051",
         "followers": 8907987
     },
     "wikipedia": {
@@ -1094,7 +1094,7 @@
     "fullName": "Cem Yılmaz",
     "twitter": {
         "handle": "CMYLMZ",
-        "tcId": "126571977",
+        "twitterId": "126571977",
         "followers": 8916120
     },
     "wikipedia": {
@@ -1108,7 +1108,7 @@
     "fullName": "Enrique Iglesias",
     "twitter": {
         "handle": "enrique305",
-        "tcId": "46452468",
+        "twitterId": "46452468",
         "followers": 8776511
     },
     "wikipedia": {
@@ -1122,7 +1122,7 @@
     "fullName": "Kylie Jenner",
     "twitter": {
         "handle": "KylieJenner",
-        "tcId": "236699098",
+        "twitterId": "236699098",
         "followers": 8777457
     },
     "wikipedia": {
@@ -1136,7 +1136,7 @@
     "fullName": "Dwayne Johnson",
     "twitter": {
         "handle": "TheRock",
-        "tcId": "250831586",
+        "twitterId": "250831586",
         "followers": 8393019
     },
     "wikipedia": {
@@ -1150,7 +1150,7 @@
     "fullName": "Trey Songz",
     "twitter": {
         "handle": "TreySongz",
-        "tcId": "24966423",
+        "twitterId": "24966423",
         "followers": 8311480
     },
     "wikipedia": {
@@ -1164,7 +1164,7 @@
     "fullName": "Radamel Falcao",
     "twitter": {
         "handle": "FALCAO",
-        "tcId": "58531272",
+        "twitterId": "58531272",
         "followers": 8311585
     },
     "wikipedia": {
@@ -1178,7 +1178,7 @@
     "fullName": "Victoria Beckham",
     "twitter": {
         "handle": "victoriabeckham",
-        "tcId": "185314895",
+        "twitterId": "185314895",
         "followers": 8295602
     },
     "wikipedia": {
@@ -1192,7 +1192,7 @@
     "fullName": "Austin Mahone",
     "twitter": {
         "handle": "AustinMahone",
-        "tcId": "196795202",
+        "twitterId": "196795202",
         "followers": 8240988
     },
     "wikipedia": {
@@ -1206,7 +1206,7 @@
     "fullName": "Jessica Alba",
     "twitter": {
         "handle": "jessicaalba",
-        "tcId": "92367751",
+        "twitterId": "92367751",
         "followers": 8149383
     },
     "wikipedia": {
@@ -1220,7 +1220,7 @@
     "fullName": "Daddy Yankee",
     "twitter": {
         "handle": "daddy_yankee",
-        "tcId": "36483808",
+        "twitterId": "36483808",
         "followers": 8086037
     },
     "wikipedia": {
@@ -1234,7 +1234,7 @@
     "fullName": "Akshay Kumar",
     "twitter": {
         "handle": "akshaykumar",
-        "tcId": "31348594",
+        "twitterId": "31348594",
         "followers": 8057380
     },
     "wikipedia": {
@@ -1248,7 +1248,7 @@
     "fullName": "Vidi Aldiano",
     "twitter": {
         "handle": "vidialdiano",
-        "tcId": "42513459",
+        "twitterId": "42513459",
         "followers": 7766246
     },
     "wikipedia": {
@@ -1262,7 +1262,7 @@
     "fullName": "Carles Puyol",
     "twitter": {
         "handle": "Carles5puyol",
-        "tcId": "136007061",
+        "twitterId": "136007061",
         "followers": 7725564
     },
     "wikipedia": {
@@ -1276,7 +1276,7 @@
     "fullName": "Stephen Colbert",
     "twitter": {
         "handle": "StephenAtHome",
-        "tcId": "16303106",
+        "twitterId": "16303106",
         "followers": 7617121
     },
     "wikipedia": {
@@ -1290,7 +1290,7 @@
     "fullName": "Marc Anthony",
     "twitter": {
         "handle": "MarcAnthony",
-        "tcId": "254274083",
+        "twitterId": "254274083",
         "followers": 7473382
     },
     "wikipedia": {
@@ -1304,7 +1304,7 @@
     "fullName": "Ricky Gervais",
     "twitter": {
         "handle": "rickygervais",
-        "tcId": "20015311",
+        "twitterId": "20015311",
         "followers": 7418600
     },
     "wikipedia": {
@@ -1318,7 +1318,7 @@
     "fullName": "Cody Simpson",
     "twitter": {
         "handle": "CodySimpson",
-        "tcId": "79650494",
+        "twitterId": "79650494",
         "followers": 7350785
     },
     "wikipedia": {
@@ -1332,7 +1332,7 @@
     "fullName": "David Bisbal",
     "twitter": {
         "handle": "davidbisbal",
-        "tcId": "57099808",
+        "twitterId": "57099808",
         "followers": 7337068
     },
     "wikipedia": {
@@ -1346,7 +1346,7 @@
     "fullName": "James Rodríguez",
     "twitter": {
         "handle": "jamesdrodriguez",
-        "tcId": "280701704",
+        "twitterId": "280701704",
         "followers": 7249929
     },
     "wikipedia": {
@@ -1360,7 +1360,7 @@
     "fullName": "Miranda Cosgrove",
     "twitter": {
         "handle": "MirandaCosgrove",
-        "tcId": "25970331",
+        "twitterId": "25970331",
         "followers": 7223992
     },
     "wikipedia": {
@@ -1374,7 +1374,7 @@
     "fullName": "Eva Longoria",
     "twitter": {
         "handle": "EvaLongoria",
-        "tcId": "110827653",
+        "twitterId": "110827653",
         "followers": 7217849
     },
     "wikipedia": {
@@ -1388,7 +1388,7 @@
     "fullName": "Jessica Simpson",
     "twitter": {
         "handle": "JessicaSimpson",
-        "tcId": "29840295",
+        "twitterId": "29840295",
         "followers": 7185753
     },
     "wikipedia": {
@@ -1402,7 +1402,7 @@
     "fullName": "Luis Fonsi ",
     "twitter": {
         "handle": "LuisFonsi",
-        "tcId": "24702915",
+        "twitterId": "24702915",
         "followers": 7166036
     },
     "wikipedia": {
@@ -1416,7 +1416,7 @@
     "fullName": "Marcelo Tas",
     "twitter": {
         "handle": "MarceloTas",
-        "tcId": "6741632",
+        "twitterId": "6741632",
         "followers": 7087705
     },
     "wikipedia": {
@@ -1430,7 +1430,7 @@
     "fullName": "David Villa",
     "twitter": {
         "handle": "Guaje7Villa",
-        "tcId": "426738834",
+        "twitterId": "426738834",
         "followers": 7034203
     },
     "wikipedia": {
@@ -1444,7 +1444,7 @@
     "fullName": "Channing Tatum",
     "twitter": {
         "handle": "channingtatum",
-        "tcId": "6427882",
+        "twitterId": "6427882",
         "followers": 7007384
     },
     "wikipedia": {
@@ -1458,7 +1458,7 @@
     "fullName": "John Cena",
     "twitter": {
         "handle": "JohnCena",
-        "tcId": "141664648",
+        "twitterId": "141664648",
         "followers": 6996398
     },
     "wikipedia": {
@@ -1472,7 +1472,7 @@
     "fullName": "Cher Lloyd",
     "twitter": {
         "handle": "CherLloyd",
-        "tcId": "209994211",
+        "twitterId": "209994211",
         "followers": 6968874
     },
     "wikipedia": {
@@ -1486,7 +1486,7 @@
     "fullName": "Jessie J",
     "twitter": {
         "handle": "JessieJ",
-        "tcId": "36008570",
+        "twitterId": "36008570",
         "followers": 6942704
     },
     "wikipedia": {
@@ -1500,7 +1500,7 @@
     "fullName": "Rafinha Bastos",
     "twitter": {
         "handle": "rafinhabastos",
-        "tcId": "18297088",
+        "twitterId": "18297088",
         "followers": 6895264
     },
     "wikipedia": {
@@ -1514,7 +1514,7 @@
     "fullName": "Big Sean",
     "twitter": {
         "handle": "BigSean",
-        "tcId": "17915334",
+        "twitterId": "17915334",
         "followers": 6761328
     },
     "wikipedia": {
@@ -1528,7 +1528,7 @@
     "fullName": "John Legend",
     "twitter": {
         "handle": "johnlegend",
-        "tcId": "18228898",
+        "twitterId": "18228898",
         "followers": 6732692
     },
     "wikipedia": {
@@ -1542,7 +1542,7 @@
     "fullName": "Marco Luque",
     "twitter": {
         "handle": "marcoluque",
-        "tcId": "20432727",
+        "twitterId": "20432727",
         "followers": 6699689
     },
     "wikipedia": {
@@ -1556,7 +1556,7 @@
     "fullName": "Ricardo Montaner",
     "twitter": {
         "handle": "montanertwiter",
-        "tcId": "55033131",
+        "twitterId": "55033131",
         "followers": 6622655
     },
     "wikipedia": {
@@ -1570,7 +1570,7 @@
     "fullName": "David Luiz",
     "twitter": {
         "handle": "DavidLuiz_4",
-        "tcId": "344801362",
+        "twitterId": "344801362",
         "followers": 6592736
     },
     "wikipedia": {
@@ -1584,7 +1584,7 @@
     "fullName": "Anderson Silva",
     "twitter": {
         "handle": "SpiderAnderson",
-        "tcId": "246225682",
+        "twitterId": "246225682",
         "followers": 6578725
     },
     "wikipedia": {
@@ -1598,7 +1598,7 @@
     "fullName": "Queen Latifah",
     "twitter": {
         "handle": "IAMQUEENLATIFAH",
-        "tcId": "50826280",
+        "twitterId": "50826280",
         "followers": 6565513
     },
     "wikipedia": {
@@ -1612,7 +1612,7 @@
     "fullName": "Eugenio Derbez",
     "twitter": {
         "handle": "EugenioDerbez",
-        "tcId": "46527223",
+        "twitterId": "46527223",
         "followers": 6524759
     },
     "wikipedia": {
@@ -1626,7 +1626,7 @@
     "fullName": "Zooey Deschanel",
     "twitter": {
         "handle": "ZooeyDeschanel",
-        "tcId": "66561957",
+        "twitterId": "66561957",
         "followers": 6514183
     },
     "wikipedia": {
@@ -1640,7 +1640,7 @@
     "fullName": "Gareth Bale",
     "twitter": {
         "handle": "GarethBale11",
-        "tcId": "740336334",
+        "twitterId": "740336334",
         "followers": 6490685
     },
     "wikipedia": {
@@ -1654,7 +1654,7 @@
     "fullName": "J. Cole",
     "twitter": {
         "handle": "JColeNC",
-        "tcId": "19028953",
+        "twitterId": "19028953",
         "followers": 6472396
     },
     "wikipedia": {
@@ -1668,7 +1668,7 @@
     "fullName": "Kobe Bryant",
     "twitter": {
         "handle": "kobebryant",
-        "tcId": "1059194370",
+        "twitterId": "1059194370",
         "followers": 6444632
     },
     "wikipedia": {
@@ -1682,7 +1682,7 @@
     "fullName": "Carmelo Anthony",
     "twitter": {
         "handle": "carmeloanthony",
-        "tcId": "42384760",
+        "twitterId": "42384760",
         "followers": 6437607
     },
     "wikipedia": {
@@ -1696,7 +1696,7 @@
     "fullName": "Ciara",
     "twitter": {
         "handle": "ciara",
-        "tcId": "28897926",
+        "twitterId": "28897926",
         "followers": 6294014
     },
     "wikipedia": {
@@ -1710,7 +1710,7 @@
     "fullName": "Olly Murs",
     "twitter": {
         "handle": "ollyofficial",
-        "tcId": "95465386",
+        "twitterId": "95465386",
         "followers": 6291682
     },
     "wikipedia": {
@@ -1724,7 +1724,7 @@
     "fullName": "Abdullah Gül",
     "twitter": {
         "handle": "cbabdullahgul",
-        "tcId": "95602761",
+        "twitterId": "95602761",
         "followers": 6294587
     },
     "wikipedia": {
@@ -1738,7 +1738,7 @@
     "fullName": "Pharrell Williams",
     "twitter": {
         "handle": "Pharrell",
-        "tcId": "338084918",
+        "twitterId": "338084918",
         "followers": 6280700
     },
     "wikipedia": {
@@ -1752,7 +1752,7 @@
     "fullName": "Abhishek Bachchan ",
     "twitter": {
         "handle": "juniorbachchan",
-        "tcId": "87170183",
+        "twitterId": "87170183",
         "followers": 6239978
     },
     "wikipedia": {
@@ -1766,7 +1766,7 @@
     "fullName": "Sarah Silverman",
     "twitter": {
         "handle": "SarahKSilverman",
-        "tcId": "30364057",
+        "twitterId": "30364057",
         "followers": 6212404
     },
     "wikipedia": {
@@ -1780,7 +1780,7 @@
     "fullName": "Recep Tayyip Erdoğan",
     "twitter": {
         "handle": "RT_Erdogan",
-        "tcId": "68034431",
+        "twitterId": "68034431",
         "followers": 6198454
     },
     "wikipedia": {
@@ -1794,7 +1794,7 @@
     "fullName": "Virat Kohli ",
     "twitter": {
         "handle": "imVkohli",
-        "tcId": "71201743",
+        "twitterId": "71201743",
         "followers": 6196986
     },
     "wikipedia": {
@@ -1808,7 +1808,7 @@
     "fullName": "Sonam Kapoor",
     "twitter": {
         "handle": "sonamakapoor",
-        "tcId": "51376979",
+        "twitterId": "51376979",
         "followers": 6175522
     },
     "wikipedia": {
@@ -1822,7 +1822,7 @@
     "fullName": "Rio Ferdinand",
     "twitter": {
         "handle": "rioferdy5",
-        "tcId": "155927976",
+        "twitterId": "155927976",
         "followers": 6129747
     },
     "wikipedia": {
@@ -1836,7 +1836,7 @@
     "fullName": "Shireen Sungkar",
     "twitter": {
         "handle": "shireensungkar",
-        "tcId": "62469487",
+        "twitterId": "62469487",
         "followers": 6053084
     },
     "wikipedia": {
@@ -1850,7 +1850,7 @@
     "fullName": "Fearne Cotton",
     "twitter": {
         "handle": "Fearnecotton",
-        "tcId": "19818494",
+        "twitterId": "19818494",
         "followers": 6040369
     },
     "wikipedia": {
@@ -1864,7 +1864,7 @@
     "fullName": "Bella Thorne",
     "twitter": {
         "handle": "bellathorne",
-        "tcId": "48177728",
+        "twitterId": "48177728",
         "followers": 5970882
     },
     "wikipedia": {
@@ -1878,7 +1878,7 @@
     "fullName": "Karan Johar",
     "twitter": {
         "handle": "karanjohar",
-        "tcId": "57928790",
+        "twitterId": "57928790",
         "followers": 5926612
     },
     "wikipedia": {
@@ -1892,7 +1892,7 @@
     "fullName": "Angel Locsin",
     "twitter": {
         "handle": "143redangel",
-        "tcId": "61507091",
+        "twitterId": "61507091",
         "followers": 5909561
     },
     "wikipedia": {
@@ -1906,7 +1906,7 @@
     "fullName": "Juan Luis Guerra",
     "twitter": {
         "handle": "JuanLuisGuerra",
-        "tcId": "104974333",
+        "twitterId": "104974333",
         "followers": 5898724
     },
     "wikipedia": {
@@ -1920,7 +1920,7 @@
     "fullName": "Perez Hilton",
     "twitter": {
         "handle": "PerezHilton",
-        "tcId": "19329393",
+        "twitterId": "19329393",
         "followers": 5892478
     },
     "wikipedia": {
@@ -1934,7 +1934,7 @@
     "fullName": "Dwight Howard",
     "twitter": {
         "handle": "DwightHoward",
-        "tcId": "16812787",
+        "twitterId": "16812787",
         "followers": 5822824
     },
     "wikipedia": {
@@ -1948,7 +1948,7 @@
     "fullName": "Steve Martin",
     "twitter": {
         "handle": "SteveMartinToGo",
-        "tcId": "14824849",
+        "twitterId": "14824849",
         "followers": 5820155
     },
     "wikipedia": {
@@ -1962,7 +1962,7 @@
     "fullName": "Pope Francis",
     "twitter": {
         "handle": "Pontifex",
-        "tcId": "500704345",
+        "twitterId": "500704345",
         "followers": 5821330
     },
     "wikipedia": {
@@ -1976,7 +1976,7 @@
     "fullName": "Anderson Cooper",
     "twitter": {
         "handle": "andersoncooper",
-        "tcId": "15224867",
+        "twitterId": "15224867",
         "followers": 5811150
     },
     "wikipedia": {
@@ -1990,7 +1990,7 @@
     "fullName": "Chayanne",
     "twitter": {
         "handle": "CHAYANNEMUSIC",
-        "tcId": "29749448",
+        "twitterId": "29749448",
         "followers": 5794511
     },
     "wikipedia": {
@@ -2004,7 +2004,7 @@
     "fullName": "Akon",
     "twitter": {
         "handle": "Akon",
-        "tcId": "25421094",
+        "twitterId": "25421094",
         "followers": 5767778
     },
     "wikipedia": {
@@ -2018,7 +2018,7 @@
     "fullName": "Jason Mraz",
     "twitter": {
         "handle": "jason_mraz",
-        "tcId": "19018401",
+        "twitterId": "19018401",
         "followers": 5752475
     },
     "wikipedia": {
@@ -2032,7 +2032,7 @@
     "fullName": "Ian Somerhalder",
     "twitter": {
         "handle": "iansomerhalder",
-        "tcId": "58233603",
+        "twitterId": "58233603",
         "followers": 5748617
     },
     "wikipedia": {
@@ -2046,7 +2046,7 @@
     "fullName": "Chelsea Handler",
     "twitter": {
         "handle": "chelseahandler",
-        "tcId": "19877186",
+        "twitterId": "19877186",
         "followers": 5717617
     },
     "wikipedia": {
@@ -2060,7 +2060,7 @@
     "fullName": "Shahid Kapoor",
     "twitter": {
         "handle": "shahidkapoor",
-        "tcId": "56631494",
+        "twitterId": "56631494",
         "followers": 5714271
     },
     "wikipedia": {
@@ -2074,7 +2074,7 @@
     "fullName": "Raffi Ahmad",
     "twitter": {
         "handle": "RaffiAhmadLagi",
-        "tcId": "401866664",
+        "twitterId": "401866664",
         "followers": 5721557
     },
     "wikipedia": {
@@ -2088,7 +2088,7 @@
     "fullName": "Sachin Tendulkar",
     "twitter": {
         "handle": "sachin_rt",
-        "tcId": "135421739",
+        "twitterId": "135421739",
         "followers": 5719878
     },
     "wikipedia": {
@@ -2102,7 +2102,7 @@
     "fullName": "Calvin Harris",
     "twitter": {
         "handle": "CalvinHarris",
-        "tcId": "18625669",
+        "twitterId": "18625669",
         "followers": 5708947
     },
     "wikipedia": {
@@ -2116,7 +2116,7 @@
     "fullName": "Flo Rida",
     "twitter": {
         "handle": "official_flo",
-        "tcId": "29547045",
+        "twitterId": "29547045",
         "followers": 5683664
     },
     "wikipedia": {
@@ -2130,7 +2130,7 @@
     "fullName": "Jessica Iskandar",
     "twitter": {
         "handle": "jess_iskandar",
-        "tcId": "79986578",
+        "twitterId": "79986578",
         "followers": 5682187
     },
     "wikipedia": {
@@ -2144,7 +2144,7 @@
     "fullName": "Nancy Ajram",
     "twitter": {
         "handle": "NancyAjram",
-        "tcId": "470307418",
+        "twitterId": "470307418",
         "followers": 5678613
     },
     "wikipedia": {
@@ -2158,7 +2158,7 @@
     "fullName": "Jaden Smith",
     "twitter": {
         "handle": "officialjaden",
-        "tcId": "262794965",
+        "twitterId": "262794965",
         "followers": 5641760
     },
     "wikipedia": {
@@ -2172,7 +2172,7 @@
     "fullName": "Marcelo Tinelli",
     "twitter": {
         "handle": "cuervotinelli",
-        "tcId": "789856765",
+        "twitterId": "789856765",
         "followers": 5636541
     },
     "wikipedia": {
@@ -2186,7 +2186,7 @@
     "fullName": "Holly Willoughby",
     "twitter": {
         "handle": "hollywills",
-        "tcId": "20508222",
+        "twitterId": "20508222",
         "followers": 5599452
     },
     "wikipedia": {
@@ -2200,7 +2200,7 @@
     "fullName": "Aziz Ansari",
     "twitter": {
         "handle": "azizansari",
-        "tcId": "6480682",
+        "twitterId": "6480682",
         "followers": 5545920
     },
     "wikipedia": {
@@ -2214,7 +2214,7 @@
     "fullName": "Adam Levine",
     "twitter": {
         "handle": "adamlevine",
-        "tcId": "58528137",
+        "twitterId": "58528137",
         "followers": 5515649
     },
     "wikipedia": {
@@ -2228,7 +2228,7 @@
     "fullName": "Robert Kardashian",
     "twitter": {
         "handle": "robkardashian",
-        "tcId": "27989078",
+        "twitterId": "27989078",
         "followers": 5497610
     },
     "wikipedia": {
@@ -2242,7 +2242,7 @@
     "fullName": "Galilea Montijo",
     "twitter": {
         "handle": "GalileaMontijo",
-        "tcId": "102729125",
+        "twitterId": "102729125",
         "followers": 5466976
     },
     "wikipedia": {
@@ -2256,7 +2256,7 @@
     "fullName": "Nina Dobrev",
     "twitter": {
         "handle": "ninadobrev",
-        "tcId": "73443014",
+        "twitterId": "73443014",
         "followers": 5466108
     },
     "wikipedia": {
@@ -2270,7 +2270,7 @@
     "fullName": "Michelle Obama",
     "twitter": {
         "handle": "MichelleObama",
-        "tcId": "409486555",
+        "twitterId": "409486555",
         "followers": 5393636
     },
     "wikipedia": {
@@ -2284,7 +2284,7 @@
     "fullName": "Gonzalo Higuaín",
     "twitter": {
         "handle": "G_Higuain",
-        "tcId": "205011496",
+        "twitterId": "205011496",
         "followers": 5399015
     },
     "wikipedia": {
@@ -2298,7 +2298,7 @@
     "fullName": "Sergio Ramos",
     "twitter": {
         "handle": "SergioRamos",
-        "tcId": "151123001",
+        "twitterId": "151123001",
         "followers": 5342964
     },
     "wikipedia": {
@@ -2312,7 +2312,7 @@
     "fullName": "Hugh Jackman",
     "twitter": {
         "handle": "RealHughJackman",
-        "tcId": "27042513",
+        "twitterId": "27042513",
         "followers": 5332455
     },
     "wikipedia": {
@@ -2326,7 +2326,7 @@
     "fullName": "Demi Moore",
     "twitter": {
         "handle": "justdemi",
-        "tcId": "19554706",
+        "twitterId": "19554706",
         "followers": 5326198
     },
     "wikipedia": {
@@ -2340,7 +2340,7 @@
     "fullName": "Richard Branson",
     "twitter": {
         "handle": "richardbranson",
-        "tcId": "8161232",
+        "twitterId": "8161232",
         "followers": 5323344
     },
     "wikipedia": {
@@ -2354,7 +2354,7 @@
     "fullName": "Zendaya",
     "twitter": {
         "handle": "Zendaya",
-        "tcId": "154280902",
+        "twitterId": "154280902",
         "followers": 5319730
     },
     "wikipedia": {
@@ -2368,7 +2368,7 @@
     "fullName": "Omar Chaparro",
     "twitter": {
         "handle": "OMARCHAPARRO",
-        "tcId": "16721910",
+        "twitterId": "16721910",
         "followers": 5317367
     },
     "wikipedia": {
@@ -2382,7 +2382,7 @@
     "fullName": "Luan Santana",
     "twitter": {
         "handle": "luansantana",
-        "tcId": "59156773",
+        "twitterId": "59156773",
         "followers": 5307545
     },
     "wikipedia": {
@@ -2396,7 +2396,7 @@
     "fullName": "Lana Del Rey",
     "twitter": {
         "handle": "LanaDelRey",
-        "tcId": "45266183",
+        "twitterId": "45266183",
         "followers": 5307884
     },
     "wikipedia": {
@@ -2410,7 +2410,7 @@
     "fullName": "Ana Hickmann",
     "twitter": {
         "handle": "ahickmann",
-        "tcId": "43394391",
+        "twitterId": "43394391",
         "followers": 5303050
     },
     "wikipedia": {
@@ -2424,7 +2424,7 @@
     "fullName": "Mary J. Blige",
     "twitter": {
         "handle": "maryjblige",
-        "tcId": "54951973",
+        "twitterId": "54951973",
         "followers": 5245751
     },
     "wikipedia": {
@@ -2438,7 +2438,7 @@
     "fullName": "Nicole Scherzinger",
     "twitter": {
         "handle": "NicoleScherzy",
-        "tcId": "24741517",
+        "twitterId": "24741517",
         "followers": 5228592
     },
     "wikipedia": {
@@ -2452,7 +2452,7 @@
     "fullName": "Kris Jenner",
     "twitter": {
         "handle": "KrisJenner",
-        "tcId": "23613479",
+        "twitterId": "23613479",
         "followers": 5213422
     },
     "wikipedia": {
@@ -2466,7 +2466,7 @@
     "fullName": "Tom Cruise",
     "twitter": {
         "handle": "TomCruise",
-        "tcId": "48410093",
+        "twitterId": "48410093",
         "followers": 5147593
     },
     "wikipedia": {
@@ -2480,7 +2480,7 @@
     "fullName": "Vanessa Hudgens",
     "twitter": {
         "handle": "VanessaHudgens",
-        "tcId": "274119641",
+        "twitterId": "274119641",
         "followers": 5135742
     },
     "wikipedia": {
@@ -2494,7 +2494,7 @@
     "fullName": "Gusttavo Lima",
     "twitter": {
         "handle": "Gusttavo_lima",
-        "tcId": "126676337",
+        "twitterId": "126676337",
         "followers": 5131906
     },
     "wikipedia": {
@@ -2508,7 +2508,7 @@
     "fullName": "Mario Teguh",
     "twitter": {
         "handle": "MTLovenHoney",
-        "tcId": "519211628",
+        "twitterId": "519211628",
         "followers": 5104536
     },
     "wikipedia": {
@@ -2522,7 +2522,7 @@
     "fullName": "Jimmy Kimmel",
     "twitter": {
         "handle": "jimmykimmel",
-        "tcId": "26053643",
+        "twitterId": "26053643",
         "followers": 5070636
     },
     "wikipedia": {
@@ -2536,7 +2536,7 @@
     "fullName": "Nick Cannon",
     "twitter": {
         "handle": "NickCannon",
-        "tcId": "19571299",
+        "twitterId": "19571299",
         "followers": 5021186
     },
     "wikipedia": {
@@ -2550,7 +2550,7 @@
     "fullName": "Jeremy Clarkson",
     "twitter": {
         "handle": "JeremyClarkson",
-        "tcId": "527526077",
+        "twitterId": "527526077",
         "followers": 4999787
     },
     "wikipedia": {
@@ -2564,7 +2564,7 @@
     "fullName": "Farhan Akhtar",
     "twitter": {
         "handle": "FarOutAkhtar",
-        "tcId": "97865628",
+        "twitterId": "97865628",
         "followers": 4954812
     },
     "wikipedia": {
@@ -2578,7 +2578,7 @@
     "fullName": "Pitty ",
     "twitter": {
         "handle": "pittyleone",
-        "tcId": "24989174",
+        "twitterId": "24989174",
         "followers": 4942319
     },
     "wikipedia": {
@@ -2592,7 +2592,7 @@
     "fullName": "Jimmy Carr",
     "twitter": {
         "handle": "jimmycarr",
-        "tcId": "17020962",
+        "twitterId": "17020962",
         "followers": 4879263
     },
     "wikipedia": {
@@ -2606,7 +2606,7 @@
     "fullName": "Ben Stiller",
     "twitter": {
         "handle": "RedHourBen",
-        "tcId": "62290422",
+        "twitterId": "62290422",
         "followers": 4866987
     },
     "wikipedia": {
@@ -2620,7 +2620,7 @@
     "fullName": "Lenny Kravitz",
     "twitter": {
         "handle": "LennyKravitz",
-        "tcId": "23006794",
+        "twitterId": "23006794",
         "followers": 4844418
     },
     "wikipedia": {
@@ -2634,7 +2634,7 @@
     "fullName": "Kevin Jonas",
     "twitter": {
         "handle": "kevinjonas",
-        "tcId": "104288093",
+        "twitterId": "104288093",
         "followers": 4837740
     },
     "wikipedia": {
@@ -2648,7 +2648,7 @@
     "fullName": "Serginho Groisman",
     "twitter": {
         "handle": "oserginho",
-        "tcId": "65151248",
+        "twitterId": "65151248",
         "followers": 4837844
     },
     "wikipedia": {
@@ -2662,7 +2662,7 @@
     "fullName": "Javier Mascherano",
     "twitter": {
         "handle": "Mascherano",
-        "tcId": "313913938",
+        "twitterId": "313913938",
         "followers": 4834725
     },
     "wikipedia": {
@@ -2676,7 +2676,7 @@
     "fullName": "Samuel L. Jackson",
     "twitter": {
         "handle": "SamuelLJackson",
-        "tcId": "75974281",
+        "twitterId": "75974281",
         "followers": 4794600
     },
     "wikipedia": {
@@ -2690,7 +2690,7 @@
     "fullName": "Kendrick Lamar",
     "twitter": {
         "handle": "kendricklamar",
-        "tcId": "23561980",
+        "twitterId": "23561980",
         "followers": 4785631
     },
     "wikipedia": {
@@ -2704,7 +2704,7 @@
     "fullName": "Nicole Richie",
     "twitter": {
         "handle": "nicolerichie",
-        "tcId": "27778893",
+        "twitterId": "27778893",
         "followers": 4777234
     },
     "wikipedia": {
@@ -2718,7 +2718,7 @@
     "fullName": "Soulja Boy",
     "twitter": {
         "handle": "souljaboy",
-        "tcId": "16827333",
+        "twitterId": "16827333",
         "followers": 4751710
     },
     "wikipedia": {
@@ -2732,7 +2732,7 @@
     "fullName": "Iggy Azalea",
     "twitter": {
         "handle": "IGGYAZALEA",
-        "tcId": "153694176",
+        "twitterId": "153694176",
         "followers": 4768610
     },
     "wikipedia": {
@@ -2746,7 +2746,7 @@
     "fullName": "Hilary Duff",
     "twitter": {
         "handle": "HilaryDuff",
-        "tcId": "200913899",
+        "twitterId": "200913899",
         "followers": 4750787
     },
     "wikipedia": {
@@ -2760,7 +2760,7 @@
     "fullName": "Jonah Hill",
     "twitter": {
         "handle": "JonahHill",
-        "tcId": "256573865",
+        "twitterId": "256573865",
         "followers": 4745324
     },
     "wikipedia": {
@@ -2774,7 +2774,7 @@
     "fullName": "Yoko Ono",
     "twitter": {
         "handle": "yokoono",
-        "tcId": "17681513",
+        "twitterId": "17681513",
         "followers": 4737637
     },
     "wikipedia": {
@@ -2788,7 +2788,7 @@
     "fullName": "Miranda Lambert",
     "twitter": {
         "handle": "mirandalambert",
-        "tcId": "34738598",
+        "twitterId": "34738598",
         "followers": 4705054
     },
     "wikipedia": {
@@ -2802,7 +2802,7 @@
     "fullName": "Bridgit Mendler",
     "twitter": {
         "handle": "bridgitmendler",
-        "tcId": "37457377",
+        "twitterId": "37457377",
         "followers": 4659159
     },
     "wikipedia": {
@@ -2816,7 +2816,7 @@
     "fullName": "Mike Tyson",
     "twitter": {
         "handle": "MikeTyson",
-        "tcId": "156132825",
+        "twitterId": "156132825",
         "followers": 4652204
     },
     "wikipedia": {
@@ -2830,7 +2830,7 @@
     "fullName": "Serena Williams",
     "twitter": {
         "handle": "serenawilliams",
-        "tcId": "26589987",
+        "twitterId": "26589987",
         "followers": 4636809
     },
     "wikipedia": {
@@ -2844,7 +2844,7 @@
     "fullName": "Angelica Panganiban",
     "twitter": {
         "handle": "IamAngelicaP",
-        "tcId": "108345784",
+        "twitterId": "108345784",
         "followers": 4631808
     },
     "wikipedia": {
@@ -2858,7 +2858,7 @@
     "fullName": "Alan Carr",
     "twitter": {
         "handle": "AlanCarr",
-        "tcId": "15253147",
+        "twitterId": "15253147",
         "followers": 4611227
     },
     "wikipedia": {
@@ -2872,7 +2872,7 @@
     "fullName": "Lea Michele",
     "twitter": {
         "handle": "msleamichele",
-        "tcId": "50515656",
+        "twitterId": "50515656",
         "followers": 4598486
     },
     "wikipedia": {
@@ -2886,7 +2886,7 @@
     "fullName": "Luisana Lopilato",
     "twitter": {
         "handle": "lulopilato",
-        "tcId": "38741679",
+        "twitterId": "38741679",
         "followers": 4588864
     },
     "wikipedia": {
@@ -2900,7 +2900,7 @@
     "fullName": "Chetan Bhagat",
     "twitter": {
         "handle": "chetan_bhagat",
-        "tcId": "44588485",
+        "twitterId": "44588485",
         "followers": 4568442
     },
     "wikipedia": {
@@ -2914,7 +2914,7 @@
     "fullName": "Meera",
     "twitter": {
         "handle": "AnushkaSharma",
-        "tcId": "54829997",
+        "twitterId": "54829997",
         "followers": 4492244
     },
     "wikipedia": {
@@ -2928,7 +2928,7 @@
     "fullName": "Ellie Goulding",
     "twitter": {
         "handle": "elliegoulding",
-        "tcId": "20565284",
+        "twitterId": "20565284",
         "followers": 4496264
     },
     "wikipedia": {
@@ -2942,7 +2942,7 @@
     "fullName": "Rita Ora",
     "twitter": {
         "handle": "RitaOra",
-        "tcId": "27725199",
+        "twitterId": "27725199",
         "followers": 4483067
     },
     "wikipedia": {
@@ -2956,7 +2956,7 @@
     "fullName": "Jonathan Ross",
     "twitter": {
         "handle": "wossy",
-        "tcId": "17753033",
+        "twitterId": "17753033",
         "followers": 4462812
     },
     "wikipedia": {
@@ -2970,7 +2970,7 @@
     "fullName": "Irfan Bachdim",
     "twitter": {
         "handle": "IrfanBachdim10",
-        "tcId": "214690684",
+        "twitterId": "214690684",
         "followers": 4446791
     },
     "wikipedia": {
@@ -2984,7 +2984,7 @@
     "fullName": "Raisa Andriana",
     "twitter": {
         "handle": "raisa6690",
-        "tcId": "63695781",
+        "twitterId": "63695781",
         "followers": 4435994
     },
     "wikipedia": {
@@ -2998,7 +2998,7 @@
     "fullName": "Carrie Underwood",
     "twitter": {
         "handle": "carrieunderwood",
-        "tcId": "386244525",
+        "twitterId": "386244525",
         "followers": 4425581
     },
     "wikipedia": {
@@ -3012,7 +3012,7 @@
     "fullName": "Lucy Hale",
     "twitter": {
         "handle": "lucyhale",
-        "tcId": "29756339",
+        "twitterId": "29756339",
         "followers": 4419146
     },
     "wikipedia": {
@@ -3026,7 +3026,7 @@
     "fullName": "Piers Morgan",
     "twitter": {
         "handle": "piersmorgan",
-        "tcId": "216299334",
+        "twitterId": "216299334",
         "followers": 4406729
     },
     "wikipedia": {
@@ -3040,7 +3040,7 @@
     "fullName": "Nash Grier",
     "twitter": {
         "handle": "Nashgrier",
-        "tcId": "310072711",
+        "twitterId": "310072711",
         "followers": 4412903
     },
     "wikipedia": {
@@ -3054,7 +3054,7 @@
     "fullName": "Gaby Espino",
     "twitter": {
         "handle": "gabyespino",
-        "tcId": "92670884",
+        "twitterId": "92670884",
         "followers": 4374627
     },
     "wikipedia": {
@@ -3068,7 +3068,7 @@
     "fullName": "Tiago Leifert",
     "twitter": {
         "handle": "TiagoLeifert",
-        "tcId": "18137030",
+        "twitterId": "18137030",
         "followers": 4349126
     },
     "wikipedia": {
@@ -3082,7 +3082,7 @@
     "fullName": "Iker Casillas",
     "twitter": {
         "handle": "CasillasWorld",
-        "tcId": "1640169925",
+        "twitterId": "1640169925",
         "followers": 4345680
     },
     "wikipedia": {
@@ -3096,7 +3096,7 @@
     "fullName": "Tiger Woods",
     "twitter": {
         "handle": "TigerWoods",
-        "tcId": "32453930",
+        "twitterId": "32453930",
         "followers": 4330433
     },
     "wikipedia": {
@@ -3110,7 +3110,7 @@
     "fullName": "Parineeti Chopra",
     "twitter": {
         "handle": "ParineetiChopra",
-        "tcId": "33801019",
+        "twitterId": "33801019",
         "followers": 4319476
     },
     "wikipedia": {
@@ -3124,7 +3124,7 @@
     "fullName": "Jamie Foxx",
     "twitter": {
         "handle": "iamjamiefoxx",
-        "tcId": "138600717",
+        "twitterId": "138600717",
         "followers": 4309368
     },
     "wikipedia": {
@@ -3138,7 +3138,7 @@
     "fullName": "Jamie Oliver",
     "twitter": {
         "handle": "jamieoliver",
-        "tcId": "18676177",
+        "twitterId": "18676177",
         "followers": 4308655
     },
     "wikipedia": {
@@ -3152,7 +3152,7 @@
     "fullName": "Bunga Citra Lestari",
     "twitter": {
         "handle": "bclsinclair",
-        "tcId": "41626669",
+        "twitterId": "41626669",
         "followers": 4312160
     },
     "wikipedia": {
@@ -3166,7 +3166,7 @@
     "fullName": "Sonakshi Sinha",
     "twitter": {
         "handle": "sonakshisinha",
-        "tcId": "94163409",
+        "twitterId": "94163409",
         "followers": 4283792
     },
     "wikipedia": {
@@ -3180,7 +3180,7 @@
     "fullName": "Don Omar",
     "twitter": {
         "handle": "DONOMAR",
-        "tcId": "154605679",
+        "twitterId": "154605679",
         "followers": 4264302
     },
     "wikipedia": {
@@ -3194,7 +3194,7 @@
     "fullName": "Lamar Odom",
     "twitter": {
         "handle": "RealLamarOdom",
-        "tcId": "28669612",
+        "twitterId": "28669612",
         "followers": 4244599
     },
     "wikipedia": {
@@ -3208,7 +3208,7 @@
     "fullName": "Yuya",
     "twitter": {
         "handle": "yuyacst",
-        "tcId": "212746249",
+        "twitterId": "212746249",
         "followers": 4250985
     },
     "wikipedia": {
@@ -3222,7 +3222,7 @@
     "fullName": "Jordin Sparks",
     "twitter": {
         "handle": "JordinSparks",
-        "tcId": "19555067",
+        "twitterId": "19555067",
         "followers": 4239077
     },
     "wikipedia": {
@@ -3236,7 +3236,7 @@
     "fullName": "Anupam Kher",
     "twitter": {
         "handle": "AnupamPkher",
-        "tcId": "76294950",
+        "twitterId": "76294950",
         "followers": 4243728
     },
     "wikipedia": {
@@ -3250,7 +3250,7 @@
     "fullName": "Kiran Bedi",
     "twitter": {
         "handle": "thekiranbedi",
-        "tcId": "68977380",
+        "twitterId": "68977380",
         "followers": 4241290
     },
     "wikipedia": {
@@ -3264,7 +3264,7 @@
     "fullName": "Noel Schajris",
     "twitter": {
         "handle": "NoelSchajris",
-        "tcId": "56521114",
+        "twitterId": "56521114",
         "followers": 4198357
     },
     "wikipedia": {
@@ -3278,7 +3278,7 @@
     "fullName": "Yeng Constantino",
     "twitter": {
         "handle": "YengPLUGGEDin",
-        "tcId": "64038747",
+        "twitterId": "64038747",
         "followers": 4195044
     },
     "wikipedia": {
@@ -3292,7 +3292,7 @@
     "fullName": "Alia Bhatt",
     "twitter": {
         "handle": "aliaa08",
-        "tcId": "183230911",
+        "twitterId": "183230911",
         "followers": 4185768
     },
     "wikipedia": {
@@ -3306,7 +3306,7 @@
     "fullName": "Preta Gil",
     "twitter": {
         "handle": "PretaGil",
-        "tcId": "35693211",
+        "twitterId": "35693211",
         "followers": 4143126
     },
     "wikipedia": {
@@ -3320,7 +3320,7 @@
     "fullName": "Arvind Kejriwal",
     "twitter": {
         "handle": "ArvindKejriwal",
-        "tcId": "405427035",
+        "twitterId": "405427035",
         "followers": 4147090
     },
     "wikipedia": {
@@ -3334,7 +3334,7 @@
     "fullName": "Aleks Syntek",
     "twitter": {
         "handle": "syntekoficial",
-        "tcId": "36307418",
+        "twitterId": "36307418",
         "followers": 4133777
     },
     "wikipedia": {
@@ -3348,7 +3348,7 @@
     "fullName": "Ozzy Osbourne",
     "twitter": {
         "handle": "OzzyOsbourne",
-        "tcId": "24963961",
+        "twitterId": "24963961",
         "followers": 4125116
     },
     "wikipedia": {
@@ -3362,7 +3362,7 @@
     "fullName": "Luke Bryan",
     "twitter": {
         "handle": "LukeBryanOnline",
-        "tcId": "17074714",
+        "twitterId": "17074714",
         "followers": 4121607
     },
     "wikipedia": {
@@ -3376,7 +3376,7 @@
     "fullName": "Zach Galifianakis",
     "twitter": {
         "handle": "galifianakisz",
-        "tcId": "36686415",
+        "twitterId": "36686415",
         "followers": 4089411
     },
     "wikipedia": {
@@ -3390,7 +3390,7 @@
     "fullName": "Bill Cosby",
     "twitter": {
         "handle": "BillCosby",
-        "tcId": "54682125",
+        "twitterId": "54682125",
         "followers": 4076357
     },
     "wikipedia": {
@@ -3404,7 +3404,7 @@
     "fullName": "Meek Mill",
     "twitter": {
         "handle": "MeekMill",
-        "tcId": "20567939",
+        "twitterId": "20567939",
         "followers": 4064980
     },
     "wikipedia": {
@@ -3418,7 +3418,7 @@
     "fullName": "Marcelo Vieira",
     "twitter": {
         "handle": "MarceloM12",
-        "tcId": "932429090",
+        "twitterId": "932429090",
         "followers": 4063836
     },
     "wikipedia": {
@@ -3432,7 +3432,7 @@
     "fullName": "Michel Teló",
     "twitter": {
         "handle": "micheltelo",
-        "tcId": "38185503",
+        "twitterId": "38185503",
         "followers": 4055570
     },
     "wikipedia": {
@@ -3446,7 +3446,7 @@
     "fullName": "Steve Carell",
     "twitter": {
         "handle": "SteveCarell",
-        "tcId": "500042487",
+        "twitterId": "500042487",
         "followers": 4051022
     },
     "wikipedia": {
@@ -3460,7 +3460,7 @@
     "fullName": "Novak Djokovic",
     "twitter": {
         "handle": "DjokerNole",
-        "tcId": "259925559",
+        "twitterId": "259925559",
         "followers": 4032890
     },
     "wikipedia": {
@@ -3474,7 +3474,7 @@
     "fullName": "Polo Polo",
     "twitter": {
         "handle": "polo_polo",
-        "tcId": "15934029",
+        "twitterId": "15934029",
         "followers": 4020767
     },
     "wikipedia": {
@@ -3488,7 +3488,7 @@
     "fullName": "Randy Orton",
     "twitter": {
         "handle": "RandyOrton",
-        "tcId": "168767461",
+        "twitterId": "168767461",
         "followers": 4008520
     },
     "wikipedia": {
@@ -3502,7 +3502,7 @@
     "fullName": "Kelly Osbourne",
     "twitter": {
         "handle": "KellyOsbourne",
-        "tcId": "41229669",
+        "twitterId": "41229669",
         "followers": 3999239
     },
     "wikipedia": {
@@ -3516,7 +3516,7 @@
     "fullName": "Bianca Gonzalez",
     "twitter": {
         "handle": "iamsuperbianca",
-        "tcId": "32751684",
+        "twitterId": "32751684",
         "followers": 4002316
     },
     "wikipedia": {
@@ -3530,7 +3530,7 @@
     "fullName": "Amr Khaled",
     "twitter": {
         "handle": "amrkhaled",
-        "tcId": "66959303",
+        "twitterId": "66959303",
         "followers": 4004470
     },
     "wikipedia": {
@@ -3544,7 +3544,7 @@
     "fullName": "Chris Paul",
     "twitter": {
         "handle": "CP3",
-        "tcId": "53853197",
+        "twitterId": "53853197",
         "followers": 3988473
     },
     "wikipedia": {
@@ -3558,7 +3558,7 @@
     "fullName": "Luis Manzano",
     "twitter": {
         "handle": "luckymanzano",
-        "tcId": "134657984",
+        "twitterId": "134657984",
         "followers": 3983598
     },
     "wikipedia": {
@@ -3572,7 +3572,7 @@
     "fullName": "Kevin Spacey",
     "twitter": {
         "handle": "KevinSpacey",
-        "tcId": "27457788",
+        "twitterId": "27457788",
         "followers": 3982786
     },
     "wikipedia": {
@@ -3586,7 +3586,7 @@
     "fullName": "John Cleese",
     "twitter": {
         "handle": "JohnCleese",
-        "tcId": "10810102",
+        "twitterId": "10810102",
         "followers": 3965543
     },
     "wikipedia": {
@@ -3600,7 +3600,7 @@
     "fullName": "Tyler Oakley",
     "twitter": {
         "handle": "tyleroakley",
-        "tcId": "14222536",
+        "twitterId": "14222536",
         "followers": 3966549
     },
     "wikipedia": {
@@ -3614,7 +3614,7 @@
     "fullName": "Keri Hilson",
     "twitter": {
         "handle": "KeriHilson",
-        "tcId": "26516984",
+        "twitterId": "26516984",
         "followers": 3949885
     },
     "wikipedia": {
@@ -3628,7 +3628,7 @@
     "fullName": "Gary Barlow",
     "twitter": {
         "handle": "GaryBarlow",
-        "tcId": "386654472",
+        "twitterId": "386654472",
         "followers": 3944950
     },
     "wikipedia": {
@@ -3642,7 +3642,7 @@
     "fullName": "Prince Royce",
     "twitter": {
         "handle": "PrinceRoyce",
-        "tcId": "65186457",
+        "twitterId": "65186457",
         "followers": 3937836
     },
     "wikipedia": {
@@ -3656,7 +3656,7 @@
     "fullName": "Tyler Perry",
     "twitter": {
         "handle": "tylerperry",
-        "tcId": "58598187",
+        "twitterId": "58598187",
         "followers": 3925837
     },
     "wikipedia": {
@@ -3670,7 +3670,7 @@
     "fullName": "Psy",
     "twitter": {
         "handle": "psy_oppa",
-        "tcId": "740216334",
+        "twitterId": "740216334",
         "followers": 3922071
     },
     "wikipedia": {
@@ -3684,7 +3684,7 @@
     "fullName": "Andrea Legarreta",
     "twitter": {
         "handle": "AndreaLegarreta",
-        "tcId": "142519598",
+        "twitterId": "142519598",
         "followers": 3893608
     },
     "wikipedia": {
@@ -3698,7 +3698,7 @@
     "fullName": "Cristine Reyes",
     "twitter": {
         "handle": "_CristineReyes_",
-        "tcId": "69068481",
+        "twitterId": "69068481",
         "followers": 3888638
     },
     "wikipedia": {
@@ -3712,7 +3712,7 @@
     "fullName": "Tony Hawk",
     "twitter": {
         "handle": "tonyhawk",
-        "tcId": "21879024",
+        "twitterId": "21879024",
         "followers": 3873680
     },
     "wikipedia": {
@@ -3726,7 +3726,7 @@
     "fullName": "Julieta Venegas",
     "twitter": {
         "handle": "julietav",
-        "tcId": "38871237",
+        "twitterId": "38871237",
         "followers": 3876872
     },
     "wikipedia": {
@@ -3740,7 +3740,7 @@
     "fullName": "Mindy Kaling",
     "twitter": {
         "handle": "mindykaling",
-        "tcId": "23544596",
+        "twitterId": "23544596",
         "followers": 3872700
     },
     "wikipedia": {
@@ -3754,7 +3754,7 @@
     "fullName": "Scooter Braun",
     "twitter": {
         "handle": "scooterbraun",
-        "tcId": "16679529",
+        "twitterId": "16679529",
         "followers": 3855289
     },
     "wikipedia": {
@@ -3768,7 +3768,7 @@
     "fullName": "Lance Armstrong",
     "twitter": {
         "handle": "lancearmstrong",
-        "tcId": "16727535",
+        "twitterId": "16727535",
         "followers": 3836419
     },
     "wikipedia": {
@@ -3782,7 +3782,7 @@
     "fullName": "Enrique Peña Nieto",
     "twitter": {
         "handle": "EPN",
-        "tcId": "2897441",
+        "twitterId": "2897441",
         "followers": 3814589
     },
     "wikipedia": {
@@ -3796,7 +3796,7 @@
     "fullName": "Wyclef Jean",
     "twitter": {
         "handle": "wyclef",
-        "tcId": "20659839",
+        "twitterId": "20659839",
         "followers": 3806446
     },
     "wikipedia": {
@@ -3810,7 +3810,7 @@
     "fullName": "Diego Torres",
     "twitter": {
         "handle": "diegotorres",
-        "tcId": "87808186",
+        "twitterId": "87808186",
         "followers": 3800363
     },
     "wikipedia": {
@@ -3824,7 +3824,7 @@
     "fullName": "Mahendra Singh Dhoni",
     "twitter": {
         "handle": "msdhoni",
-        "tcId": "92708272",
+        "twitterId": "92708272",
         "followers": 3799770
     },
     "wikipedia": {
@@ -3838,7 +3838,7 @@
     "fullName": "Anna Kendrick",
     "twitter": {
         "handle": "AnnaKendrick47",
-        "tcId": "59949396",
+        "twitterId": "59949396",
         "followers": 3791158
     },
     "wikipedia": {
@@ -3852,7 +3852,7 @@
     "fullName": "Gary Lineker",
     "twitter": {
         "handle": "GaryLineker",
-        "tcId": "471287735",
+        "twitterId": "471287735",
         "followers": 3768880
     },
     "wikipedia": {
@@ -3866,7 +3866,7 @@
     "fullName": "Juan Manuel Santos",
     "twitter": {
         "handle": "JuanManSantos",
-        "tcId": "64839766",
+        "twitterId": "64839766",
         "followers": 3728057
     },
     "wikipedia": {
@@ -3880,7 +3880,7 @@
     "fullName": "Jennifer Hudson",
     "twitter": {
         "handle": "IAMJHUD",
-        "tcId": "33990291",
+        "twitterId": "33990291",
         "followers": 3721762
     },
     "wikipedia": {
@@ -3894,7 +3894,7 @@
     "fullName": "Amanda Bynes",
     "twitter": {
         "handle": "amandabynes",
-        "tcId": "243442402",
+        "twitterId": "243442402",
         "followers": 3707914
     },
     "wikipedia": {
@@ -3908,7 +3908,7 @@
     "fullName": "Eden Hazard",
     "twitter": {
         "handle": "hazardeden10",
-        "tcId": "366592246",
+        "twitterId": "366592246",
         "followers": 3711359
     },
     "wikipedia": {
@@ -3922,7 +3922,7 @@
     "fullName": "Carlos Vives",
     "twitter": {
         "handle": "carlosvives",
-        "tcId": "77694285",
+        "twitterId": "77694285",
         "followers": 3702925
     },
     "wikipedia": {
@@ -3936,7 +3936,7 @@
     "fullName": "Adam Schefter",
     "twitter": {
         "handle": "AdamSchefter",
-        "tcId": "51263592",
+        "twitterId": "51263592",
         "followers": 3690252
     },
     "wikipedia": {
@@ -3950,7 +3950,7 @@
     "fullName": "Jim Jones ",
     "twitter": {
         "handle": "jimjonescapo",
-        "tcId": "21705616",
+        "twitterId": "21705616",
         "followers": 3655135
     },
     "wikipedia": {
@@ -3964,7 +3964,7 @@
     "fullName": "Emily Osment",
     "twitter": {
         "handle": "EmilyOsment",
-        "tcId": "21323673",
+        "twitterId": "21323673",
         "followers": 3653564
     },
     "wikipedia": {
@@ -3978,7 +3978,7 @@
     "fullName": "Sandra Dewi",
     "twitter": {
         "handle": "SandraDewi88",
-        "tcId": "45278605",
+        "twitterId": "45278605",
         "followers": 3652226
     },
     "wikipedia": {
@@ -3992,7 +3992,7 @@
     "fullName": "Julia Montes",
     "twitter": {
         "handle": "montesjulia",
-        "tcId": "99050904",
+        "twitterId": "99050904",
         "followers": 3646629
     },
     "wikipedia": {
@@ -4006,7 +4006,7 @@
     "fullName": "Álvaro Arbeloa",
     "twitter": {
         "handle": "aarbeloa17",
-        "tcId": "34949757",
+        "twitterId": "34949757",
         "followers": 3640471
     },
     "wikipedia": {
@@ -4020,7 +4020,7 @@
     "fullName": "Kesha ",
     "twitter": {
         "handle": "KeshaRose",
-        "tcId": "26090319",
+        "twitterId": "26090319",
         "followers": 3632478
     },
     "wikipedia": {
@@ -4034,7 +4034,7 @@
     "fullName": "Vijay Mallya ",
     "twitter": {
         "handle": "TheVijayMallya",
-        "tcId": "128155589",
+        "twitterId": "128155589",
         "followers": 3621969
     },
     "wikipedia": {
@@ -4048,7 +4048,7 @@
     "fullName": "Rob Dyrdek",
     "twitter": {
         "handle": "robdyrdek",
-        "tcId": "14622632",
+        "twitterId": "14622632",
         "followers": 3618561
     },
     "wikipedia": {
@@ -4062,7 +4062,7 @@
     "fullName": "Daniel Padilla",
     "twitter": {
         "handle": "imdanielpadilla",
-        "tcId": "328918379",
+        "twitterId": "328918379",
         "followers": 3621037
     },
     "wikipedia": {
@@ -4076,7 +4076,7 @@
     "fullName": "Eddie Izzard",
     "twitter": {
         "handle": "eddieizzard",
-        "tcId": "24447643",
+        "twitterId": "24447643",
         "followers": 3607796
     },
     "wikipedia": {
@@ -4090,7 +4090,7 @@
     "fullName": "Miranda Kerr",
     "twitter": {
         "handle": "MirandaKerr",
-        "tcId": "141052723",
+        "twitterId": "141052723",
         "followers": 3606919
     },
     "wikipedia": {
@@ -4104,7 +4104,7 @@
     "fullName": "Virender Sehwag",
     "twitter": {
         "handle": "virendersehwag",
-        "tcId": "92724677",
+        "twitterId": "92724677",
         "followers": 3598319
     },
     "wikipedia": {
@@ -4118,7 +4118,7 @@
     "fullName": "Chad Johnson",
     "twitter": {
         "handle": "ochocinco",
-        "tcId": "40519997",
+        "twitterId": "40519997",
         "followers": 3590592
     },
     "wikipedia": {
@@ -4132,7 +4132,7 @@
     "fullName": "Yılmaz Erdoğan",
     "twitter": {
         "handle": "yilmazerdogan",
-        "tcId": "277444134",
+        "twitterId": "277444134",
         "followers": 3592718
     },
     "wikipedia": {
@@ -4146,7 +4146,7 @@
     "fullName": "Paul Wesley",
     "twitter": {
         "handle": "paulwesley",
-        "tcId": "264498030",
+        "twitterId": "264498030",
         "followers": 3586081
     },
     "wikipedia": {
@@ -4160,7 +4160,7 @@
     "fullName": "Riteish Deshmukh",
     "twitter": {
         "handle": "Riteishd",
-        "tcId": "57998991",
+        "twitterId": "57998991",
         "followers": 3584596
     },
     "wikipedia": {
@@ -4174,7 +4174,7 @@
     "fullName": "Jaime Camil",
     "twitter": {
         "handle": "jaimecamil",
-        "tcId": "109118967",
+        "twitterId": "109118967",
         "followers": 3571083
     },
     "wikipedia": {
@@ -4188,7 +4188,7 @@
     "fullName": "Shilpa Shetty",
     "twitter": {
         "handle": "TheShilpaShetty",
-        "tcId": "115341081",
+        "twitterId": "115341081",
         "followers": 3563631
     },
     "wikipedia": {
@@ -4202,7 +4202,7 @@
     "fullName": "Bipasha Basu",
     "twitter": {
         "handle": "bipsluvurself",
-        "tcId": "107318424",
+        "twitterId": "107318424",
         "followers": 3554379
     },
     "wikipedia": {
@@ -4216,7 +4216,7 @@
     "fullName": "Chris Moyles",
     "twitter": {
         "handle": "ChrisMoyles",
-        "tcId": "19982092",
+        "twitterId": "19982092",
         "followers": 3540788
     },
     "wikipedia": {
@@ -4230,7 +4230,7 @@
     "fullName": "Luis Chataing",
     "twitter": {
         "handle": "LuisChataing",
-        "tcId": "67736078",
+        "twitterId": "67736078",
         "followers": 3538776
     },
     "wikipedia": {
@@ -4244,7 +4244,7 @@
     "fullName": "Shreya Ghoshal",
     "twitter": {
         "handle": "shreyaghoshal",
-        "tcId": "55520719",
+        "twitterId": "55520719",
         "followers": 3538629
     },
     "wikipedia": {
@@ -4258,7 +4258,7 @@
     "fullName": "Jake T. Austin",
     "twitter": {
         "handle": "JakeTAustin",
-        "tcId": "19882775",
+        "twitterId": "19882775",
         "followers": 3529065
     },
     "wikipedia": {
@@ -4272,7 +4272,7 @@
     "fullName": "Adela Micha ",
     "twitter": {
         "handle": "Adela_Micha",
-        "tcId": "70805914",
+        "twitterId": "70805914",
         "followers": 3531090
     },
     "wikipedia": {
@@ -4286,7 +4286,7 @@
     "fullName": "Mario Balotelli",
     "twitter": {
         "handle": "FinallyMario",
-        "tcId": "1432977446",
+        "twitterId": "1432977446",
         "followers": 3528652
     },
     "wikipedia": {
@@ -4300,7 +4300,7 @@
     "fullName": "Ashley Benson",
     "twitter": {
         "handle": "AshBenzo",
-        "tcId": "33597201",
+        "twitterId": "33597201",
         "followers": 3525746
     },
     "wikipedia": {
@@ -4314,7 +4314,7 @@
     "fullName": "Preity Zinta",
     "twitter": {
         "handle": "realpreityzinta",
-        "tcId": "86254626",
+        "twitterId": "86254626",
         "followers": 3526669
     },
     "wikipedia": {
@@ -4328,7 +4328,7 @@
     "fullName": "Dolly Parton",
     "twitter": {
         "handle": "DollyParton",
-        "tcId": "14790966",
+        "twitterId": "14790966",
         "followers": 3509328
     },
     "wikipedia": {
@@ -4342,7 +4342,7 @@
     "fullName": "Franco De Vita ",
     "twitter": {
         "handle": "FrancoDVita",
-        "tcId": "77512825",
+        "twitterId": "77512825",
         "followers": 3507107
     },
     "wikipedia": {
@@ -4356,7 +4356,7 @@
     "fullName": "Sam Milby",
     "twitter": {
         "handle": "samuelmilby",
-        "tcId": "83613107",
+        "twitterId": "83613107",
         "followers": 3488222
     },
     "wikipedia": {
@@ -4370,7 +4370,7 @@
     "fullName": "Bill Simmons",
     "twitter": {
         "handle": "BillSimmons",
-        "tcId": "32765534",
+        "twitterId": "32765534",
         "followers": 3492056
     },
     "wikipedia": {
@@ -4384,7 +4384,7 @@
     "fullName": "Tiësto",
     "twitter": {
         "handle": "tiesto",
-        "tcId": "40101400",
+        "twitterId": "40101400",
         "followers": 3486754
     },
     "wikipedia": {
@@ -4398,7 +4398,7 @@
     "fullName": "Russell Simmons",
     "twitter": {
         "handle": "UncleRUSH",
-        "tcId": "25110374",
+        "twitterId": "25110374",
         "followers": 3480506
     },
     "wikipedia": {
@@ -4412,7 +4412,7 @@
     "fullName": "Nani",
     "twitter": {
         "handle": "luisnani",
-        "tcId": "252753618",
+        "twitterId": "252753618",
         "followers": 3477784
     },
     "wikipedia": {
@@ -4426,7 +4426,7 @@
     "fullName": "Gad Elmaleh",
     "twitter": {
         "handle": "gadelmaleh",
-        "tcId": "498840131",
+        "twitterId": "498840131",
         "followers": 3486115
     },
     "wikipedia": {
@@ -4440,7 +4440,7 @@
     "fullName": "Leopoldo López ",
     "twitter": {
         "handle": "leopoldolopez",
-        "tcId": "42434332",
+        "twitterId": "42434332",
         "followers": 3459301
     },
     "wikipedia": {
@@ -4454,7 +4454,7 @@
     "fullName": "Phillip Schofield",
     "twitter": {
         "handle": "Schofe",
-        "tcId": "18953259",
+        "twitterId": "18953259",
         "followers": 3455479
     },
     "wikipedia": {
@@ -4468,7 +4468,7 @@
     "fullName": "Paul Pierce",
     "twitter": {
         "handle": "paulpierce34",
-        "tcId": "27115071",
+        "twitterId": "27115071",
         "followers": 3443723
     },
     "wikipedia": {
@@ -4482,7 +4482,7 @@
     "fullName": "Syahrini",
     "twitter": {
         "handle": "PrincesSyahrini",
-        "tcId": "157998843",
+        "twitterId": "157998843",
         "followers": 3439819
     },
     "wikipedia": {
@@ -4496,7 +4496,7 @@
     "fullName": "Najwa Karam",
     "twitter": {
         "handle": "najwakaram",
-        "tcId": "462004145",
+        "twitterId": "462004145",
         "followers": 3429893
     },
     "wikipedia": {
@@ -4510,7 +4510,7 @@
     "fullName": "Lauren Conrad",
     "twitter": {
         "handle": "LaurenConrad",
-        "tcId": "34097876",
+        "twitterId": "34097876",
         "followers": 3424044
     },
     "wikipedia": {
@@ -4524,7 +4524,7 @@
     "fullName": "Giuliana Rancic",
     "twitter": {
         "handle": "GiulianaRancic",
-        "tcId": "21681809",
+        "twitterId": "21681809",
         "followers": 3409707
     },
     "wikipedia": {
@@ -4538,7 +4538,7 @@
     "fullName": "Amr Diab",
     "twitter": {
         "handle": "amrdiab",
-        "tcId": "46247180",
+        "twitterId": "46247180",
         "followers": 3417655
     },
     "wikipedia": {
@@ -4552,7 +4552,7 @@
     "fullName": "Cüneyt Özdemir",
     "twitter": {
         "handle": "cuneytozdemir",
-        "tcId": "30631061",
+        "twitterId": "30631061",
         "followers": 3414945
     },
     "wikipedia": {
@@ -4566,7 +4566,7 @@
     "fullName": "Jason Derulo",
     "twitter": {
         "handle": "jasonderulo",
-        "tcId": "28076276",
+        "twitterId": "28076276",
         "followers": 3409344
     },
     "wikipedia": {
@@ -4580,7 +4580,7 @@
     "fullName": "Nelly Furtado",
     "twitter": {
         "handle": "NellyFurtado",
-        "tcId": "50751556",
+        "twitterId": "50751556",
         "followers": 3390285
     },
     "wikipedia": {
@@ -4594,7 +4594,7 @@
     "fullName": "Lorde",
     "twitter": {
         "handle": "lordemusic",
-        "tcId": "355307031",
+        "twitterId": "355307031",
         "followers": 3394479
     },
     "wikipedia": {
@@ -4608,7 +4608,7 @@
     "fullName": "Felipe Calderón",
     "twitter": {
         "handle": "FelipeCalderon",
-        "tcId": "144376833",
+        "twitterId": "144376833",
         "followers": 3387302
     },
     "wikipedia": {
@@ -4622,7 +4622,7 @@
     "fullName": "Vhong Navarro",
     "twitter": {
         "handle": "VhongX44",
-        "tcId": "46602211",
+        "twitterId": "46602211",
         "followers": 3383152
     },
     "wikipedia": {
@@ -4636,7 +4636,7 @@
     "fullName": "Murat Boz",
     "twitter": {
         "handle": "MuratBoz",
-        "tcId": "96185337",
+        "twitterId": "96185337",
         "followers": 3371993
     },
     "wikipedia": {
@@ -4650,7 +4650,7 @@
     "fullName": "Dilma Rousseff",
     "twitter": {
         "handle": "dilmabr",
-        "tcId": "131574396",
+        "twitterId": "131574396",
         "followers": 3373057
     },
     "wikipedia": {
@@ -4664,7 +4664,7 @@
     "fullName": "Wesley Sneijder",
     "twitter": {
         "handle": "sneijder101010",
-        "tcId": "279452961",
+        "twitterId": "279452961",
         "followers": 3356532
     },
     "wikipedia": {
@@ -4678,7 +4678,7 @@
     "fullName": "Taraji P. Henson",
     "twitter": {
         "handle": "TherealTaraji",
-        "tcId": "84358766",
+        "twitterId": "84358766",
         "followers": 3349877
     },
     "wikipedia": {
@@ -4692,7 +4692,7 @@
     "fullName": "Pattie Mallette",
     "twitter": {
         "handle": "pattiemallette",
-        "tcId": "19679611",
+        "twitterId": "19679611",
         "followers": 3339403
     },
     "wikipedia": {
@@ -4706,7 +4706,7 @@
     "fullName": "Joel Osteen",
     "twitter": {
         "handle": "JoelOsteen",
-        "tcId": "20545055",
+        "twitterId": "20545055",
         "followers": 3333030
     },
     "wikipedia": {
@@ -4720,7 +4720,7 @@
     "fullName": "Joyce Meyer",
     "twitter": {
         "handle": "JoyceMeyer",
-        "tcId": "15809249",
+        "twitterId": "15809249",
         "followers": 3328497
     },
     "wikipedia": {
@@ -4734,7 +4734,7 @@
     "fullName": "Mano Menezes",
     "twitter": {
         "handle": "manomenezes",
-        "tcId": "27710376",
+        "twitterId": "27710376",
         "followers": 3319603
     },
     "wikipedia": {
@@ -4748,7 +4748,7 @@
     "fullName": "Valentino Rossi",
     "twitter": {
         "handle": "ValeYellow46",
-        "tcId": "386420143",
+        "twitterId": "386420143",
         "followers": 3321799
     },
     "wikipedia": {
@@ -4762,7 +4762,7 @@
     "fullName": "Peter Andre",
     "twitter": {
         "handle": "MrPeterAndre",
-        "tcId": "24086418",
+        "twitterId": "24086418",
         "followers": 3315718
     },
     "wikipedia": {
@@ -4776,7 +4776,7 @@
     "fullName": "Ragheb Alama",
     "twitter": {
         "handle": "raghebalama",
-        "tcId": "55043362",
+        "twitterId": "55043362",
         "followers": 3321362
     },
     "wikipedia": {
@@ -4790,7 +4790,7 @@
     "fullName": "Jack Whitehall",
     "twitter": {
         "handle": "jackwhitehall",
-        "tcId": "17336417",
+        "twitterId": "17336417",
         "followers": 3317450
     },
     "wikipedia": {
@@ -4804,7 +4804,7 @@
     "fullName": "Brad Paisley",
     "twitter": {
         "handle": "BradPaisley",
-        "tcId": "41265813",
+        "twitterId": "41265813",
         "followers": 3305414
     },
     "wikipedia": {
@@ -4818,7 +4818,7 @@
     "fullName": "Ezequiel Lavezzi",
     "twitter": {
         "handle": "PochoLavezzi",
-        "tcId": "351921957",
+        "twitterId": "351921957",
         "followers": 3305967
     },
     "wikipedia": {
@@ -4832,7 +4832,7 @@
     "fullName": "David Silva",
     "twitter": {
         "handle": "21LVA",
-        "tcId": "543533194",
+        "twitterId": "543533194",
         "followers": 3289901
     },
     "wikipedia": {
@@ -4846,7 +4846,7 @@
     "fullName": "Acun Ilıcalı",
     "twitter": {
         "handle": "acunilicali",
-        "tcId": "342562305",
+        "twitterId": "342562305",
         "followers": 3294028
     },
     "wikipedia": {
@@ -4860,7 +4860,7 @@
     "fullName": "Nikki Gil",
     "twitter": {
         "handle": "nikkigil",
-        "tcId": "38815052",
+        "twitterId": "38815052",
         "followers": 3280339
     },
     "wikipedia": {
@@ -4874,7 +4874,7 @@
     "fullName": "Jorge Rial",
     "twitter": {
         "handle": "rialjorge",
-        "tcId": "124779370",
+        "twitterId": "124779370",
         "followers": 3274719
     },
     "wikipedia": {
@@ -4888,7 +4888,7 @@
     "fullName": "Vinny Guadagnino",
     "twitter": {
         "handle": "VINNYGUADAGNINO",
-        "tcId": "95515846",
+        "twitterId": "95515846",
         "followers": 3262874
     },
     "wikipedia": {
@@ -4902,7 +4902,7 @@
     "fullName": "Suresh Raina",
     "twitter": {
         "handle": "ImRaina",
-        "tcId": "121044171",
+        "twitterId": "121044171",
         "followers": 3256399
     },
     "wikipedia": {
@@ -4916,7 +4916,7 @@
     "fullName": "Busta Rhymes",
     "twitter": {
         "handle": "BustaRhymes",
-        "tcId": "24278900",
+        "twitterId": "24278900",
         "followers": 3242664
     },
     "wikipedia": {
@@ -4930,7 +4930,7 @@
     "fullName": "Pete Wentz ",
     "twitter": {
         "handle": "petewentz",
-        "tcId": "16264006",
+        "twitterId": "16264006",
         "followers": 3241980
     },
     "wikipedia": {
@@ -4944,7 +4944,7 @@
     "fullName": "Jamel Debbouze",
     "twitter": {
         "handle": "DebbouzeJamel",
-        "tcId": "255030147",
+        "twitterId": "255030147",
         "followers": 3246635
     },
     "wikipedia": {
@@ -4958,7 +4958,7 @@
     "fullName": "Ivan Urgant",
     "twitter": {
         "handle": "urgantcom",
-        "tcId": "114557496",
+        "twitterId": "114557496",
         "followers": 3232384
     },
     "wikipedia": {
@@ -4972,7 +4972,7 @@
     "fullName": "Espinoza Paz",
     "twitter": {
         "handle": "EspinozaOficial",
-        "tcId": "146200269",
+        "twitterId": "146200269",
         "followers": 3217835
     },
     "wikipedia": {
@@ -4986,7 +4986,7 @@
     "fullName": "Carmen Aristegui",
     "twitter": {
         "handle": "aristeguicnn",
-        "tcId": "169279319",
+        "twitterId": "169279319",
         "followers": 3224123
     },
     "wikipedia": {
@@ -5000,7 +5000,7 @@
     "fullName": "Kim Atienza",
     "twitter": {
         "handle": "kuyakim_atienza",
-        "tcId": "130307120",
+        "twitterId": "130307120",
         "followers": 3212862
     },
     "wikipedia": {
@@ -5014,7 +5014,7 @@
     "fullName": "Sara Bareilles",
     "twitter": {
         "handle": "SaraBareilles",
-        "tcId": "6211972",
+        "twitterId": "6211972",
         "followers": 3209681
     },
     "wikipedia": {
@@ -5028,7 +5028,7 @@
     "fullName": "Chris Rock",
     "twitter": {
         "handle": "chrisrock",
-        "tcId": "238319766",
+        "twitterId": "238319766",
         "followers": 3212569
     },
     "wikipedia": {
@@ -5042,7 +5042,7 @@
     "fullName": "Bill Clinton",
     "twitter": {
         "handle": "billclinton",
-        "tcId": "1330457336",
+        "twitterId": "1330457336",
         "followers": 3212421
     },
     "wikipedia": {
@@ -5056,7 +5056,7 @@
     "fullName": "Drake Bell",
     "twitter": {
         "handle": "DrakeBell",
-        "tcId": "46957344",
+        "twitterId": "46957344",
         "followers": 3203122
     },
     "wikipedia": {
@@ -5070,7 +5070,7 @@
     "fullName": "Joey Essex",
     "twitter": {
         "handle": "JoeyEssex_",
-        "tcId": "250090860",
+        "twitterId": "250090860",
         "followers": 3195262
     },
     "wikipedia": {
@@ -5084,7 +5084,7 @@
     "fullName": "Mustafa Ceceli",
     "twitter": {
         "handle": "mustafaceceli",
-        "tcId": "43513715",
+        "twitterId": "43513715",
         "followers": 3192975
     },
     "wikipedia": {
@@ -5098,7 +5098,7 @@
     "fullName": "Gustavo Cerati",
     "twitter": {
         "handle": "cerati",
-        "tcId": "8273632",
+        "twitterId": "8273632",
         "followers": 3170281
     },
     "wikipedia": {
@@ -5112,7 +5112,7 @@
     "fullName": "Yesung",
     "twitter": {
         "handle": "shfly3424",
-        "tcId": "152902472",
+        "twitterId": "152902472",
         "followers": 3167572
     },
     "wikipedia": {
@@ -5126,7 +5126,7 @@
     "fullName": "James Franco",
     "twitter": {
         "handle": "JamesFrancoTV",
-        "tcId": "436292177",
+        "twitterId": "436292177",
         "followers": 3166353
     },
     "wikipedia": {
@@ -5140,7 +5140,7 @@
     "fullName": "Paula Fernandes",
     "twitter": {
         "handle": "PaulaFernandes7",
-        "tcId": "127680499",
+        "twitterId": "127680499",
         "followers": 3167226
     },
     "wikipedia": {
@@ -5154,7 +5154,7 @@
     "fullName": "Fabolous",
     "twitter": {
         "handle": "myfabolouslife",
-        "tcId": "21278412",
+        "twitterId": "21278412",
         "followers": 3161298
     },
     "wikipedia": {
@@ -5168,7 +5168,7 @@
     "fullName": "Emma Roberts",
     "twitter": {
         "handle": "RobertsEmma",
-        "tcId": "27678749",
+        "twitterId": "27678749",
         "followers": 3148793
     },
     "wikipedia": {
@@ -5182,7 +5182,7 @@
     "fullName": "Logan Henderson",
     "twitter": {
         "handle": "1LoganHenderson",
-        "tcId": "108538006",
+        "twitterId": "108538006",
         "followers": 3142851
     },
     "wikipedia": {
@@ -5196,7 +5196,7 @@
     "fullName": "Deadmau5",
     "twitter": {
         "handle": "deadmau5",
-        "tcId": "22412376",
+        "twitterId": "22412376",
         "followers": 3138691
     },
     "wikipedia": {
@@ -5210,7 +5210,7 @@
     "fullName": "Pedro Bial",
     "twitter": {
         "handle": "PBiaL",
-        "tcId": "64563165",
+        "twitterId": "64563165",
         "followers": 3135053
     },
     "wikipedia": {
@@ -5224,7 +5224,7 @@
     "fullName": "Bruno Gagliasso",
     "twitter": {
         "handle": "brunogagliasso",
-        "tcId": "41036546",
+        "twitterId": "41036546",
         "followers": 3129429
     },
     "wikipedia": {
@@ -5238,7 +5238,7 @@
     "fullName": "Tito El Bambino",
     "twitter": {
         "handle": "Tbambino",
-        "tcId": "65432405",
+        "twitterId": "65432405",
         "followers": 3121304
     },
     "wikipedia": {
@@ -5252,7 +5252,7 @@
     "fullName": "Michael Owen",
     "twitter": {
         "handle": "themichaelowen",
-        "tcId": "216264820",
+        "twitterId": "216264820",
         "followers": 3109207
     },
     "wikipedia": {
@@ -5266,7 +5266,7 @@
     "fullName": "James Maslow",
     "twitter": {
         "handle": "jamesmaslow",
-        "tcId": "69751644",
+        "twitterId": "69751644",
         "followers": 3106761
     },
     "wikipedia": {
@@ -5280,7 +5280,7 @@
     "fullName": "Norman Thavaud",
     "twitter": {
         "handle": "NormanDesVideos",
-        "tcId": "45865160",
+        "twitterId": "45865160",
         "followers": 3113568
     },
     "wikipedia": {
@@ -5294,7 +5294,7 @@
     "fullName": "Janet Jackson",
     "twitter": {
         "handle": "JanetJackson",
-        "tcId": "52939106",
+        "twitterId": "52939106",
         "followers": 3091796
     },
     "wikipedia": {
@@ -5308,7 +5308,7 @@
     "fullName": "Dana White",
     "twitter": {
         "handle": "danawhite",
-        "tcId": "21586418",
+        "twitterId": "21586418",
         "followers": 3087457
     },
     "wikipedia": {
@@ -5322,7 +5322,7 @@
     "fullName": "Dane Cook",
     "twitter": {
         "handle": "DaneCook",
-        "tcId": "20978103",
+        "twitterId": "20978103",
         "followers": 3081285
     },
     "wikipedia": {
@@ -5336,7 +5336,7 @@
     "fullName": "Romeo Santos",
     "twitter": {
         "handle": "RomeoSantosPage",
-        "tcId": "277180205",
+        "twitterId": "277180205",
         "followers": 3065947
     },
     "wikipedia": {
@@ -5350,7 +5350,7 @@
     "fullName": "James Franco",
     "twitter": {
         "handle": "JamesFrancoTV",
-        "tcId": "436292177",
+        "twitterId": "436292177",
         "followers": 3166355
     },
     "wikipedia": {
@@ -5364,7 +5364,7 @@
     "fullName": "Paula Fernandes",
     "twitter": {
         "handle": "PaulaFernandes7",
-        "tcId": "127680499",
+        "twitterId": "127680499",
         "followers": 3167227
     },
     "wikipedia": {
@@ -5378,7 +5378,7 @@
     "fullName": "Fabolous",
     "twitter": {
         "handle": "myfabolouslife",
-        "tcId": "21278412",
+        "twitterId": "21278412",
         "followers": 3161298
     },
     "wikipedia": {
@@ -5392,7 +5392,7 @@
     "fullName": "Emma Roberts",
     "twitter": {
         "handle": "RobertsEmma",
-        "tcId": "27678749",
+        "twitterId": "27678749",
         "followers": 3148792
     },
     "wikipedia": {
@@ -5406,7 +5406,7 @@
     "fullName": "Logan Henderson",
     "twitter": {
         "handle": "1LoganHenderson",
-        "tcId": "108538006",
+        "twitterId": "108538006",
         "followers": 3142851
     },
     "wikipedia": {
@@ -5420,7 +5420,7 @@
     "fullName": "Deadmau5",
     "twitter": {
         "handle": "deadmau5",
-        "tcId": "22412376",
+        "twitterId": "22412376",
         "followers": 3138691
     },
     "wikipedia": {
@@ -5434,7 +5434,7 @@
     "fullName": "Pedro Bial",
     "twitter": {
         "handle": "PBiaL",
-        "tcId": "64563165",
+        "twitterId": "64563165",
         "followers": 3135054
     },
     "wikipedia": {
@@ -5448,7 +5448,7 @@
     "fullName": "Bruno Gagliasso",
     "twitter": {
         "handle": "brunogagliasso",
-        "tcId": "41036546",
+        "twitterId": "41036546",
         "followers": 3129430
     },
     "wikipedia": {
@@ -5462,7 +5462,7 @@
     "fullName": "Tito El Bambino",
     "twitter": {
         "handle": "Tbambino",
-        "tcId": "65432405",
+        "twitterId": "65432405",
         "followers": 3121304
     },
     "wikipedia": {
@@ -5476,7 +5476,7 @@
     "fullName": "Michael Owen",
     "twitter": {
         "handle": "themichaelowen",
-        "tcId": "216264820",
+        "twitterId": "216264820",
         "followers": 3109209
     },
     "wikipedia": {
@@ -5490,7 +5490,7 @@
     "fullName": "James Maslow",
     "twitter": {
         "handle": "jamesmaslow",
-        "tcId": "69751644",
+        "twitterId": "69751644",
         "followers": 3106762
     },
     "wikipedia": {
@@ -5504,7 +5504,7 @@
     "fullName": "Norman Thavaud",
     "twitter": {
         "handle": "NormanDesVideos",
-        "tcId": "45865160",
+        "twitterId": "45865160",
         "followers": 3113569
     },
     "wikipedia": {
@@ -5518,7 +5518,7 @@
     "fullName": "Janet Jackson",
     "twitter": {
         "handle": "JanetJackson",
-        "tcId": "52939106",
+        "twitterId": "52939106",
         "followers": 3091796
     },
     "wikipedia": {
@@ -5532,7 +5532,7 @@
     "fullName": "Dana White",
     "twitter": {
         "handle": "danawhite",
-        "tcId": "21586418",
+        "twitterId": "21586418",
         "followers": 3087457
     },
     "wikipedia": {
@@ -5546,7 +5546,7 @@
     "fullName": "Dane Cook",
     "twitter": {
         "handle": "DaneCook",
-        "tcId": "20978103",
+        "twitterId": "20978103",
         "followers": 3081285
     },
     "wikipedia": {
@@ -5560,7 +5560,7 @@
     "fullName": "Romeo Santos",
     "twitter": {
         "handle": "RomeoSantosPage",
-        "tcId": "277180205",
+        "twitterId": "277180205",
         "followers": 3065950
     },
     "wikipedia": {
@@ -5574,7 +5574,7 @@
     "fullName": "James Franco",
     "twitter": {
         "handle": "JamesFrancoTV",
-        "tcId": "436292177",
+        "twitterId": "436292177",
         "followers": 3166356
     },
     "wikipedia": {
@@ -5588,7 +5588,7 @@
     "fullName": "Paula Fernandes",
     "twitter": {
         "handle": "PaulaFernandes7",
-        "tcId": "127680499",
+        "twitterId": "127680499",
         "followers": 3167228
     },
     "wikipedia": {
@@ -5602,7 +5602,7 @@
     "fullName": "Fabolous",
     "twitter": {
         "handle": "myfabolouslife",
-        "tcId": "21278412",
+        "twitterId": "21278412",
         "followers": 3161302
     },
     "wikipedia": {
@@ -5616,7 +5616,7 @@
     "fullName": "Emma Roberts",
     "twitter": {
         "handle": "RobertsEmma",
-        "tcId": "27678749",
+        "twitterId": "27678749",
         "followers": 3148793
     },
     "wikipedia": {
@@ -5630,7 +5630,7 @@
     "fullName": "Logan Henderson",
     "twitter": {
         "handle": "1LoganHenderson",
-        "tcId": "108538006",
+        "twitterId": "108538006",
         "followers": 3142850
     },
     "wikipedia": {
@@ -5644,7 +5644,7 @@
     "fullName": "Deadmau5",
     "twitter": {
         "handle": "deadmau5",
-        "tcId": "22412376",
+        "twitterId": "22412376",
         "followers": 3138692
     },
     "wikipedia": {
@@ -5658,7 +5658,7 @@
     "fullName": "Pedro Bial",
     "twitter": {
         "handle": "PBiaL",
-        "tcId": "64563165",
+        "twitterId": "64563165",
         "followers": 3135054
     },
     "wikipedia": {
@@ -5672,7 +5672,7 @@
     "fullName": "Bruno Gagliasso",
     "twitter": {
         "handle": "brunogagliasso",
-        "tcId": "41036546",
+        "twitterId": "41036546",
         "followers": 3129430
     },
     "wikipedia": {
@@ -5686,7 +5686,7 @@
     "fullName": "Tito El Bambino",
     "twitter": {
         "handle": "Tbambino",
-        "tcId": "65432405",
+        "twitterId": "65432405",
         "followers": 3121304
     },
     "wikipedia": {
@@ -5700,7 +5700,7 @@
     "fullName": "Michael Owen",
     "twitter": {
         "handle": "themichaelowen",
-        "tcId": "216264820",
+        "twitterId": "216264820",
         "followers": 3109209
     },
     "wikipedia": {
@@ -5714,7 +5714,7 @@
     "fullName": "James Maslow",
     "twitter": {
         "handle": "jamesmaslow",
-        "tcId": "69751644",
+        "twitterId": "69751644",
         "followers": 3106762
     },
     "wikipedia": {
@@ -5728,7 +5728,7 @@
     "fullName": "Norman Thavaud",
     "twitter": {
         "handle": "NormanDesVideos",
-        "tcId": "45865160",
+        "twitterId": "45865160",
         "followers": 3113564
     },
     "wikipedia": {
@@ -5742,7 +5742,7 @@
     "fullName": "Janet Jackson",
     "twitter": {
         "handle": "JanetJackson",
-        "tcId": "52939106",
+        "twitterId": "52939106",
         "followers": 3091796
     },
     "wikipedia": {
@@ -5756,7 +5756,7 @@
     "fullName": "Dana White",
     "twitter": {
         "handle": "danawhite",
-        "tcId": "21586418",
+        "twitterId": "21586418",
         "followers": 3087458
     },
     "wikipedia": {
@@ -5770,7 +5770,7 @@
     "fullName": "Dane Cook",
     "twitter": {
         "handle": "DaneCook",
-        "tcId": "20978103",
+        "twitterId": "20978103",
         "followers": 3081285
     },
     "wikipedia": {
@@ -5784,7 +5784,7 @@
     "fullName": "Romeo Santos",
     "twitter": {
         "handle": "RomeoSantosPage",
-        "tcId": "277180205",
+        "twitterId": "277180205",
         "followers": 3065954
     },
     "wikipedia": {
@@ -5798,7 +5798,7 @@
     "fullName": "James Franco",
     "twitter": {
         "handle": "JamesFrancoTV",
-        "tcId": "436292177",
+        "twitterId": "436292177",
         "followers": 3166355
     },
     "wikipedia": {
@@ -5812,7 +5812,7 @@
     "fullName": "Paula Fernandes",
     "twitter": {
         "handle": "PaulaFernandes7",
-        "tcId": "127680499",
+        "twitterId": "127680499",
         "followers": 3167229
     },
     "wikipedia": {
@@ -5826,7 +5826,7 @@
     "fullName": "Fabolous",
     "twitter": {
         "handle": "myfabolouslife",
-        "tcId": "21278412",
+        "twitterId": "21278412",
         "followers": 3161303
     },
     "wikipedia": {
@@ -5840,7 +5840,7 @@
     "fullName": "Emma Roberts",
     "twitter": {
         "handle": "RobertsEmma",
-        "tcId": "27678749",
+        "twitterId": "27678749",
         "followers": 3148794
     },
     "wikipedia": {
@@ -5854,7 +5854,7 @@
     "fullName": "Logan Henderson",
     "twitter": {
         "handle": "1LoganHenderson",
-        "tcId": "108538006",
+        "twitterId": "108538006",
         "followers": 3142851
     },
     "wikipedia": {
@@ -5868,7 +5868,7 @@
     "fullName": "Deadmau5",
     "twitter": {
         "handle": "deadmau5",
-        "tcId": "22412376",
+        "twitterId": "22412376",
         "followers": 3138693
     },
     "wikipedia": {
@@ -5882,7 +5882,7 @@
     "fullName": "Pedro Bial",
     "twitter": {
         "handle": "PBiaL",
-        "tcId": "64563165",
+        "twitterId": "64563165",
         "followers": 3135054
     },
     "wikipedia": {
@@ -5896,7 +5896,7 @@
     "fullName": "Bruno Gagliasso",
     "twitter": {
         "handle": "brunogagliasso",
-        "tcId": "41036546",
+        "twitterId": "41036546",
         "followers": 3129430
     },
     "wikipedia": {
@@ -5910,7 +5910,7 @@
     "fullName": "Tito El Bambino",
     "twitter": {
         "handle": "Tbambino",
-        "tcId": "65432405",
+        "twitterId": "65432405",
         "followers": 3121302
     },
     "wikipedia": {
@@ -5924,7 +5924,7 @@
     "fullName": "Michael Owen",
     "twitter": {
         "handle": "themichaelowen",
-        "tcId": "216264820",
+        "twitterId": "216264820",
         "followers": 3109210
     },
     "wikipedia": {
@@ -5938,7 +5938,7 @@
     "fullName": "James Maslow",
     "twitter": {
         "handle": "jamesmaslow",
-        "tcId": "69751644",
+        "twitterId": "69751644",
         "followers": 3106761
     },
     "wikipedia": {
@@ -5952,7 +5952,7 @@
     "fullName": "Norman Thavaud",
     "twitter": {
         "handle": "NormanDesVideos",
-        "tcId": "45865160",
+        "twitterId": "45865160",
         "followers": 3113565
     },
     "wikipedia": {
@@ -5966,7 +5966,7 @@
     "fullName": "Janet Jackson",
     "twitter": {
         "handle": "JanetJackson",
-        "tcId": "52939106",
+        "twitterId": "52939106",
         "followers": 3091797
     },
     "wikipedia": {
@@ -5980,7 +5980,7 @@
     "fullName": "Dana White",
     "twitter": {
         "handle": "danawhite",
-        "tcId": "21586418",
+        "twitterId": "21586418",
         "followers": 3087459
     },
     "wikipedia": {
@@ -5994,7 +5994,7 @@
     "fullName": "Dane Cook",
     "twitter": {
         "handle": "DaneCook",
-        "tcId": "20978103",
+        "twitterId": "20978103",
         "followers": 3081285
     },
     "wikipedia": {
@@ -6008,7 +6008,7 @@
     "fullName": "Romeo Santos",
     "twitter": {
         "handle": "RomeoSantosPage",
-        "tcId": "277180205",
+        "twitterId": "277180205",
         "followers": 3065956
     },
     "wikipedia": {
@@ -6022,7 +6022,7 @@
     "fullName": "James Franco",
     "twitter": {
         "handle": "JamesFrancoTV",
-        "tcId": "436292177",
+        "twitterId": "436292177",
         "followers": 3166359
     },
     "wikipedia": {
@@ -6036,7 +6036,7 @@
     "fullName": "Paula Fernandes",
     "twitter": {
         "handle": "PaulaFernandes7",
-        "tcId": "127680499",
+        "twitterId": "127680499",
         "followers": 3167231
     },
     "wikipedia": {
@@ -6050,7 +6050,7 @@
     "fullName": "Fabolous",
     "twitter": {
         "handle": "myfabolouslife",
-        "tcId": "21278412",
+        "twitterId": "21278412",
         "followers": 3161302
     },
     "wikipedia": {
@@ -6064,7 +6064,7 @@
     "fullName": "Emma Roberts",
     "twitter": {
         "handle": "RobertsEmma",
-        "tcId": "27678749",
+        "twitterId": "27678749",
         "followers": 3148795
     },
     "wikipedia": {
@@ -6078,7 +6078,7 @@
     "fullName": "Logan Henderson",
     "twitter": {
         "handle": "1LoganHenderson",
-        "tcId": "108538006",
+        "twitterId": "108538006",
         "followers": 3142851
     },
     "wikipedia": {
@@ -6092,7 +6092,7 @@
     "fullName": "Deadmau5",
     "twitter": {
         "handle": "deadmau5",
-        "tcId": "22412376",
+        "twitterId": "22412376",
         "followers": 3138693
     },
     "wikipedia": {
@@ -6106,7 +6106,7 @@
     "fullName": "Pedro Bial",
     "twitter": {
         "handle": "PBiaL",
-        "tcId": "64563165",
+        "twitterId": "64563165",
         "followers": 3135054
     },
     "wikipedia": {
@@ -6120,7 +6120,7 @@
     "fullName": "Bruno Gagliasso",
     "twitter": {
         "handle": "brunogagliasso",
-        "tcId": "41036546",
+        "twitterId": "41036546",
         "followers": 3129431
     },
     "wikipedia": {
@@ -6134,7 +6134,7 @@
     "fullName": "Tito El Bambino",
     "twitter": {
         "handle": "Tbambino",
-        "tcId": "65432405",
+        "twitterId": "65432405",
         "followers": 3121303
     },
     "wikipedia": {
@@ -6148,7 +6148,7 @@
     "fullName": "Michael Owen",
     "twitter": {
         "handle": "themichaelowen",
-        "tcId": "216264820",
+        "twitterId": "216264820",
         "followers": 3109211
     },
     "wikipedia": {
@@ -6162,7 +6162,7 @@
     "fullName": "James Maslow",
     "twitter": {
         "handle": "jamesmaslow",
-        "tcId": "69751644",
+        "twitterId": "69751644",
         "followers": 3106761
     },
     "wikipedia": {
@@ -6176,7 +6176,7 @@
     "fullName": "Norman Thavaud",
     "twitter": {
         "handle": "NormanDesVideos",
-        "tcId": "45865160",
+        "twitterId": "45865160",
         "followers": 3113565
     },
     "wikipedia": {
