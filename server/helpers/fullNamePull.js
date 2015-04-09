@@ -9,9 +9,9 @@ People.findAll()
       var obj = {
         fullName: data[i].get().fullName,
         id: data[i].get().id,
-        sitehits: {
+        sites: {
           count: 0,
-          lastCount: 0
+          countChange: 0
         }
       };
       array.push(obj);
