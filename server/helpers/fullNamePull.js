@@ -6,7 +6,15 @@ People.findAll()
   .then(function(data) {
     var array = [];
     for (var i = 0; i < data.length; i++) {
-      array.push(data[i].get().fullName);
+      var obj = {
+        fullName: data[i].get().fullName,
+        id: data[i].get().id,
+        sitehits: {
+          count: 0,
+          lastCount: 0
+        }
+      };
+      array.push(obj);
     }
 
     return array;
