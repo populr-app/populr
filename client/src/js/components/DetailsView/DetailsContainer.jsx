@@ -2,9 +2,12 @@
 
 var DetailsContainer = React.createClass({
   render: function(){
+  	console.log('details', this.props);
     return (
         <div className="details-container">
-          {this.props.details}
+        	<div className="container">
+          	{this.props.details}
+          </div>
         </div>
       );
   }
