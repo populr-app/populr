@@ -3,10 +3,10 @@ var PeopleNav = React.createClass({
 		return (
 			<nav>
 				<ul className="people-nav">
-					<li className="people-nav--selected"><a href="#a-list">A-List</a></li>
-					<li><a href="#b-list">B-List</a></li>
-					<li><a href="#c-list">C-List</a></li>
-					<li><a href="#d-list">D-List</a></li>
+					<a href="#a-list"><li className="people-nav--selected">A-List</li></a>
+					<a href="#b-list"><li>B-List</li></a>
+					<a href="#c-list"><li>C-List</li></a>
+					<a href="#d-list"><li>D-List</li></a>
 				</ul>
 			</nav>
 		);
