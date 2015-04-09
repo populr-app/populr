@@ -23,21 +23,16 @@ module.exports.get = function(req, res) {
 // requested list or all 4 lists (sorted)
 module.exports.query = function(which) {
   return Top.findAll({order: 'rank ASC'}).then(function(data) {
-    if (!data.length) {
-      require('../../workers/topPuller')();
-      return 'Updating Top';
-    } else {
-      lists = {a: [], b: [], c: [], d: [], all: []};
-      data.forEach(function(person, index) {
-        lists.all.push(person.get());
-        if (index <= 49) lists.a.push(person.get());
-        else if (index <= 99) lists.b.push(person.get());
-        else if (index <= 149) lists.c.push(person.get());
-        else lists.d.push(person.get());
-      });
+    lists = {a: [], b: [], c: [], d: [], all: []};
+    data.forEach(function(person, index) {
+      lists.all.push(person.get());
+      if (index <= 49) lists.a.push(person.get());
+      else if (index <= 99) lists.b.push(person.get());
+      else if (index <= 149) lists.c.push(person.get());
+      else lists.d.push(person.get());
+    });
 
-      if (lists[which]) return lists[which];
-      else return lists;
-    }
+    if (lists[which]) return lists[which];
+    else return lists;
   });
 };
