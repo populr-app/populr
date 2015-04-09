@@ -1,0 +1,215 @@
+{
+    "sites": [
+
+        "http://www.theguardian.com/us",
+        "http://www.theguardian.com/music",
+        "http://www.theguardian.com/film",
+        "http://www.theguardian.com/tv-and-radio",
+
+        "http://www.buzzfeed.com/entertainment",
+
+        "http://www.huffingtonpost.com/",
+        "http://www.huffingtonpost.com/entertainment/",
+        "http://www.huffingtonpost.com/celebrity/",
+        "http://www.huffingtonpost.com/tv/",
+        "http://www.huffingtonpost.com/news/hollywood-buzz/",
+
+        "http://www.ew.com/",
+        "http://www.ew.com/tv",
+        "http://www.ew.com/movies",
+        "http://www.ew.com/music",
+
+        "http://www.tmz.com/",
+        "http://www.tmz.com/celebrity-directory?adid=TMZ_Web_Nav_Celebs",
+
+        "http://perezhilton.com/",
+
+        "http://www.eonline.com/",
+        "http://www.eonline.com/news",
+        "http://www.eonline.com/news/tv",
+        "http://www.eonline.com/news/red_carpet",
+
+        "http://www.people.com/people/",
+        "http://www.people.com/people/news/",
+        "http://www.people.com/people/tvwatch/",
+        "http://www.people.com/people/special/0,,20793283,00.html",
+        "http://www.people.com/people/country/",
+        "http://www.peoplestylewatch.com/people/stylewatch/redcarpet/",
+        "http://www.people.com/people/package/0,,20395222,00.html",
+
+        "http://www.usmagazine.com/",
+        "http://www.usmagazine.com/celebrity-news",
+        "http://www.usmagazine.com/entertainment",
+
+        "http://hollywoodlife.com/",
+        "http://hollywoodlife.com/topics/hollybaby/",
+        "http://hollywoodlife.com/topics/bonnies-take/",
+        "http://hollywoodlife.com/topics/tv/",
+
+        "http://www.dailymail.co.uk/tvshowbiz/index.html",
+        "http://www.dailymail.co.uk/tvshowbiz/headlines/index.html",
+        "http://www.dailymail.co.uk/usshowbiz/index.html",
+
+        "http://www.vh1.com/celebrity/",
+        "http://www.vh1.com/shows/the_gossip_table/",
+        "http://www.vh1.com/music/tuner/",
+
+        "http://radaronline.com/",
+
+        "http://okmagazine.com/",
+
+        "http://starmagazine.com/",
+
+        "https://celebrity.yahoo.com/",
+
+        "https://celebrity.yahoo.com/the-insider/",
+
+        "https://celebrity.yahoo.com/us-weekly/",
+
+        "http://www.foxnews.com/entertainment/index.html",
+        "http://www.foxnews.com/entertainment/celebrity-news/index.html",
+        "http://www.foxnews.com/entertainment/movies/index.html",
+        "http://www.foxnews.com/entertainment/tv/index.html",
+        "http://www.foxnews.com/entertainment/music/index.html",
+        "http://www.foxnews.com/entertainment/style/index.html",
+
+        "http://www.telegraph.co.uk/news/celebritynews/",
+        "http://www.telegraph.co.uk/culture/",
+        "http://www.telegraph.co.uk/culture/film/",
+        "http://www.telegraph.co.uk/culture/tvandradio/",
+        "http://www.telegraph.co.uk/culture/books/",
+        "http://www.telegraph.co.uk/culture/music/",
+        "http://www.telegraph.co.uk/culture/comedy/",
+
+        "http://www.mtv.com/",
+        "http://www.mtv.com/music/",
+        "http://www.mtv.com/news/",
+        "http://www.mtv.com/news/music/",
+        "http://www.mtv.com/news/celebrity/",
+        "http://www.mtv.com/news/tv/",
+        "http://www.mtv.com/news/movies/",
+        "http://www.mtv.com/news/style/",
+        "http://www.mtv.com/news/life/",
+        "http://www.mtv.com/news/issues/",
+
+        "http://www.celebrity-gossip.net/",
+
+        "http://www.thehollywoodgossip.com/",
+
+        "http://thecelebrityauction.co/",
+
+        "http://www.cnn.com/entertainment",
+        "http://www.cnn.com/specials/showbiz/celebrity-watch",
+        "http://www.cnn.com/specials/showbiz/tv-web",
+        "http://www.cnn.com/specials/showbiz/movies-music",
+
+        "http://time.com/entertainment/",
+        "http://time.com/tag/celebrities/",
+
+        "http://abcnews.go.com/entertainment",
+
+        "http://www.nytimes.com/pages/books/index.html",
+        "http://www.nytimes.com/pages/movies/index.html",
+        "http://www.nytimes.com/pages/arts/music/index.html",
+        "http://www.nytimes.com/pages/arts/television/index.html",
+        "http://www.nytimes.com/pages/theater/index.html",
+        "http://www.nytimes.com/pages/arts/video-games/index.html",
+
+        "http://www.nydailynews.com/entertainment",
+        "http://www.nydailynews.com/entertainment/gossip/confidential",
+        "http://www.nydailynews.com/entertainment/gossip",
+        "http://www.nydailynews.com/entertainment/tv",
+        "http://www.nydailynews.com/entertainment/movies",
+        "http://www.nydailynews.com/entertainment/music",
+        "http://www.nydailynews.com/entertainment/theater-arts",
+
+        "http://www.newyorker.com/culture",
+        "http://www.newyorker.com/goings-on-about-town/theatre",
+        "http://www.newyorker.com/goings-on-about-town/movies",
+
+        "http://nypost.com/entertainment/",
+
+        "http://www.npr.org/sections/arts/",
+        "http://www.npr.org/sections/movies/",
+        "http://www.npr.org/sections/pop-culture/",
+        "http://www.npr.org/sections/television/",
+        "http://www.npr.org/music/",
+
+        "http://www.ew.com/popwatch",
+        "http://www.ew.com/package/stage",
+
+        "http://gawker.com/",
+        "http://valleywag.gawker.com/",
+        "http://defamer.gawker.com/",
+        "http://morningafter.gawker.com/",
+        "http://tktk.gawker.com/",
+
+        "http://jezebel.com/",
+
+        "http://www.vulture.com/",
+        "http://www.vulture.com/movies/",
+        "http://www.vulture.com/tv/",
+        "http://www.vulture.com/music/",
+        "http://www.vulture.com/art-books/",
+        "http://www.vulture.com/entertainment-industry/",
+
+        "http://www.hollywoodreporter.com/",
+        "http://www.hollywoodreporter.com/movies",
+        "http://www.hollywoodreporter.com/television",
+        "http://www.hollywoodreporter.com/music",
+        "http://www.hollywoodreporter.com/tech",
+        "http://www.hollywoodreporter.com/business",
+        "http://www.hollywoodreporter.com/style",
+        "http://www.hollywoodreporter.com/culture",
+        "http://www.hollywoodreporter.com/awards",
+
+        "http://www.bbc.com/news/entertainment_and_arts",
+        "http://www.bbc.com/culture",
+        "http://www.bbc.com/culture/sections/film",
+        "http://www.bbc.com/culture/sections/music",
+        "http://www.bbc.com/culture/sections/art",
+        "http://www.bbc.com/culture/sections/style",
+
+        "http://www.etonline.com/",
+        "http://www.etonline.com/news/",
+        "http://www.etonline.com/tv/",
+        "http://www.etonline.com/movies/",
+        "http://www.etonline.com/awards/oscars/",
+        "http://www.etonline.com/fashion/",
+        "http://www.etonline.com/music/",
+        "http://www.etonline.com/gallery/#",
+        "http://www.etonline.com/tag/celebs/",
+
+        "http://www.salon.com/category/entertainment/",
+        "http://www.salon.com/topic/books/",
+        "http://www.salon.com/topic/movies/",
+        "http://www.salon.com/topic/music/",
+        "http://www.salon.com/topic/tv/",
+
+        "http://www.vice.com/music",
+        "http://www.vice.com/tag/culture",
+
+        "http://www.hollywoodnews.com/",
+        "http://www.hollywoodnews.com/category/awards-buzz/",
+        "http://www.hollywoodnews.com/category/hollywood-celebrity-news/",
+        "http://www.hollywoodnews.com/category/movies-film-festivals-awards/",
+        "http://www.hollywoodnews.com/category/cable-and-tv/",
+
+        "http://www.accesshollywood.com/",
+        "http://www.accesshollywood.com/news",
+        "http://www.accesshollywood.com/news?filter=tv",
+        "http://www.accesshollywood.com/news?filter=movies",
+        "http://www.accesshollywood.com/news?filter=music",
+        "http://www.accesshollywood.com/news?filter=personalities",
+        "http://www.accesshollywood.com/lifestyle",
+
+        "http://www.hollywood.com/",
+        "http://www.hollywood.com/news/",
+        "http://www.hollywood.com/movies/",
+        "http://www.hollywood.com/tv/",
+        "http://www.hollywood.com/celebrities/",
+        "http://www.hollywood.com/card/"
+
+    ]
+
+}
