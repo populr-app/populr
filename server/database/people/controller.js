@@ -1,11 +1,15 @@
 
+/**
+ * People controller
+ * @module people/controller
+ */
+
 var validate = require('validator');
 var People = require('./model');
 var twitterController = require('../twitter/controller');
 var wikipediaController = require('../wikipedia/controller');
 var log = require('../../helpers/logger').log;
 
-/* Routes Handlers */
 
 module.exports.attachParam = function(req, res, next, id) {
   if (validate.isUUID(id)) {
@@ -69,6 +73,17 @@ module.exports.post = function(req, res, next) {
 
 /* Methods */
 
+/**
+ * Takes a query object with either an id or a fullName property and returns the corrosponding data in the People table
+ *
+ * @param {Object} Object Query of what you desire {where: {id: ID}} / {where:{fullName: 'Garrett'}}
+ *
+ * @return {Object} {
+ *   id: String,
+ *   score: Number,
+ *   scoreChange: Number
+ * }
+ */
 module.exports.query = function(query) {
   if (!query) {
     return null;
