@@ -1,10 +1,9 @@
 var WikipediaApi = require('wtf_wikipedia');
 var Sleep = require('sleep');
+var http = require('http');
 var PeopleDB = require('../database/people/model.js');
 var WikipediaDB = require('../database/wikipedia/model.js');
 var Populr = require('../database/wikipedia/controller.js');
-var Utils = require('./utils.js');
-var keys = require('../../keys.js');
 
 PeopleDB.findAll().then(function(people) {
 
@@ -27,57 +26,45 @@ PeopleDB.findAll().then(function(people) {
   names.forEach(function(name) {
 
     WikipediaApi.from_api(name, 'en', function(markup) {
-      if(!markup){ console.log(name); return;}
-      var id = wikis[name][0];
-      var fullName = name;
-      var occupation = parseJob(markup);
-      var extract = parseExtract(markup);
-      var url = 'http://en.wikipedia.org/wiki/' + encodeURIComponent(fullName);
+      if (!markup) {
+        console.log(name); return;
+      }
 
-      var update = {
-        'id': id,
-        'wikipedia': {
-          'fullName': fullName,
-          'occupation': occupation,
-          'extract': extract,
-          'url': url
-        }
-      };
+      var options = {
+          hostname: 'en.wikipedia.org',
+          path: '/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + encodeURIComponent(name) + '&continue=',
+        };
 
-      // update Wikipedia table
-      Populr.add(update);
+      http.get(options, function(result) {
+        var buffer = '';
+        result.setEncoding('utf8');
+
+        result.on('data', function(data) {
+            buffer += data;
+          });
+
+        result.on('end', function() {
+            var id = wikis[name][0];
+            var fullName = name;
+            var extract = buffer.split('extract":"')[1].split('"}}')[0];
+            var url = 'http://en.wikipedia.org/wiki/' + encodeURIComponent(fullName);
+            var update = {
+              'id': id,
+              'wikipedia': {
+                'fullName': fullName,
+                'url': url,
+                'extract': extract
+              }
+            };
+
+            console.log(update);
+
+            // update Wikipedia table
+         //   Populr.add(update);
+          });
+
+      });
 
     });
   });
 });
-
-function parseJob(markup) {
-
-  // gets the first sentence in Wikipedia markup
-  var sentence = WikipediaApi.plaintext(markup).split(/\. [A-Z]/)[0];
-
-  // split after name and DOB
-  var arr = sentence.split(' is ');
-  arr.splice(0, 1);
-
-  // get their job
-  var job = arr.join(' is ').replace(/^a /, '').replace(/^an /, '').replace(/^the /, '');
-  job = job.split(' who')[0];
-  job = job.split(', where')[0];
-  job = job.split(' from')[0];
-  job = job.split('; ')[0];
-  job = job.replace(/[,.:;!@#$%^&*()+ ]+$/, '');
-
-  // if job description is over 90 characters, is probably bad.
-  return job.length > 90 ? '' : job;
-};
-
-function parseExtract(markup) {
-  var Intro = WikipediaApi.parse(markup).text.Intro;
-  var extract = '';
-  Intro.forEach(function(object) {
-    extract += object.text + ' ';
-  });
-
-  return extract;
-};
