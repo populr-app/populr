@@ -29,7 +29,7 @@ app.use('/api/context', contextRouter);
 require('./router.js').context(contextRouter);
 
 app.use('/api/sites', sitesRouter);
-require('./router.js').context(sitesRouter);
+require('./router.js').sites(sitesRouter);
 
 /*  serves index on default  */
 app.use(function(req, res) {
