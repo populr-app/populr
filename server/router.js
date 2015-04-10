@@ -3,7 +3,8 @@
 var topController = require('./database/top/controller');
 var peopleController = require('./database/people/controller');
 var twitterController = require('./database/twitter/controller');
-var wikipediaController = require('./database/wikipedia/controller');
+var contextController = require('./database/context/controller');
+var sitesController = require('./database/sites/controller');
 
 // Directing the given routes to the correct controllers
 module.exports.top = function(app) {
@@ -20,7 +21,16 @@ module.exports.people = function(app) {
 
 // Here for maybe future implementation?
 module.exports.twitter = function(app) {
+  app.param('id', twitterController.attachParam);
+  app.get('/:id', twitterController.get);
 };
 
-module.exports.wikipedia = function(app) {
+module.exports.context = function(app) {
+  app.param('id', contextController.attachParam);
+  app.get('/:id', contextController.get);
+};
+
+module.exports.sites = function(app) {
+  app.param('id', sitesController.attachParam);
+  app.get('/:id', sitesController.get);
 };

@@ -9,35 +9,48 @@ var log = require('../../helpers/logger').log;
 
 /* Routes Handlers (not yet implemented) */
 
-module.exports.get = function() {
+module.exports.attachParam = function(req, res, next, id) {
+  req.body = {fullName: id};
+  next();
 };
 
-module.exports.post = function() {
+module.exports.get = function(req, res, next) {
+  var person = req.body;
+  module.exports.query(person.fullName)
+    .then(function(data) {
+      if (!data) {
+        log('Invalid GET');
+        res.send(person.fullName + ' Not found');
+      } else {
+        log('${a}: Sending data to client', data.fullName);
+        res.send(data);
+      }
+    });
 };
 
 /**
- * Takes a UUID and returns the corresponding data on the Sites table
+ * Takes a fullName and returns the corresponding data on the Sites table
  *
- * @param {String} UUID Unique identifier of the data you desire
+ * @param {String} fullName Full name of the data you desire
  *
  * @return {Object} {
- *   id: String,
+ *   fullName: String,
  *   score: Number,
  *   scoreChange: Number
  * }
  */
-module.exports.query = function(UUID) {
-  if (!UUID) {
+module.exports.query = function(fullName) {
+  if (!fullName) {
     return null;
   } else {
-    var query = { where: { id: UUID } };
-    log('${a}: Checking sites table', UUID);
-    return Sites.findOne(UUID).then(function(foundSites) {
+    var query = { where: { fullName: fullName } };
+    log('${a}: Checking sites table', fullName);
+    return Sites.findOne(fullName).then(function(foundSites) {
       if (!foundSites) {
-        log('${a}: Not found in sites table', UUID);
+        log('${a}: Not found in sites table', fullName);
         return null;
       } else {
-        log('${a}: Found in sites table', UUID);
+        log('${a}: Found in sites table', fullName);
         return foundSites.get();
       }
     });
@@ -55,12 +68,11 @@ module.exports.attachData = function(personObj) {
   if (!personObj) {
     return null;
   } else {
-    var query = { where: { id: personObj.id } };
-    return module.exports.query(query).then(function(foundSites) {
+    return module.exports.query(personObj.fullName).then(function(foundSites) {
       if (!foundSites) {
         return personObj;
       } else {
-        log('${a}: Attaching sites data', personObj.id);
+        log('${a}: Attaching sites data', personObj.fullName);
         personObj.sites = foundSites;
         return personObj;
       }
@@ -68,13 +80,10 @@ module.exports.attachData = function(personObj) {
   }
 };
 
-// Adds or updates an entry in the database, takes a person object
-// that has an ID and a given dataset
-// Ex: {id: '', sites: {}}
 /**
- * Takes a personObj with an ID and sites data and either creates or updates it's corresponding entry in the Sites table
+ * Takes a personObj with an fullName and sites data and either creates or updates it's corresponding entry in the Sites table
  *
- * @param {Object} personObj The personObj with a UUID on it that you want to create or update
+ * @param {Object} personObj The personObj with a fullName on it that you want to create or update
  *
  * @return the original personObj
  */
@@ -82,18 +91,18 @@ module.exports.add = function(personObj) {
   if (!personObj.sites) {
     return personObj;
   } else {
-    var query = { where: { id: personObj.id } };
-    log('${a}: Checking sites table', query.where.id || query.where.fullName);
+    var query = { where: { fullName: personObj.fullName } };
+    log('${a}: Checking sites table', personObj.fullName);
     return Sites.findOne(query).then(function(foundSites) {
       if (foundSites) {
-        log('${a}: Found in sites table', query.where.id || query.where.fullName);
-        log('${a}: Updating sites data', query.where.id || query.where.fullName);
+        log('${a}: Found in sites table', personObj.fullName);
+        log('${a}: Updating sites data', personObj.fullName);
         foundSites.update(personObj.sites);
         return personObj;
       } else {
-        log('${a}: Not found in sites table', query.where.id || query.where.fullName);
-        log('${a}: Creating entry in sites table', query.where.id || query.where.fullName);
-        personObj.sites.id = personObj.id;
+        log('${a}: Not found in sites table', personObj.fullName);
+        log('${a}: Creating entry in sites table', personObj.fullName);
+        personObj.sites.fullName = personObj.fullName;
         return Sites.create(personObj.sites).then(function(newSites) {
           return personObj;
         });
