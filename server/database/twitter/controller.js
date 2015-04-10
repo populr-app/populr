@@ -1,4 +1,9 @@
 
+/**
+ * Twitter controller
+ * @module twitter/controller
+ */
+
 var Twitter = require('./model');
 var log = require('../../helpers/logger').log;
 
@@ -10,29 +15,42 @@ module.exports.get = function() {
 module.exports.post = function() {
 };
 
-/* Methods */
-
-// Takes a query object ({where: {}}) and returns the db entry
-// that it finds or returns null if there are none
-module.exports.query = function(query) {
-  if (!query) {
+/**
+ * Takes a UUID and returns the corresponding data on the Twitter table
+ *
+ * @param {String} UUID Unique identifier of the data you desire
+ *
+ * @return {Object} {
+ *   id: String,
+ *   score: Number,
+ *   scoreChange: Number
+ * }
+ */
+module.exports.query = function(UUID) {
+  if (!UUID) {
     return null;
   } else {
-    log('${a}: Checking twitter table', query.where.id || query.where.fullName);
-    return Twitter.findOne(query).then(function(foundTwitter) {
+    var query = { where: { id: UUID } };
+    log('${a}: Checking twitter table', UUID);
+    return Twitter.findOne(UUID).then(function(foundTwitter) {
       if (!foundTwitter) {
-        log('${a}: Not found in twitter table', query.where.id || query.where.fullName);
+        log('${a}: Not found in twitter table', UUID);
         return null;
       } else {
-        log('${a}: Found in twitter table', query.where.id || query.where.fullName);
+        log('${a}: Found in twitter table', UUID);
         return foundTwitter.get();
       }
     });
   }
 };
 
-// Attaches the matched data to the passed in person obj, used for
-// detail view get requests so we can send back all of a person's data
+/**
+ * Takes an object with a UUID and attaches and returns the corresponding data on the Twitter table to the object
+ *
+ * @param {Object} personObj The personObj with a UUID on it that you want to attach the twitter data onto
+ *
+ * @return {personObj} personObj with attached twitter (personObj.twitter)
+ */
 module.exports.attachData = function(personObj) {
   if (!personObj) {
     return null;
@@ -53,6 +71,13 @@ module.exports.attachData = function(personObj) {
 // Adds or updates an entry in the database, takes a person object
 // that has an ID and a given dataset
 // Ex: {id: '', twitter: {}}
+/**
+ * Takes a personObj with an ID and twitter data and either creates or updates it's corresponding entry in the Twitter table
+ *
+ * @param {Object} personObj The personObj with a UUID on it that you want to create or update
+ *
+ * @return the original personObj
+ */
 module.exports.add = function(personObj) {
   if (!personObj.twitter) {
     return personObj;

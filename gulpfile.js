@@ -16,6 +16,7 @@ var gulpSequence = require('gulp-sequence');
 var shell = require('gulp-shell');
 var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
+var mocha = require('gulp-mocha');
 
 var path = {
   HTML: './client/src/index.html',
@@ -112,7 +113,7 @@ gulp.task('replaceHTML', function() {
 
 /* JSDoc */
 gulp.task('jsdoc', shell.task([
-  './node_modules/jsdoc/jsdoc.js ./server ./client -r'
+  './node_modules/jsdoc/jsdoc.js ./server -r'
 ]));
 
 /* Run workers */
@@ -131,6 +132,12 @@ gulp.task('updateTop', function() {
 
 gulp.task('updatePeopleScores', function() {
   require('./server/workers/peopleScoreUpdater')();
+});
+
+/* Serverside testing */
+gulp.task('mochatest', function() {
+  return gulp.src('./server/serverSpec.js', {read: false})
+    .pipe(mocha({reporter: 'nyan'}));
 });
 
 /* React Unit Testing (Jest) */
