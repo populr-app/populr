@@ -1,7 +1,11 @@
+var Sequelize = require('Sequelize');
 var TwitterApi = require('twitter');
 var TwitterDB = require('../database/twitter/model.js');
 var Populr = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
+var _ = require('lodash');
+
+Sequelize.Promise.promisifyAll(TwitterApi.prototype);
 
 module.exports = function() {
 
@@ -17,60 +21,46 @@ module.exports = function() {
   // Keys are the twitter handles,
   // Values are an array of the ids, number of followers, and the twitter score.
   TwitterDB.findAll().then(function(twitter) {
+    for (var i = 0; i < twitter.length; i++) {
+      twitter[i] = twitter[i].get();
+    }
 
-    var handles = {};
-    twitter.forEach(function(entry) {
+    return twitter;
+  }).then(function(allUsers) {
+    var chunks = _.chunk(allUsers, 100);
+    var chunkPromises = [];
 
-      var obj = handles[entry.get('handle')] = [];
-      obj[0] = entry.get('id');
-      obj[1] = entry.get('followers');
-      obj[2] = entry.get('score');
+    chunks.forEach(function(chunk) {
+      var screenNames = _.pluck(chunk, 'handle');
+      chunkPromises.push(client.getAsync('users/lookup', {screen_name: screenNames.join()})
+        .then(function(data) {
+          var peoplePromises = [];
+          for (var i = 0; i < data.length; i++) {
+            var twitterData = data[0][i];
+            if (twitterData) {
+              var update = {
+                fullName: chunk[i].fullName,
+                twitter: {
+                  handle: twitterData.screen_name,
+                  followers: twitterData.followers_count,
+                  followersChange: twitterData.followers_count - chunk[i].followers,
+                  profilePic: twitterData.profile_image_url,
+                  backgroundPic: twitterData.profile_banner_url
+                }
+              };
+              peoplePromises.push(Populr.add(update));
+            }
+          }
 
+          return Sequelize.Promise.all(peoplePromises);
+        }));
     });
 
-    return handles;
-
-  }).then(function(handles) {
-
-    // Separate handles into 100-item string chunks
-    var separated = Utils.separateArray(Object.keys(handles), 100);
-
-    // Pings the Twitter API with 100 handles at a time
-    separated.forEach(function(screenNames) {
-      client.get('users/lookup', {'screen_name': screenNames.join()}, function(error, users, response) {
-        console.log('Ping twitter API');
-        if (!error) {
-          users.forEach(function(user) {
-
-            var handle = user.screen_name;
-            var followers = user.followers_count;
-            var profilePic = user.profile_image_url;
-            var backgroundPic = user.profile_banner_url;
-            var id = handles[handle][0];
-            var followersChange = followers - handles[handle][1];
-            var score = followers + followersChange;
-            var scoreChange = score - handles[handle][2];
-
-            var update = {
-              'id': id,
-              'twitter': {
-                'handle': handle,
-                'profilePic': profilePic,
-                'backgroundPic': backgroundPic,
-                'followers': followers,
-                'followersChange': followersChange,
-                'score': score,
-                'scoreChange': scoreChange
-              }
-            };
-
-            // Sends update object to Twitter table
-            Populr.add(update);
-
-          });
-        }else { console.log(error); }
-
-      });
+    return Sequelize.Promise.all(chunkPromises);
+  })
+  .then(function(data) {
+    data[0].forEach(function(person) {
+      console.log(person.fullName);
     });
   });
 };
