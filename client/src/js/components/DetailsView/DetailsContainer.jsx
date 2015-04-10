@@ -1,13 +1,13 @@
-
+var TwitterContainer = require('./DetailsModules/TwitterContainer.jsx');
 
 var DetailsContainer = React.createClass({
   render: function(){
-  	console.log('details', this.props);
-    return (
+       return (
         <div className="details-container">
-        	<div className="container">
-          	{this.props.details}
+          <div className="description">
+            {this.props.details.context.description}
           </div>
+          <TwitterContainer twitter={this.props.details.twitter} />
         </div>
       );
   }
