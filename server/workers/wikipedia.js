@@ -60,7 +60,7 @@ PeopleDB.findAll().then(function(people) {
             console.log(update);
 
             // update Wikipedia table
-         //   Populr.add(update);
+            Populr.add(update);
           });
 
       });
