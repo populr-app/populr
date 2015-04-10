@@ -1,13 +1,11 @@
-/**
- * Template model
- * @module template/model
- * @see module:template/controller
- */
+
 var Sequelize = require('sequelize');
 var sql = require('../connection.js');
 
 module.exports = sql.define('template', {
-  id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },
+  fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
+  score: { type: Sequelize.FLOAT, defaultValue: 0},
+  scoreChange: { type: Sequelize.FLOAT, defaultValue: 0},
   templateValue: { type: Sequelize.STRING }
 });
 

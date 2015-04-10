@@ -3,9 +3,11 @@ var Sequelize = require('sequelize');
 var sql = require('../connection.js');
 
 module.exports = sql.define('sites', {
-  id: { type: Sequelize.UUID, primaryKey: true, allowNull: false },
-  count: { type: Sequelize.STRING },
-  countChange: { type: Sequelize.STRING }
+  fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
+  score: { type: Sequelize.FLOAT, defaultValue: 0},
+  scoreChange: { type: Sequelize.FLOAT, defaultValue: 0},
+  count: { type: Sequelize.INTEGER },
+  countChange: { type: Sequelize.INTEGER }
 });
 
 module.exports.sync();
