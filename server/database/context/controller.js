@@ -1,10 +1,10 @@
 
 /**
- * Wikipedia controller
- * @module wikipedia/controller
+ * Context controller
+ * @module context/controller
  */
 
-var Wikipedia = require('./model');
+var Context = require('./model');
 var log = require('../../helpers/logger').log;
 
 /* Routes Handlers (not yet implemented) */
@@ -16,85 +16,81 @@ module.exports.post = function() {
 };
 
 /**
- * Takes a UUID and returns the corresponding data on the Wikipedia table
+ * Takes a fullName and returns the corresponding data on the Context table
  *
- * @param {String} UUID Unique identifier of the data you desire
+ * @param {String} fullName Full name of the data you desire
  *
  * @return {Object} {
- *   id: String,
+ *   fullName: String,
  *   score: Number,
  *   scoreChange: Number
  * }
  */
-module.exports.query = function(UUID) {
-  if (!UUID) {
+module.exports.query = function(fullName) {
+  if (!fullName) {
     return null;
   } else {
-    var query = { where: { id: UUID } };
-    log('${a}: Checking wikipedia table', UUID);
-    return Wikipedia.findOne(UUID).then(function(foundWikipedia) {
-      if (!foundWikipedia) {
-        log('${a}: Not found in wikipedia table', UUID);
+    var query = { where: { fullName: fullName } };
+    log('${a}: Checking context table', fullName);
+    return Context.findOne(fullName).then(function(foundContext) {
+      if (!foundContext) {
+        log('${a}: Not found in context table', fullName);
         return null;
       } else {
-        log('${a}: Found in wikipedia table', UUID);
-        return foundWikipedia.get();
+        log('${a}: Found in context table', fullName);
+        return foundContext.get();
       }
     });
   }
 };
 
 /**
- * Takes an object with a UUID and attaches and returns the corresponding data on the Wikipedia table to the object
+ * Takes an object with a UUID and attaches and returns the corresponding data on the Context table to the object
  *
- * @param {Object} personObj The personObj with a UUID on it that you want to attach the wikipedia data onto
+ * @param {Object} personObj The personObj with a UUID on it that you want to attach the context data onto
  *
- * @return {personObj} personObj with attached wikipedia (personObj.wikipedia)
+ * @return {personObj} personObj with attached context (personObj.context)
  */
 module.exports.attachData = function(personObj) {
   if (!personObj) {
     return null;
   } else {
-    var query = { where: { id: personObj.id } };
-    return module.exports.query(query).then(function(foundWikipedia) {
-      if (!foundWikipedia) {
+    return module.exports.query(personObj.fullName).then(function(foundContext) {
+      if (!foundContext) {
         return personObj;
       } else {
-        log('${a}: Attaching wikipedia data', personObj.id);
-        personObj.wikipedia = foundWikipedia;
+        log('${a}: Attaching context data', personObj.fullName);
+        personObj.context = foundContext;
         return personObj;
       }
     });
   }
 };
 
-// Adds or updates an entry in the database, takes a person object
-// that has an ID and a given dataset
-// Ex: {id: '', wikipedia: {}}
 /**
- * Takes a personObj with an ID and wikipedia data and either creates or updates it's corresponding entry in the Wikipedia table
+ * Takes a personObj with an fullName and context data and either creates or updates it's corresponding entry in the Context table
  *
- * @param {Object} personObj The personObj with a UUID on it that you want to create or update
+ * @param {Object} personObj The personObj with a fullName on it that you want to create or update
  *
  * @return the original personObj
  */
 module.exports.add = function(personObj) {
-  if (!personObj.wikipedia) {
+  if (!personObj.context) {
     return personObj;
   } else {
-    var query = { where: { id: personObj.id } };
-    log('${a}: Checking wikipedia table', query.where.id || query.where.fullName);
-    return Wikipedia.findOne(query).then(function(foundWikipedia) {
-      if (foundWikipedia) {
-        log('${a}: Found in wikipedia table', query.where.id || query.where.fullName);
-        log('${a}: Updating wikipedia data', query.where.id || query.where.fullName);
-        foundWikipedia.update(personObj.wikipedia);
+    var query = { where: { fullName: personObj.fullName } };
+    log('${a}: Checking context table', personObj.fullName);
+    return Context.findOne(query).then(function(foundContext) {
+      if (foundContext) {
+        log('${a}: Found in context table', personObj.fullName);
+        log('${a}: Updating context data', personObj.fullName);
+        foundContext.update(personObj.context);
         return personObj;
       } else {
-        log('${a}: Not found in wikipedia table', query.where.id || query.where.fullName);
-        log('${a}: Creating entry in wikipedia table', query.where.id || query.where.fullName);
-        personObj.wikipedia.id = personObj.id;
-        return Wikipedia.create(personObj.wikipedia).then(function(newWikipedia) {
+        log('${a}: Not found in context table', personObj.fullName);
+        log('${a}: Creating entry in context table', personObj.fullName);
+        personObj.context.fullName = personObj.fullName;
+        return Context.create(personObj.context).then(function(newContext) {
           return personObj;
         });
       }

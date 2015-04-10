@@ -16,28 +16,28 @@ module.exports.post = function() {
 };
 
 /**
- * Takes a UUID and returns the corresponding data on the Twitter table
+ * Takes a fullName and returns the corresponding data on the Twitter table
  *
- * @param {String} UUID Unique identifier of the data you desire
+ * @param {String} fullName Full name of the data you desire
  *
  * @return {Object} {
- *   id: String,
+ *   fullName: String,
  *   score: Number,
  *   scoreChange: Number
  * }
  */
-module.exports.query = function(UUID) {
-  if (!UUID) {
+module.exports.query = function(fullName) {
+  if (!fullName) {
     return null;
   } else {
-    var query = { where: { id: UUID } };
-    log('${a}: Checking twitter table', UUID);
-    return Twitter.findOne(UUID).then(function(foundTwitter) {
+    var query = { where: { fullName: fullName } };
+    log('${a}: Checking twitter table', fullName);
+    return Twitter.findOne(fullName).then(function(foundTwitter) {
       if (!foundTwitter) {
-        log('${a}: Not found in twitter table', UUID);
+        log('${a}: Not found in twitter table', fullName);
         return null;
       } else {
-        log('${a}: Found in twitter table', UUID);
+        log('${a}: Found in twitter table', fullName);
         return foundTwitter.get();
       }
     });
@@ -55,12 +55,11 @@ module.exports.attachData = function(personObj) {
   if (!personObj) {
     return null;
   } else {
-    var query = { where: { id: personObj.id } };
-    return module.exports.query(query).then(function(foundTwitter) {
+    return module.exports.query(personObj.fullName).then(function(foundTwitter) {
       if (!foundTwitter) {
         return personObj;
       } else {
-        log('${a}: Attaching twitter data', personObj.id);
+        log('${a}: Attaching twitter data', personObj.fullName);
         personObj.twitter = foundTwitter;
         return personObj;
       }
@@ -68,13 +67,10 @@ module.exports.attachData = function(personObj) {
   }
 };
 
-// Adds or updates an entry in the database, takes a person object
-// that has an ID and a given dataset
-// Ex: {id: '', twitter: {}}
 /**
- * Takes a personObj with an ID and twitter data and either creates or updates it's corresponding entry in the Twitter table
+ * Takes a personObj with an fullName and twitter data and either creates or updates it's corresponding entry in the Twitter table
  *
- * @param {Object} personObj The personObj with a UUID on it that you want to create or update
+ * @param {Object} personObj The personObj with a fullName on it that you want to create or update
  *
  * @return the original personObj
  */
@@ -82,18 +78,18 @@ module.exports.add = function(personObj) {
   if (!personObj.twitter) {
     return personObj;
   } else {
-    var query = { where: { id: personObj.id } };
-    log('${a}: Checking twitter table', query.where.id || query.where.fullName);
+    var query = { where: { fullName: personObj.fullName } };
+    log('${a}: Checking twitter table', personObj.fullName);
     return Twitter.findOne(query).then(function(foundTwitter) {
       if (foundTwitter) {
-        log('${a}: Found in twitter table', query.where.id || query.where.fullName);
-        log('${a}: Updating twitter data', query.where.id || query.where.fullName);
+        log('${a}: Found in twitter table', personObj.fullName);
+        log('${a}: Updating twitter data', personObj.fullName);
         foundTwitter.update(personObj.twitter);
         return personObj;
       } else {
-        log('${a}: Not found in twitter table', query.where.id || query.where.fullName);
-        log('${a}: Creating entry in twitter table', query.where.id || query.where.fullName);
-        personObj.twitter.id = personObj.id;
+        log('${a}: Not found in twitter table', personObj.fullName);
+        log('${a}: Creating entry in twitter table', personObj.fullName);
+        personObj.twitter.fullName = personObj.fullName;
         return Twitter.create(personObj.twitter).then(function(newTwitter) {
           return personObj;
         });
