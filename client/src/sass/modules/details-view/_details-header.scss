@@ -1,19 +1,45 @@
 .details-header {
 	@include header;
+	height: 100px;
+	box-shadow: 0 0 2px #ddd;
 }
 
-.details-header__top-wrapper {
-	margin-top: 45px;
+.details-header__top-personal {
+	margin-top: 15px;
 }
 .details-header__face {
 	img {
-		width: 75px;
-		height: auto;
+		width: 70px;
+		height: 70px;
 		border-radius: 50px;
 	}
 }
 
 .details-header__name {
 	font-weight: 300;
+	font-size: 1.5em;
+	color: #4B5086;
+}
+
+.details-header__profession {
+	font-weight: 100;
+	font-size: 1.2em;
+	color: #aaa;
+}
+
+.details-header__name, .details-header__profession {
+	margin-top: 0;
+	margin-bottom: 0;
 	margin-left: 45px;
+}
+
+.details-header__rank {
+	float: right;
+	margin-top: 30px;
+	padding: 10px 20px;
+	border: 1px solid $primary;
+	border-radius: 50px;
+	color: $primary;
+	background: transparent;
+
 }

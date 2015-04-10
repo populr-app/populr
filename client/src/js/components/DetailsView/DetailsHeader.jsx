@@ -19,13 +19,21 @@ var DetailsHeader = React.createClass({
     return (
         <div className="details-header">
         	<div className="container">
-            <div className="details-header__top-wrapper">
+            <div className="details-header__top-personal inline">
               <div className="details-header__face inline">
                 <img src={profilePicture}/>
               </div>
-              <h1 className="details-header__name inline">
-                {this.props.details.fullName}
-              </h1>
+              <div className="inline">
+                <h1 className="details-header__name">
+                  {this.props.details.fullName}
+                </h1>
+                <h2 className="details-header__profession">
+                  {this.props.details.context.occupation}
+                </h2>
+              </div>
+            </div>
+            <div className="details-header__rank inline">
+              <span>Rank 4<sup>th</sup></span>
             </div>
           </div>
         </div>
