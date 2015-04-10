@@ -6,7 +6,7 @@ module.exports = sql.define('context', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
   occupation: { type: Sequelize.STRING },
   dob: { type: Sequelize.STRING },
-  wiki: { type: Sequelize.TEXT }
+  description: { type: Sequelize.TEXT }
 });
 
 module.exports.sync();
