@@ -28,9 +28,6 @@ module.exports.get = function(req, res, next) {
     });
 };
 
-module.exports.post = function() {
-};
-
 /**
  * Takes a fullName and returns the corresponding data on the Sites table
  *
