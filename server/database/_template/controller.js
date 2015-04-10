@@ -18,7 +18,23 @@ var log = require('../../helpers/logger').log;
 
 /* Routes Handlers (not yet implemented) */
 
-module.exports.get = function() {
+module.exports.attachParam = function(req, res, next, id) {
+  req.body = {fullName: id};
+  next();
+};
+
+module.exports.get = function(req, res, next) {
+  var person = req.body;
+  module.exports.query(person.fullName)
+    .then(function(data) {
+      if (!data) {
+        log('Invalid GET');
+        res.send(person.fullName + ' Not found');
+      } else {
+        log('${a}: Sending data to client', data.fullName);
+        res.send(data);
+      }
+    });
 };
 
 module.exports.post = function() {
