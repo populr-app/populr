@@ -4,45 +4,43 @@
  * @module people/controller
  */
 
-var validate = require('validator');
 var People = require('./model');
 var twitterController = require('../twitter/controller');
-var wikipediaController = require('../wikipedia/controller');
+var contextController = require('../context/controller');
+var sitesController = require('../sites/controller');
 var log = require('../../helpers/logger').log;
 
 
 module.exports.attachParam = function(req, res, next, id) {
-  if (validate.isUUID(id)) {
-    req.body = {id: id};
-    next();
-  } else {
-    req.body = {fullName: id};
-    next();
-  }
+  req.body = {fullName: id};
+  next();
 };
 
 module.exports.get = function(req, res, next) {
   var person = req.body;
-  module.exports.attachData({where: person})
+  module.exports.query(person.fullName)
+    .then(twitterController.attachData)
+    .then(contextController.attachData)
+    .then(sitesController.attachData)
     .then(function(data) {
       if (!data) {
         log('Invalid GET');
-        res.send(person.id || person.fullName + ' Not found');
+        res.send(person.fullName + ' Not found');
       } else {
-        log('${a}: Sending data to client', data.id);
+        log('${a}: Sending data to client', data.fullName);
         res.send(data);
       }
     });
 };
 
 module.exports.post = function(req, res, next) {
-
   if (Array.isArray(req.body.people)) {
     log('Array of people: Post Request');
     req.body.people.forEach(function(personObj) {
       module.exports.add(personObj)
         .then(twitterController.add)
-        .then(wikipediaController.add)
+        .then(contextController.add)
+        .then(sitesController.add)
         .then(function(data) {
           if (!data) {
             log('Invalid POST');
@@ -52,16 +50,18 @@ module.exports.post = function(req, res, next) {
           }
         });
     });
-  } else if (req.body.fullName || req.body.id) {
-    log('${a}: Post Request', req.body.id || req.body.fullName);
+  } else if (req.body.fullName) {
+    log('${a}: Post Request', req.body.fullName);
     module.exports.add(req.body)
       .then(twitterController.add)
-      .then(wikipediaController.add)
+      .then(contextController.add)
+      .then(sitesController.add)
       .then(function(data) {
         if (!data) {
           log('Invalid POST');
           res.send('Invalid POST');
         } else {
+          log('Successful POST');
           res.send(data);
         }
       });
@@ -73,66 +73,38 @@ module.exports.post = function(req, res, next) {
 
 /* Methods */
 
-/**
- * Takes a query object with either an id or a fullName property and returns the corrosponding data in the People table
- *
- * @param {Object} Object Query of what you desire {where: {id: ID}} / {where:{fullName: 'Garrett'}}
- *
- * @return {Object} {
- *   id: String,
- *   score: Number,
- *   scoreChange: Number
- * }
- */
-module.exports.query = function(query) {
-  if (!query) {
+module.exports.query = function(fullName) {
+  if (!fullName) {
     return null;
   } else {
-    log('${a}: Checking people table', query.where.id || query.where.fullName);
-    return People.findOne(query).then(function(data) {
-      if (!data) {
-        log('${a}: Not found in people table', query.where.id || query.where.fullName);
+    var query = { where: { fullName: fullName } };
+    log('${a}: Checking people table', fullName);
+    return People.findOne(query).then(function(foundPeople) {
+      if (!foundPeople) {
+        log('${a}: Not found in people table', fullName);
         return null;
       } else {
-        var string = query.where.fullName ? '(' + query.where.fullName + ')' : '';
-        log('${a}: Found in people table ${b}', data.get().id, string);
-        return data.get();
+        log('${a}: Found in people table', fullName);
+        return foundPeople.get();
       }
     });
   }
 };
 
-module.exports.attachData = function(query) {
-  return module.exports.query(query)
-    .then(function(data) {
-      if (data) {
-        log('${a}: Sending through pipeline', data.id);
-      }
-
-      return data;
-    })
-    .then(twitterController.attachData)
-    .then(wikipediaController.attachData);
-};
-
 module.exports.add = function(personObj) {
-  if (!personObj.id && !personObj.fullName) {
+  if (!personObj.fullName) {
     return null;
   } else {
-    var query = personObj.id ? { where: { id: personObj.id } } : { where: { fullName: personObj.fullName } };
-    return module.exports.query(query).then(function(foundPerson) {
-      if (!foundPerson) {
-        return People.create(personObj).then(function(newPerson) {
-          personObj.id = newPerson.get().id;
-          var string = personObj.fullName ? '(' + personObj.fullName + ')' : '';
-          log('${a}: Creating in people table ${b}', personObj.id, string);
-          log('${a}: Sending through pipeline', personObj.id);
+    return module.exports.query(personObj.fullName).then(function(foundPerson) {
+      if (foundPerson) {
+        log('${a}: Sending through pipeline', personObj.fullName);
+        return personObj;
+      } else {
+        log('${a}: Creating entry in people table', personObj.fullName);
+        return People.create(personObj).then(function() {
+          log('${a}: Sending through pipeline', personObj.fullName);
           return personObj;
         });
-      } else {
-        personObj.id = foundPerson.id;
-        log('${a}: Sending through pipeline', personObj.id);
-        return personObj;
       }
     });
   }
