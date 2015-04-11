@@ -5,20 +5,51 @@ var DetailsActions = require('../../actions/DetailsActions.jsx');
 
 var DetailsMain = React.createClass({
   getInitialState: function(){
-    return {details: {}}
+    return {
+    details: {
+        "id": "",
+        "fullName": "",
+        "score": 0,
+        "scoreChange": 0,
+        "createdAt": "",
+        "updatedAt": "",
+        "twitter": {
+            "fullName": "",
+            "score": 0,
+            "scoreChange": 0,
+            "handle": "",
+            "twitterId": "",
+            "profilePic": "",
+            "backgroundPic": "",
+            "followers": 0,
+            "followersChange": 0,
+            "createdAt": "",
+            "updatedAt": ""
+        },
+        "context": {
+            "fullName": "",
+            "occupation": "",
+            "dob": "",
+            "description": "",
+            "createdAt": "",
+            "updatedAt": ""
+        }
+    }
+}
   },
   componentWillMount: function(){
     DetailsStore.listen(this.onDetailsChange);
     DetailsActions.loadDetails(this.props.fullName);
   },
   onDetailsChange: function(data){
-    this.setState({details: data});
+    this.replaceState({details: data});
   },
   render: function(){
+    console.log(this.state.details);
     return (
         <div className="details-main">
           <DetailsHeader details={this.state.details} />
-          <DetailsContainer details={this.state.details}  />
+          <DetailsContainer details={this.state.details} />
         </div>
       );
   }

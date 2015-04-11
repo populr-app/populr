@@ -1,6 +1,5 @@
 
 var People = require('../database/people/model');
-var Wikipedia = require('../database/wikipedia/model');
 var Top = require('../database/top/model');
 
 Top.drop().then(function() {

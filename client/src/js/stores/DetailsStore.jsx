@@ -1,7 +1,7 @@
 var Reflux = require('reflux');
 var DetailsActions = require('../actions/DetailsActions.jsx');
 
-var _details = [];
+var _details = {};
 
 var DetailsStore = Reflux.createStore({
   init: function() {
