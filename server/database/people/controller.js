@@ -8,6 +8,8 @@ var People = require('./model');
 var twitterController = require('../twitter/controller');
 var contextController = require('../context/controller');
 var sitesController = require('../sites/controller');
+var facebookController = require('../facebook/controller');
+var topController = require('../top/controller');
 var log = require('../../helpers/logger').log;
 
 
@@ -22,6 +24,8 @@ module.exports.get = function(req, res, next) {
     .then(twitterController.attachData)
     .then(contextController.attachData)
     .then(sitesController.attachData)
+    .then(facebookController.attachData)
+    .then(topController.attachData)
     .then(function(data) {
       if (!data) {
         log('Invalid GET');
@@ -41,6 +45,8 @@ module.exports.post = function(req, res, next) {
         .then(twitterController.add)
         .then(contextController.add)
         .then(sitesController.add)
+        .then(facebookController.add)
+        .then(topController.add)
         .then(function(data) {
           if (!data) {
             log('Invalid POST');
@@ -56,6 +62,8 @@ module.exports.post = function(req, res, next) {
       .then(twitterController.add)
       .then(contextController.add)
       .then(sitesController.add)
+      .then(facebookController.add)
+      .then(topController.add)
       .then(function(data) {
         if (!data) {
           log('Invalid POST');

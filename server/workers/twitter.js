@@ -1,7 +1,8 @@
 var Sequelize = require('Sequelize');
 var TwitterApi = require('twitter');
-var TwitterDB = require('../database/twitter/model.js');
-var Populr = require('../database/twitter/controller.js');
+var sql = require('../database/connection.js');
+var Twitter = require('../database/twitter/model.js');
+var TwitterController = require('../database/twitter/controller.js');
 var Utils = require('./utils.js');
 var _ = require('lodash');
 
@@ -20,7 +21,7 @@ module.exports = function() {
   // Queries the Twitter table and builds an object.
   // Keys are the twitter handles,
   // Values are an array of the ids, number of followers, and the twitter score.
-  TwitterDB.findAll().then(function(twitter) {
+  Twitter.findAll().then(function(twitter) {
     for (var i = 0; i < twitter.length; i++) {
       twitter[i] = twitter[i].get();
     }
@@ -48,7 +49,7 @@ module.exports = function() {
                   backgroundPic: twitterData.profile_banner_url
                 }
               };
-              peoplePromises.push(Populr.add(update));
+              peoplePromises.push(TwitterController.add(update));
             }
           }
 
@@ -58,9 +59,18 @@ module.exports = function() {
 
     return Sequelize.Promise.all(chunkPromises);
   })
-  .then(function(data) {
-    data[0].forEach(function(person) {
-      console.log(person.fullName);
+  .then(function() {
+    sql.query('SELECT MAX(followers) FROM twitters;').then(function(data) {
+      var max = data[0][0].max;
+      return Twitter.findAll().then(function(twitters) {
+        var twitterPromises = [];
+        for (var i = 0; i < twitters.length; i++) {
+          var score = twitters[i].get('followers') / max;
+          twitterPromises.push(twitters[i].update({score: score}));
+        }
+
+        return Sequelize.Promise.all(twitterPromises);
+      });
     });
   });
 };

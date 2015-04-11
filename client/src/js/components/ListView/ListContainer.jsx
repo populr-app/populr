@@ -10,7 +10,7 @@ var ListContainer = React.createClass({
               <h2 className="list-container__title">A-List</h2>
               <ul className="people-list">
               {this.props.aList.map(function(person){
-                return <ListItem key={person.id} person={person} />
+                return <ListItem key={person.fullName} person={person} />
               })}
               </ul>
             </div>
@@ -19,7 +19,7 @@ var ListContainer = React.createClass({
               <h2 className="list-container__title">B-List</h2>
               <ul className="people-list">
                 {this.props.bList.map(function(person){
-                  return <ListItem key={person.id} person={person} />
+                  return <ListItem key={person.fullName} person={person} />
                 })}
               </ul>
             </div>
@@ -28,7 +28,7 @@ var ListContainer = React.createClass({
               <h2 className="list-container__title">C-List</h2>
               <ul className="people-list">
                 {this.props.cList.map(function(person){
-                  return <ListItem key={person.id} person={person} />
+                  return <ListItem key={person.fullName} person={person} />
                 })}
               </ul>
             </div>
@@ -37,7 +37,7 @@ var ListContainer = React.createClass({
               <h2 className="list-container__title">D-List</h2>
               <ul className="people-list">
                 {this.props.dList.map(function(person){
-                  return <ListItem key={person.id} person={person} />
+                  return <ListItem key={person.fullName} person={person} />
                 })}
               </ul>
             </div>
