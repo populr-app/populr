@@ -49,7 +49,7 @@ module.exports = function() {
           }
         }
 
-        return promiseArray;
+        return Sequelize.Promise.all(promiseArray);
       });
   }).then(function() {
     // Grabs the max followers/change and gives it to the next method
