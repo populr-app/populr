@@ -1,4 +1,4 @@
-
+var TwitterContainer = require('./DetailsModules/TwitterContainer.jsx');
 var DetailsContainer = React.createClass({
   render: function(){
     if (this.props.details.context.description === undefined) {
@@ -10,7 +10,7 @@ var DetailsContainer = React.createClass({
     /* Sets a max number of words in a paragraph for Wikipedia bio */
     var bio = this.props.details.context.description.split(' ');
     var bioLength = bio.length;
-    var trimmedString = bio.splice(0, 100).join(' ');
+    var trimmedString = bio.splice(0, 140).join(' ');
 
     /* Dynamic Wikipedia URL */
     var wikiURI = 'http://en.wikipedia.org/wiki/' + this.props.details.fullName;
@@ -25,6 +25,7 @@ var DetailsContainer = React.createClass({
             </div>
           </div>
         </div>
+        <TwitterContainer twitter={this.props.details.twitter} />
       </div>
     );
   }
