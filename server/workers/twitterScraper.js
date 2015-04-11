@@ -19,7 +19,7 @@ module.exports = function() {
   });
 
   // Queries the twitter db, and returns chunks of 100 people
-  Twitter.findAll().then(function(twitter) {
+  return Twitter.findAll().then(function(twitter) {
     for (var i = 0; i < twitter.length; i++) {
       twitter[i] = twitter[i].get();
     }

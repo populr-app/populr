@@ -9,7 +9,7 @@ var topController = require('../database/top/controller');
 var People = require('../database/people/model');
 
 module.exports = function() {
-  People.findAll().then(function(data) {
+  return People.findAll().then(function(data) {
     for (var i = 0; i < data.length; i++) {
       data[i] = data[i].get();
     }
