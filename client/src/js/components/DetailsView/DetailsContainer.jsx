@@ -13,6 +13,7 @@ var DetailsContainer = React.createClass({
     var trimmedString = bio.splice(0, 100).join(' ');
 
     /* Dynamic Wikipedia URL */
+    var wikiURI = 'http://en.wikipedia.org/wiki/' + this.props.details.fullName;
     console.log(this.props.details);
      return (
       <div className="details-container">
@@ -20,7 +21,7 @@ var DetailsContainer = React.createClass({
           <div className="container">
             <h3 className="wikipedia-bio__title">Biography</h3>
             <div className="wikipedia-bio__columns">
-              {trimmedString}...Read More
+              {trimmedString}... <a href={wikiURI} target="_blank">Read More</a>
             </div>
           </div>
         </div>
