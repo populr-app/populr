@@ -118,16 +118,27 @@ gulp.task('jsdoc', shell.task([
 
 /* Workers */
 gulp.task('scrapeAll', function() {
-  console.log('not ready yet ;)');
+  require('./server/workers/twitterScraper')()
+    .then(require('./server/workers/sitesScraper'))
+    .then(require('./server/workers/peopleScoreUpdater'))
+    .then(require('./server/workers/topUpdater'));
 });
 
 gulp.task('scrapeTwitter', function() {
   require('./server/workers/twitterScraper')();
-})
+});
 
 gulp.task('scrapeSites', function() {
   require('./server/workers/sitesScraper')();
-})
+});
+
+gulp.task('updateScores', function() {
+  require('./server/workers/peopleScoreUpdater')();
+});
+
+gulp.task('updateTop', function() {
+  require('./server/workers/topUpdater')();
+});
 
 gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
