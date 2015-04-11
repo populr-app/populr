@@ -4,9 +4,9 @@ var sql = require('../connection.js');
 
 module.exports = sql.define('context', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
-  occupation: { type: Sequelize.STRING },
-  dob: { type: Sequelize.STRING },
-  description: { type: Sequelize.TEXT }
+  occupation: { type: Sequelize.STRING, defaultValue: '' },
+  dob: { type: Sequelize.STRING, defaultValue: '' },
+  description: { type: Sequelize.TEXT, defaultValue: '' }
 });
 
 module.exports.sync();
