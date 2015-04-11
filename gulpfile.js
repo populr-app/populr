@@ -121,17 +121,13 @@ gulp.task('runScrapers', function() {
   require('./server/workers/twitter')();
 });
 
-gulp.task('loadfromJSON', function() {
+gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
   require('./server/database/people/controller').post(data, {send: function() {}});
 });
 
-gulp.task('updateTop', function() {
-  require('./server/workers/topUpdater')();
-});
-
-gulp.task('updatePeopleScores', function() {
-  require('./server/workers/peopleScoreUpdater')();
+gulp.task('dropTables', function(){
+  require('./server/helpers/droptables')();
 });
 
 /* Serverside testing */
