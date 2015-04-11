@@ -13,7 +13,7 @@
 
 	.wikipedia-bio__title {
 		text-align: center;
-		font-weight: 100;
+		font-weight: 500;
 		letter-spacing: 0.5em;
 		padding: 10px 0;
 		text-transform: uppercase;
@@ -21,7 +21,17 @@
 
 	.wikipedia-bio__columns {
 		column-count: 2;
-		column-gap: 40px;
-		line-height: 35px;
+		column-gap: 80px;
+		line-height: 40px;
+		letter-spacing: 0.02em;
+
+		a {
+			color: $primary;
+			text-decoration: none;
+		}
 	}
+}
+
+.social-module {
+	float: left;
 }
