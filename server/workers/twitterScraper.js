@@ -1,4 +1,4 @@
-var Sequelize = require('Sequelize');
+var Sequelize = require('sequelize');
 var TwitterApi = require('twitter');
 var sql = require('../database/connection.js');
 var Twitter = require('../database/twitter/model.js');
