@@ -26,51 +26,54 @@ module.exports = function() {
       twitter[i] = twitter[i].get();
     }
 
-    return twitter;
-  }).then(function(allUsers) {
-    var chunks = _.chunk(allUsers, 100);
-    var chunkPromises = [];
-
-    chunks.forEach(function(chunk) {
-      var screenNames = _.pluck(chunk, 'handle');
-      chunkPromises.push(client.getAsync('users/lookup', {screen_name: screenNames.join()})
-        .then(function(data) {
-          var peoplePromises = [];
-          for (var i = 0; i < data.length; i++) {
-            var twitterData = data[0][i];
-            if (twitterData) {
-              var update = {
-                fullName: chunk[i].fullName,
-                twitter: {
-                  handle: twitterData.screen_name,
-                  followers: twitterData.followers_count,
-                  followersChange: twitterData.followers_count - chunk[i].followers,
-                  profilePic: twitterData.profile_image_url,
-                  backgroundPic: twitterData.profile_banner_url
-                }
-              };
-              peoplePromises.push(TwitterController.add(update));
-            }
+    return _.chunk(twitter, 100);
+  }).each(function(chunk) {
+    var screenNames = _.pluck(chunk, 'handle');
+    return client.getAsync('users/lookup', {screen_name: screenNames.join()})
+      .then(function(data) {
+        var promiseArray = [];
+        for (var i = 0; i < data[0].length; i++) {
+          var twitterData = data[0][i];
+          if (twitterData) {
+            var update = {
+              fullName: chunk[i].fullName,
+              twitter: {
+                handle: twitterData.screen_name,
+                followers: twitterData.followers_count,
+                followerschange: twitterData.followers_count - chunk[i].followers,
+                profilePic: twitterData.profile_image_url,
+                backgroundPic: twitterData.profile_banner_url
+              }
+            };
+            promiseArray.push(TwitterController.add(update));
           }
+        }
 
-          return Sequelize.Promise.all(peoplePromises);
-        }));
-    });
-
-    return Sequelize.Promise.all(chunkPromises);
+        return promiseArray;
+      });
   })
   .then(function() {
-    sql.query('SELECT MAX(followers) FROM twitters;').then(function(data) {
-      var max = data[0][0].max;
-      return Twitter.findAll().then(function(twitters) {
+    var max = {};
+    return sql.query('SELECT MAX(followers) FROM twitters;').then(function(d1) {
+      max.followers = d1[0][0].max;
+      return sql.query('SELECT MAX(followerschange) FROM twitters;').then(function(d2) {
+        max.followerschange = d2[0][0].max;
+        return max;
+      });
+    });
+  })
+  .then(function(max) {
+    console.log(max);
+    return Twitter.findAll().then(function(twitters) {
         var twitterPromises = [];
         for (var i = 0; i < twitters.length; i++) {
-          var score = twitters[i].get('followers') / max;
-          twitterPromises.push(twitters[i].update({score: score}));
+          var f = twitters[i].get('followers') / max.followers;
+          var fc = twitters[i].get('followerschange') / max.followerschange;
+          var score = (f + fc) / 2;
+          twitterPromises.push(twitters[i].update({score: Math.floor(score * 1000)}));
         }
 
         return Sequelize.Promise.all(twitterPromises);
       });
-    });
   });
 };
