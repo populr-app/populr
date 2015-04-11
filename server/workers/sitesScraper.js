@@ -72,6 +72,7 @@ module.exports = function() {
           for (var i = 0; i < sites.length; i++) {
             var c = sites[i].get('count') / max.count;
             var cc = sites[i].get('countchange') / max.countchange;
+            if (isNaN(cc)) cc = 0;
             var score = (c + cc) / 2;
             sitesPromises.push(sites[i].update({score: Math.floor(score * 1000)}));
           }

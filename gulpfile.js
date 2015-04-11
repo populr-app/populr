@@ -116,10 +116,18 @@ gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js ./server -r'
 ]));
 
-/* Run workers */
-gulp.task('runScrapers', function() {
-  require('./server/workers/twitter')();
+/* Workers */
+gulp.task('scrapeAll', function() {
+  console.log('not ready yet ;)');
 });
+
+gulp.task('scrapeTwitter', function() {
+  require('./server/workers/twitterScraper')();
+})
+
+gulp.task('scrapeSites', function() {
+  require('./server/workers/sitesScraper')();
+})
 
 gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
