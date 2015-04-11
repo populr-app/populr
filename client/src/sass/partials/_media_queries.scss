@@ -18,8 +18,26 @@
   .list-sidebar, .details-sidebar {
     display: none;
   }
-  .details-main {
+  .details-main, .list-main {
     margin-left: 0 !important;
+  }
+
+  .list-container {
+  	margin-top: 70px;
+  }
+
+  .wikipedia-bio__columns {
+    columns: 0 !important;
+  }
+
+  .mobile-header {
+  	display: block;
+  }
+
+  .logo {
+  	img {
+  		margin-top: 20px;
+  	}
   }
 }
 
