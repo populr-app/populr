@@ -18,9 +18,7 @@ module.exports = function() {
     access_token_secret: process.env.TWITTER_AS || require('../../keys.js').twitter.accessTokenSecret
   });
 
-  // Queries the Twitter table and builds an object.
-  // Keys are the twitter handles,
-  // Values are an array of the ids, number of followers, and the twitter score.
+  // Queries the twitter db, and returns chunks of 100 people
   Twitter.findAll().then(function(twitter) {
     for (var i = 0; i < twitter.length; i++) {
       twitter[i] = twitter[i].get();
@@ -28,6 +26,8 @@ module.exports = function() {
 
     return _.chunk(twitter, 100);
   }).each(function(chunk) {
+    // Grabs all the screennames from each chunk, and sends it to
+    // Twitter's API which returns new data to update our db with
     var screenNames = _.pluck(chunk, 'handle');
     return client.getAsync('users/lookup', {screen_name: screenNames.join()})
       .then(function(data) {
@@ -51,8 +51,8 @@ module.exports = function() {
 
         return promiseArray;
       });
-  })
-  .then(function() {
+  }).then(function() {
+    // Grabs the max followers/change and gives it to the next method
     var max = {};
     return sql.query('SELECT MAX(followers) FROM twitters;').then(function(d1) {
       max.followers = d1[0][0].max;
@@ -61,9 +61,8 @@ module.exports = function() {
         return max;
       });
     });
-  })
-  .then(function(max) {
-    console.log(max);
+  }).then(function(max) {
+    // Grabs everyone in the twitter db, calculates and updates their score
     return Twitter.findAll().then(function(twitters) {
         var twitterPromises = [];
         for (var i = 0; i < twitters.length; i++) {

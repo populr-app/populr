@@ -116,22 +116,26 @@ gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js ./server -r'
 ]));
 
-/* Run workers */
-gulp.task('runScrapers', function() {
-  require('./server/workers/twitter')();
+/* Workers */
+gulp.task('scrapeAll', function() {
+  console.log('not ready yet ;)');
 });
 
-gulp.task('loadfromJSON', function() {
+gulp.task('scrapeTwitter', function() {
+  require('./server/workers/twitterScraper')();
+})
+
+gulp.task('scrapeSites', function() {
+  require('./server/workers/sitesScraper')();
+})
+
+gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
   require('./server/database/people/controller').post(data, {send: function() {}});
 });
 
-gulp.task('updateTop', function() {
-  require('./server/workers/topUpdater')();
-});
-
-gulp.task('updatePeopleScores', function() {
-  require('./server/workers/peopleScoreUpdater')();
+gulp.task('dropTables', function(){
+  require('./server/helpers/droptables')();
 });
 
 /* Serverside testing */
