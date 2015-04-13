@@ -117,36 +117,31 @@ gulp.task('jsdoc', shell.task([
 ]));
 
 /* Workers */
-gulp.task('scrapeAll', function() {
-  require('./server/workers/twitterScraper')()
-    .then(require('./server/workers/sitesScraper'))
-    .then(require('./server/workers/peopleScoreUpdater'))
-    .then(require('./server/workers/topUpdater'));
-});
+gulp.task('scrapeAll', gulpSequence('scrapeTwitter', 'scrapeSites', 'updateScores', 'updateTop'));
 
 gulp.task('scrapeTwitter', function() {
-  require('./server/workers/twitterScraper')();
+  return require('./server/workers/twitterScraper')();
 });
 
 gulp.task('scrapeSites', function() {
-  require('./server/workers/sitesScraper')();
+  return require('./server/workers/sitesScraper')();
 });
 
 gulp.task('updateScores', function() {
-  require('./server/workers/peopleScoreUpdater')();
+  return require('./server/workers/peopleScoreUpdater')();
 });
 
 gulp.task('updateTop', function() {
-  require('./server/workers/topUpdater')();
+  return require('./server/workers/topUpdater')();
 });
 
 gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
-  require('./server/database/people/controller').post(data, {send: function() {}});
+  return require('./server/database/people/controller').post(data, {send: function() {}});
 });
 
 gulp.task('dropTables', function(){
-  require('./server/helpers/droptables')();
+  return require('./server/helpers/droptables')();
 });
 
 /* Serverside testing */
