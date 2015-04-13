@@ -6,7 +6,7 @@
 /* * Imports * */
 
 var Twitter = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -56,13 +56,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking twitter table', fullName);
     return Twitter.findOne(fullName).then(function(foundTwitter) {
       if (!foundTwitter) {
-        log('${a}: Not found in twitter table', fullName);
         return null;
       } else {
-        log('${a}: Found in twitter table', fullName);
         return foundTwitter.get();
       }
     });
@@ -85,7 +82,6 @@ module.exports.attachData = function(personObj) {
       if (!foundTwitter) {
         return personObj;
       } else {
-        log('${a}: Attaching twitter data', personObj.fullName);
         personObj.twitter = foundTwitter;
         return personObj;
       }
@@ -106,16 +102,11 @@ module.exports.add = function(personObj) {
     return personObj;
   } else {
     var query = { where: { fullName: personObj.fullName } };
-    log('${a}: Checking twitter table', personObj.fullName);
     return Twitter.findOne(query).then(function(foundTwitter) {
       if (foundTwitter) {
-        log('${a}: Found in twitter table', personObj.fullName);
-        log('${a}: Updating twitter data', personObj.fullName);
         foundTwitter.update(personObj.twitter);
         return personObj;
       } else {
-        log('${a}: Not found in twitter table', personObj.fullName);
-        log('${a}: Creating entry in twitter table', personObj.fullName);
         personObj.twitter.fullName = personObj.fullName;
         return Twitter.create(personObj.twitter).then(function(newTwitter) {
           return personObj;

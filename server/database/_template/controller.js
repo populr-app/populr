@@ -15,7 +15,7 @@
 /* * Imports * */
 
 var Template = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -65,13 +65,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking template table', fullName);
     return Template.findOne(fullName).then(function(foundTemplate) {
       if (!foundTemplate) {
-        log('${a}: Not found in template table', fullName);
         return null;
       } else {
-        log('${a}: Found in template table', fullName);
         return foundTemplate.get();
       }
     });
@@ -94,7 +91,6 @@ module.exports.attachData = function(personObj) {
       if (!foundTemplate) {
         return personObj;
       } else {
-        log('${a}: Attaching template data', personObj.fullName);
         personObj.template = foundTemplate;
         return personObj;
       }
@@ -115,16 +111,11 @@ module.exports.add = function(personObj) {
     return personObj;
   } else {
     var query = { where: { fullName: personObj.fullName } };
-    log('${a}: Checking template table', personObj.fullName);
     return Template.findOne(query).then(function(foundTemplate) {
       if (foundTemplate) {
-        log('${a}: Found in template table', personObj.fullName);
-        log('${a}: Updating template data', personObj.fullName);
         foundTemplate.update(personObj.template);
         return personObj;
       } else {
-        log('${a}: Not found in template table', personObj.fullName);
-        log('${a}: Creating entry in template table', personObj.fullName);
         personObj.template.fullName = personObj.fullName;
         return Template.create(personObj.template).then(function(newTemplate) {
           return personObj;

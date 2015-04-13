@@ -6,7 +6,7 @@
 /* * Imports * */
 
 var Context = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -56,13 +56,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking context table', fullName);
     return Context.findOne(fullName).then(function(foundContext) {
       if (!foundContext) {
-        log('${a}: Not found in context table', fullName);
         return null;
       } else {
-        log('${a}: Found in context table', fullName);
         return foundContext.get();
       }
     });
@@ -85,7 +82,6 @@ module.exports.attachData = function(personObj) {
       if (!foundContext) {
         return personObj;
       } else {
-        log('${a}: Attaching context data', personObj.fullName);
         personObj.context = foundContext;
         return personObj;
       }
@@ -106,16 +102,11 @@ module.exports.add = function(personObj) {
     return personObj;
   } else {
     var query = { where: { fullName: personObj.fullName } };
-    log('${a}: Checking context table', personObj.fullName);
     return Context.findOne(query).then(function(foundContext) {
       if (foundContext) {
-        log('${a}: Found in context table', personObj.fullName);
-        log('${a}: Updating context data', personObj.fullName);
         foundContext.update(personObj.context);
         return personObj;
       } else {
-        log('${a}: Not found in context table', personObj.fullName);
-        log('${a}: Creating entry in context table', personObj.fullName);
         personObj.context.fullName = personObj.fullName;
         return Context.create(personObj.context).then(function(newContext) {
           return personObj;
