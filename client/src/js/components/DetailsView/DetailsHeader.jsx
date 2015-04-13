@@ -40,6 +40,11 @@ var DetailsHeader = React.createClass({
     var profilePicture = this.props.details.twitter.profilePic;
     profilePicture = profilePicture.replace(/_normal/i, '');
 
+    var occupation = this.props.details.context.occupation;
+    if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis') {
+      this.props.details.context.occupation = occupation + ' Player';
+    }
+
     return (
         <div className="details-header">
         	<div className="container">
