@@ -61,6 +61,8 @@ module.exports = function() {
           console.log(err);
         });
     }).then(function() {
+      return fs.writeFileAsync('./data/siteData.txt', '')
+    }).then(function() {
       // Grabs the max count/change and gives it to the next method
       var max = {};
       return sql.query('SELECT MAX(count) FROM sites;').then(function(d1) {

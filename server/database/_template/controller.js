@@ -8,21 +8,34 @@
  * and delete this block when done!
  */
 
-/**
- * Template controller
- * @module template/controller
- */
+/**********************
+  Template Controller
+**********************/
+
+/* * Imports * */
 
 var Template = require('./model');
 var log = require('../../helpers/logger').log;
 
-/* Routes Handlers (not yet implemented) */
+/* * API Methods * */
 
-module.exports.attachParam = function(req, res, next, id) {
-  req.body = {fullName: id};
+/*
+  @middleware attachParam()
+
+  Attaches the param on the api call (api/template/:param)
+  to the request body as 'fullName'.
+*/
+module.exports.attachParam = function(req, res, next, param) {
+  req.body = {fullName: param};
   next();
 };
 
+/*
+  @routeHandler get()
+
+  Uses the query method passing in the attached fullName on the request
+  body and sends back the data if any.
+*/
 module.exports.get = function(req, res, next) {
   var person = req.body;
   module.exports.query(person.fullName)
@@ -37,17 +50,16 @@ module.exports.get = function(req, res, next) {
     });
 };
 
-/**
- * Takes a fullName and returns the corresponding data on the Template table
- *
- * @param {String} fullName Full name of the data you desire
- *
- * @return {Object} {
- *   fullName: String,
- *   score: Number,
- *   scoreChange: Number
- * }
- */
+/* * Controller Methods * */
+
+/*
+  @function query()
+  --in-> String | 'Garrett Cox'
+  <-out- Object | {fullName: 'GarrettCox', score:90, scorechange: 10}
+
+  Takes a full name and returns the associated data in the template
+  table if any.
+*/
 module.exports.query = function(fullName) {
   if (!fullName) {
     return null;
@@ -66,13 +78,14 @@ module.exports.query = function(fullName) {
   }
 };
 
-/**
- * Takes an object with a UUID and attaches and returns the corresponding data on the Template table to the object
- *
- * @param {Object} personObj The personObj with a UUID on it that you want to attach the template data onto
- *
- * @return {personObj} personObj with attached template (personObj.template)
- */
+/*
+  @function attachData()
+  --in-> Object | {fullname:'Garrett Cox'}
+  <-out- Object | {fullname:'Garrett Cox', template:{score:90, scorechange: 10}}
+
+  Takes an object with a fullName property and attaches the associated
+  data in the template table on the template property of the object.
+*/
 module.exports.attachData = function(personObj) {
   if (!personObj) {
     return null;
@@ -89,13 +102,14 @@ module.exports.attachData = function(personObj) {
   }
 };
 
-/**
- * Takes a personObj with an fullName and template data and either creates or updates it's corresponding entry in the Template table
- *
- * @param {Object} personObj The personObj with a fullName on it that you want to create or update
- *
- * @return the original personObj
- */
+/*
+  @function add()
+  --in-> Object | {fullname:'Garrett Cox', template:{score:90, scorechange: 10}}
+  <-out- Object | Returns what was passed in
+
+  Takes an object with a fullName & a template property and either creates
+  or updates the corrosponding entry in the template table.
+*/
 module.exports.add = function(personObj) {
   if (!personObj.template) {
     return personObj;
