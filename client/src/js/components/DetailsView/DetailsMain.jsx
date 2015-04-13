@@ -45,7 +45,6 @@ var DetailsMain = React.createClass({
     this.replaceState({details: data});
   },
   render: function(){
-    console.log(this.state.details);
     return (
         <div className="details-main">
           <DetailsHeader details={this.state.details} />

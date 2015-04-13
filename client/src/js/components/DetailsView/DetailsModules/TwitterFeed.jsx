@@ -5,14 +5,13 @@ var TwitterFeed = React.createClass({
     }
   },
   componentWillUnmount: function(){
-      this.refs.twitter-feed.remove();
+      this.refs.twitterFeed.remove();
   },
   render: function(){
     var url = 'https://twitter.com/' + this.props.handle;
     var handleString = this.props.handle + '';
-    console.log('twit prop', this.props);
     return (
-        <a className="twitter-timeline" href={url} ref="twitter-feed" data-widget-id="586324073275265024" data-screen-name={handleString} >Tweets by @{this.props.handle}</a>
+        <a className="twitter-timeline" href={url} ref="twitterFeed" data-widget-id="586324073275265024" data-screen-name={handleString} >Tweets by @{this.props.handle}</a>
       );
   }
 });
