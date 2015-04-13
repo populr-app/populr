@@ -7,27 +7,38 @@ var Facebook = require('../database/facebook/model');
 var Top = require('../database/top/model');
 
 module.exports = function() {
-  People.drop().then(function() {
-    People.sync();
-  });
-
-  Twitter.drop().then(function() {
-    Twitter.sync();
-  });
-
-  Context.drop().then(function() {
-    Context.sync();
-  });
-
-  Sites.drop().then(function() {
-    Sites.sync();
-  });
-
-  Facebook.drop().then(function() {
-    Facebook.sync();
-  });
-
-  Top.drop().then(function() {
-    Top.sync();
-  });
+  return People.drop()
+    .then(function() {
+      return People.sync();
+    })
+    .then(function() {
+      return Twitter.drop();
+    })
+    .then(function() {
+      return Twitter.sync();
+    })
+    .then(function() {
+      return Context.drop();
+    })
+    .then(function() {
+      return Context.sync();
+    })
+    .then(function() {
+      return Sites.drop();
+    })
+    .then(function() {
+      return Sites.sync();
+    })
+    .then(function() {
+      return Facebook.drop();
+    })
+    .then(function() {
+      return Facebook.sync();
+    })
+    .then(function() {
+      return Top.drop();
+    })
+    .then(function() {
+      return Top.sync();
+    });
 };
