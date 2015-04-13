@@ -11,11 +11,13 @@ var fs = Promise.promisifyAll(require('fs'));
 var log = require('../helpers/log');
 
 module.exports = function() {
+  log('${a}: Starting', 'Sites Scraper');
   // Empties the siteData file and returns an array of sites
   return fs.writeFileAsync('./data/siteData.txt', '')
     .then(function() {
       return require('../../data/sites.json').sites;
-    }).each(function(site) {
+    }).each(function(site, index) {
+      if (index % 10 === 0) log('${a}: Reading and writing... [${b}/165]', 'Sites Scraper', index);
       // Makes a request, filters, and appends each site's text to siteData.txt
       return request(site).then(function(data) {
         var $ = cheerio.load(data[0].body);
@@ -37,9 +39,11 @@ module.exports = function() {
     }).then(function(people) {
       // Reads the siteData and for each person checks the occurences,
       // then makes a new update obj and sends it to the controller
+      log('${a}: Reading text file', 'Sites Scraper');
       return fs.readFileAsync('./data/siteData.txt')
         .then(function(data) {
           var results = [];
+          log('${a}: Counting occurrences', 'Sites Scraper');
           people.forEach(function(person) {
             var count = occurrences(data, person.fullName, false);
             var update = {
@@ -57,8 +61,10 @@ module.exports = function() {
           console.log(err);
         });
     }).then(function() {
-      return fs.writeFileAsync('./data/siteData.txt', '')
+      log('${a}: Done! emptying text file', 'Sites Scraper');
+      return fs.writeFileAsync('./data/siteData.txt', '');
     }).then(function() {
+      log('${a}: Getting max followers/followerschange', 'Sites Scraper');
       // Grabs the max count/change and gives it to the next method
       var max = {};
       return sql.query('SELECT MAX(count) FROM sites;').then(function(d1) {
@@ -71,6 +77,7 @@ module.exports = function() {
     }).then(function(max) {
       // Grabs everyone in the sites db, calculates and updates their score
       return Sites.findAll().then(function(sites) {
+          log('${a}: Calculating scores and updating users', 'Sites Scraper');
           var sitesPromises = [];
           for (var i = 0; i < sites.length; i++) {
             var c = sites[i].get('count') / max.count;
