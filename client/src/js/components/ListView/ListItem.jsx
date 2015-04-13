@@ -11,7 +11,9 @@ var ListItem = React.createClass({
         <div className="person-details">
           <Link to="details" params={this.props.person}>
             <span className="person-name">{this.props.person.fullName}</span>
-            <span className="person-profession">Profession</span>
+            <span className="person-profession">{this.props.person.occupation || 'Celebrity'}</span>
+            <span className="person-score">{this.props.person.score}</span>
+            <span className="person-score-change">{this.props.person.scoreChange}</span>
           </Link>
         </div>
         </div>
