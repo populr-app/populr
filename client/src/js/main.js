@@ -9,17 +9,5 @@ $(function() {
     $(this).addClass('people-nav--selected')
   });
 
-
-  /* Pikabu navigation drawer */
-  var pikabu = new Pikabu({
-    widths: {
-      right: '20%'
-    }
-  });
-
-  var maxString = function(string, max) {
-    var trimmedString = string.substring(0, max);
-    return trimmedString;
-  }
   /*Fin*/
 });
