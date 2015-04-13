@@ -6,7 +6,7 @@
 /* * Imports * */
 
 var Sites = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -56,13 +56,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking sites table', fullName);
     return Sites.findOne(fullName).then(function(foundSites) {
       if (!foundSites) {
-        log('${a}: Not found in sites table', fullName);
         return null;
       } else {
-        log('${a}: Found in sites table', fullName);
         return foundSites.get();
       }
     });
@@ -85,7 +82,6 @@ module.exports.attachData = function(personObj) {
       if (!foundSites) {
         return personObj;
       } else {
-        log('${a}: Attaching sites data', personObj.fullName);
         personObj.sites = foundSites;
         return personObj;
       }
@@ -106,16 +102,11 @@ module.exports.add = function(personObj) {
     return personObj;
   } else {
     var query = { where: { fullName: personObj.fullName } };
-    log('${a}: Checking sites table', personObj.fullName);
     return Sites.findOne(query).then(function(foundSites) {
       if (foundSites) {
-        log('${a}: Found in sites table', personObj.fullName);
-        log('${a}: Updating sites data', personObj.fullName);
         foundSites.update(personObj.sites);
         return personObj;
       } else {
-        log('${a}: Not found in sites table', personObj.fullName);
-        log('${a}: Creating entry in sites table', personObj.fullName);
         personObj.sites.fullName = personObj.fullName;
         return Sites.create(personObj.sites).then(function(newSites) {
           return personObj;

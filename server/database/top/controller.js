@@ -6,7 +6,7 @@
 /* * Imports * */
 
 var Top = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -76,13 +76,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking top table', fullName);
     return Top.findOne(fullName).then(function(foundTop) {
       if (!foundTop) {
-        log('${a}: Not found in top table', fullName);
         return null;
       } else {
-        log('${a}: Found in top table', fullName);
         return foundTop.get();
       }
     });
@@ -105,7 +102,6 @@ module.exports.attachData = function(personObj) {
       if (!foundTop) {
         return personObj;
       } else {
-        log('${a}: Attaching top data', personObj.fullName);
         personObj.top = foundTop;
         return personObj;
       }

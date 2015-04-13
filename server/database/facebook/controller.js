@@ -6,7 +6,7 @@
 /* * Imports * */
 
 var Facebook = require('./model');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 /* * API Methods * */
 
@@ -56,13 +56,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking facebook table', fullName);
     return Facebook.findOne(fullName).then(function(foundFacebook) {
       if (!foundFacebook) {
-        log('${a}: Not found in facebook table', fullName);
         return null;
       } else {
-        log('${a}: Found in facebook table', fullName);
         return foundFacebook.get();
       }
     });
@@ -85,7 +82,6 @@ module.exports.attachData = function(personObj) {
       if (!foundFacebook) {
         return personObj;
       } else {
-        log('${a}: Attaching facebook data', personObj.fullName);
         personObj.facebook = foundFacebook;
         return personObj;
       }
@@ -106,16 +102,11 @@ module.exports.add = function(personObj) {
     return personObj;
   } else {
     var query = { where: { fullName: personObj.fullName } };
-    log('${a}: Checking facebook table', personObj.fullName);
     return Facebook.findOne(query).then(function(foundFacebook) {
       if (foundFacebook) {
-        log('${a}: Found in facebook table', personObj.fullName);
-        log('${a}: Updating facebook data', personObj.fullName);
         foundFacebook.update(personObj.facebook);
         return personObj;
       } else {
-        log('${a}: Not found in facebook table', personObj.fullName);
-        log('${a}: Creating entry in facebook table', personObj.fullName);
         personObj.facebook.fullName = personObj.fullName;
         return Facebook.create(personObj.facebook).then(function(newFacebook) {
           return personObj;

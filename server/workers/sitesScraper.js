@@ -8,15 +8,12 @@ var SitesController = require('../database/sites/controller.js');
 var People = require('../database/people/model.js');
 var Sites = require('../database/sites/model.js');
 var fs = Promise.promisifyAll(require('fs'));
-var log = require('../helpers/logger').log;
+var log = require('../helpers/log');
 
 module.exports = function() {
   // Empties the siteData file and returns an array of sites
-  log('SiteScraper: Starting up');
   return fs.writeFileAsync('./data/siteData.txt', '')
     .then(function() {
-      log('SiteScraper: Cleared siteData.txt');
-      log('SiteScraper: Starting requests');
       return require('../../data/sites.json').sites;
     }).each(function(site) {
       // Makes a request, filters, and appends each site's text to siteData.txt
@@ -25,7 +22,6 @@ module.exports = function() {
         var text = $('body').text();
         text = text.replace(/\s+/g, ' ');
         text = text.replace(/[^\w\s]/gi, '');
-        log('SiteScraper: retrieved and writing to file ${a}', site);
         return fs.appendFileAsync('./data/siteData.txt', text);
       });
     }).then(function() {
@@ -69,15 +65,12 @@ module.exports = function() {
         max.count = d1[0][0].max;
         return sql.query('SELECT MAX(countchange) FROM sites;').then(function(d2) {
           max.countchange = d2[0][0].max;
-          log('SiteScraper: Max count: ${a}', max.count);
-          log('SiteScraper: Max countchange: ${a}', max.countchange);
           return max;
         });
       });
     }).then(function(max) {
       // Grabs everyone in the sites db, calculates and updates their score
       return Sites.findAll().then(function(sites) {
-          log('SiteScraper: Calculating and updating scores');
           var sitesPromises = [];
           for (var i = 0; i < sites.length; i++) {
             var c = sites[i].get('count') / max.count;
@@ -90,7 +83,6 @@ module.exports = function() {
           return Sequelize.Promise.all(sitesPromises);
         });
     }).then(function() {
-      log('SiteScraper: Done!');
     });
 };
 

@@ -11,20 +11,8 @@ Object.defineProperties(String.prototype, {
 
 var prefix = '['.blue + 'populr'.magenta + ']'.blue;
 var colon = ':'.blue;
-var error = '[ '.blue + 'Error '.red + ']'.blue;
-var ok = '['.blue + 'Success'.green + ']'.blue;
 
-module.exports.log = function(string, a, b, c, d){
+module.exports = function(string, a, b, c, d){
   if (!string){ console.log(''); return; };
   console.log(prefix + colon, template(string)({ a:a, b:b, c:c, d:d }).grey);
-};
-
-module.exports.ok = function(string, a, b, c, d){
-  if (!string){ console.log(''); return; };
-  console.log(prefix, ok + colon, template(string)({ a:a, b:b, c:c, d:d }).green);
-};
-
-module.exports.err = function(string, a, b, c, d){
-  if (!string){ console.log(''); return; };
-  console.log(prefix, error + colon, template(string)({ a:a, b:b, c:c, d:d }).red);
 };
