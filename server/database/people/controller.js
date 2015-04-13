@@ -10,7 +10,7 @@ var contextController = require('../context/controller');
 var sitesController = require('../sites/controller');
 var facebookController = require('../facebook/controller');
 var topController = require('../top/controller');
-var log = require('../../helpers/logger').log;
+var log = require('../../helpers/log');
 
 
 module.exports.attachParam = function(req, res, next, id) {
@@ -86,13 +86,10 @@ module.exports.query = function(fullName) {
     return null;
   } else {
     var query = { where: { fullName: fullName } };
-    log('${a}: Checking people table', fullName);
     return People.findOne(query).then(function(foundPeople) {
       if (!foundPeople) {
-        log('${a}: Not found in people table', fullName);
         return null;
       } else {
-        log('${a}: Found in people table', fullName);
         return foundPeople.get();
       }
     });
@@ -105,12 +102,9 @@ module.exports.add = function(personObj) {
   } else {
     return module.exports.query(personObj.fullName).then(function(foundPerson) {
       if (foundPerson) {
-        log('${a}: Sending through pipeline', personObj.fullName);
         return personObj;
       } else {
-        log('${a}: Creating entry in people table', personObj.fullName);
         return People.create(personObj).then(function() {
-          log('${a}: Sending through pipeline', personObj.fullName);
           return personObj;
         });
       }

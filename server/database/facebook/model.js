@@ -1,6 +1,14 @@
 
+/*****************
+  Facebook Model
+*****************/
+
+/* * Imports * */
+
 var Sequelize = require('sequelize');
 var sql = require('../connection.js');
+
+/* * Schema * */
 
 module.exports = sql.define('facebook', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },

@@ -5,3 +5,4 @@ client/build
 keys.js
 client/dist/**
 out
+data/siteData.txt

@@ -1,6 +1,14 @@
 
+/**************
+  Sites Model
+**************/
+
+/* * Imports * */
+
 var Sequelize = require('sequelize');
 var sql = require('../connection.js');
+
+/* * Schema * */
 
 module.exports = sql.define('sites', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
