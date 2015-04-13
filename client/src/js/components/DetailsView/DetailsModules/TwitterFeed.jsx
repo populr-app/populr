@@ -4,9 +4,9 @@ var TwitterFeed = React.createClass({
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     }
   },
-  componentWillUnmount: function(){
-      this.refs.twitterFeed.remove();
-  },
+  // componentWillUnmount: function(){
+  //     this.refs.twitterFeed.remove();
+  // },
   render: function(){
     var url = 'https://twitter.com/' + this.props.handle;
     var handleString = this.props.handle + '';
