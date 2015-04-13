@@ -141,7 +141,7 @@ gulp.task('loadData', function() {
 });
 
 gulp.task('dropTables', function(){
-  return require('./server/helpers/droptables')();
+  require('./server/helpers/droptables')();
 });
 
 /* Serverside testing */

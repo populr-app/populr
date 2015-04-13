@@ -7,7 +7,7 @@ var Facebook = require('../database/facebook/model');
 var Top = require('../database/top/model');
 
 module.exports = function() {
-  return People.drop()
+  People.drop()
     .then(function() {
       return People.sync();
     })
@@ -40,5 +40,8 @@ module.exports = function() {
     })
     .then(function() {
       return Top.sync();
+    })
+    .then(function() {
+      process.exit();
     });
 };
