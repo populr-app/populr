@@ -8,9 +8,9 @@ var ListItem = React.createClass({
     var scoreChange = this.props.person.scorechange;
     var scoreChangeColor = '';
     if (scoreChange > 0) {
-      scoreChangeColor = '#49C57D';
+      scoreChangeColor = '#27ae60';
     } else {
-      scoreChangeColor = '#EE6883';
+      scoreChangeColor = '#e74c3c';
     }
     var scoreChangeStyles = {
       netChange: {
@@ -25,12 +25,24 @@ var ListItem = React.createClass({
     } else {
       scorePercentage = scorePercentage + '%';
     }
-    console.log(this.props.person);
+
+    /* Removes '_normal' in uri to retrieve larger Twitter picture */
+    var profilePicture = this.props.person.profilePic;
+    profilePicture = profilePicture.replace(/_normal/i, '');
+
+    /* Adds 'player' to sports occupations' */
+    var occupation = this.props.person.occupation;
+    if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis' || occupation=== 'Hockey') {
+      this.props.person.occupation = occupation + ' Player';
+    }
     return (
       <li className="person-item row">
-        <div className="col-md-3">
-          <div className="person-rank-circle">
-            <span className="person-rank">{this.props.person.rank}</span>
+        <div className="col-md-3 col-sm-4 col-xs-5">
+          <div className="person-profile-picture">
+            <img src={profilePicture} />
+            <div className="person-rank-circle">
+              <span className="person-rank">{this.props.person.rank}</span>
+            </div>
           </div>
           <div className="person-info-wrapper">
             <div className="person-details">
@@ -41,8 +53,8 @@ var ListItem = React.createClass({
             </div>
           </div>
         </div>
-        <div className="col-md-2">
-          <span className="person-netChange" style={scoreChangeStyles.netChange}><i className="fa fa-caret-up" />{scorePercentage}</span>
+        <div className="col-md-2 col-sm-2 col-xs-2">
+          <span className="person-netChange" style={scoreChangeStyles.netChange}>{scorePercentage} change</span>
         </div>
       </li>
     )
