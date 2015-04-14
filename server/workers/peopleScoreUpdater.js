@@ -39,10 +39,12 @@ module.exports = function() {
       }
 
       score = Math.floor(score / apis);
+      person.scoreperiodic.push(score);
       var update = {
         fullName: person.fullName,
         scorechange: score - person.score,
-        score: score
+        score: score,
+        scoreperiodic: person.scoreperiodic
       };
       People.findOne({where: {fullName: update.fullName}}).then(function(foundPerson) {
         foundPerson.update(update);
