@@ -1,20 +1,18 @@
-// var rd3 = require('react-d3');
-// var LineChart = rd3.LineChart;
 var Chart = require('react-chartjs');
 var LineChart = Chart.Line;
 
 var demoData = {
-  labels: ["January", "February", "March", "April"],
+  labels: [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
   datasets: [
     {
-      label: "Test Data",
+      label: "Twitter Score",
       fillColor: "rgba(0,188,212,0.2)",
       strokeColor: "rgba(0,188,212,1)",
       pointColor: "rgba(0,188,212,1)",
       pointStrokeColor: "#fff",
       pointHighlightFill: "#fff",
       pointHighlightStroke: "rgba(220,220,220,1)",
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     }
   ]
 };
