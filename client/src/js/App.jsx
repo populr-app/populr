@@ -1,5 +1,6 @@
 var React = require('react');
 window.React = React;
+var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var Router = require('react-router');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
@@ -18,12 +19,18 @@ var PeopleActions = require('./actions/PeopleActions.jsx');
 
 /* Main App */
 var App = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   render: function(){
+    var name = this.context.router.getCurrentPath();
     return (
       <div>
         <MobileHeader />
         <div className="app-inner">
-          <RouteHandler />
+          <TransitionGroup component="div" transitionName="fade">
+            <RouteHandler key={name} />
+          </TransitionGroup>
         </div>
       </div>
       );
@@ -40,7 +47,7 @@ var routes = (
   </Route>
 );
 
-Router.run(routes, function (Handler, state) {
+Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(<Handler/>, document.getElementById('app'));
 });
 
