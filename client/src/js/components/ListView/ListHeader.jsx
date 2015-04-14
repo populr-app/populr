@@ -6,7 +6,8 @@ var ListHeader = React.createClass({
         		<div className="row">
 	        		<h1 className="list-header__title col-md-12 col-sm-12">Intelligent Social Metrics</h1>
 	        		<p className="list-header__about col-sm-12">
-	        			louis vuitton loubatins fendi guess levis yves saint laurent valentino dior versace armani gucci prada dolce and gabanna. Chanel gucci louboutins christian dior georgio armani. louis vuitton loubatins fendi guess levis yves saint laurent valentino dior versace armani gucci prada dolce and gabanna.
+	        			Populr.io takes data from top social networks & news sites to rank the movers and shakers of the internet.
+                Updated every 15 minutes, Populr.io provides the latest on your favorite Celebrities, Altheletes, and Public Figures.
 	        		</p>
 	        	</div>
         	</div>
