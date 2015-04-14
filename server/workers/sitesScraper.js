@@ -18,15 +18,15 @@ module.exports = function() {
     .then(function() {
       return require('../../data/sites.json').sites;
     }).each(function(site, index, sites) {
-      // if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / sites.length * 100));
+      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / sites.length * 100));
       // Makes a request, filters, and appends each site's text to siteData.txt
-      // return request(site).then(function(data) {
-        // var $ = cheerio.load(data[0].body);
-        // var text = $('body').text();
-        // text = text.replace(/\s+/g, ' ');
-        // text = text.replace(/[^\w\s]/gi, '');
-        // return fs.appendFileAsync('./data/siteData.txt', text);
-      // });
+      return request(site).then(function(data) {
+        var $ = cheerio.load(data[0].body);
+        var text = $('body').text();
+        text = text.replace(/\s+/g, ' ');
+        text = text.replace(/[^\w\s]/gi, '');
+        return fs.appendFileAsync('./data/siteData.txt', text);
+      });
     }).then(function() {
       log('${a}: Reading and writing... [100%]', 'Sites Scraper');
       // Returns a list of everyone and attaches their current site data if any
