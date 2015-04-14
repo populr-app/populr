@@ -57,7 +57,7 @@ var DetailsHeader = React.createClass({
                   {this.props.details.fullName}
                 </h1>
                 <h2 className="details-header__profession">
-                  {this.props.details.context.occupation}
+                  {this.props.details.context.occupation || 'Celebrity'}
                 </h2>
               </div>
             </div>
