@@ -53,7 +53,12 @@ module.exports = function() {
                 count: count
               }
             };
-            if (person.sites) update.sites.countchange = count - person.sites.count;
+            if (person.sites) {
+              update.sites.countchange = count - person.sites.count;
+              person.sites.countperiodic.push(count);
+              update.sites.countperiodic = person.sites.countperiodic;
+            }
+
             results.push(SitesController.add(update));
           });
 
@@ -81,11 +86,22 @@ module.exports = function() {
           log('${a}: Calculating scores and updating users', 'Sites Scraper');
           var sitesPromises = [];
           for (var i = 0; i < sites.length; i++) {
-            var c = sites[i].get('count') / max.count;
-            var cc = sites[i].get('countchange') / max.countchange;
+            var person = sites[i].get();
+            var c = person.count / max.count;
+            var cc = person.countchange / max.countchange;
+            if (isNaN(c)) c = 0;
             if (isNaN(cc)) cc = 0;
-            var score = (c + cc) / 2;
-            sitesPromises.push(sites[i].update({score: Math.floor(score * 1000)}));
+            var score = Math.floor(((c + cc) / 2) * 1000);
+            person.scoreperiodic.push(score);
+            var update = {
+              fullName: person.fullName,
+              sites: {
+                score: score,
+                scorechange: score - person.score,
+                scoreperiodic: person.scoreperiodic
+              }
+            };
+            sitesPromises.push(SitesController.add(update));
           }
 
           return Sequelize.Promise.all(sitesPromises);
