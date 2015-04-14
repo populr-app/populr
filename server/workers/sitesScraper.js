@@ -17,8 +17,8 @@ module.exports = function() {
   return fs.writeFileAsync('./data/siteData.txt', '')
     .then(function() {
       return require('../../data/sites.json').sites;
-    }).each(function(site, index, sites) {
-      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / sites.length * 100));
+    }).each(function(site, index) {
+      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / 201 * 100));
       // Makes a request, filters, and appends each site's text to siteData.txt
       return request(site).then(function(data) {
         var $ = cheerio.load(data[0].body);
@@ -124,7 +124,6 @@ module.exports = function() {
                 scoremonth: person.scoremonth
               }
             };
-            console.log(update);
             sitesPromises.push(SitesController.add(update));
           }
 
