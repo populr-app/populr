@@ -12,9 +12,9 @@ var sql = require('../connection.js');
 
 module.exports = sql.define('template', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
-  score: { type: Sequelize.FLOAT, defaultValue: 0},
-  scorechange: { type: Sequelize.FLOAT, defaultValue: 0},
-  templateValue: { type: Sequelize.STRING }
+  score: { type: Sequelize.INTEGER, defaultValue: 0 },
+  scorechange: { type: Sequelize.INTEGER, defaultValue: 0 },
+  scoreperiodic: { type: Sequelize.ARRAY(Sequelize.INTEGER), defaultValue: [] }
 });
 
 module.exports.sync();
