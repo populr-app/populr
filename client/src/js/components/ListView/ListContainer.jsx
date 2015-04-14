@@ -7,7 +7,7 @@ var ListContainer = React.createClass({
     return (
         <div className="list-container">
           <div className="container">
-            <span className="last-updated">Updated: 15 Minutes Ago</span>
+            <span className="last-updated">Updated Every 15 Minutes</span>
             <div id="a-list" className="list-container__section">
               <h2 className="list-container__title">A-List</h2>
               <ul className="people-list">
