@@ -59,7 +59,7 @@ ul.view-nav {
 /* Fade Out Page Transition */
 .fade-enter {
   opacity: 0.01;
-  transition: opacity .1s ease-in;
+  transition: opacity .15s ease-in;
 }
 
 .fade-enter.fade-enter-active {
@@ -68,7 +68,7 @@ ul.view-nav {
 
 .fade-leave {
   opacity: 1;
-  transition: opacity .1s ease-in;
+  transition: opacity .15s ease-in;
 }
 
 .fade-leave.fade-leave-active {

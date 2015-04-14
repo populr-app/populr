@@ -28,7 +28,7 @@ var App = React.createClass({
       <div>
         <MobileHeader />
         <div className="app-inner">
-          <TransitionGroup component="App" transitionName="fade">
+          <TransitionGroup component="div" transitionName="fade">
             <RouteHandler key={name} />
           </TransitionGroup>
         </div>
@@ -47,7 +47,7 @@ var routes = (
   </Route>
 );
 
-Router.run(routes, function (Handler, state) {
+Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(<Handler/>, document.getElementById('app'));
 });
 
