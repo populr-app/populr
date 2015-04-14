@@ -25,7 +25,11 @@ var ListItem = React.createClass({
     } else {
       scorePercentage = scorePercentage + '%';
     }
-    console.log(this.props.person);
+
+    var occupation = this.props.person.occupation;
+    if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis' || occupation=== 'Hockey') {
+      this.props.person.occupation = occupation + ' Player';
+    }
     return (
       <li className="person-item row">
         <div className="col-md-3 col-sm-4 col-xs-5">
@@ -42,7 +46,7 @@ var ListItem = React.createClass({
           </div>
         </div>
         <div className="col-md-2 col-sm-2 col-xs-2">
-          <span className="person-netChange" style={scoreChangeStyles.netChange}><i className="fa fa-caret-up" />{scorePercentage}</span>
+          <span className="person-netChange" style={scoreChangeStyles.netChange}><i className="fa fa-caret-up" />{scorePercentage} change</span>
         </div>
       </li>
     )
