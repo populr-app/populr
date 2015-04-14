@@ -1,11 +1,13 @@
 var ListItem = require('./ListItem.jsx');
 
 var ListContainer = React.createClass({
+
   render: function(){
     var _this = this;
     return (
         <div className="list-container">
           <div className="container">
+            <span className="last-updated">Updated: 15 Minutes Ago</span>
             <div id="a-list" className="list-container__section">
               <h2 className="list-container__title">A-List</h2>
               <ul className="people-list">
