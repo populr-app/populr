@@ -9,6 +9,7 @@ var People = require('../database/people/model.js');
 var Sites = require('../database/sites/model.js');
 var fs = Promise.promisifyAll(require('fs'));
 var log = require('../helpers/log');
+var _ = require('lodash');
 
 module.exports = function() {
   log('${a}: Starting', 'Sites Scraper');
@@ -16,16 +17,16 @@ module.exports = function() {
   return fs.writeFileAsync('./data/siteData.txt', '')
     .then(function() {
       return require('../../data/sites.json').sites;
-    }).each(function(site, index) {
-      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / 165 * 100));
+    }).each(function(site, index, sites) {
+      // if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / sites.length * 100));
       // Makes a request, filters, and appends each site's text to siteData.txt
-      return request(site).then(function(data) {
-        var $ = cheerio.load(data[0].body);
-        var text = $('body').text();
-        text = text.replace(/\s+/g, ' ');
-        text = text.replace(/[^\w\s]/gi, '');
-        return fs.appendFileAsync('./data/siteData.txt', text);
-      });
+      // return request(site).then(function(data) {
+        // var $ = cheerio.load(data[0].body);
+        // var text = $('body').text();
+        // text = text.replace(/\s+/g, ' ');
+        // text = text.replace(/[^\w\s]/gi, '');
+        // return fs.appendFileAsync('./data/siteData.txt', text);
+      // });
     }).then(function() {
       log('${a}: Reading and writing... [100%]', 'Sites Scraper');
       // Returns a list of everyone and attaches their current site data if any
@@ -55,8 +56,6 @@ module.exports = function() {
             };
             if (person.sites) {
               update.sites.countchange = count - person.sites.count;
-              person.sites.countperiodic.push(count);
-              update.sites.countperiodic = person.sites.countperiodic;
             }
 
             results.push(SitesController.add(update));
@@ -92,15 +91,40 @@ module.exports = function() {
             if (isNaN(c)) c = 0;
             if (isNaN(cc)) cc = 0;
             var score = Math.floor(((c + cc) / 2) * 1000);
-            person.scoreperiodic.push(score);
+            var scorechange = score - person.score;
+
+            if (person.scoremonth.length > 3) {
+              person.scoremonth.pop();
+            }
+
+            if (person.scoreweek.length > 6) {
+              person.scoremonth.unshift(average(person.scoreweek));
+              person.scoreweek.pop();
+            }
+
+            if (person.scoreday.length > 23) {
+              person.scoreweek.unshift(average(person.scoreday));
+              person.scoreday.pop();
+            }
+
+            if (person.scorehour.length > 3) {
+              person.scoreday.unshift(average(person.scorehour));
+              person.scorehour.pop();
+            }
+
+            person.scorehour.unshift(score);
             var update = {
               fullName: person.fullName,
               sites: {
                 score: score,
                 scorechange: score - person.score,
-                scoreperiodic: person.scoreperiodic
+                scorehour: person.scorehour,
+                scoreday: person.scoreday,
+                scoreweek: person.scoreweek,
+                scoremonth: person.scoremonth
               }
             };
+            console.log(update);
             sitesPromises.push(SitesController.add(update));
           }
 
@@ -127,4 +151,10 @@ function occurrences(string, subString, allowOverlapping) {
   }
 
   return (n);
+}
+
+function average(array, person) {
+  return _.reduce(array, function(memo, num) {
+    return memo + num;
+  }, 0) / array.length;
 }
