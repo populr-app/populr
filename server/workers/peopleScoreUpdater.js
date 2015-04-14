@@ -7,6 +7,7 @@ var sitesController = require('../database/sites/controller');
 var facebookController = require('../database/facebook/controller');
 var topController = require('../database/top/controller');
 var People = require('../database/people/model');
+var _ = require('lodash');
 
 module.exports = function() {
   return People.findAll().then(function(data) {
@@ -39,12 +40,37 @@ module.exports = function() {
       }
 
       score = Math.floor(score / apis);
-      person.scoreperiodic.push(score);
+      var scorechange = score - person.score;
+
+      if (person.scoremonth.length > 3) {
+        person.scoremonth.pop();
+      }
+
+      if (person.scoreweek.length > 6) {
+        person.scoremonth.unshift(average(person.scoreweek));
+        person.scoreweek.pop();
+      }
+
+      if (person.scoreday.length > 23) {
+        person.scoreweek.unshift(average(person.scoreday));
+        person.scoreday.pop();
+      }
+
+      if (person.scorehour.length > 3) {
+        person.scoreday.unshift(average(person.scorehour));
+        person.scorehour.pop();
+      }
+
+      person.scorehour.unshift(score);
+
       var update = {
         fullName: person.fullName,
-        scorechange: score - person.score,
         score: score,
-        scoreperiodic: person.scoreperiodic
+        scorechange: score - person.score,
+        scorehour: person.scorehour,
+        scoreday: person.scoreday,
+        scoreweek: person.scoreweek,
+        scoremonth: person.scoremonth
       };
       People.findOne({where: {fullName: update.fullName}}).then(function(foundPerson) {
         foundPerson.update(update);
@@ -52,3 +78,10 @@ module.exports = function() {
     });
   });
 };
+
+
+function average(array, person) {
+  return _.reduce(array, function(memo, num) {
+    return memo + num;
+  }, 0) / array.length;
+}
