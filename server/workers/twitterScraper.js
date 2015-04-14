@@ -18,8 +18,8 @@ var client = new TwitterApi({
 module.exports = function() {
   log('${a}: Starting', 'Twitter Scraper');
   return Twitter.findAll()
-    // .then(splitIntoChunks)
-    // .each(getAndUpdateTwitterData)
+    .then(splitIntoChunks)
+    .each(getAndUpdateTwitterData)
     .then(getMaxCounts)
     .then(calculateScores);
 };
