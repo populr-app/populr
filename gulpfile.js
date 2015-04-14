@@ -147,7 +147,7 @@ gulp.task('dropTables', function(){
 /* Serverside testing */
 gulp.task('mochatest', function() {
   return gulp.src('./server/serverSpec.js', {read: false})
-    .pipe(mocha({reporter: 'nyan'}));
+    .pipe(mocha());
 });
 
 /* React Unit Testing (Jest) */

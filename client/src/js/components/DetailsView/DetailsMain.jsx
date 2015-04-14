@@ -5,6 +5,9 @@ var DetailsActions = require('../../actions/DetailsActions.jsx');
 
 var DetailsMain = React.createClass({
   getInitialState: function(){
+    DetailsStore.listen(this.onDetailsChange);
+    DetailsActions.loadDetails(this.props.fullName);
+    
     return {
     details: {
         "id": "",
@@ -37,12 +40,8 @@ var DetailsMain = React.createClass({
     }
 }
   },
-  componentWillMount: function(){
-    DetailsStore.listen(this.onDetailsChange);
-    DetailsActions.loadDetails(this.props.fullName);
-  },
   onDetailsChange: function(data){
-    this.replaceState({details: data});
+    this.setState({details: data});
   },
   render: function(){
     return (

@@ -46,16 +46,10 @@ module.exports.post = function(req, res, next) {
         .then(contextController.add)
         .then(sitesController.add)
         .then(facebookController.add)
-        .then(topController.add)
-        .then(function(data) {
-          if (!data) {
-            log('Invalid POST');
-            // res.send('Invalid POST');
-          } else {
-            // res.send(data);
-          }
-        });
+        .then(topController.add);
     });
+
+    res.send('Storing array of people');
   } else if (req.body.fullName) {
     log('${a}: Post Request', req.body.fullName);
     module.exports.add(req.body)
