@@ -30,7 +30,7 @@ function splitIntoChunks(twitterData) {
     twitterData[i] = twitterData[i].get();
   }
 
-  return _.chunk(twitterData, 100).slice(0, 1);
+  return _.chunk(twitterData, 100);
 }
 
 function getAndUpdateTwitterData(chunk, i) {
