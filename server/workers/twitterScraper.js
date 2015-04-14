@@ -51,12 +51,18 @@ function updateTwitterData(people, index) {
     for (var i = 0; i < twitterData[0].length; i++) {
       var user = twitterData[0][i];
       var person = people[i];
+      if (person.tweets.length > 4) {
+        person.tweets.pop();
+      }
+
+      person.tweets.unshift(JSON.stringify(user.status));
       var update = {
         fullName: person.fullName,
         twitter: {
-          andle: user.screen_name,
+          handle: user.screen_name,
           followers: user.followers_count,
           followerschange: user.followers_count - person.followers,
+          tweets: person.tweets,
           profilePic: user.profile_image_url,
           backgroundPic: user.profile_banner_url
         }
