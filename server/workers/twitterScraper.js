@@ -30,7 +30,7 @@ function splitIntoChunks(twitterData) {
     twitterData[i] = twitterData[i].get();
   }
 
-  return _.chunk(twitterData, 100);
+  return _.chunk(twitterData, 100).slice(0, 1);
 }
 
 function getAndUpdateTwitterData(chunk, i) {
@@ -50,12 +50,14 @@ function updateTwitterData(chunk, index) {
     var updatePromises = [];
     for (var i = 0; i < twitterData[0].length; i++) {
       var user = twitterData[0][i];
+      chunk[i].followersperiodic.push(user.followers_count);
       var update = {
         fullName: chunk[i].fullName,
         twitter: {
           handle: user.screen_name,
           followers: user.followers_count,
           followerschange: user.followers_count - chunk[i].followers,
+          followersperiodic: chunk[i].followersperiodic,
           profilePic: user.profile_image_url,
           backgroundPic: user.profile_banner_url
         }
@@ -84,10 +86,22 @@ function calculateScores(max) {
     log('${a}: Calculating scores and updating users', 'Twitter Scraper');
     var twitterPromises = [];
     for (var i = 0; i < twitters.length; i++) {
-      var f = twitters[i].get('followers') / max.followers;
-      var fc = twitters[i].get('followerschange') / max.followerschange;
-      var score = (f + fc) / 2;
-      twitterPromises.push(twitters[i].update({score: Math.floor(score * 1000)}));
+      var person = twitters[i].get();
+      var f = person.followers / max.followers;
+      var fc = person.followerschange / max.followerschange;
+      if (isNaN(f)) f = 0;
+      if (isNaN(fc)) fc = 0;
+      var score = Math.floor(((f + fc) / 2) * 1000);
+      person.scoreperiodic.push(score);
+      var update = {
+        fullName: person.fullName,
+        twitter: {
+          score: score,
+          scorechange: score - person.score,
+          scoreperiodic: person.scoreperiodic
+        }
+      };
+      twitterPromises.push(TwitterController.add(update));
     }
 
     return Promise.all(twitterPromises);
