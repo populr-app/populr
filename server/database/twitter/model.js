@@ -15,7 +15,7 @@ module.exports = sql.define('twitter', {
   handle: { type: Sequelize.STRING },
   twitterId: {type: Sequelize.STRING },
   profilePic: {type: Sequelize.STRING, defaultValue: '' },
-  tweets: { type: Sequelize.ARRAY(Sequelize.STRING), defaultValue: [] },
+  tweets: { type: Sequelize.ARRAY(Sequelize.TEXT), defaultValue: [] },
   backgroundPic: {type: Sequelize.STRING, defaultValue: '' },
   followers: { type: Sequelize.INTEGER, defaultValue: 0 },
   followerschange: { type: Sequelize.INTEGER, defaultValue: 0 },
