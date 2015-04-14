@@ -113,7 +113,7 @@ function calculateScores(max) {
         person.scoreday.pop();
       }
 
-      if (person.scorehour.length > 3) {
+      if (person.scorehour.length > 5) {
         person.scoreday.unshift(average(person.scorehour));
         person.scorehour.pop();
       }
