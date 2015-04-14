@@ -17,7 +17,8 @@ module.exports = sql.define('top', {
   occupation: { type: Sequelize.STRING, defaultValue: '' },
   dob: {type: Sequelize.STRING, defaultValue: '' },
   rank: { type: Sequelize.INTEGER, defaultValue: 201 },
-  lastrank: { type: Sequelize.INTEGER, defaultValue: 0 }
+  lastrank: { type: Sequelize.INTEGER, defaultValue: 0 },
+  profilePic: {type: Sequelize.STRING, defaultValue: ''}
 });
 
 module.exports.sync();

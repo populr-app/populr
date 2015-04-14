@@ -17,7 +17,7 @@ module.exports = function() {
     .then(function() {
       return require('../../data/sites.json').sites;
     }).each(function(site, index) {
-      if (index % 10 === 0) log('${a}: Reading and writing... [${b}/165]', 'Sites Scraper', index);
+      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / 165 * 100));
       // Makes a request, filters, and appends each site's text to siteData.txt
       return request(site).then(function(data) {
         var $ = cheerio.load(data[0].body);
@@ -27,6 +27,7 @@ module.exports = function() {
         return fs.appendFileAsync('./data/siteData.txt', text);
       });
     }).then(function() {
+      log('${a}: Reading and writing... [100%]', 'Sites Scraper');
       // Returns a list of everyone and attaches their current site data if any
       return People.findAll().then(function(data) {
         var results = [];

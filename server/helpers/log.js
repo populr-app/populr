@@ -14,5 +14,6 @@ var colon = ':'.blue;
 
 module.exports = function(string, a, b, c, d){
   if (!string){ console.log(''); return; };
+  if (process.env.PG_USER) return;
   console.log(prefix + colon, template(string)({ a:a, b:b, c:c, d:d }).grey);
 };
