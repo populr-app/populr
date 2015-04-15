@@ -1,16 +1,21 @@
 .list-container {
 	@include center-container
+	padding-top: 15px;
+}
+
+.list-container--title-wrapper {
+	border-bottom: 1px solid #E6E6E6;
+	margin: 0 auto;
 }
 
 .list-container__title {
 	text-transform: uppercase;
 	font-size: $base-font-size;
-	letter-spacing: 0.13em;
-	color: #aaa;
 	font-weight: 500;
+	letter-spacing: 0.13em;
+	color: #333;
+	border-color: #333;
 	
-	border-bottom: 1px solid #ddd;
-	padding: 15px 0 8px 0;
 }
 
 .people-list {
@@ -53,7 +58,7 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		top: 6px;
+		top: 7px;
 		text-align: center;
 		font-size: 10px;
 		font-weight: 700;
@@ -91,9 +96,17 @@
 	margin-top: 5px;
 }
 
-.person-netChange {
+.person-netChange, .person-currentScore {
 	position: absolute;
 	margin-top: 15px;
 	font-size: 16px;
 	font-weight: 500;
+}
+
+.last-updated {
+	font-size: 12px;
+	padding: 14px;
+	float: right;
+	color: gray;
+
 }
