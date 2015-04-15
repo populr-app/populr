@@ -4,7 +4,6 @@ var ViewNav = React.createClass({
     return (
       <nav>
         <ul className="view-nav">
-          <li><Link to="app">List</Link></li>
           <li><Link to="about">About</Link></li>
           <li><Link to="docs">Docs</Link></li>
         </ul>
