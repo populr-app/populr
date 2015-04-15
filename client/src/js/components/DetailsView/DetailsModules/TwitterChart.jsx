@@ -7,12 +7,12 @@ var demoData = {
   datasets: [
     {
       label: "Twitter Score",
-      fillColor: "rgba(0,188,212,0.2)",
-      strokeColor: "rgba(0,188,212,1)",
-      pointColor: "rgba(0,188,212,1)",
+      fillColor: "RGBA(247, 115, 98, 0.3)",
+      strokeColor: "RGBA(247, 115, 98, 1)",
+      pointColor: "RGBA(247, 115, 98, 1)",
       pointStrokeColor: "#fff",
       pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(220,220,220,1)",
+      pointHighlightStroke: "RGBA(247, 115, 98, 1)",
       data: [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     }
   ]
