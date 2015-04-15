@@ -1,4 +1,4 @@
-var TwitterContainer = require('./DetailsModules/TwitterContainer.jsx');
+var TabsContainer = require('../partials/TabsContainer.jsx');
 var DetailsContainer = React.createClass({
   render: function(){
     if (this.props.details.context.description === undefined) {
@@ -25,7 +25,8 @@ var DetailsContainer = React.createClass({
             </div>
           </div>
         </div>
-        <TwitterContainer twitter={this.props.details.twitter} />
+        <h3 className="details-section-title">Statistics</h3>
+        <TabsContainer />
       </div>
     );
   }
