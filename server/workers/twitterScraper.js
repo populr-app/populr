@@ -16,7 +16,7 @@ var client = new TwitterApi({
 });
 
 module.exports = function() {
-  log('${a}: Starting', 'Twitter Scraper');
+  log('${a}: Starting', 'scrapeTwitter'.cyan);
   return Twitter.findAll()
     .then(splitIntoChunks)
     .each(getAndUpdateTwitterData)
@@ -25,7 +25,7 @@ module.exports = function() {
 };
 
 function splitIntoChunks(twitterData) {
-  log('${a}: Splitting list into chunks', 'Twitter Scraper');
+  log('${a}: Splitting list into chunks', 'scrapeTwitter'.cyan);
   for (var i = 0; i < twitterData.length; i++) {
     twitterData[i] = twitterData[i].get();
   }
@@ -34,7 +34,8 @@ function splitIntoChunks(twitterData) {
 }
 
 function getAndUpdateTwitterData(chunk, i) {
-  log('${a}: Sending list ${b} users to twitter', 'Twitter Scraper', i);
+  var sl = '[list ' + i + ']';
+  log('${a}: Sending users to twitter ${b}', 'scrapeTwitter'.cyan, sl.magenta);
   var screenNames = _.pluck(chunk, 'handle').join();
   return getTwitterData(screenNames)
    .then(updateTwitterData(chunk, i));
@@ -46,7 +47,8 @@ function getTwitterData(screenNames) {
 
 function updateTwitterData(people, index) {
   return function(twitterData) {
-    log('${a}: Updating list ${b} users in database', 'Twitter Scraper', index);
+    var sl = '[list ' + index + ']';
+    log('${a}: Updating users in database ${b}', 'scrapeTwitter'.cyan, sl.magenta);
     var updatePromises = [];
     for (var i = 0; i < twitterData[0].length; i++) {
       var user = twitterData[0][i];
@@ -75,7 +77,7 @@ function updateTwitterData(people, index) {
 }
 
 function getMaxCounts() {
-  log('${a}: Getting max followers/followerschange', 'Twitter Scraper');
+  log('${a}: Getting max followers/followerschange', 'scrapeTwitter'.cyan);
   var max = {};
   return sql.query('SELECT MAX(followers) FROM twitters;').then(function(d1) {
     max.followers = d1[0][0].max;
@@ -88,7 +90,7 @@ function getMaxCounts() {
 
 function calculateScores(max) {
   return Twitter.findAll().then(function(twitters) {
-    log('${a}: Calculating scores and updating users', 'Twitter Scraper');
+    log('${a}: Calculating scores and updating users', 'scrapeTwitter'.cyan);
     var twitterPromises = [];
     for (var i = 0; i < twitters.length; i++) {
       var person = twitters[i].get();
@@ -99,31 +101,33 @@ function calculateScores(max) {
       var score = Math.floor(((f + fc) / 2) * 1000);
       var scorechange = score - person.score;
 
-      if (person.scoremonth.length > 3) {
-        person.scoremonth.pop();
-      }
+      person.scorecounter++;
 
-      if (person.scoreweek.length > 6) {
-        person.scoremonth.unshift(average(person.scoreweek));
-        person.scoreweek.pop();
-      }
-
-      if (person.scoreday.length > 23) {
+      if (((person.scorecounter / 6) / 24) % 7 === 0) {
         person.scoreweek.unshift(average(person.scoreday));
-        person.scoreday.pop();
+        if (person.scoreweek.length > 6) person.scoreweek.pop();
       }
 
-      if (person.scorehour.length > 5) {
+      if ((person.scorecounter / 6) % 24 === 0) {
         person.scoreday.unshift(average(person.scorehour));
-        person.scorehour.pop();
+        if (person.scoreday.length > 23) person.scoreday.pop();
       }
 
-      person.scorehour.unshift(score);
+      if (person.scorecounter % 6 === 0) {
+        person.scorehour.unshift(average(person.scoreminute));
+        if (person.scorehour.length > 5) person.scorehour.pop();
+      }
+
+      person.scoreminute.unshift(score);
+      if (person.scoreminute.length > 5) person.scoreminute.pop();
+
       var update = {
         fullName: person.fullName,
         twitter: {
           score: score,
           scorechange: score - person.score,
+          scorecounter: person.scorecounter,
+          scoreminute: person.scoreminute,
           scorehour: person.scorehour,
           scoreday: person.scoreday,
           scoreweek: person.scoreweek,

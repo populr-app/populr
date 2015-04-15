@@ -42,31 +42,32 @@ module.exports = function() {
       score = Math.floor(score / apis);
       var scorechange = score - person.score;
 
-      if (person.scoremonth.length > 3) {
-        person.scoremonth.pop();
-      }
+      person.scorecounter++;
 
-      if (person.scoreweek.length > 6) {
-        person.scoremonth.unshift(average(person.scoreweek));
-        person.scoreweek.pop();
-      }
-
-      if (person.scoreday.length > 23) {
+      if (((person.scorecounter / 6) / 24) % 7 === 0) {
         person.scoreweek.unshift(average(person.scoreday));
-        person.scoreday.pop();
+        if (person.scoreweek.length > 6) person.scoreweek.pop();
       }
 
-      if (person.scorehour.length > 5) {
+      if ((person.scorecounter / 6) % 24 === 0) {
         person.scoreday.unshift(average(person.scorehour));
-        person.scorehour.pop();
+        if (person.scoreday.length > 23) person.scoreday.pop();
       }
 
-      person.scorehour.unshift(score);
+      if (person.scorecounter % 6 === 0) {
+        person.scorehour.unshift(average(person.scoreminute));
+        if (person.scorehour.length > 5) person.scorehour.pop();
+      }
+
+      person.scoreminute.unshift(score);
+      if (person.scoreminute.length > 5) person.scoreminute.pop();
 
       var update = {
         fullName: person.fullName,
         score: score,
         scorechange: score - person.score,
+        scorecounter: person.scorecounter,
+        scoreminute: person.scoreminute,
         scorehour: person.scorehour,
         scoreday: person.scoreday,
         scoreweek: person.scoreweek,
@@ -78,7 +79,6 @@ module.exports = function() {
     });
   });
 };
-
 
 function average(array, person) {
   return _.reduce(array, function(memo, num) {
