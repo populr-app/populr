@@ -1,8 +1,6 @@
 var Chart = require('react-chartjs');
 var LineChart = Chart.Line;
 
-
-
 var TwitterChart = React.createClass({
   render: function(){
     var demoData = {
@@ -10,13 +8,13 @@ var TwitterChart = React.createClass({
       datasets: [
           {
             label: "Twitter Score",
-            fillColor: "rgba(0,188,212,0.2)",
-            strokeColor: "rgba(0,188,212,1)",
-            pointColor: "rgba(0,188,212,1)",
+            fillColor: "rgba(228, 130, 99, 0.25)",
+            strokeColor: "rgba(228, 130, 99, 1)",
+            pointColor: "rgba(228, 130, 99, 1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,12,10,1,14,10,36,3,7,1]
+            pointHighlightStroke: "rgba(228, 130, 99, 1))",
+            data: [28, 48, 40, 19, 86, 27, 90, 80, 84, 101]
           }
         ]
     };
