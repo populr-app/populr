@@ -8,9 +8,9 @@ var ListItem = React.createClass({
     var scoreChange = this.props.person.scorechange;
     var scoreChangeColor = '';
     if (scoreChange > 0) {
-      scoreChangeColor = '#27ae60';
+      scoreChangeColor = '#4b5086';
     } else {
-      scoreChangeColor = '#e74c3c';
+      scoreChangeColor = '#e48263';
     }
     var scoreChangeStyles = {
       netChange: {

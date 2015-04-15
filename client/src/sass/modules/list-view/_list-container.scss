@@ -46,13 +46,14 @@
 
 .person-rank-circle {
 	position: relative;
-  background: $primary;
+  background: #fff;
   border-radius: 50px;
   border: 1px solid $primary;
   width: 26px;
   height: 26px;
   left: 35px;
   top: -20px;
+  opacity: 0.9;
 
 	.person-rank {
 		position: absolute;
@@ -62,7 +63,7 @@
 		text-align: center;
 		font-size: 10px;
 		font-weight: 700;
-		color: #fff;
+		color: $primary;
 	}
 }
 
@@ -101,6 +102,7 @@
 	margin-top: 15px;
 	font-size: 16px;
 	font-weight: 500;
+	margin-left: 20px;
 }
 
 .last-updated {
