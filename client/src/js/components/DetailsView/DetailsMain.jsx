@@ -17,6 +17,7 @@ var DetailsMain = React.createClass({
         "createdAt": "",
         "updatedAt": "",
         "twitter": {
+            "tweets": [],
             "fullName": "",
             "score": 0,
             "scoreChange": 0,
