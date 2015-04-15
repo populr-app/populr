@@ -12,13 +12,14 @@ var log = require('../helpers/log');
 var _ = require('lodash');
 
 module.exports = function() {
-  log('${a}: Starting', 'Sites Scraper');
+  log('${a}: Starting', 'scrapeSites'.cyan);
   // Empties the siteData file and returns an array of sites
   return fs.writeFileAsync('./data/siteData.txt', '')
     .then(function() {
       return require('../../data/sites.json').sites;
     }).each(function(site, index) {
-      if (index % 10 === 0) log('${a}: Reading and writing... [${b}%]', 'Sites Scraper', Math.floor(index / 201 * 100));
+      var sl = '[' +  Math.floor(index / 201 * 100) + '%]';
+      if (index % 10 === 0) log('${a}: Reading and writing... ${b}', 'scrapeSites'.cyan, sl.magenta);
       // Makes a request, filters, and appends each site's text to siteData.txt
       return request(site).then(function(data) {
         var $ = cheerio.load(data[0].body);
@@ -26,9 +27,11 @@ module.exports = function() {
         text = text.replace(/\s+/g, ' ');
         text = text.replace(/[^\w\s]/gi, '');
         return fs.appendFileAsync('./data/siteData.txt', text);
+      }).catch(function(err) {
+        console.log(err);
       });
     }).then(function() {
-      log('${a}: Reading and writing... [100%]', 'Sites Scraper');
+      log('${a}: Reading and writing... [100%]', 'scrapeSites'.cyan);
       // Returns a list of everyone and attaches their current site data if any
       return People.findAll().then(function(data) {
         var results = [];
@@ -41,11 +44,11 @@ module.exports = function() {
     }).then(function(people) {
       // Reads the siteData and for each person checks the occurences,
       // then makes a new update obj and sends it to the controller
-      log('${a}: Reading text file', 'Sites Scraper');
+      log('${a}: Reading text file', 'scrapeSites'.cyan);
       return fs.readFileAsync('./data/siteData.txt')
         .then(function(data) {
           var results = [];
-          log('${a}: Counting occurrences', 'Sites Scraper');
+          log('${a}: Counting occurrences', 'scrapeSites'.cyan);
           people.forEach(function(person) {
             var count = occurrences(data, person.fullName, false);
             var update = {
@@ -66,10 +69,10 @@ module.exports = function() {
           console.log(err);
         });
     }).then(function() {
-      log('${a}: Done! emptying text file', 'Sites Scraper');
+      log('${a}: Done! emptying text file', 'scrapeSites'.cyan);
       return fs.writeFileAsync('./data/siteData.txt', '');
     }).then(function() {
-      log('${a}: Getting max followers/followerschange', 'Sites Scraper');
+      log('${a}: Getting max followers/followerschange', 'scrapeSites'.cyan);
       // Grabs the max count/change and gives it to the next method
       var max = {};
       return sql.query('SELECT MAX(count) FROM sites;').then(function(d1) {
@@ -82,7 +85,7 @@ module.exports = function() {
     }).then(function(max) {
       // Grabs everyone in the sites db, calculates and updates their score
       return Sites.findAll().then(function(sites) {
-          log('${a}: Calculating scores and updating users', 'Sites Scraper');
+          log('${a}: Calculating scores and updating users', 'scrapeSites'.cyan);
           var sitesPromises = [];
           for (var i = 0; i < sites.length; i++) {
             var person = sites[i].get();
@@ -93,31 +96,33 @@ module.exports = function() {
             var score = Math.floor(((c + cc) / 2) * 1000);
             var scorechange = score - person.score;
 
-            if (person.scoremonth.length > 3) {
-              person.scoremonth.pop();
-            }
+            person.scorecounter++;
 
-            if (person.scoreweek.length > 6) {
-              person.scoremonth.unshift(average(person.scoreweek));
-              person.scoreweek.pop();
-            }
-
-            if (person.scoreday.length > 23) {
+            if (((person.scorecounter / 6) / 24) % 7 === 0) {
               person.scoreweek.unshift(average(person.scoreday));
-              person.scoreday.pop();
+              if (person.scoreweek.length > 6) person.scoreweek.pop();
             }
 
-            if (person.scorehour.length > 5) {
+            if ((person.scorecounter / 6) % 24 === 0) {
               person.scoreday.unshift(average(person.scorehour));
-              person.scorehour.pop();
+              if (person.scoreday.length > 23) person.scoreday.pop();
             }
 
-            person.scorehour.unshift(score);
+            if (person.scorecounter % 6 === 0) {
+              person.scorehour.unshift(average(person.scoreminute));
+              if (person.scorehour.length > 5) person.scorehour.pop();
+            }
+
+            person.scoreminute.unshift(score);
+            if (person.scoreminute.length > 5) person.scoreminute.pop();
+
             var update = {
               fullName: person.fullName,
               sites: {
                 score: score,
                 scorechange: score - person.score,
+                scorecounter: person.scorecounter,
+                scoreminute: person.scoreminute,
                 scorehour: person.scorehour,
                 scoreday: person.scoreday,
                 scoreweek: person.scoreweek,
