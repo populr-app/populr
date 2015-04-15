@@ -1,4 +1,6 @@
 var GoogleAnalytics = require('../partials/GoogleAnalytics.js');
+var DetailsSidebar = require('../DetailsView/DetailsSidebar.jsx');
+var AboutMain = require('./AboutMain.jsx');
 
 var AboutView = React.createClass({
   contextTypes: {
@@ -7,7 +9,8 @@ var AboutView = React.createClass({
   render: function(){
     return (
         <div className="about-view">
-          <h1> About </h1>
+          <DetailsSidebar />
+          <AboutMain />
           <GoogleAnalytics />
         </div>
       );
