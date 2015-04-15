@@ -1,5 +1,5 @@
 var GoogleAnalytics = require('../partials/GoogleAnalytics.js');
-var DetailsSidebar = require('../DetailsView/DetailsSidebar.jsx');
+var DetailsSidebar = require('../DetailsView/DetailsSideBar.jsx');
 var AboutMain = require('./AboutMain.jsx');
 
 var AboutView = React.createClass({
