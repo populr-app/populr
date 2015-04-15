@@ -2,21 +2,18 @@
   @include center-container;
   margin-top: 100px;
   height: 100vh;
-  background: #F5F8FA;
+  background: #fff;
   padding-top: 0;
 }
 
 .wikipedia-bio {
 	width: 100%;
-	background: #fff;
-	padding-bottom: 20px;
+	background: $light-white;
+	padding-bottom: 25px;
+	box-shadow: 0 0 2px #ddd;
 
 	.wikipedia-bio__title {
-		text-align: center;
-		font-weight: 500;
-		letter-spacing: 0.5em;
-		padding: 10px 0;
-		text-transform: uppercase;
+		@include details-section-title;
 	}
 
 	.wikipedia-bio__columns {
@@ -30,6 +27,10 @@
 			text-decoration: none;
 		}
 	}
+}
+
+.details-section-title {
+	@include details-section-title;
 }
 
 .social-module {

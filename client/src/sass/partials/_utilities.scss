@@ -56,6 +56,14 @@
   transform: translateY(-50%);
 }
 
+@mixin details-section-title {
+	text-align: center;
+	font-weight: 500;
+	letter-spacing: 0.5em;
+	padding: 10px 0;
+	text-transform: uppercase;
+}
+
 .inline {
 	display: inline-block;
 	vertical-align: middle;
