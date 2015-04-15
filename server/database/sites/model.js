@@ -16,6 +16,8 @@ module.exports = sql.define('sites', {
   countchange: { type: Sequelize.INTEGER, defaultValue: 0 },
   score: { type: Sequelize.INTEGER, defaultValue: 0 },
   scorechange: { type: Sequelize.INTEGER, defaultValue: 0 },
+  scorecounter: { type: Sequelize.INTEGER, defaultValue: 0 },
+  scoreminute: { type: Sequelize.ARRAY(Sequelize.INTEGER), defaultValue: [] },
   scorehour: { type: Sequelize.ARRAY(Sequelize.INTEGER), defaultValue: [] },
   scoreday: { type: Sequelize.ARRAY(Sequelize.INTEGER), defaultValue: [] },
   scoreweek: { type: Sequelize.ARRAY(Sequelize.INTEGER), defaultValue: [] },
