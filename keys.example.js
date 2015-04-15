@@ -5,6 +5,11 @@ module.exports = {
     consumerSecret: '',
     accessToken: '',
     accessTokenSecret: ''
+  },
+
+  facebook: {
+    accessToken:'',
+    appSecret: ''
   }
 
 };
