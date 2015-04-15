@@ -27,6 +27,8 @@ module.exports = function() {
         text = text.replace(/\s+/g, ' ');
         text = text.replace(/[^\w\s]/gi, '');
         return fs.appendFileAsync('./data/siteData.txt', text);
+      }).catch(function(err) {
+        console.log(err);
       });
     }).then(function() {
       log('${a}: Reading and writing... [100%]', 'scrapeSites'.cyan);
