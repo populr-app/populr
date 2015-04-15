@@ -1,0 +1,28 @@
+.about-header {
+	@include header;
+	height: 180px;
+	color: #333;
+	background: #F5F8FA;
+	box-shadow: 0 0 2px #ddd;
+	padding-top: 20px;
+	opacity: 0.65;
+}
+
+.about-container {
+	@include center-container;
+	height: 100vh;
+}
+
+.about-main {
+	@include main;
+}
+
+h1.about-header__title {
+	font-weight: 100;
+	margin-bottom: 0;
+}
+
+p.about-header__about {
+	max-width: 720px;
+	line-height: 30px;
+}
