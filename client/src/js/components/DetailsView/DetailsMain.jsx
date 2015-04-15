@@ -30,6 +30,12 @@ var DetailsMain = React.createClass({
             "createdAt": "",
             "updatedAt": ""
         },
+        "instagram": {
+            "images": []
+        },
+        "facebook": {
+            "images": []
+        },
         "context": {
             "fullName": "",
             "occupation": "",

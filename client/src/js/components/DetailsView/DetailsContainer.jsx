@@ -26,7 +26,7 @@ var DetailsContainer = React.createClass({
           </div>
         </div>
         <h3 className="details-section-title">Statistics</h3>
-        <TabsContainer />
+        <TabsContainer details={this.props.details} />
       </div>
     );
   }
