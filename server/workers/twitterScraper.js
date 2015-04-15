@@ -44,20 +44,25 @@ function getTwitterData(screenNames) {
   return client.getAsync('users/lookup', {screen_name: screenNames});
 }
 
-function updateTwitterData(chunk, index) {
+function updateTwitterData(people, index) {
   return function(twitterData) {
     log('${a}: Updating list ${b} users in database', 'Twitter Scraper', index);
     var updatePromises = [];
     for (var i = 0; i < twitterData[0].length; i++) {
       var user = twitterData[0][i];
-      chunk[i].followersperiodic.push(user.followers_count);
+      var person = people[i];
+      if (person.tweets.length > 4) {
+        person.tweets.pop();
+      }
+
+      person.tweets.unshift(JSON.stringify(user.status));
       var update = {
-        fullName: chunk[i].fullName,
+        fullName: person.fullName,
         twitter: {
           handle: user.screen_name,
           followers: user.followers_count,
-          followerschange: user.followers_count - chunk[i].followers,
-          followersperiodic: chunk[i].followersperiodic,
+          followerschange: user.followers_count - person.followers,
+          tweets: person.tweets,
           profilePic: user.profile_image_url,
           backgroundPic: user.profile_banner_url
         }
@@ -92,13 +97,37 @@ function calculateScores(max) {
       if (isNaN(f)) f = 0;
       if (isNaN(fc)) fc = 0;
       var score = Math.floor(((f + fc) / 2) * 1000);
-      person.scoreperiodic.push(score);
+      var scorechange = score - person.score;
+
+      if (person.scoremonth.length > 3) {
+        person.scoremonth.pop();
+      }
+
+      if (person.scoreweek.length > 6) {
+        person.scoremonth.unshift(average(person.scoreweek));
+        person.scoreweek.pop();
+      }
+
+      if (person.scoreday.length > 23) {
+        person.scoreweek.unshift(average(person.scoreday));
+        person.scoreday.pop();
+      }
+
+      if (person.scorehour.length > 5) {
+        person.scoreday.unshift(average(person.scorehour));
+        person.scorehour.pop();
+      }
+
+      person.scorehour.unshift(score);
       var update = {
         fullName: person.fullName,
         twitter: {
           score: score,
           scorechange: score - person.score,
-          scoreperiodic: person.scoreperiodic
+          scorehour: person.scorehour,
+          scoreday: person.scoreday,
+          scoreweek: person.scoreweek,
+          scoremonth: person.scoremonth
         }
       };
       twitterPromises.push(TwitterController.add(update));
@@ -106,4 +135,10 @@ function calculateScores(max) {
 
     return Promise.all(twitterPromises);
   });
+}
+
+function average(array, person) {
+  return _.reduce(array, function(memo, num) {
+    return memo + num;
+  }, 0) / array.length;
 }

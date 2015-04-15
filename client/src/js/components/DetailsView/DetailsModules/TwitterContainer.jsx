@@ -9,7 +9,7 @@ var TwitterContainer = React.createClass({
           	<TwitterChart twitter={this.props.twitter} />
           </div>
           <div className="social-module social-module-feed">
-          	<TwitterFeed handle={this.props.twitter.handle} />
+          	<TwitterFeed tweets={this.props.twitter.tweets} />
           </div>
         </div>
       );
