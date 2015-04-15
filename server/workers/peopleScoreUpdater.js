@@ -51,22 +51,23 @@ module.exports = function() {
 
       if ((person.scorecounter / 6) % 24 === 0) {
         person.scoreday.unshift(average(person.scorehour));
-        if (person.scoreday.length) person.scoreday.pop();
+        if (person.scoreday.length > 23) person.scoreday.pop();
       }
 
       if (person.scorecounter % 6 === 0) {
         person.scorehour.unshift(average(person.scoreminute));
-        if (person.scorehour.length) person.scorehour.pop();
+        if (person.scorehour.length > 5) person.scorehour.pop();
       }
 
       person.scoreminute.unshift(score);
-      if (person.scoreminute.length) person.scoreminute.pop();
+      if (person.scoreminute.length > 5) person.scoreminute.pop();
 
       var update = {
         fullName: person.fullName,
         score: score,
         scorechange: score - person.score,
         scorecounter: person.scorecounter,
+        scoreminute: person.scoreminute,
         scorehour: person.scorehour,
         scoreday: person.scoreday,
         scoreweek: person.scoreweek,
