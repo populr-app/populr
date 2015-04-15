@@ -56,6 +56,9 @@ var ListItem = React.createClass({
         <div className="col-md-2 col-sm-2 col-xs-2">
           <span className="person-netChange" style={scoreChangeStyles.netChange}>{scorePercentage} change</span>
         </div>
+        <div className="col-md-2 col-sm-2 col-xs-2">
+          <span className="person-currentScore"></span>
+        </div>
       </li>
     )
   }
