@@ -117,7 +117,7 @@ gulp.task('jsdoc', shell.task([
 ]));
 
 /* Workers */
-gulp.task('scrapeAll', gulpSequence('scrapeTwitter', 'scrapeSites', 'updateScores', 'updateTop'));
+gulp.task('scrapeAll', gulpSequence('scrapeTwitter', 'scrapeSites', 'updateScores', 'updateTop', 'updateRedis'));
 
 gulp.task('scrapeTwitter', function() {
   return require('./server/workers/twitterScraper')();
@@ -133,6 +133,10 @@ gulp.task('updateScores', function() {
 
 gulp.task('updateTop', function() {
   return require('./server/workers/topUpdater')();
+});
+
+gulp.task('updateRedis', function() {
+  return require('./server/workers/redisUpdater')();
 });
 
 gulp.task('loadData', function() {
