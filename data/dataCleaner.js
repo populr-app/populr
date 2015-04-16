@@ -1,39 +1,32 @@
 var fs = require('fs');
 
-fs.readFile('clientData.json', {encoding:'UTF-8'}, function(err, data) {
+// read in the clientData.js file
+var peopleObject = JSON.parse(fs.readFileSync('clientData.json', {encoding:'utf8'}));
 
-  if (err) throw err;
+filterDisambiguationPages(peopleObject);
+cleanUpDescriptions(peopleObject);
 
-  var clientData = JSON.parse(data);
-  console.log('old client data:', clientData.people.length);
+// export new client data
+fs.writeFileSync('clientData2.json', JSON.stringify(peopleObject), {encoding: 'utf8'});
 
-  // Filter out the people with disambiguation pages or URLs for descriptions
-  var filtered = clientData.people.filter(function(person) {
+// Filter out people with disambiguation pages or weird links for descriptions.
+function filterDisambiguationPages(peopleObject) {
+  console.log(peopleObject.people);
+  peopleObject.people = peopleObject.people.filter(function(person) {
     return (person.context.description.indexOf('may refer to') === -1) &&
            (person.context.description.indexOf('is the name of') === -1) &&
            (person.context.description.indexOf('http://') === -1);
   });
+}
 
-  // Clean up descriptions to remove IPA irregularities
-  //
-  // Here we are regexing for consonants only. This is enough to
-  // parse the entire pronunciation guide out of the description.
-  // See: http://westonruter.github.io/ipa-chart/keyboard/
-  var mapped = filtered.map(function(person){
-    person.context.description = person.context.description.replace(/[^(born ][A-Za-z0-9\/\\: bptdʈɖcɟkɡqqɢʔmɱnɳɲŋɴʀrʙⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɮɬʋɹɻjɰʟʎɭl]+;\s/g, '');
+// Clean up people with pronunciation guides and extra escape chars in their descriptions.
+// See: http://westonruter.github.io/ipa-chart/keyboard/
+function cleanUpDescriptions(peopleObject) {
+  peopleObject.people = peopleObject.people.map(function(person) {
+    person.context.description = person.context.description.replace(/[^(born ][A-Za-z0-9\/\\: bptdʈɖcɟkɡqqɢʔmɱnɳɲŋɴʀrʙⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɮɬʋɹɻjɰʟʎɭliyɪʏøeɛœæaɶɨʉɵɘəɜɞɐɑʌɤʊɯuoɔɒːˑ|‖.‿ʡʢʜɥwʍʑɕɺɧʃ]+;\s/g, '');
     person.context.description = person.context.description.replace(/\\/g, '');
     return person;
   });
-
-  // update people on clientData object
-  clientData.people = mapped;
-  console.log('new client data:', clientData.people.length);
+}
 
 
-  // export new client data
-  fs.writeFile('clientData2.json', JSON.stringify(clientData), {encoding: 'UTF-8'}, function(err){
-    if(err) throw err;
-    console.log('saved');
-  });
-
-});
