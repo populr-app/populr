@@ -33,7 +33,7 @@ module.exports = function() {
           .then(facebookController.attachData)
           .then(topController.attachData)
           .then(function(data) {
-            return client.set(data.fullName, JSON.stringify(data));
+            return client.set(escape(data.fullName), JSON.stringify(data));
           }));
       });
 
