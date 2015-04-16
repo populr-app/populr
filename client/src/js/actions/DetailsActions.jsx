@@ -10,6 +10,7 @@ DetailsActions.loadDetails.preEmit = function(name) {
         type: 'GET',
         url: 'http://api.populr.io/people/' + escape(name)
       }).done(function(data) {
+        data = JSON.parse(data);
         DetailsActions.loadComplete(data);
       });
   }

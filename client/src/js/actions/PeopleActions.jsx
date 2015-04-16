@@ -10,6 +10,7 @@ PeopleActions.loadPeople.preEmit = function() {
         type: 'GET',
         url: 'http://api.populr.io/top'
       }).done(function(data) {
+        data = JSON.parse(data);
         PeopleActions.loadComplete(data);
       });
 }
