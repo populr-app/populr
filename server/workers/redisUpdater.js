@@ -9,9 +9,9 @@ var sitesController = require('../database/sites/controller');
 var facebookController = require('../database/facebook/controller');
 var topController = require('../database/top/controller');
 var client = redis.createClient({
-  host: process.env.REDISCLOUD_URL || 'pub-redis-15340.us-east-1-4.3.ec2.garantiadata.com',
+  host: process.env.REDISCLOUD_URL || '',
   port: '15340',
-  password: process.env.REDISCLOUD_PASSWORD || 'ZdUqOFO4ZQFxKDZ7'
+  password: process.env.REDISCLOUD_PASSWORD || ''
 });
 
 module.exports = function() {
