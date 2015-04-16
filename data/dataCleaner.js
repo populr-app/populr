@@ -15,12 +15,17 @@ fs.readFile('clientData.json', {encoding:'UTF-8'}, function(err, data) {
   });
 
   // Clean up descriptions to remove IPA irregularities
+  //
+  // Here we are regexing for consonants only. This is enough to
+  // parse the entire pronunciation guide out of the description.
+  // See: http://westonruter.github.io/ipa-chart/keyboard/
   var mapped = filtered.map(function(person){
-    person.context.description = person.context.description.replace(/[^(born ][A-Za-z\/\\0-9: ]+;\s/g, '');
+    person.context.description = person.context.description.replace(/[^(born ][A-Za-z0-9\/\\: bptdʈɖcɟkɡqqɢʔmɱnɳɲŋɴʀrʙⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɮɬʋɹɻjɰʟʎɭl]+;\s/g, '');
+    person.context.description = person.context.description.replace(/\\/g, '');
     return person;
   });
 
-  // update clientData object
+  // update people on clientData object
   clientData.people = mapped;
   console.log('new client data:', clientData.people.length);
 
