@@ -8,8 +8,9 @@ var DetailsActions = Reflux.createActions([
 DetailsActions.loadDetails.preEmit = function(name) {
     $.ajax({
         type: 'GET',
-        url: '/api/people/' + escape(name)
+        url: 'http://api.populr.io/people/' + escape(name)
       }).done(function(data) {
+        data = JSON.parse(data);
         DetailsActions.loadComplete(data);
       });
   }
