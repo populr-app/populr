@@ -12,6 +12,7 @@ var SitesController = require('../database/sites/controller.js');
 var PeopleController = require('../database/people/controller.js');
 
 module.exports = function() {
+  log('${a}: Starting up...', 'scrapeSites'.cyan);
   return requestHTML(require('../../data/sites.json').sites)
     .then(grabPeople)
     .then(countOccurences)
@@ -22,20 +23,30 @@ module.exports = function() {
 
 function requestHTML(sites) {
   var promiseArray = [];
+  var i = 0;
   sites.forEach(function(site) {
     promiseArray.push(request(site).then(function(data) {
+      if (i % Math.round(sites.length / 10) === 0) {
+        var string = '[' + Math.round10(i / sites.length * 100, 1) + '%]';
+        log('${a}: Scraping HTML ${b}', 'scrapeSites'.cyan, string.magenta);
+      }
+
+      i++;
       var $ = cheerio.load(data[0].body);
       var text = $('body').text();
       text = text.replace(/\s+/g, ' ');
       text = text.replace(/[^\w\s]/gi, '');
       return text;
-    }).catch(function(err) { log('${a}: Errored out [${b}]', 'scrapeSites'.cyan, site); }));
+    }).catch(function(err) { log('${a}: Errored out on ${b}', 'scrapeSites'.cyan, site.red); }));
   });
 
   return Promise.all(promiseArray);
 }
 
 function grabPeople(html) {
+  var string = '[100%]';
+  log('${a}: Scraping HTML ${b}', 'scrapeSites'.cyan, string.magenta);
+  log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
   this.html = html.join(' ');
   return People.findAll().then(function(people) {
     var promiseArray = [];
@@ -57,18 +68,25 @@ function grabPeople(html) {
 
 function countOccurences(people) {
   var html = this.html;
-  people.forEach(function(person) {
+  people.forEach(function(person, i) {
+    if (i % Math.round(people.length / 10) === 0) {
+      var string = '[' + Math.round10(i / people.length * 100, 1) + '%]';
+      log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, string.magenta);
+    }
+
     var count = occurrences(html, person.fullName);
     var countchange = count - person.lastSiteCount || 0;
     person.sites.count = occurrences(html, person.fullName);
     person.sites.countchange = countchange;
   });
 
+  log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, '[100%]'.magenta);
   return people;
 }
 
 function updatePeople(people) {
   var promiseArray = [];
+  log('${a}: Updating site counts', 'scrapeSites'.cyan);
   people.forEach(function(person) {
     promiseArray.push(SitesController.add(person));
   });
@@ -81,12 +99,15 @@ function getMaxs() {
     this.maxcount = Math.max(d1[0][0].max, 1);
     return sql.query('SELECT MAX(countchange) FROM sites;').then(function(d2) {
       this.maxcountchange = Math.max(d2[0][0].max, 1);
+      var string = '(' + this.maxcount + '/' + this.maxcountchange + ')';
+      log('${a}: Retrieved max values ${b}', 'scrapeSites'.cyan, string.magenta);
     });
   });
 }
 
 function updateScores() {
   return Sites.findAll().then(function(people) {
+    log('${a}: Calculating & updating scores', 'scrapeSites'.cyan);
     var promiseArray = [];
     people.forEach(function(person) {
       person = person.get();
@@ -132,7 +153,7 @@ function updateScores() {
     });
 
     return Promise.all(promiseArray);
-  });
+  }).then(function() { log('${a}: Done!', 'scrapeSites'.cyan); });
 }
 
 function average(array) {
@@ -157,4 +178,25 @@ function occurrences(string, subString, allowOverlapping) {
   }
 
   return (n);
+}
+
+Math.round10 = function(value, exp) {
+  return decimalAdjust('round', value, exp);
+};
+
+function decimalAdjust(type, value, exp) {
+  if (typeof exp === 'undefined' || +exp === 0) {
+    return Math[type](value);
+  }
+
+  value = +value;
+  exp = +exp;
+  if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+    return NaN;
+  }
+
+  value = value.toString().split('e');
+  value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+  value = value.toString().split('e');
+  return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
 }
