@@ -1,13 +1,6 @@
 var fs = require('fs');
 var _ = require('lodash');
 
-// read in the clientData.js file
-var peopleObject = JSON.parse(fs.readFileSync('clientData3.json', {encoding:'utf8'}));
-filterFacebookPages(peopleObject, 3);
-
-// export new client data
-fs.writeFileSync('clientData4.json', JSON.stringify(peopleObject), {encoding: 'utf8'});
-
 // Filter out people with disambiguation pages or weird links for descriptions.
 function filterDisambiguationPages(peopleObject) {
   console.log(peopleObject.people);
@@ -42,6 +35,7 @@ function filterFacebookPages(peopleObject, n) {
     var pages = _.pluck(person.facebook.pages, 'likes');
     var sorted = pages.sort(function(a, b) {return b - a;});
     var nPages = _.take(sorted, n);
+    if (nPages <= n ) { return person; }
 
     // filter out pages that don't match the nPages values
     var counter = 0;
@@ -58,7 +52,6 @@ function filterFacebookPages(peopleObject, n) {
 
     return person;
   });
-
 
 }
 
