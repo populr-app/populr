@@ -1,6 +1,12 @@
 var fs = require('fs');
 var _ = require('lodash');
 
+var peopleObj = JSON.parse(fs.readFileSync('clientData.json', {encoding:'utf8'}));
+
+cleanUpDescriptions(peopleObj);
+
+fs.writeFileSync('clientData2.json', JSON.stringify(peopleObj), {encoding:'utf8'});
+
 // Filter out people with disambiguation pages or weird links for descriptions.
 function filterDisambiguationPages(peopleObject) {
   console.log(peopleObject.people);
@@ -17,6 +23,8 @@ function cleanUpDescriptions(peopleObject) {
   peopleObject.people = peopleObject.people.map(function(person) {
     person.context.description = person.context.description.replace(/[^(born ][A-Za-z0-9\/\\: bptdʈɖcɟkɡqqɢʔmɱnɳɲŋɴʀrʙⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɮɬʋɹɻjɰʟʎɭliyɪʏøeɛœæaɶɨʉɵɘəɜɞɐɑʌɤʊɯuoɔɒːˑ|‖.‿ʡʢʜɥwʍʑɕɺɧʃ]+;\s/g, '');
     person.context.description = person.context.description.replace(/\\/g, '');
+    person.context.description = person.context.description.split('n^')[0];
+    person.context.description = person.context.description.split('\n^')[0];
     return person;
   });
 }
