@@ -105,10 +105,30 @@
 	margin-left: 20px;
 }
 
+.person-trending {
+	display: block;
+	background: peachpuff;
+	font-size: 8px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 3px;
+
+	position: absolute;
+	top: -15px;
+	left: 55px;
+}
+
+.fa-caret-down, .fa-caret-up {
+	margin-right: 5px;
+}
+
+.hidden {
+	display: none;
+}
+
 .last-updated {
 	font-size: 12px;
 	padding: 14px;
 	float: right;
 	color: gray;
-
 }
