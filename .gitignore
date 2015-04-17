@@ -6,3 +6,4 @@ keys.js
 client/dist/**
 out
 data/siteData.txt
+backup.json
