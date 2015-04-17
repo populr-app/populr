@@ -31,7 +31,7 @@ function splitIntoChunks(people) {
     people[i] = people[i].get();
   }
 
-  return _.chunk(people, 100);
+  return _.chunk(people, 100).slice(0, 1);
 }
 
 function getTwitterData(chunks) {
@@ -51,10 +51,13 @@ function updatePeople(people) {
     var promiseArray = [];
     twitterData[0].forEach(function(user, index) {
       var person = people[index];
-      if (!person.tweets.length) {
-        person.tweets.unshift(JSON.stringify(user.status));
-      } else if (user.status.id !== JSON.parse(person.tweets[0]).id) {
-        person.tweets.unshift(JSON.stringify(user.status));
+      console.log(typeof user.status);
+      if (user.status) {
+        if (!person.tweets.length) {
+          person.tweets.unshift(JSON.stringify(user.status));
+        } else if (user.status.id !== JSON.parse(person.tweets[0]).id) {
+          person.tweets.unshift(JSON.stringify(user.status));
+        }
       }
 
       var update = {
