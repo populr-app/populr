@@ -247,12 +247,13 @@
         "http://Celebz.com/fork2.html",
         "http://Tracy_prinze.tripod.com/theentertainerswelove/",
 
-        "http://news.feedzilla.com/en_us/headlines/celebrities.rss?count=100&client_source=feedzilla_widget_feed&order=relevance",
 
         "http://www.popsugar.com/",
         "http://www.popsugar.com/entertainment",
         "http://www.popsugar.com/beauty"
 
+    ],
+    "headlines": [
+        "http://news.feedzilla.com/en_us/headlines/celebrities.rss?count=100&client_source=feedzilla_widget_feed&order=relevance"
     ]
-
 }
