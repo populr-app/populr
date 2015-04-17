@@ -10,21 +10,21 @@ var TabsContainer = React.createClass({
 		return (
 			<Tabs className="container" tabActive={2}>
 				<Tabs.Panel title='Facebook'>
-					<h2>Hourly Facebook Score Trends</h2>
+					<h2 className="chart-title">Hourly Facebook Score Trends</h2>
 					<FacebookChart facebook={this.props.details.facebook} />
 				</Tabs.Panel>
 				<Tabs.Panel title='Twitter'>
-				<h2>Hourly Twitter Score Trends</h2>
+				<h2 className="chart-title">Hourly Twitter Score Trends</h2>
 					<TwitterChart twitter={this.props.details.twitter} />
 					<TwitterFeed tweets={this.props.details.twitter.tweets} />
 				</Tabs.Panel>
 				<Tabs.Panel title='Instagram'>
-					<h2>Hourly Instagram Score Trends</h2>
+					<h2 className="chart-title">Hourly Instagram Score Trends</h2>
 					<InstagramChart instagram={this.props.details.instagram} />
 					<InstagramFeed images={this.props.details.instagram} />
 				</Tabs.Panel>
 				<Tabs.Panel title='News'>
-					
+					<h2 className="chart-title">Appearance in News Headlines</h2>
 				</Tabs.Panel>
 			</Tabs>
 		);
