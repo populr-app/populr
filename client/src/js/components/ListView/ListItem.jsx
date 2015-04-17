@@ -47,10 +47,12 @@ var ListItem = React.createClass({
       <li className="person-item row">
         <div className="col-md-3 col-sm-8 col-xs-8">
           <div className="person-profile-picture">
-            <img src={profilePicture} />
-            <div className="person-rank-circle">
-              <span className="person-rank">{this.props.person.rank}</span>
-            </div>
+            <Link to="details" params={this.props.person}>
+              <img src={profilePicture} />
+              <div className="person-rank-circle">
+                <span className="person-rank">{this.props.person.rank}</span>
+              </div>
+            </Link>
           </div>
           <div className="person-info-wrapper">
             <div className="person-details">
