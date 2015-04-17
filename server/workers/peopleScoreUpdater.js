@@ -44,17 +44,17 @@ module.exports = function() {
 
       person.scorecounter++;
 
-      if (person.counter / 6 / 24 % 7 === 0 && person.counter !== 0) {
+      if (person.scorecounter / 6 / 24 % 7 === 0 && person.scorecounter !== 0) {
         person.scoreweek.unshift(average(person.scoreday));
         if (person.scoreweek.length > 4) person.scoreweek.pop();
       }
 
-      if (person.counter / 6 % 24 === 0 && person.counter !== 0) {
+      if (person.scorecounter / 6 % 24 === 0 && person.scorecounter !== 0) {
         person.scoreday.unshift(average(person.scorehour));
         if (person.scoreday.length > 7) person.scoreday.pop();
       }
 
-      if (person.counter % 6 === 0 && person.counter !== 0) {
+      if (person.scorecounter % 6 === 0 && person.scorecounter !== 0) {
         person.scorehour.unshift(average(person.scoreminute));
         if (person.scorehour.length > 24) person.scorehour.pop();
       }
@@ -65,7 +65,7 @@ module.exports = function() {
       var update = {
         fullName: person.fullName,
         score: score,
-        scorechange: score - person.score,
+        scorechange: scorechange,
         scorecounter: person.scorecounter,
         scoreminute: person.scoreminute,
         scorehour: person.scorehour,
