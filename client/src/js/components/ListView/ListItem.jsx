@@ -33,7 +33,6 @@ var ListItem = React.createClass({
     /* Score trend */
     var trendingDisplay = '';
     scorePercentageCalc > 50 ? trendingDisplay = 'block' : trendingDisplay = 'none';
-    console.log('score %: ', scorePercentageCalc);
 
     /* Removes '_normal' in uri to retrieve larger Twitter picture */
     var profilePicture = this.props.person.profilePic;

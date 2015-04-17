@@ -36,7 +36,7 @@ var DetailsHeader = React.createClass({
       if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis') {
         occupation = occupation + ' Player';
       }
-      console.log('state vars: ', occupation, nextProps.details.fullName);
+
       this.setState({
         rankSuffix: rankSuffix,
         fullName: nextProps.details.fullName,
