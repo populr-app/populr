@@ -16,7 +16,6 @@ var client = new TwitterApi({
 });
 
 module.exports = function() {
-  log('${a}: Starting', 'scrapeTwitter'.cyan);
   return Twitter.findAll()
     .then(splitIntoChunks)
     .each(getAndUpdateTwitterData)
@@ -25,7 +24,6 @@ module.exports = function() {
 };
 
 function splitIntoChunks(twitterData) {
-  log('${a}: Splitting list into chunks', 'scrapeTwitter'.cyan);
   for (var i = 0; i < twitterData.length; i++) {
     twitterData[i] = twitterData[i].get();
   }
@@ -35,7 +33,6 @@ function splitIntoChunks(twitterData) {
 
 function getAndUpdateTwitterData(chunk, i) {
   var sl = '[list ' + i + ']';
-  log('${a}: Sending users to twitter ${b}', 'scrapeTwitter'.cyan, sl.magenta);
   var screenNames = _.pluck(chunk, 'handle').join();
   return getTwitterData(screenNames)
    .then(updateTwitterData(chunk, i));
@@ -48,7 +45,6 @@ function getTwitterData(screenNames) {
 function updateTwitterData(people, index) {
   return function(twitterData) {
     var sl = '[list ' + index + ']';
-    log('${a}: Updating users in database ${b}', 'scrapeTwitter'.cyan, sl.magenta);
     var updatePromises = [];
     for (var i = 0; i < twitterData[0].length; i++) {
       var user = twitterData[0][i];
@@ -77,43 +73,37 @@ function updateTwitterData(people, index) {
 }
 
 function getMaxCounts() {
-  log('${a}: Getting max followers/followerschange', 'scrapeTwitter'.cyan);
-  var max = {};
   return sql.query('SELECT MAX(followers) FROM twitters;').then(function(d1) {
-    max.followers = d1[0][0].max;
+    this.maxfollowers = Math.max(d1[0][0].max, 1);
     return sql.query('SELECT MAX(followerschange) FROM twitters;').then(function(d2) {
-      max.followerschange = d2[0][0].max;
-      return max;
+      this.maxfollowerschange = Math.max(d2[0][0].max, 1);
     });
   });
 }
 
-function calculateScores(max) {
-  return Twitter.findAll().then(function(twitters) {
-    log('${a}: Calculating scores and updating users', 'scrapeTwitter'.cyan);
-    var twitterPromises = [];
-    for (var i = 0; i < twitters.length; i++) {
-      var person = twitters[i].get();
-      var f = person.followers / max.followers;
-      var fc = person.followerschange / max.followerschange;
-      if (isNaN(f)) f = 0;
-      if (isNaN(fc)) fc = 0;
-      var score = Math.floor(((f + fc) / 2) * 1000);
+function calculateScores() {
+  return Twitter.findAll().then(function(people) {
+    var promiseArray = [];
+    people.forEach(function(person) {
+      person = person.get();
+      var followers = (person.followers / this.maxfollowers) || 0;
+      var followerschange = (person.followerschange / this.maxfollowerschange) || 0;
+      var score = Math.floor(((followers + followerschange) / 2) * 1000);
       var scorechange = score - person.score;
 
       person.scorecounter++;
 
-      if (person.counter / 6 / 24 % 7 === 0 && person.counter !== 0) {
+      if (person.scorecounter / 6 / 24 % 7 === 0 && person.scorecounter !== 0) {
         person.scoreweek.unshift(average(person.scoreday));
         if (person.scoreweek.length > 4) person.scoreweek.pop();
       }
 
-      if (person.counter / 6 % 24 === 0 && person.counter !== 0) {
+      if (person.scorecounter / 6 % 24 === 0 && person.scorecounter !== 0) {
         person.scoreday.unshift(average(person.scorehour));
         if (person.scoreday.length > 7) person.scoreday.pop();
       }
 
-      if (person.counter % 6 === 0 && person.counter !== 0) {
+      if (person.scorecounter % 6 === 0 && person.scorecounter !== 0) {
         person.scorehour.unshift(average(person.scoreminute));
         if (person.scorehour.length > 24) person.scorehour.pop();
       }
@@ -125,7 +115,7 @@ function calculateScores(max) {
         fullName: person.fullName,
         twitter: {
           score: score,
-          scorechange: score - person.score,
+          scorechange: scorechange,
           scorecounter: person.scorecounter,
           scoreminute: person.scoreminute,
           scorehour: person.scorehour,
@@ -134,10 +124,10 @@ function calculateScores(max) {
           scoremonth: person.scoremonth
         }
       };
-      twitterPromises.push(TwitterController.add(update));
-    }
+      promiseArray.push(TwitterController.add(update));
+    });
 
-    return Promise.all(twitterPromises);
+    return Promise.all(promiseArray);
   });
 }
 
