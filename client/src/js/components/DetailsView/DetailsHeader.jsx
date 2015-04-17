@@ -4,7 +4,8 @@ var DetailsHeader = React.createClass({
         rankSuffix: '1st',
         fullName: 'Celebrity Name',
         profilePicture: '',
-        occupation: 'Celebrity'
+        occupation: 'Celebrity',
+        handle: ''
       }
   },
   componentWillReceiveProps: function(nextProps){
@@ -41,28 +42,35 @@ var DetailsHeader = React.createClass({
         rankSuffix: rankSuffix,
         fullName: nextProps.details.fullName,
         profilePicture: profilePicture,
-        occupation: occupation
+        occupation: occupation,
+        twitterURL: 'http://twitter.com/' + nextProps.details.twitter.handle
       });
   },
   render: function() {
     return (
         <div className="details-header">
         	<div className="container">
-            <div className="details-header__top-personal inline">
-              <div className="details-header__face inline">
-                <img src={this.state.profilePicture} />
+            <div className="row">
+              <div className="col-sm-10 col-xs-12">
+                <div className="details-header__top-personal inline">
+                  <div className="details-header__face inline">
+                    <img src={this.state.profilePicture} />
+                  </div>
+                  <div className="inline">
+                    <h1 className="details-header__name">
+                      <a href={this.state.twitterURL} target="_blank">{this.state.fullName}</a>
+                    </h1>
+                    <h2 className="details-header__profession">
+                      {this.state.occupation}
+                    </h2>
+                  </div>
+                </div>
               </div>
-              <div className="inline">
-                <h1 className="details-header__name">
-                  {this.state.fullName}
-                </h1>
-                <h2 className="details-header__profession">
-                  {this.state.occupation}
-                </h2>
+              <div className="col-sm-2">
+                <div className="details-header__rank inline">
+                  <span>Ranked {this.state.rankSuffix} </span>
+                </div>
               </div>
-            </div>
-            <div className="details-header__rank inline">
-              <span>Ranked {this.state.rankSuffix} </span>
             </div>
           </div>
         </div>
