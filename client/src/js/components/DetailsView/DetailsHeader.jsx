@@ -34,9 +34,6 @@ var DetailsHeader = React.createClass({
       profilePicture = profilePicture.replace(/_normal/i, '');
 
       var occupation = nextProps.details.context.occupation;
-      if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis') {
-        occupation = occupation + ' Player';
-      }
 
       this.setState({
         rankSuffix: rankSuffix,
