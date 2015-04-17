@@ -4,6 +4,8 @@ var TwitterFeed = require('../DetailsView/DetailsModules/TwitterFeed.jsx');
 var FacebookChart = require('../DetailsView/DetailsModules/FacebookChart.jsx');
 var InstagramChart = require('../DetailsView/DetailsModules/InstagramChart.jsx');
 var InstagramFeed = require('../DetailsView/DetailsModules/InstagramFeed.jsx');
+var NewsChart = require('../DetailsView/DetailsModules/NewsChart.jsx');
+var NewsFeed = require('../DetailsView/DetailsModules/NewsFeed.jsx');
 
 var TabsContainer = React.createClass({
 	render: function() {
@@ -25,6 +27,8 @@ var TabsContainer = React.createClass({
 				</Tabs.Panel>
 				<Tabs.Panel title='News'>
 					<h2 className="chart-title">Appearance in News Headlines</h2>
+					<NewsChart sites={this.props.details.sites} />
+					<NewsFeed headlines={[1,2,3,4,5]} />
 				</Tabs.Panel>
 			</Tabs>
 		);
