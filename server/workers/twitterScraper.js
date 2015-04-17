@@ -51,6 +51,12 @@ function updatePeople(people) {
     var promiseArray = [];
     twitterData[0].forEach(function(user, index) {
       var person = people[index];
+      if (!person.tweets.length) {
+        person.tweets.unshift(JSON.stringify(user.status));
+      } else if (user.status.id !== JSON.parse(person.tweets[0]).id) {
+        person.tweets.unshift(JSON.stringify(user.status));
+      }
+
       var update = {
         fullName: person.fullName,
         twitter: {
