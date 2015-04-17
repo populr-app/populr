@@ -30,6 +30,9 @@ var DetailsMain = React.createClass({
             "createdAt": "",
             "updatedAt": ""
         },
+        "top": {
+            "rank": 0
+        },
         "instagram": {
             "images": []
         },
