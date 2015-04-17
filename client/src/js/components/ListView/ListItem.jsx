@@ -40,9 +40,7 @@ var ListItem = React.createClass({
 
     /* Adds 'player' to sports occupations' */
     var occupation = this.props.person.occupation;
-    if (occupation === 'Soccer' || occupation === 'Basketball' || occupation === 'Football' || occupation === 'Tennis' || occupation=== 'Hockey') {
-      this.props.person.occupation = occupation + ' Player';
-    }
+
     return (
       <li className="person-item row">
         <div className="col-md-3 col-sm-8 col-xs-8">

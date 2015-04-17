@@ -3,13 +3,27 @@ var _ = require('lodash');
 
 var peopleObj = JSON.parse(fs.readFileSync('clientData.json', {encoding:'utf8'}));
 
-cleanUpDescriptions(peopleObj);
+fixAthleteOccupations(peopleObj);
 
 fs.writeFileSync('clientData2.json', JSON.stringify(peopleObj), {encoding:'utf8'});
 
+// Append the word 'player' to athlete occupations
+function fixAthleteOccupations(peopleObject) {
+  peopleObject.people = peopleObject.people.map(function(person) {
+    if (person.context.occupation === 'Soccer' ||
+       (person.context.occupation === 'Basketball') ||
+       (person.context.occupation === 'Baseball') ||
+       (person.context.occupation === 'Football') ||
+       (person.context.occupation === 'Tennis')) {
+      person.context.occupation += ' Player';
+    }
+
+    return person;
+  });
+}
+
 // Filter out people with disambiguation pages or weird links for descriptions.
 function filterDisambiguationPages(peopleObject) {
-  console.log(peopleObject.people);
   peopleObject.people = peopleObject.people.filter(function(person) {
     return (person.context.description.indexOf('may refer to') === -1) &&
            (person.context.description.indexOf('is the name of') === -1) &&
@@ -43,7 +57,7 @@ function filterFacebookPages(peopleObject, n) {
     var pages = _.pluck(person.facebook.pages, 'likes');
     var sorted = pages.sort(function(a, b) {return b - a;});
     var nPages = _.take(sorted, n);
-    if (nPages <= n ) { return person; }
+    if (nPages <= n) { return person; }
 
     // filter out pages that don't match the nPages values
     var counter = 0;
