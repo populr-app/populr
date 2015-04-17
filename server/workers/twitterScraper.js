@@ -1,3 +1,4 @@
+
 var _ = require('lodash');
 var Promise = require('bluebird');
 var log = require('../helpers/log');
@@ -16,44 +17,40 @@ var client = new TwitterApi({
 });
 
 module.exports = function() {
+  log('${a}: Starting up...', 'scrapeTwitter'.cyan);
   return Twitter.findAll()
     .then(splitIntoChunks)
-    .each(getAndUpdateTwitterData)
+    .then(getTwitterData)
     .then(getMaxCounts)
     .then(calculateScores);
 };
 
-function splitIntoChunks(twitterData) {
-  for (var i = 0; i < twitterData.length; i++) {
-    twitterData[i] = twitterData[i].get();
+function splitIntoChunks(people) {
+  log('${a}: Splitting into chunks', 'scrapeTwitter'.cyan);
+  for (var i = people.length - 1; i >= 0; i--) {
+    people[i] = people[i].get();
   }
 
-  return _.chunk(twitterData, 100);
+  return _.chunk(people, 100);
 }
 
-function getAndUpdateTwitterData(chunk, i) {
-  var sl = '[list ' + i + ']';
-  var screenNames = _.pluck(chunk, 'handle').join();
-  return getTwitterData(screenNames)
-   .then(updateTwitterData(chunk, i));
+function getTwitterData(chunks) {
+  log('${a}: Requesting twitter data in chunks', 'scrapeTwitter'.cyan);
+  var promiseArray = [];
+  chunks.forEach(function(chunk) {
+    var usernames = _.pluck(chunk, 'handle').join();
+    promiseArray.push(client.getAsync('users/lookup', {screen_name: usernames})
+      .then(updatePeople(chunk)));
+  });
+
+  return Promise.all(promiseArray);
 }
 
-function getTwitterData(screenNames) {
-  return client.getAsync('users/lookup', {screen_name: screenNames});
-}
-
-function updateTwitterData(people, index) {
+function updatePeople(people) {
   return function(twitterData) {
-    var sl = '[list ' + index + ']';
-    var updatePromises = [];
-    for (var i = 0; i < twitterData[0].length; i++) {
-      var user = twitterData[0][i];
-      var person = people[i];
-      if (person.tweets.length > 4) {
-        person.tweets.pop();
-      }
-
-      person.tweets.unshift(JSON.stringify(user.status));
+    var promiseArray = [];
+    twitterData[0].forEach(function(user, index) {
+      var person = people[index];
       var update = {
         fullName: person.fullName,
         twitter: {
@@ -65,10 +62,10 @@ function updateTwitterData(people, index) {
           backgroundPic: user.profile_banner_url
         }
       };
-      updatePromises.push(TwitterController.add(update));
-    }
+      promiseArray.push(TwitterController.add(update));
+    });
 
-    return Promise.all(updatePromises);
+    return Promise.all(promiseArray);
   };
 }
 
@@ -77,12 +74,15 @@ function getMaxCounts() {
     this.maxfollowers = Math.max(d1[0][0].max, 1);
     return sql.query('SELECT MAX(followerschange) FROM twitters;').then(function(d2) {
       this.maxfollowerschange = Math.max(d2[0][0].max, 1);
+      var string = '(' + this.maxfollowers + '/' + this.maxfollowerschange + ')';
+      log('${a}: Retrieved max values ${b}', 'scrapeTwitter'.cyan, string.magenta);
     });
   });
 }
 
 function calculateScores() {
   return Twitter.findAll().then(function(people) {
+    log('${a}: Calculating & updating scores', 'scrapeTwitter'.cyan);
     var promiseArray = [];
     people.forEach(function(person) {
       person = person.get();
@@ -128,7 +128,7 @@ function calculateScores() {
     });
 
     return Promise.all(promiseArray);
-  });
+  }).then(function() { log('${a}: Done!', 'scrapeTwitter'.cyan); });
 }
 
 function average(array, person) {
