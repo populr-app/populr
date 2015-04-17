@@ -60,6 +60,7 @@ function updatePeople(people) {
       var update = {
         fullName: person.fullName,
         twitter: {
+          twitterId: user.id_str,
           handle: user.screen_name,
           followers: user.followers_count,
           followerschange: user.followers_count - person.followers,
