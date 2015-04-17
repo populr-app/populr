@@ -4,7 +4,7 @@ var InstagramFeed = React.createClass({
   render: function(){
     return (
       <div>
-        <h2>Recent Instagram Photos:</h2>  
+        <h2 className="feed-title">Recent Instagram Photos:</h2>  
       </div>
       );
   }

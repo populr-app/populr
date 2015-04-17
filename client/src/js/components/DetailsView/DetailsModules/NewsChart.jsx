@@ -1,21 +1,21 @@
 var Chart = require('react-chartjs');
 var LineChart = Chart.Line;
 
-var TwitterChart = React.createClass({
+var NewsChart = React.createClass({
   getInitialState: function(){
     return {
       data: {
       labels: [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
       datasets: [
           {
-            label: "Twitter Score",
+            label: "Sites Score",
             fillColor: "rgba(228, 130, 99, 0.25)",
             strokeColor: "rgba(228, 130, 99, 1)",
             pointColor: "rgba(228, 130, 99, 1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1))",
-            data: this.props.twitter.scorehour || [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            data: this.props.sites.scorehour || [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
           }
         ]
     }
@@ -34,7 +34,7 @@ var TwitterChart = React.createClass({
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1))",
-            data: nextProps.twitter.scorehour
+            data: nextProps.sites.scorehour
           }
         ]
     }
@@ -52,4 +52,4 @@ var TwitterChart = React.createClass({
   }
 });
 
-module.exports = TwitterChart;
+module.exports = NewsChart;
