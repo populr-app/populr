@@ -1,16 +1,22 @@
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-
+	.container {
+		padding: 0 80px;
+	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-
+	.container {
+		padding: 0 80px;
+	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+	.container {
+		padding: 0 80px;
+	}
 }
 
 /* Extra Small Devices, Phones */ 
@@ -23,7 +29,7 @@
   }
 
   .list-container {
-  	margin-top: 70px;
+  	margin-top: 240px !important;
   }
 
   .wikipedia-bio__columns {
@@ -51,7 +57,7 @@
 	}
 
 	.list-container {
-		margin-top: 70px;
+		margin-top: 240px !important;
 	}
 
 	.wikipedia-bio__columns {
@@ -60,6 +66,10 @@
 
 	.mobile-header {
 		display: block;
+	}
+
+	.details-header__rank {
+		display: none;
 	}
 
 	.logo {

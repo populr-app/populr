@@ -32,7 +32,7 @@ var ListItem = React.createClass({
 
     /* Score trend */
     var trendingDisplay = '';
-    scorePercentageCalc > 50 ? trendingDisplay = 'block' : trendingDisplay = 'none';
+    scorePercentageCalc > 60 ? trendingDisplay = 'block' : trendingDisplay = 'none';
 
     /* Removes '_normal' in uri to retrieve larger Twitter picture */
     var profilePicture = this.props.person.profilePic;
@@ -45,7 +45,7 @@ var ListItem = React.createClass({
     }
     return (
       <li className="person-item row">
-        <div className="col-md-3 col-sm-4 col-xs-5">
+        <div className="col-md-3 col-sm-8 col-xs-8">
           <div className="person-profile-picture">
             <img src={profilePicture} />
             <div className="person-rank-circle">
@@ -62,7 +62,7 @@ var ListItem = React.createClass({
             </div>
           </div>
         </div>
-        <div className="col-md-2 col-sm-2 col-xs-2">
+        <div className="col-md-2 col-sm-4 col-xs-4">
           <span className="person-netChange" style={scoreChangeStyles.netChange}><i className={scorePercentageCalc > 0 ? 'fa fa-caret-up' : 'fa fa-caret-down'}/> {scorePercentage} change</span>
         </div>
         <div className="col-md-2 col-sm-2 col-xs-2">
