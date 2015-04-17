@@ -7,7 +7,7 @@ var TwitterFeed = React.createClass({
           <h2>Recent Tweets:</h2>
           {this.props.tweets.map(function(tweet){
             tweet = JSON.parse(tweet);
-            return <Tweet key={tweet.timestamp} tweet={person} />
+            return <Tweet key={tweet.timestamp} tweet={tweet} />
           })}
         </div>
       );

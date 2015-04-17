@@ -21,7 +21,7 @@ var TabsContainer = React.createClass({
 				<Tabs.Panel title='Instagram'>
 					<h2>Hourly Instagram Score Trends</h2>
 					<InstagramChart instagram={this.props.details.instagram} />
-					<InstagramFeed images={this.props.details.instagram.images} />
+					<InstagramFeed images={this.props.details.instagram} />
 				</Tabs.Panel>
 			</Tabs>
 		);
