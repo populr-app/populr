@@ -12,7 +12,7 @@ var sql = require('../connection.js');
 
 module.exports = sql.define('facebook', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
-  pages: { type: Sequelize.ARRAY(Sequelize.STRING) },
+  pages: { type: Sequelize.ARRAY(Sequelize.TEXT) },
   score: { type: Sequelize.INTEGER, defaultValue: 0 },
   scorechange: { type: Sequelize.INTEGER, defaultValue: 0 },
   scorecounter: { type: Sequelize.INTEGER, defaultValue: 0 },
