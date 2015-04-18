@@ -101,9 +101,14 @@ module.exports.add = function(personObj) {
   if (!personObj.facebook) {
     return personObj;
   } else {
+    for (var i = personObj.facebook.pages.length - 1; i >= 0; i--) {
+      personObj.facebook.pages[i] = JSON.stringify(personObj.facebook.pages[i]);
+    }
+
     var query = { where: { fullName: personObj.fullName } };
     return Facebook.findOne(query).then(function(foundFacebook) {
       if (foundFacebook) {
+
         foundFacebook.update(personObj.facebook);
         return personObj;
       } else {
