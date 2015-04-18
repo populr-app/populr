@@ -101,7 +101,7 @@ module.exports.add = function(personObj) {
   if (!personObj.facebook) {
     return personObj;
   } else {
-    for (var i = personObj.facebook.pages.length - 1; i >= 0; i--) {
+    for (var i = 0; i < personObj.facebook.pages.length; i++) {
       personObj.facebook.pages[i] = JSON.stringify(personObj.facebook.pages[i]);
     }
 
