@@ -5,18 +5,28 @@ var FacebookDB = require('../database/facebook/model.js');
 var FacebookController = require('../database/facebook/controller.js');
 var keys = require('../../keys.js').facebook;
 
-Promise.promisifyAll(FacebookApi.prototype);
+Promise.promisifyAll(FacebookApi);
 
 // set auth credentials for Facebook Graph API
 FacebookApi
   .setAccessToken(keys.accessToken)
   .setAppSecret(keys.appSecret);
 
-module.exports = function(){
-  return FacebookDB.findAll()
+//module.exports = function(){
+ FacebookDB.findAll()
   .then(updatePages);
-}
+//}
 
+function updatePages(people){
+
+  people.forEach(function(person){
+
+    console.log(person);
+    person.pages.forEach(function(page){
+      var t = JSON.parse(page);
+    })
+  });
+}
 // Query facebook table for people
 // iterate over people
 //  for each person, loop over pages
@@ -24,14 +34,14 @@ module.exports = function(){
 //    save person in facebook table
 
 
-var searchOptions = {
-  q:'Katy Perry',
-  type: 'page'
-};
+// var searchOptions = {
+//   q:'Katy Perry',
+//   type: 'page'
+// };
 
-FacebookApi.get("1392443837682836", function(err, res) {
-    console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
-  });
+// FacebookApi.get("1392443837682836", function(err, res) {
+//     console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
+//   });
   // .search(searchOptions, function(err, res) {
   //   console.log(graph.getAccessToken());
   //   console.log(res); // {data: [{id: xxx, from: ...}, {id: xxx, from: ...}]}
