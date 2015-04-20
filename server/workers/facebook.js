@@ -4,6 +4,7 @@ var Promise = require('bluebird');
 var FacebookDB = require('../database/facebook/model.js');
 var FacebookController = require('../database/facebook/controller.js');
 var keys = require('../../keys.js').facebook;
+var Sleep = require('sleep');
 
 Promise.promisifyAll(FacebookApi);
 
@@ -19,10 +20,7 @@ FacebookDB.findAll()
 //}
 
 function getFacebookData(people) {
-
- // people.forEach(function(person) {
-    var person = people[2];
-    console.log(person.fullName);
+  people.forEach(function(person) {
 
     var promises = [];
     person.pages.forEach(function(page) {
@@ -30,34 +28,28 @@ function getFacebookData(people) {
       var t = JSON.parse(page);
       promises.push(FacebookApi.getAsync(t.id).then(updatePage(page)));
 
-    })
-  //});
+      // avoid rate-limiting by limiting requests to 1/sec
+      Sleep.sleep(1);
+
+    });
+  });
 
   return Promise.all(promises);
 }
 
-function updatePage(p) {
+function updatePage(page) {
   return function(facebookData) {
-    console.log("NEW PAGE:", facebookData);
-  }
+    var update = {
+      url: facebookData.link,
+      pageName: facebookData.name,
+      likes: facebookData.likes,
+      talkingAbout: facebookData.talking_about_count,
+      wereHere: facebookData.were_here_count,
+      id: facebookData.id
+    };
+    console.log('update', update.pageName);
+    FacebookController.add(update);
+
+  };
 
 }
-
-// Query facebook table for people
-// iterate over people
-//  for each person, loop over pages
-//    for each page, update to include the newest information from fb api
-//    save person in facebook table
-
-// var searchOptions = {
-//   q:'Katy Perry',
-//   type: 'page'
-// };
-
-// FacebookApi.get("1392443837682836", function(err, res) {
-//     console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
-//   });
-  // .search(searchOptions, function(err, res) {
-  //   console.log(graph.getAccessToken());
-  //   console.log(res); // {data: [{id: xxx, from: ...}, {id: xxx, from: ...}]}
-  // });
