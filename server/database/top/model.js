@@ -14,6 +14,7 @@ module.exports = sql.define('top', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
   occupation: { type: Sequelize.STRING, defaultValue: '' },
   dob: {type: Sequelize.STRING, defaultValue: '' },
+  sitecount: { type: Sequelize.INTEGER, defaultValue: 0 },
   rank: { type: Sequelize.INTEGER, defaultValue: 201 },
   lastrank: { type: Sequelize.INTEGER, defaultValue: 0 },
   profilePic: {type: Sequelize.STRING, defaultValue: '' },
