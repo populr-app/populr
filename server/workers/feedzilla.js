@@ -1,53 +1,36 @@
-var FeedParser = require('feedparser');
+
+var Promise = require('bluebird');
 var request = require('request');
+var FeedParser = require('feedparser');
 
-var urls = [
-  'http://api.feedzilla.com/en_us/headlines/entertainment.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/celebrities.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/sports.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/events.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/internet.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/music.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/politics.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/society.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/top-news.rss?count=100',
-  'http://api.feedzilla.com/en_us/headlines/world-news.rss?count=100',
-]
+module.exports = function() {
+  var sites = require('../../data/sites.json').headlines;
+  var promiseArray = [];
+  sites.forEach(function(url) {
+    promiseArray.push(new Promise(function(resolve, reject) {
 
-var headlines = [];
+      var feedparser = new FeedParser();
+      var results = [];
 
-var req = request('http://api.feedzilla.com/en_us/headlines/celebrities.rss?count=100')
-  , feedparser = new FeedParser();
+      request(url)
+        .on('response', function() {
+          this.pipe(feedparser);
+        });
 
-req.on('error', function (error) {
-  // handle any request errors
-});
-req.on('response', function (res) {
-  var stream = this;
+      feedparser.on('readable', function() {
+        var item;
+        while (item = this.read()) {
+          var headline = {
+            title: item['rss:title']['#'],
+            url: item.link
+          };
+          results.push(headline);
+        }
 
-  if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
+        resolve(results);
+      });
+    }));
+  });
 
-  stream.pipe(feedparser);
-});
-
-
-feedparser.on('error', function(error) {
-  // always handle errors
-});
-feedparser.on('readable', function() {
-  // This is where the action is!
-  var stream = this
-    , meta = this.meta // **NOTE** the "meta" is always available in the context of the feedparser instance
-    , item;
-
-  while (item = stream.read()) {
-    var headline = {
-      title: item['rss:title']['#'],
-      url: item.link
-    }
-    console.log(headline);
-    // headlines.push(headline);
-  }
-
-});
-
+  return Promise.all(promiseArray);
+};
