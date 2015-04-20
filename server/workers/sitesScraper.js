@@ -2,7 +2,9 @@
 var _ = require('lodash');
 var cheerio = require('cheerio');
 var Promise = require('bluebird');
+var request2 = require('request');
 var log = require('../helpers/log');
+var FeedParser = require('feedparser');
 var fs = Promise.promisifyAll(require('fs'));
 var sql = require('../database/connection.js');
 var Sites = require('../database/sites/model.js');
@@ -14,6 +16,8 @@ var PeopleController = require('../database/people/controller.js');
 module.exports = function() {
   log('${a}: Starting up...', 'scrapeSites'.cyan);
   return requestHTML(require('../../data/sites.json').sites)
+    .then(requestHeadlines)
+    .then(sortHeadlines)
     .then(grabPeople)
     .then(countOccurences)
     .then(updatePeople)
@@ -43,11 +47,53 @@ function requestHTML(sites) {
   return Promise.all(promiseArray);
 }
 
-function grabPeople(html) {
-  var string = '[100%]';
-  log('${a}: Scraping HTML ${b}', 'scrapeSites'.cyan, string.magenta);
-  log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
+function requestHeadlines(html) {
   this.html = html.join(' ');
+  var sites = require('../../data/sites.json').headlines;
+  var promiseArray = [];
+  sites.forEach(function(url, i) {
+    promiseArray.push(new Promise(function(resolve, reject) {
+      var feedparser = new FeedParser();
+      var results = [];
+      request2(url)
+        .on('response', function() {
+          this.pipe(feedparser);
+        });
+
+      feedparser.on('error', function(error) {
+        reject(error);
+      });
+
+      feedparser.on('readable', function() {
+        var item;
+        while (item = this.read()) {
+          var headline = {
+            title: item['rss:title']['#'],
+            url: item.link,
+            date: item.date
+          };
+          results.push(headline);
+        }
+
+        resolve(results);
+      });
+    }).catch(function(err) { console.log(err) }));
+  });
+
+  return Promise.all(promiseArray);
+}
+
+function sortHeadlines(headlines) {
+  headlines = _.flattenDeep(headlines);
+  headlines = headlines.sort(function(a, b) {
+    return a.date - b.date;
+  });
+
+  this.headlines = headlines;
+}
+
+function grabPeople() {
+  log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
   return People.findAll().then(function(people) {
     var promiseArray = [];
     people.forEach(function(person) {
@@ -68,6 +114,10 @@ function grabPeople(html) {
 
 function countOccurences(people) {
   var html = this.html;
+  var headlines = this.headlines;
+  console.log(headlines[0]);
+  console.log(headlines[1]);
+  console.log(headlines[2]);
   people.forEach(function(person, i) {
     if (i % Math.round(people.length / 10) === 0) {
       var string = '[' + Math.round10(i / people.length * 100, 1) + '%]';
