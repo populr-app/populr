@@ -134,7 +134,9 @@ function countOccurences(people) {
 function findHeadlines(fullName, headlines) {
   var results = [];
   headlines.forEach(function(headline) {
-    if (headline.title.indexOf(fullName) !== -1) results.push(JSON.stringify(headline));
+    if (headline.title) {
+      if (headline.title.indexOf(fullName) !== -1) results.push(JSON.stringify(headline));
+    }
   });
 
   return results;
