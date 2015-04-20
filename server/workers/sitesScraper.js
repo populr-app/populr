@@ -74,7 +74,6 @@ function requestHeadlines(html) {
           };
           results.push(headline);
         }
-
         resolve(results);
       });
     }).catch(function(err) { console.log(err) }));
@@ -115,9 +114,6 @@ function grabPeople() {
 function countOccurences(people) {
   var html = this.html;
   var headlines = this.headlines;
-  console.log(headlines[0]);
-  console.log(headlines[1]);
-  console.log(headlines[2]);
   people.forEach(function(person, i) {
     if (i % Math.round(people.length / 10) === 0) {
       var string = '[' + Math.round10(i / people.length * 100, 1) + '%]';
@@ -128,10 +124,38 @@ function countOccurences(people) {
     var countchange = count - person.lastSiteCount || 0;
     person.sites.count = occurrences(html, person.fullName);
     person.sites.countchange = countchange;
+    person.sites.headlines = findHeadlines(person.fullName, headlines);
   });
 
   log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, '[100%]'.magenta);
   return people;
+}
+
+function findHeadlines(fullName, headlines) {
+  var results = [];
+  headlines.forEach(function(headline) {
+    if (headline.title.indexOf(fullName) !== -1) results.push(JSON.stringify(headline));
+  });
+
+  return results;
+}
+
+function occurrences(string, subString, allowOverlapping) {
+  string += '';
+  subString += '';
+  if (subString.length <= 0) return string.length + 1;
+  var n = 0;
+  var pos = 0;
+  var step = (allowOverlapping) ? 1 : subString.length;
+  while (true) {
+    pos = string.indexOf(subString, pos);
+    if (pos >= 0) {
+      n++;
+      pos += step;
+    } else break;
+  }
+
+  return (n);
 }
 
 function updatePeople(people) {
@@ -210,24 +234,6 @@ function average(array) {
   return _.reduce(array, function(memo, num) {
     return memo + num;
   }, 0) / array.length;
-}
-
-function occurrences(string, subString, allowOverlapping) {
-  string += '';
-  subString += '';
-  if (subString.length <= 0) return string.length + 1;
-  var n = 0;
-  var pos = 0;
-  var step = (allowOverlapping) ? 1 : subString.length;
-  while (true) {
-    pos = string.indexOf(subString, pos);
-    if (pos >= 0) {
-      n++;
-      pos += step;
-    } else break;
-  }
-
-  return (n);
 }
 
 Math.round10 = function(value, exp) {
