@@ -13,26 +13,41 @@ FacebookApi
   .setAppSecret(keys.appSecret);
 
 //module.exports = function(){
- FacebookDB.findAll()
-  .then(updatePages);
+FacebookDB.findAll()
+ .then(getFacebookData);
+
 //}
 
-function updatePages(people){
+function getFacebookData(people) {
 
-  people.forEach(function(person){
+ // people.forEach(function(person) {
+    var person = people[2];
+    console.log(person.fullName);
 
-    console.log(person);
-    person.pages.forEach(function(page){
+    var promises = [];
+    person.pages.forEach(function(page) {
+
       var t = JSON.parse(page);
+      promises.push(FacebookApi.getAsync(t.id).then(updatePage(page)));
+
     })
-  });
+  //});
+
+  return Promise.all(promises);
 }
+
+function updatePage(p) {
+  return function(facebookData) {
+    console.log("NEW PAGE:", facebookData);
+  }
+
+}
+
 // Query facebook table for people
 // iterate over people
 //  for each person, loop over pages
 //    for each page, update to include the newest information from fb api
 //    save person in facebook table
-
 
 // var searchOptions = {
 //   q:'Katy Perry',
