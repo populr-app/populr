@@ -1,38 +1,70 @@
 
 var FacebookApi = require('fbgraph');
 var Promise = require('bluebird');
+var _ = require('lodash');
 var FacebookDB = require('../database/facebook/model.js');
 var FacebookController = require('../database/facebook/controller.js');
 var keys = require('../../keys.js').facebook;
-
-Promise.promisifyAll(FacebookApi.prototype);
+var Sleep = require('sleep');
+Promise.promisifyAll(FacebookApi);
 
 // set auth credentials for Facebook Graph API
 FacebookApi
   .setAccessToken(keys.accessToken)
   .setAppSecret(keys.appSecret);
 
-module.exports = function(){
-  return FacebookDB.findAll()
-  .then(updatePages);
+//module.exports = function(){
+FacebookDB.findAll()
+ .then(splitIntoChunks)
+ .then(getFacebookData);
+
+//}
+
+function splitIntoChunks(people) {
+  console.log('Splitting into chunks');
+  for (var i = people.length - 1; i >= 0; i--) {
+    people[i] = people[i].get();
+  }
+
+  return _.chunk(people, 100);
 }
 
-// Query facebook table for people
-// iterate over people
-//  for each person, loop over pages
-//    for each page, update to include the newest information from fb api
-//    save person in facebook table
+function getFacebookData(chunks) {
+  var promises = [];
+  chunks.forEach(function(chunk) {
 
+    chunk.forEach(function(person) {
 
-var searchOptions = {
-  q:'Katy Perry',
-  type: 'page'
-};
+      person.pages.forEach(function(page) {
 
-FacebookApi.get("1392443837682836", function(err, res) {
-    console.log(res); // { id: '4', name: 'Mark Zuckerberg'... }
+        var t = JSON.parse(page);
+        promises.push(FacebookApi.getAsync(t.id).then(updatePage(page)));
+
+        // avoid rate-limiting by limiting requests to 1/sec
+        Sleep.sleep(1);
+
+      });
+
+    });
   });
-  // .search(searchOptions, function(err, res) {
-  //   console.log(graph.getAccessToken());
-  //   console.log(res); // {data: [{id: xxx, from: ...}, {id: xxx, from: ...}]}
-  // });
+
+  return Promise.all(promises);
+}
+
+function updatePage(page) {
+  return function(facebookData) {
+    if (facebookData.name) {
+      var update = {
+        url: facebookData.link,
+        pageName: facebookData.name,
+        likes: facebookData.likes,
+        talkingAbout: facebookData.talking_about_count,
+        wereHere: facebookData.were_here_count,
+        id: facebookData.id
+      };
+      console.log('update', update.pageName);
+    }
+
+  };
+
+}
