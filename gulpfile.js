@@ -123,6 +123,10 @@ gulp.task('scrapeTwitter', function() {
   return require('./server/workers/twitterScraper')();
 });
 
+gulp.task('scrapeFacebook', function() {
+  return require('./server/workers/facebook')();
+});
+
 gulp.task('scrapeSites', function() {
   return require('./server/workers/sitesScraper')();
 });

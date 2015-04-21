@@ -13,12 +13,11 @@ FacebookApi
   .setAccessToken(keys.accessToken)
   .setAppSecret(keys.appSecret);
 
-//module.exports = function(){
-FacebookDB.findAll()
- .then(splitIntoChunks)
- .then(getFacebookData);
-
-//}
+module.exports = function() {
+  FacebookDB.findAll()
+   .then(splitIntoChunks)
+   .then(getFacebookData);
+};
 
 function splitIntoChunks(people) {
   console.log('Splitting into chunks');
@@ -26,45 +25,60 @@ function splitIntoChunks(people) {
     people[i] = people[i].get();
   }
 
-  return _.chunk(people, 100);
+  return _.chunk(people, 3).slice(0, 2);
 }
 
 function getFacebookData(chunks) {
-  var promises = [];
+  var personPromises = [];
   chunks.forEach(function(chunk) {
-
     chunk.forEach(function(person) {
-
-      person.pages.forEach(function(page) {
-
-        var t = JSON.parse(page);
-        promises.push(FacebookApi.getAsync(t.id).then(updatePage(page)));
-
-        // avoid rate-limiting by limiting requests to 1/sec
-        Sleep.sleep(1);
-
-      });
-
+      personPromises.push(Promise.all(getPages(person)).then(updatePages(person)));
     });
   });
 
-  return Promise.all(promises);
+  return Promise.all(personPromises);
 }
 
-function updatePage(page) {
-  return function(facebookData) {
-    if (facebookData.name) {
-      var update = {
-        url: facebookData.link,
-        pageName: facebookData.name,
-        likes: facebookData.likes,
-        talkingAbout: facebookData.talking_about_count,
-        wereHere: facebookData.were_here_count,
-        id: facebookData.id
+function getPages(person) {
+  // iterate over pages and return promiseArray of page lookups
+  var pagePromises = [];
+
+  person.pages.forEach(function(page) {
+    page = JSON.parse(page);
+    pagePromises.push(FacebookApi.getAsync(page.id));
+
+    // avoid rate-limiting by limiting requests to 1/sec
+    Sleep.sleep(1);
+  });
+
+  return Promise.all(pagePromises);
+}
+
+function updatePages(person) {
+  return function(pages) {
+    var update = {
+      fullName: person.fullName,
+      facebook: {
+        pages: []
+      }
+    };
+
+    pages.forEach(function(page, index) {
+      var oldPage = JSON.parse(person.pages[index]);
+      var updatePage = {
+        url: page.link,
+        pageName: page.name,
+        likes: page.likes,
+        likesChange: page.likes - oldPage.likes,
+        talkingAbout: page.talking_about_count,
+        talkingAboutchange: page.talking_about_count - oldPage.talkingAbout,
+        wereHere: page.were_here_count,
+        wereHereChange: page.were_here_count - oldPage.wereHere,
+        id: page.id
       };
-      console.log('update', update.pageName);
-    }
+      update.facebook.pages.push(JSON.stringify(updatePage));
+    });
 
+    return FacebookController.add(update);
   };
-
 }
