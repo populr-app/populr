@@ -2,6 +2,7 @@
 var People = require('../database/people/model');
 var Top = require('../database/top/model');
 var Context = require('../database/context/controller');
+var Sites = require('../database/sites/controller');
 var Twitter = require('../database/twitter/controller');
 
 module.exports = function() {
@@ -15,10 +16,12 @@ module.exports = function() {
       person.rank = i + 1;
       return Context.attachData(person)
         .then(Twitter.attachData)
+        .then(Sites.attachData)
         .then(function(newPerson) {
           newPerson.profilePic = newPerson.twitter.profilePic;
           newPerson.dob = newPerson.context.dob;
           newPerson.occupation = newPerson.context.occupation;
+          newPerson.sitecount = newPerson.sites.count;
           return Top.create(newPerson);
         });
     }

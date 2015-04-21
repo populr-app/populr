@@ -2,7 +2,9 @@
 var _ = require('lodash');
 var cheerio = require('cheerio');
 var Promise = require('bluebird');
+var request2 = require('request');
 var log = require('../helpers/log');
+var FeedParser = require('feedparser');
 var fs = Promise.promisifyAll(require('fs'));
 var sql = require('../database/connection.js');
 var Sites = require('../database/sites/model.js');
@@ -14,6 +16,8 @@ var PeopleController = require('../database/people/controller.js');
 module.exports = function() {
   log('${a}: Starting up...', 'scrapeSites'.cyan);
   return requestHTML(require('../../data/sites.json').sites)
+    .then(requestHeadlines)
+    .then(sortHeadlines)
     .then(grabPeople)
     .then(countOccurences)
     .then(updatePeople)
@@ -43,11 +47,52 @@ function requestHTML(sites) {
   return Promise.all(promiseArray);
 }
 
-function grabPeople(html) {
-  var string = '[100%]';
-  log('${a}: Scraping HTML ${b}', 'scrapeSites'.cyan, string.magenta);
-  log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
+function requestHeadlines(html) {
   this.html = html.join(' ');
+  var sites = require('../../data/sites.json').headlines;
+  var promiseArray = [];
+  sites.forEach(function(url, i) {
+    promiseArray.push(new Promise(function(resolve, reject) {
+      var feedparser = new FeedParser();
+      var results = [];
+      request2(url)
+        .on('response', function() {
+          this.pipe(feedparser);
+        });
+
+      feedparser.on('error', function(error) {
+        reject(error);
+      });
+
+      feedparser.on('readable', function() {
+        var item;
+        while (item = this.read()) {
+          var headline = {
+            title: item['rss:title']['#'],
+            url: item.link,
+            date: item.date
+          };
+          results.push(headline);
+        }
+        resolve(results);
+      });
+    }).catch(function(err) { console.log(err) }));
+  });
+
+  return Promise.all(promiseArray);
+}
+
+function sortHeadlines(headlines) {
+  headlines = _.flattenDeep(headlines);
+  headlines = headlines.sort(function(a, b) {
+    return a.date - b.date;
+  });
+
+  this.headlines = headlines;
+}
+
+function grabPeople() {
+  log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
   return People.findAll().then(function(people) {
     var promiseArray = [];
     people.forEach(function(person) {
@@ -68,6 +113,7 @@ function grabPeople(html) {
 
 function countOccurences(people) {
   var html = this.html;
+  var headlines = this.headlines;
   people.forEach(function(person, i) {
     if (i % Math.round(people.length / 10) === 0) {
       var string = '[' + Math.round10(i / people.length * 100, 1) + '%]';
@@ -78,10 +124,40 @@ function countOccurences(people) {
     var countchange = count - person.lastSiteCount || 0;
     person.sites.count = occurrences(html, person.fullName);
     person.sites.countchange = countchange;
+    person.sites.headlines = findHeadlines(person.fullName, headlines);
   });
 
   log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, '[100%]'.magenta);
   return people;
+}
+
+function findHeadlines(fullName, headlines) {
+  var results = [];
+  headlines.forEach(function(headline) {
+    if (headline) {
+      if (headline.title.indexOf(fullName) !== -1) results.push(JSON.stringify(headline));
+    }
+  });
+
+  return results;
+}
+
+function occurrences(string, subString, allowOverlapping) {
+  string += '';
+  subString += '';
+  if (subString.length <= 0) return string.length + 1;
+  var n = 0;
+  var pos = 0;
+  var step = (allowOverlapping) ? 1 : subString.length;
+  while (true) {
+    pos = string.indexOf(subString, pos);
+    if (pos >= 0) {
+      n++;
+      pos += step;
+    } else break;
+  }
+
+  return (n);
 }
 
 function updatePeople(people) {
@@ -160,24 +236,6 @@ function average(array) {
   return _.reduce(array, function(memo, num) {
     return memo + num;
   }, 0) / array.length;
-}
-
-function occurrences(string, subString, allowOverlapping) {
-  string += '';
-  subString += '';
-  if (subString.length <= 0) return string.length + 1;
-  var n = 0;
-  var pos = 0;
-  var step = (allowOverlapping) ? 1 : subString.length;
-  while (true) {
-    pos = string.indexOf(subString, pos);
-    if (pos >= 0) {
-      n++;
-      pos += step;
-    } else break;
-  }
-
-  return (n);
 }
 
 Math.round10 = function(value, exp) {

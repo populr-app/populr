@@ -140,7 +140,7 @@ gulp.task('updateRedis', function() {
 });
 
 gulp.task('loadData', function() {
-  var data = {body: require('./data/clientData2')};
+  var data = {body: require('./data/clientData')};
   return require('./server/database/people/controller').post(data, {send: function() {}});
 });
 

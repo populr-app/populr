@@ -4,8 +4,8 @@ var expect = require('chai').expect;
 var request = require('supertest');
 
 before(function(done) {
-  var data = {body: require('../data/testData.json')};
-  require('./database/people/controller').post(data, {send: function() {}});
+  // var data = {body: require('../data/testData.json')};
+  // require('./database/people/controller').post(data, {send: function() {}});
   done();
 });
 

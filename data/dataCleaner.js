@@ -3,8 +3,6 @@ var _ = require('lodash');
 
 var peopleObj = JSON.parse(fs.readFileSync('clientData.json', {encoding:'utf8'}));
 
-fixAthleteOccupations(peopleObj);
-
 fs.writeFileSync('clientData2.json', JSON.stringify(peopleObj), {encoding:'utf8'});
 
 // Append the word 'player' to athlete occupations
