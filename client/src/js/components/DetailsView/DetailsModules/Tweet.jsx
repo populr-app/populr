@@ -1,5 +1,8 @@
+var emoji = require('emoji');
+
 var Tweet = React.createClass({
   render: function(){
+  	/* decodes characters using replace and regex */
     return (
         <div className="tweet">
           <span className="tweet-timestamp">{this.props.tweet.created_at}</span>
