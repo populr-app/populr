@@ -9,6 +9,28 @@ var NewsFeed = require('../DetailsView/DetailsModules/NewsFeed.jsx');
 
 var TabsContainer = React.createClass({
 	render: function() {
+		var followers = this.props.details.twitter.followers;
+		var followersChange = this.props.details.twitter.followerschange;
+
+		/* Percentage output func */
+		function percentageCalc(num) {
+			if (num > 0) {
+				num = num + '%';
+			} else {
+				num = Math.abs(num) + '%';
+			}
+
+			return num;
+		};
+		/* Separates numbers with commas */
+		followersCount = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		/* Calculates follower change percentage */
+		followersChange = (followersChange / followers) * 100;
+		followersChange = percentageCalc(followersChange.toFixed(4));
+		
+		var percentStyle = {
+			color: '#4b5086'
+		}
 		return (
 			<Tabs className="container" tabActive={2}>
 				<Tabs.Panel title='Facebook'>
@@ -18,7 +40,21 @@ var TabsContainer = React.createClass({
 				<Tabs.Panel title='Twitter'>
 				<h2 className="chart-title">Hourly Twitter Score Trends</h2>
 					<TwitterChart twitter={this.props.details.twitter} />
-					<TwitterFeed tweets={this.props.details.twitter.tweets} />
+					<div className="row twitter-info">
+						<div className="col-md-6">
+							<TwitterFeed tweets={this.props.details.twitter.tweets} />
+						</div>
+						<div className="col-md-6">
+							<div className="twitter-breakdown">
+								<div className="col-md-6">
+									<div className="breakdown-counts">{followersCount} <span className="breakdown-counts__category">Followers</span></div>
+								</div>
+								<div className="col-md-6">
+									<div style={percentStyle}>{followersChange}</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</Tabs.Panel>
 				<Tabs.Panel title='Instagram'>
 					<h2 className="chart-title">Hourly Instagram Score Trends</h2>

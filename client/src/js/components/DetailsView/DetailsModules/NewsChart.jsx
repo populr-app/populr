@@ -46,7 +46,7 @@ var NewsChart = React.createClass({
     };
     return (
       <div>
-        <LineChart data={this.state.data} options={demoOptions}  maxHeight="400"/>
+        <LineChart data={this.state.data} options={demoOptions} width="1140"  height="300"/>
       </div>
     );
   }

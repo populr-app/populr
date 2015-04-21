@@ -14,7 +14,6 @@ var DetailsContainer = React.createClass({
 
     /* Dynamic Wikipedia URL */
     var wikiURI = 'http://en.wikipedia.org/wiki/' + this.props.details.fullName;
-
      return (
       <div className="details-container">
         <div className="wikipedia-bio">

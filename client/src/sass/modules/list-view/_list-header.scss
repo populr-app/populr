@@ -1,8 +1,9 @@
 .list-header {
 	@include header;
-	opacity: 0.65;
-	background: #F5F8FA;
+	opacity: 1;
+	background: RGBA(245,248,250,.6);
 	padding-top: 20px;
+	box-shadow: 0 0 2px #ddd;
 
 	canvas {
 		position: absolute;
@@ -19,3 +20,4 @@ p.list-header__about {
 	max-width: 720px;
 	line-height: 30px;
 }
+	

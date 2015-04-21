@@ -9,7 +9,7 @@ var TwitterChart = React.createClass({
       datasets: [
           {
             label: "Twitter Score",
-            fillColor: "rgba(228, 130, 99, 0.25)",
+            fillColor: "rgba(228, 130, 99, 0.15)",
             strokeColor: "rgba(228, 130, 99, 1)",
             pointColor: "rgba(228, 130, 99, 1)",
             pointStrokeColor: "#fff",
@@ -28,10 +28,10 @@ var TwitterChart = React.createClass({
       datasets: [
           {
             label: "Twitter Score",
-            fillColor: "rgba(228, 130, 99, 0.25)",
+            fillColor: "rgba(228, 130, 99, 0.15)",
             strokeColor: "rgba(228, 130, 99, 1)",
-            pointColor: "rgba(228, 130, 99, 1)",
-            pointStrokeColor: "#fff",
+            pointColor: "#fff",
+            pointStrokeColor: "rgba(228, 130, 99, 1))",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1))",
             data: nextProps.twitter.scorehour
@@ -46,7 +46,7 @@ var TwitterChart = React.createClass({
     };
     return (
       <div>
-        <LineChart data={this.state.data} options={demoOptions}  maxHeight="400"/>
+        <LineChart data={this.state.data} options={demoOptions} width="1140" height="300"/>
       </div>
     );
   }
