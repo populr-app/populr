@@ -11,7 +11,6 @@ var TwitterFeed = React.createClass({
   render: function(){
     var $twitterFeed = $('.tweet');
     var tweets = this.props.tweets;
-this.props.tweet.text = this.props.tweet.text.replace(/&amp;/g, '&').replace(/&lt;/, '<').replace(/&gt;/, '>');
 
     /* Cycles through tweets, fades tweets in and out */
     if (tweets.length > 0) {
@@ -19,7 +18,8 @@ this.props.tweet.text = this.props.tweet.text.replace(/&amp;/g, '&').replace(/&l
         var tweet = JSON.parse(tweets[index]);
         var value, nextIndex;
 
-        value = tweet.replace(/&amp;/g, '&').replace(/&lt;/, '<').replace(/&gt;/, '>');
+        /* Replaces unicode characters */
+        value = tweet.text.replace(/&amp;/g, '&').replace(/&lt;/, '<').replace(/&gt;/, '>');
 
         $twitterFeed.fadeOut(function() {
           $(this).html(value).fadeIn();
