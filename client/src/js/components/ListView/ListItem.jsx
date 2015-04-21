@@ -2,6 +2,7 @@ var Link = require('react-router').Link;
 
 var ListItem = React.createClass({
   render: function(){
+    var occupation = this.props.person.occupation;
     /* Inline styles that change colors depending on if the net score
     change property is larger or less than zero */
     var score = this.props.person.score;
@@ -30,16 +31,9 @@ var ListItem = React.createClass({
       scorePercentage = Math.abs(scorePercentageCalc) + '%';
     }
 
-    /* Score trend */
-    var trendingDisplay = '';
-    scorePercentageCalc > 60 ? trendingDisplay = 'block' : trendingDisplay = 'none';
-
     /* Removes '_normal' in uri to retrieve larger Twitter picture */
     var profilePicture = this.props.person.profilePic;
     profilePicture = profilePicture.replace(/_normal/i, '');
-
-    /* Adds 'player' to sports occupations' */
-    var occupation = this.props.person.occupation;
 
     return (
       <li className="person-item row">
@@ -56,7 +50,7 @@ var ListItem = React.createClass({
             <div className="person-details">
               <Link to="details" params={this.props.person}>
                 <span className="person-name">{this.props.person.fullName}</span>
-                <span className={scorePercentageCalc > 50 ? 'person-trending' : 'hidden'}>Trending</span>
+                <span className={scorePercentageCalc > 60 ? 'person-trending' : 'hidden'}>Trending</span>
                 <span className="person-profession">{this.props.person.occupation || 'Celebrity'}</span>
               </Link>
             </div>
