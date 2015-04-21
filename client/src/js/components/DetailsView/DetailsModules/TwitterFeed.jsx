@@ -4,7 +4,7 @@ var TwitterFeed = React.createClass({
   getDefaultProps: function() {
     return {
       tweets: [{
-        text: 'hellowillium'
+        text: ''
       }]
     };
   },
