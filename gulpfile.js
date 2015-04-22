@@ -116,38 +116,50 @@ gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js -c conf.json ./server -r'
 ]));
 
-/* Workers */
+/* Worker Tasks */
+
+// Runs all 6 of our main scraping tasks, heroku scheduler runs this every 10 minutes
 gulp.task('scrapeAll', gulpSequence('scrapeTwitter', 'scrapeSites', 'updateScores', 'updateTop', 'updateRedis'));
 
+// Scrapes and stores Twitter API data
 gulp.task('scrapeTwitter', function() {
   return require('./server/workers/twitterScraper')();
 });
 
+// Scrapes and stores Facebook API data
 gulp.task('scrapeFacebook', function() {
   return require('./server/workers/facebook')();
 });
 
+// Scrapes and stores news sites data
 gulp.task('scrapeSites', function() {
   return require('./server/workers/sitesScraper')();
 });
 
+// Collectively generates a score for each user based on their corrosponding data in each table
 gulp.task('updateScores', function() {
   return require('./server/workers/peopleScoreUpdater')();
 });
 
+// Using the score grabs the top 200, sorts accordingly and stores in the top table
 gulp.task('updateTop', function() {
   return require('./server/workers/topUpdater')();
 });
 
+// Sends the top table and the top 200 people's details to our redis server
 gulp.task('updateRedis', function() {
   return require('./server/workers/redisUpdater')();
 });
 
+/* Helper Tasks */
+
+// Loads the users in clientData.json to our database
 gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
   return require('./server/database/people/controller').post(data, {send: function() {}});
 });
 
+// Drops all of our database's tables
 gulp.task('dropTables', function(){
   require('./server/helpers/droptables')();
 });
