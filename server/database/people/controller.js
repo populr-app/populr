@@ -1,6 +1,7 @@
 
 /**
- * People controller
+ * The people controller is the API endpoint that allows you to lookup basic information
+ * on the people stored in Populr's database.
  * @module people/controller
  */
 
@@ -74,7 +75,10 @@ module.exports.post = function(req, res, next) {
 };
 
 /* Methods */
-
+/**
+ * Look a person up to the people table.
+ * @param {string} fullName name of perseon
+ */
 module.exports.query = function(fullName) {
   if (!fullName) {
     return null;
@@ -90,6 +94,11 @@ module.exports.query = function(fullName) {
   }
 };
 
+
+/**
+ * Add a person to the people table.
+ * @param {object} personObj the person object
+ */
 module.exports.add = function(personObj) {
   if (!personObj.fullName) {
     return null;
