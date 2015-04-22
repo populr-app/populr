@@ -1,21 +1,22 @@
 var Tweet = require('./Tweet.jsx');
 
 var TwitterFeed = React.createClass({
-  getDefaultProps: function() {
-    return {
-      tweets: [{
-        text: ''
-      }]
-    };
+  getInitialState: function() {
+    return {tweets: this.props.twitter.tweets};
   },
-  render: function(){
+  componentWillReceiveProps: function(nextProps){
+    this.setState({tweets: nextProps.twitter.tweets})
+  },
+  componentDidMount: function(){
+    this.changeTweet();
+  },
+  changeTweet: function(){
+    var _this = this;
     var $twitterFeed = $('.tweet');
-    var tweets = this.props.tweets;
-
     /* Cycles through tweets, fades tweets in and out */
-    if (tweets.length > 0) {
+    if (this.state.tweets.length > 0) {
       var tickerFeed = function(index) {
-        var tweet = JSON.parse(tweets[index]);
+        var tweet = _this.state.tweets[index];
         var value, nextIndex;
 
         /* Replaces unicode characters */
@@ -25,22 +26,26 @@ var TwitterFeed = React.createClass({
           $(this).html(value).fadeIn();
         });
 
-        nextIndex = (index+1) % tweets.length;
-
+        nextIndex = (index+1) % _this.state.tweets.length;
         /* Prevents recursive function from running if tweets length is less than 1 */
-        if (tweets.length > 1) {
+        if (_this.state.tweets.length > 1) {
           setTimeout(function() {
             tickerFeed(nextIndex);
-          }, 3000);
+          }, 3600);
         }
       }
       tickerFeed(0);
     }
-
+  },
+  render: function(){
+    this.changeTweet();
     return (
         <div className="twitter-feed-container">
           <i className="fa fa-twitter"/>
           <div className="twitter-feed__ticker">
+            <div className="twitter-feed__username">
+              {'@' + this.props.twitter.handle}
+            </div>
             <div className="tweet"></div>
           </div>
         </div>
