@@ -42,7 +42,7 @@ var TabsContainer = React.createClass({
 					<TwitterChart twitter={this.props.details.twitter} />
 					<div className="row twitter-info">
 						<div className="col-md-6">
-							<TwitterFeed tweets={this.props.details.twitter.tweets} />
+							<TwitterFeed twitter={this.props.details.twitter} />
 						</div>
 						<div className="col-md-6">
 							<div className="twitter-breakdown">
