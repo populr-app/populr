@@ -19,6 +19,7 @@ module.exports = function() {
         .then(Sites.attachData)
         .then(function(newPerson) {
           newPerson.profilePic = newPerson.twitter.profilePic;
+          newPerson.headlines = newPerson.sites.headlines;
           newPerson.dob = newPerson.context.dob;
           newPerson.occupation = newPerson.context.occupation;
           newPerson.sitecount = newPerson.sites.count;
