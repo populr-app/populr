@@ -113,7 +113,7 @@ gulp.task('replaceHTML', function() {
 
 /* JSDoc */
 gulp.task('jsdoc', shell.task([
-  './node_modules/jsdoc/jsdoc.js -c conf.json ./server -r'
+  './node_modules/jsdoc/jsdoc.js -c conf.json ./server -r README_DOCS.md'
 ]));
 
 /* Worker Tasks */
