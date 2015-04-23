@@ -5,7 +5,6 @@ var ViewNav = React.createClass({
       <nav>
         <ul className="view-nav">
           <li><Link to="about">About</Link></li>
-          <li><Link to="docs">Docs</Link></li>
         </ul>
       </nav>
     );
