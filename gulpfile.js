@@ -128,7 +128,7 @@ gulp.task('scrapeTwitter', function() {
 
 // Scrapes and stores Facebook API data
 gulp.task('scrapeFacebook', function() {
-  return require('./server/workers/facebook')();
+  return require('./server/workers/facebookScraper')();
 });
 
 // Scrapes and stores news sites data
