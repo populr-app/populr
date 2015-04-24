@@ -5,7 +5,6 @@ var AboutMain = React.createClass({
 	render: function() {
 		return (
 			<div className="about-main">
-				<AboutHeader />
 				<AboutContainer />
 			</div>
 		)

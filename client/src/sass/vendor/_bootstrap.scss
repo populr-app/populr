@@ -365,8 +365,8 @@ hr {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 @media (min-width: 768px) {
   .container {
@@ -375,7 +375,7 @@ hr {
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    width: 900px;
   }
 }
 @media (min-width: 1200px) {
