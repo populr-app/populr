@@ -28,10 +28,10 @@ var NewsChart = React.createClass({
       datasets: [
           {
             label: "Twitter Score",
-            fillColor: "rgba(228, 130, 99, 0.25)",
+            fillColor: "rgba(228, 130, 99, 0.15)",
             strokeColor: "rgba(228, 130, 99, 1)",
-            pointColor: "rgba(228, 130, 99, 1)",
-            pointStrokeColor: "#fff",
+            pointColor: "#fff",
+            pointStrokeColor: "rgba(228, 130, 99, 1))",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1))",
             data: nextProps.sites.scorehour

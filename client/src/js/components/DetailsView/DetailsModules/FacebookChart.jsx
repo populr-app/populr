@@ -3,7 +3,6 @@ var LineChart = Chart.Line;
 
 var FacebookChart = React.createClass({
   render: function(){
-    console.log(this.props);
     var demoData = {
       labels: this.props.timeAgo,
       datasets: [
