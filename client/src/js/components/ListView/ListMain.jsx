@@ -13,31 +13,30 @@ var ListMain = React.createClass({
     };
   },
   componentWillMount: function() {
-    PeopleStore.listen(this.onPeopleChange);
+    this.unsubscribe = PeopleStore.listen(this.onPeopleChange);
     PeopleActions.loadPeople();
   },
-
   onPeopleChange: function(people) {
     this.setState({ 
         aList: people.a,
         bList: people.b,
         cList: people.c,
         dList: people.d
-      });
+    });
   },
 
   render: function(){
     return (
-        <div className="list-main">
-          <ListHeader />
-          <ListContainer 
-            aList={this.state.aList}
-            bList={this.state.bList}
-            cList={this.state.cList}
-            dList={this.state.dList}
-          />
-        </div>
-      );
+      <div className="list-main">
+        <ListHeader />
+        <ListContainer 
+          aList={this.state.aList}
+          bList={this.state.bList}
+          cList={this.state.cList}
+          dList={this.state.dList}
+        />
+      </div>
+    );
   }
 });
 
