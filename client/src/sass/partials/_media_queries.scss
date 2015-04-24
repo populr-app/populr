@@ -24,7 +24,7 @@
   .list-sidebar, .details-sidebar {
     display: none;
   }
-  .details-main, .list-main {
+  .details-main, .list-main, .about-main {
     margin-left: 0 !important;
   }
 
@@ -32,7 +32,7 @@
   	margin-top: 240px !important;
   }
 
-  .wikipedia-bio__columns {
+  .wikipedia-bio__columns, .about-section__biography {
     columns: 1 !important;
   }
 
@@ -52,7 +52,7 @@
 	.list-sidebar, .details-sidebar {
 	  display: none;
 	}
-	.details-main, .list-main {
+	.details-main, .list-main, .about-main {
 	  margin-left: 0 !important;
 	}
 
@@ -60,7 +60,7 @@
 		margin-top: 240px !important;
 	}
 
-	.wikipedia-bio__columns {
+	.wikipedia-bio__columns, .about-section__biography  {
 	  columns: 1 !important;
 	}
 

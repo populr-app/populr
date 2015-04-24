@@ -1,16 +1,17 @@
 .about-header {
 	@include header;
-	height: 180px;
+	height: 100px;
 	color: #333;
-	background: #F5F8FA;
+	background: #fff;
 	box-shadow: 0 0 2px #ddd;
 	padding-top: 20px;
-	opacity: 0.65;
 }
 
 .about-container {
 	@include center-container;
+	margin-top: 0;
 	height: 100vh;
+	padding: 0;
 }
 
 .about-main {
@@ -25,4 +26,94 @@ h1.about-header__title {
 p.about-header__about {
 	max-width: 720px;
 	line-height: 30px;
+}
+
+.about-project-container {
+	background: RGBA(245,248,250,.6);
+	box-shadow: 0 0 2px #ddd;
+	padding-top: 30px;
+}
+
+h3.about-section__title {
+	@include details-section-title
+}
+
+.about-section__biography {
+	text-align: justify;
+	column-count: 2;
+	column-gap: 80px;
+	line-height: 40px;
+	letter-spacing: 0.02em;
+	padding-bottom: 20px;
+}
+
+.about-team-container {
+	background: #fff;
+	margin-top: 40px;
+	padding-bottom: 40px;
+}
+
+/* About page profile cards for each team member*/
+.about-card {
+	width: 100%;
+	height: 425px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	position: relative;
+	margin: 20px 0;
+
+	.about-card__header {
+		height: 270px;
+		position: relative;
+		background-position: center bottom;
+	}
+
+	.about-card__bio {
+		margin-top: 45px;
+		text-align: center;
+		.about-card__name {
+			font-weight: 300;
+			font-size: 18px;
+			letter-spacing: 0.8px;
+		}
+		.about-card__role {
+			display: block;
+			margin: 5px 0 20px 0;
+			letter-spacing: 0.8px;
+		}
+	}
+
+	.about-card__profile-pic {
+		position: absolute;
+		width: 100px;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		bottom: -35px;
+		
+		img {
+			border: 5px solid #fff;
+			border-radius: 50px;
+			width: 100px;
+			height: 100px;
+		}		
+	}
+
+	ul.about-card__links {
+		a {
+			color: $primary;
+			opacity: 0.7;
+			transition: opacity ease-in-out 0.3s;
+		}
+
+		a:hover {
+			opacity: 1;
+		}
+
+		li {
+			display: inline-block;
+			margin:0 10px;
+			font-size: 20px;
+		}
+	}
 }
