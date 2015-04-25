@@ -16,8 +16,7 @@ FacebookApi
 module.exports = function() {
   return FacebookDB.findAll()
     .then(augmentPeople)
-    .each(getFacebookData)
-    .then(getMaxCounts);
+    .each(getFacebookData);
 };
 
 function augmentPeople(people) {
@@ -25,17 +24,16 @@ function augmentPeople(people) {
     people[i] = people[i].get();
   }
 
-  return people.slice(0, 3);
+  return people;
 }
 
 function getFacebookData(person) {
   var promiseArray = [];
   person.pages.forEach(function(page) {
-    page = JSON.parse(page);
-    promiseArray.push(getPageData(page));
+    var newPage = JSON.parse(page);
+    promiseArray.push(getPageData(newPage));
     Sleep.sleep(1);
   });
-
   return Promise.all(promiseArray).then(updateUser(person));
 }
 
@@ -53,29 +51,23 @@ function updateUser(person) {
     };
     pages.forEach(function(newPage, i) {
       var oldPage = JSON.parse(person.pages[i]);
+      oldPage.talkingAboutPeriodic = oldPage.talkingAboutPeriodic || [];
+      oldPage.talkingAboutPeriodic.push(newPage.talking_about_count - oldPage.talkingAbout);
       var pageUpdate = {
+        id: oldPage.id,
         url: newPage.url,
         pageName: newPage.pageName,
         likes: newPage.likes,
-        likeschange: newPage.likes - oldPage.likes,
+        likesChange: newPage.likes - oldPage.likes,
         talkingAbout: newPage.talking_about_count,
         talkingAboutChange: newPage.talking_about_count - oldPage.talkingAbout,
+        talkingAboutPeriodic: oldPage.talkingAboutPeriodic,
         wereHere: newPage.were_here_count,
         wereHereChange: newPage.were_here_count - oldPage.wereHere
       };
       update.facebook.pages.push(pageUpdate);
     });
-
+    console.log(JSON.stringify(update));
     return FacebookController.add(update);
   };
-}
-
-function getMaxCounts() {
-  return sql.query('SELECT MAX(likes) FROM facebooks;').then(function(d1) {
-    this.maxfollowers = Math.max(d1[0][0].max, 1);
-    return sql.query('SELECT MAX(likeschange) FROM facebooks;').then(function(d2) {
-      this.maxfollowerschange = Math.max(d2[0][0].max, 1);
-      console.log(this.max);
-    });
-  });
 }
