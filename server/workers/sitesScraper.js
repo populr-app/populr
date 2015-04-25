@@ -126,18 +126,19 @@ function countOccurences(people) {
     var countchange = count - person.lastSiteCount || 0;
     person.sites.count = occurrences(html, person.fullName);
     person.sites.countchange = countchange;
-    person.sites.headlines = findHeadlines(person.fullName, headlines);
+    person.sites.headlines = findHeadlines(person, headlines);
   });
 
   log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, '[100%]'.magenta);
   return people;
 }
 
-function findHeadlines(fullName, headlines) {
+function findHeadlines(person, headlines) {
   var results = [];
   headlines.forEach(function(headline) {
-    if (headline && headline.title && headline.title.indexOf(fullName) !== -1) {
-      results.push(JSON.stringify(headline));
+    var stringedHeadline = JSON.stringify(headline);
+    if (headline && headline.title && headline.title.indexOf(person.fullName) !== -1 && person.sites.headlines.indexOf(stringedHeadline)) {
+      results.push(stringedHeadline);
     }
   });
 
