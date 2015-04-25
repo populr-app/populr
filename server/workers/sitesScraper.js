@@ -43,7 +43,6 @@ function requestHTML(sites) {
       return text;
     }).catch(function(err) { log('${a}: Errored out on ${b}', 'scrapeSites'.cyan, site.red); }));
   });
-
   return Promise.all(promiseArray);
 }
 
@@ -74,6 +73,9 @@ function requestHeadlines(html) {
           };
           results.push(headline);
         }
+      });
+
+      feedparser.on('end', function() {
         resolve(results);
       });
     }).catch(function(err) { console.log(err) }));
