@@ -137,8 +137,9 @@ function findHeadlines(person, headlines) {
   person.sites.headlines = person.sites.headlines || [];
   headlines.forEach(function(headline) {
     var stringedHeadline = JSON.stringify(headline);
-    if (headline && headline.title && headline.title.indexOf(person.fullName) !== -1 && person.sites.headlines.indexOf(stringedHeadline) === -1) {
+    if (headline.title && headline.title.indexOf(person.fullName) !== -1) {
       person.sites.headlines.push(stringedHeadline);
+      if (person.sites.headlines.length > 5) person.sites.headlines.shift();
     }
   });
 
