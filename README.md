@@ -1,6 +1,6 @@
 # Populr.io
 
-> Pithy project description
+> Populr ranks the movers and shakers of the internet by continually scraping and analyzing social networks and news sites.
 
 ## Team
 
