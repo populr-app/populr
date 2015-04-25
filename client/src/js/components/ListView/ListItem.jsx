@@ -2,10 +2,7 @@ var Link = require('react-router').Link;
 
 var ListItem = React.createClass({
   render: function() {
-    if (this.props.person.headlines.length) {
-      console.log('headlines', JSON.parse(this.props.person.headlines[0]));
-    }
-    var headlines, headlinesURL;
+    var headlines, headlinesURL, headlinesCreatedAt;
     var occupation = this.props.person.occupation;
     /* Inline styles that change colors depending on if the net score change property is larger or less than zero */
     var score = this.props.person.score;
@@ -38,9 +35,13 @@ var ListItem = React.createClass({
     var profilePicture = this.props.person.profilePic;
     profilePicture = profilePicture.replace(/_normal/i, '');
 
+    /* Gets the headlines and the headnline's URL properties */
     if (this.props.person.headlines.length) {
       headlines = JSON.parse(this.props.person.headlines[0]).title;
       headlinesURL = JSON.parse(this.props.person.headlines[0]).url;
+      headlinesCreatedAt = JSON.parse(this.props.person.headlines[0]).date;
+
+      headlines = headlines.length > 77 ? headlines.substring(0, 77) + '...' : headlines;
     }
     return (
       <li className="person-item row">
@@ -66,9 +67,10 @@ var ListItem = React.createClass({
         <div className="col-md-2 col-sm-4 col-xs-4">
           <span className="person-netChange" style={scoreChangeStyles.netChange}><i className={scorePercentageCalc > 0 ? 'fa fa-caret-up' : 'fa fa-caret-down'}/> {scorePercentage} change</span>
         </div>
-        <div className="col-md-7 col-sm-12 col-xs-12">
+        <div className="col-md-7 col-sm-12 col-xs-12 text-center">
           <a href={headlinesURL} target="_blank" className="headlinesURL">
             <p className="headlines">{headlines}</p>
+            <span className="headlinesCreatedAt">{this.props.person.headlines.length > 0 ? moment(headlinesCreatedAt).fromNow() : ''}</span>
           </a>
         </div>
       </li>
