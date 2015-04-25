@@ -14,7 +14,7 @@ var TwitterChart = React.createClass({
             pointColor: "rgba(228, 130, 99, 1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(228, 130, 99, 1))",
+            pointHighlightStroke: "rgba(228, 130, 99, 1)",
             data: this.props.twitter.scorehour || [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
           }
         ]
@@ -31,9 +31,9 @@ var TwitterChart = React.createClass({
             fillColor: "rgba(228, 130, 99, 0.15)",
             strokeColor: "rgba(228, 130, 99, 1)",
             pointColor: "#fff",
-            pointStrokeColor: "rgba(228, 130, 99, 1))",
+            pointStrokeColor: "rgba(228, 130, 99, 1)",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(228, 130, 99, 1))",
+            pointHighlightStroke: "rgba(228, 130, 99, 1)",
             data: nextProps.twitter.scorehour
           }
         ]
