@@ -44,7 +44,9 @@ var TwitterFeed = React.createClass({
           <i className="fa fa-twitter"/>
           <div className="twitter-feed__ticker">
             <div className="twitter-feed__username">
-              {'@' + this.props.twitter.handle}
+              <a href={'http://twitter.com/' + this.props.twitter.handle} target="_blank">
+                {'@' + this.props.twitter.handle}
+              </a>
             </div>
             <div className="tweet"></div>
           </div>
