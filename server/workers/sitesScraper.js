@@ -134,15 +134,14 @@ function countOccurences(people) {
 }
 
 function findHeadlines(person, headlines) {
-  var results = [];
   headlines.forEach(function(headline) {
     var stringedHeadline = JSON.stringify(headline);
     if (headline && headline.title && headline.title.indexOf(person.fullName) !== -1 && person.sites.headlines.indexOf(stringedHeadline)) {
-      results.push(stringedHeadline);
+      person.sites.headlines.push(stringedHeadline);
     }
   });
 
-  return results;
+  return person.sites.headlines;
 }
 
 function occurrences(string, subString, allowOverlapping) {
