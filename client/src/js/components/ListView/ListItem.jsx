@@ -5,7 +5,7 @@ var ListItem = React.createClass({
     if (this.props.person.headlines.length) {
       console.log('headlines', JSON.parse(this.props.person.headlines[0]));
     }
-    var headlines;
+    var headlines, headlinesURL;
     var occupation = this.props.person.occupation;
     /* Inline styles that change colors depending on if the net score change property is larger or less than zero */
     var score = this.props.person.score;
@@ -39,7 +39,6 @@ var ListItem = React.createClass({
     profilePicture = profilePicture.replace(/_normal/i, '');
 
     if (this.props.person.headlines.length) {
-      // headlines = this.props.person.headlines[0];
       headlines = JSON.parse(this.props.person.headlines[0]).title;
       headlinesURL = JSON.parse(this.props.person.headlines[0]).url;
     }
