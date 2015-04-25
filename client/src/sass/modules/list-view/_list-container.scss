@@ -134,10 +134,10 @@
 
 
 .headlines {
-	margin-top: 15px;
+	margin-top: -5px;
 	font-size: 16px;
 	opacity: 0.6;
-	line-height: 20px;
+	line-height: 40px;
 	text-align: center;
 }
 
@@ -149,4 +149,15 @@ a.headlinesURL {
 		opacity: 0.7;
 	}
 }
+
+.headlinesCreatedAt {
+	position: relative;
+	top: -20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+
 
