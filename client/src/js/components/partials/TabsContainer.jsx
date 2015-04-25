@@ -45,7 +45,7 @@ var TabsContainer = React.createClass({
           <div className="placeholder"></div>
         </Tabs.Panel>
         <Tabs.Panel title='Twitter'>
-        <h2 className="chart-title">Hourly Twitter Score Trends</h2>
+        <h2 className="chart-title">Hourly Twitter Score</h2>
           <TwitterChart twitter={this.props.details.twitter} timeAgo={timeAgo}/>
           <div className="row twitter-info">
             <div className="col-md-6">

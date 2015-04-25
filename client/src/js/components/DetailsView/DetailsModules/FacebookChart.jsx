@@ -11,10 +11,10 @@ var FacebookChart = React.createClass({
             label: "Facebook Score",
             fillColor: "rgba(228, 130, 99, 0.15)",
             strokeColor: "rgba(228, 130, 99, 1)",
-            pointColor: "#fff",
-            pointStrokeColor: "rgba(228, 130, 99, 1))",
+            pointColor: "rgba(228, 130, 99, 1)",
+            pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(228, 130, 99, 1))",
+            pointHighlightStroke: "rgba(228, 130, 99, 1)",
             data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,12,10,1,14,10,36,3,7,1]
           }
         ]
