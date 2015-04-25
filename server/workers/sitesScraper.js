@@ -90,7 +90,7 @@ function sortHeadlines(headlines) {
     return a.date - b.date;
   });
 
-  this.headlines = headlines;
+  this.headlines = headlines.reverse();
 }
 
 function grabPeople() {
