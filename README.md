@@ -1,12 +1,13 @@
 # Populr.io
 
-> Pithy project description
+> Populr ranks the movers and shakers of the internet by continually scraping and analyzing social networks and news sites.
 
 ## Team
 
-  - __Product Owner__: Danny Delott
-  - __Scrum Master__: Mark Marcantano
-  - __Development Team Members__: Will Wung, Garrett Cox
+  - __Danny Delott__: Back-End and Data Engineer
+  - __Garrett Cox__: Lead Back-End Engineer
+  - __Mark Marcantano__: Front-End Dev. and Architect
+  - __William Wung__: Front-End Engineer and Designer
 
 ## Table of Contents
 
@@ -27,8 +28,6 @@
 - Node 0.10.x
 - Redis 2.6.x
 - Postgresql 9.1.x
-- etc
-- etc
 
 ## Development
 
@@ -38,8 +37,10 @@ From within the root directory:
 
 ```sh
 sudo npm install -g bower
+sudo npm install -g gulp
 npm install
 bower install
+gulp production
 ```
 
 ### Roadmap
