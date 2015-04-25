@@ -27,7 +27,7 @@
 
 - Node 0.10.x
 - Redis 2.6.x
-- Postgresql 9.1.x
+- PostgreSQL 9.1.x
 
 ## Development
 
@@ -36,11 +36,8 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
-sudo npm install -g gulp
 npm install
-bower install
-gulp production
+gulp localtest
 ```
 
 ### Roadmap
