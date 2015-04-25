@@ -134,11 +134,11 @@
 
 
 .headlines {
-	margin-top: -5px;
+	margin-top: -8px;
 	font-size: 16px;
 	opacity: 0.6;
 	line-height: 40px;
-	text-align: center;
+	text-align: right;
 }
 
 a.headlinesURL {
@@ -152,11 +152,11 @@ a.headlinesURL {
 
 .headlinesCreatedAt {
 	position: relative;
-	top: -20px;
+	top: -18px;
 }
 
-.text-center {
-	text-align: center;
+.text-right {
+	text-align: right;
 }
 
 

@@ -2,8 +2,9 @@ var Link = require('react-router').Link;
 
 var ListItem = React.createClass({
   render: function() {
-    var headlines, headlinesURL, headlinesCreatedAt;
+    var headlines, headlinesURL, headlinesCreatedAt, currentScoreHour;
     var occupation = this.props.person.occupation;
+
     /* Inline styles that change colors depending on if the net score change property is larger or less than zero */
     var score = this.props.person.score;
     var scoreChange = this.props.person.scorechange;
@@ -13,6 +14,12 @@ var ListItem = React.createClass({
     } else {
       scoreChangeColor = '#e48263';
     }
+
+    /* Converts minutes to current hour */
+    for (var i = 0; i < this.props.person.scoreminute; i++) {
+      currentScoreHour += this.props.person.scoreminute[i];
+    }
+    currentScoreHour = currentScoreHour/6;
 
     /* Styles options object */
     var scoreChangeStyles = {
@@ -67,7 +74,7 @@ var ListItem = React.createClass({
         <div className="col-md-2 col-sm-4 col-xs-4">
           <span className="person-netChange" style={scoreChangeStyles.netChange}><i className={scorePercentageCalc > 0 ? 'fa fa-caret-up' : 'fa fa-caret-down'}/> {scorePercentage} change</span>
         </div>
-        <div className="col-md-7 col-sm-12 col-xs-12 text-center">
+        <div className="col-md-7 col-sm-12 col-xs-12 text-right">
           <a href={headlinesURL} target="_blank" className="headlinesURL">
             <p className="headlines">{headlines}</p>
             <span className="headlinesCreatedAt">{this.props.person.headlines.length > 0 ? moment(headlinesCreatedAt).fromNow() : ''}</span>
