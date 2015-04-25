@@ -18,6 +18,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
 var mocha = require('gulp-mocha');
 
+// Paths
 var path = {
   HTML: './client/src/index.html',
   HTML_DIST: './client/dist/public',
@@ -34,7 +35,7 @@ var path = {
   DEST_BUILD: './client/dist/build'
 };
 
-/* Watcher */
+// Watcher
 gulp.task('watch', function() {
   gulp.watch(path.HTML, []);
   gulp.watch(path.SASS, ['styles']);
@@ -58,15 +59,15 @@ gulp.task('watch', function() {
   .pipe(gulp.dest(path.DEST_BUILD));
 });
 
-/* Copy image folder to public directory */
+// Copy image folder to public directory
 gulp.task('copyIMG', function() {
   gulp.src(path.IMG)
     .pipe(gulp.dest(path.IMG_DIST))
     .pipe(notify('images copied'));
 });
 
-/* Compiles SCSS to CSS and minifies CSS */
-/* autoprefixer adds browser prefixes */
+// Compiles SCSS to CSS and minifies CSS
+// autoprefixer adds browser prefixes
 gulp.task('styles', function() {
   return gulp.src(path.SASS)
     .pipe(sass({style: 'expanded'}))
@@ -77,7 +78,7 @@ gulp.task('styles', function() {
     .pipe(notify('Styles compiled and minified!'));
 });
 
-/* BUILD */
+// Build
 gulp.task('build', function() {
   browserify({
     entries: [path.ENTRY_POINT, path.ENTRY_POINT_JS],
@@ -90,7 +91,8 @@ gulp.task('build', function() {
   .pipe(notify('Build complete!'));
 });
 
-/* Creates local web server for testing */
+
+// Creates local web server for testing (port 8000)
 gulp.task('webserver', function() {
   gulp.src(path.DEST)
     .pipe(server({
@@ -101,7 +103,7 @@ gulp.task('webserver', function() {
     }));
 });
 
-/* Replace HTML */
+// Injects css and js files into index.html
 gulp.task('replaceHTML', function() {
   gulp.src(path.HTML)
     .pipe(htmlReplace({
@@ -111,7 +113,7 @@ gulp.task('replaceHTML', function() {
     .pipe(gulp.dest(path.DEST));
 });
 
-/* JSDoc */
+// JSDoc
 gulp.task('jsdoc', shell.task([
   './node_modules/jsdoc/jsdoc.js -c conf.json ./server -r README_DOCS.md'
 ]));
@@ -164,13 +166,13 @@ gulp.task('dropTables', function(){
   require('./server/helpers/droptables')();
 });
 
-/* Serverside testing */
+// Serverside testing
 gulp.task('mochatest', function() {
   return gulp.src('./server/serverSpec.js', {read: false})
     .pipe(mocha());
 });
 
-/* React Unit Testing (Jest) */
+// React Unit Testing (Jest)
 gulp.task('jest', function() {
   return gulp.src('_tests_')
     .pipe(jest({
@@ -190,7 +192,7 @@ gulp.task('jest', function() {
     }));
 });
 
-/* Production */
+//Sequence tasks
 gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);
 gulp.task('heroku', gulpSequence('styles', 'copyIMG', 'build', 'replaceHTML'));
-gulp.task('localtest', ['production', 'webserver']);
+gulp.task('localtest', ['styles', 'copyIMG', 'build', 'replaceHTML', 'webserver']);
