@@ -14,7 +14,7 @@ module.exports = sql.define('sites', {
   fullName: { type: Sequelize.STRING, allowNull: false, primaryKey: true },
   count: { type: Sequelize.INTEGER, defaultValue: 0 },
   countchange: { type: Sequelize.INTEGER, defaultValue: 0 },
-  headlines: { type: Sequelize.ARRAY(Sequelize.TEXT) },
+  headlines: { type: Sequelize.ARRAY(Sequelize.TEXT), defaultValue: [] },
   score: { type: Sequelize.INTEGER, defaultValue: 0 },
   scorechange: { type: Sequelize.INTEGER, defaultValue: 0 },
   scorecounter: { type: Sequelize.INTEGER, defaultValue: 0 },
