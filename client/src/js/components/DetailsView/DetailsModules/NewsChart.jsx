@@ -5,7 +5,7 @@ var NewsChart = React.createClass({
   getInitialState: function(){
     return {
       data: {
-      labels: this.props.timeAgo || [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      labels: this.props.timeAgo.reverse() || [24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
       datasets: [
           {
             label: "Sites Score",
@@ -15,7 +15,7 @@ var NewsChart = React.createClass({
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1)",
-            data: this.props.sites.scorehour || [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            data: this.props.sites.scorehour.reverse() || [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
           }
         ]
     }
@@ -24,7 +24,7 @@ var NewsChart = React.createClass({
   componentWillReceiveProps: function(nextProps){
     this.setState({
       data: {
-      labels: this.props.timeAgo,
+      labels: this.props.timeAgo.reverse(),
       datasets: [
           {
             label: "Twitter Score",
@@ -34,7 +34,7 @@ var NewsChart = React.createClass({
             pointStrokeColor: "rgba(228, 130, 99, 1)",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1)",
-            data: nextProps.sites.scorehour
+            data: nextProps.sites.scorehour.reverse()
           }
         ]
     }

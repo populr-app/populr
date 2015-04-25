@@ -4,7 +4,7 @@ var LineChart = Chart.Line;
 var FacebookChart = React.createClass({
   render: function(){
     var demoData = {
-      labels: this.props.timeAgo,
+      labels: this.props.timeAgo.reverse(),
       datasets: [
           {
             scaleLabel: "Hours Ago",

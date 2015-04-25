@@ -9,7 +9,6 @@ var DetailsContainer = React.createClass({
 
     /* Sets a max number of words in a paragraph for Wikipedia bio */
     var bio = this.props.details.context.description.split(' ');
-    var bioLength = bio.length;
     var trimmedString = bio.splice(0, 140).join(' ');
 
     /* Dynamic Wikipedia URL */

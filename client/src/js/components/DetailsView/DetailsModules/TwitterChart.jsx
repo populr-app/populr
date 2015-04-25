@@ -24,7 +24,7 @@ var TwitterChart = React.createClass({
   componentWillReceiveProps: function(nextProps){
     this.setState({
       data: {
-      labels: this.props.timeAgo,
+      labels: this.props.timeAgo.reverse(),
       datasets: [
           {
             label: "Twitter Score",
@@ -34,7 +34,7 @@ var TwitterChart = React.createClass({
             pointStrokeColor: "rgba(228, 130, 99, 1)",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(228, 130, 99, 1)",
-            data: nextProps.twitter.scorehour
+            data: nextProps.twitter.scorehour.reverse()
           }
         ]
     }
