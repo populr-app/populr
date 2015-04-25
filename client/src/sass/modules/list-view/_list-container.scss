@@ -146,13 +146,13 @@ a.headlinesURL {
 
 	&:hover {
 		color: inherit;
-		opacity: 0.7;
 	}
 }
 
 .headlinesCreatedAt {
 	position: relative;
 	top: -18px;
+	color: RGBA(55, 71, 79, 1);
 }
 
 .text-right {
