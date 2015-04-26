@@ -104,7 +104,7 @@ var AboutContainer = React.createClass({
                   <div className="about-card__bio">
                     <span className="about-card__name">William Wung</span>
                     <span className="about-card__role">
-                      Front-Engineer and Designer
+                      Front-End Dev. and Designer
                     </span>
                     <ul className="about-card__links">
                       <li><a href="https://github.com/wcwung"><i className="fa fa-github" target="_blank"/></a></li>
