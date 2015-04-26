@@ -7,6 +7,7 @@ var InstagramFeed = require('../DetailsView/DetailsModules/InstagramFeed.jsx');
 var NewsChart = require('../DetailsView/DetailsModules/NewsChart.jsx');
 var NewsFeed = require('../DetailsView/DetailsModules/NewsFeed.jsx');
 var StatsBreakdown = require('./StatsBreakdown.jsx');
+var NewsStatsBreakdown = require('./NewsStatsBreakdown.jsx');
 
 var TabsContainer = React.createClass({
   render: function() {
@@ -61,7 +62,16 @@ var TabsContainer = React.createClass({
         <Tabs.Panel title='News'>
           <h2 className="chart-title">Appearance in News Headlines</h2>
           <NewsChart sites={this.props.details.sites} timeAgo={timeAgo}/>
-          <NewsFeed headlines={[1,2,3,4,5]} />
+          <div className="row">
+            <div className="col-md-6">
+              <NewsFeed sites={this.props.details.sites} />
+            </div>
+            <div className="col-md-6">
+              <div className="stats-breakdown">
+                <NewsStatsBreakdown data={this.props.details.sites} />
+              </div>
+            </div>
+          </div>
         </Tabs.Panel>
       </Tabs>
     );

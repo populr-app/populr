@@ -1,5 +1,3 @@
-var Tweet = require('./Tweet.jsx');
-
 var TwitterFeed = React.createClass({
   getInitialState: function() {
     return {tweets: this.props.twitter.tweets};
