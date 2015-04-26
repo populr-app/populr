@@ -48,7 +48,7 @@ var ListItem = React.createClass({
       headlinesURL = JSON.parse(this.props.person.headlines[0]).url;
       headlinesCreatedAt = JSON.parse(this.props.person.headlines[0]).date;
 
-      headlines = headlines.length > 77 ? headlines.substring(0, 77) + '...' : headlines;
+      headlines = headlines.length > 72 ? headlines.substring(0, 72) + '...' : headlines;
     }
     return (
       <li className="person-item row">
