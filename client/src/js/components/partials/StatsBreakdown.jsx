@@ -4,7 +4,6 @@ var StatsBreakdown = React.createClass({
     return num;
   },
   render: function() {
-    console.log(this.props.data);
     return (
       <div className="twitter-breakdown">
         <div className="col-md-12">
