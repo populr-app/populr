@@ -4,10 +4,11 @@ var ListContainer = React.createClass({
 
   render: function(){
     var _this = this;
+    console.log('propz', this.props);
     return (
         <div className="list-container">
           <div className="container">
-            <span className="last-updated">Updated Every 10 Minutes</span>
+            <span className="last-updated">Last updated {moment(this.props.updatedAt).fromNow()}</span>
             <div id="a-list" className="list-container__section">
               <div className="list-container--title-wrapper">
                 <h2 className="list-container__title">A-List</h2>
