@@ -15,7 +15,9 @@ var NewsFeed = React.createClass({
     if (this.state.headlines.length > 0) {
       var tickerFeed = function(index) {
         var headlineDate = moment(JSON.parse(_this.state.headlines[index]).date).fromNow();
-        var headline = JSON.parse(_this.state.headlines[index]).title + '<div class="headline-date">' + headlineDate + '</div>';
+        var headlineURL = JSON.parse(_this.state.headlines[index]).url;
+
+        var headline = '<a href="' + headlineURL + '" target="_blank">' + JSON.parse(_this.state.headlines[index]).title + '<div class="headline-date">' + headlineDate + '</div>' + '</a>';
         var nextIndex;
 
         $headlineFeed.fadeOut(function() {
@@ -42,7 +44,7 @@ var NewsFeed = React.createClass({
       <div className="headline-feed-container">
         <div className="headline-feed__ticker">
           <i className="fa fa-newspaper-o" />
-          <div className="headline"></div>
+            <div className="headline"></div>
         </div>
       </div>    
     );
