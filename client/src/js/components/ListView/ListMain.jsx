@@ -9,7 +9,8 @@ var ListMain = React.createClass({
       aList: [],
       bList: [],
       cList: [],
-      dList: []
+      dList: [],
+      updatedAt: ''
     };
   },
   componentWillMount: function() {
@@ -21,7 +22,8 @@ var ListMain = React.createClass({
         aList: people.a,
         bList: people.b,
         cList: people.c,
-        dList: people.d
+        dList: people.d,
+        updatedAt: people.updatedAt
     });
   },
 
@@ -29,7 +31,8 @@ var ListMain = React.createClass({
     return (
       <div className="list-main">
         <ListHeader />
-        <ListContainer 
+        <ListContainer
+          updatedAt ={this.state.updatedAt} 
           aList={this.state.aList}
           bList={this.state.bList}
           cList={this.state.cList}
