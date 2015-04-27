@@ -43,6 +43,7 @@ module.exports = function() {
     }).then(function(lists) {
       var all = Array.prototype.slice.call(lists.all);
       delete lists.all;
+      lists.updatedAt = Date.now();
       return client.set('top', JSON.stringify(lists))
         .then(function() {
           return client.set('top.a', JSON.stringify(lists.b));
