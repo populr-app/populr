@@ -8,7 +8,7 @@ var ListContainer = React.createClass({
     return (
         <div className="list-container">
           <div className="container">
-            <span className="last-updated">Last updated <strong>{moment(this.props.updatedAt).fromNow()}</strong></span>
+            <span className="last-updated">Last updated {moment(this.props.updatedAt).fromNow()}</span>
             <div id="a-list" className="list-container__section">
               <div className="list-container--title-wrapper">
                 <h2 className="list-container__title">A-List</h2>
