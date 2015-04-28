@@ -98,7 +98,7 @@ var AboutContainer = React.createClass({
                 <div className="about-card">
                   <div className="about-card__header" style={cardBackgrounds.will}>
                     <div className="about-card__profile-pic">
-                      <img src="https://scontent-2.2914.fna.fbcdn.net/hprofile-xfp1/v/t1.0-1/p320x320/10424312_10204470947066998_3089081558893242078_n.jpg?oh=c7231dc80db040bf497cd2c79313165b&oe=55D7235E" />
+                      <img src="http://i.imgur.com/1AhgPvU.jpg" />
                     </div>
                   </div>
                   <div className="about-card__bio">
