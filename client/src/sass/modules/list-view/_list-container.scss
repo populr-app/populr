@@ -136,13 +136,13 @@
 .headlines {
 	margin-top: -7px;
 	font-size: 16px;
-	opacity: 0.6;
 	line-height: 40px;
 	text-align: right;
+	color: #000;
 }
 
 a.headlinesURL {
-	color: RGBA(55, 71, 79, 1);
+	color: #000;
 
 	&:hover {
 		color: inherit;
