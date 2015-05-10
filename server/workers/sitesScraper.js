@@ -104,7 +104,7 @@ function grabPeople() {
           return {
             fullName: person.fullName,
             lastSiteCount: data.sites ? data.sites.count : 0,
-            sites: { headlines: data.sites.headlines || [] }
+            sites: { headlines: data.sites ? data.sites.headlines : [] }
           };
         }));
     });
