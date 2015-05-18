@@ -38,7 +38,7 @@ var AboutContainer = React.createClass({
                  <div className="about-card">
                    <div className="about-card__header" style={cardBackgrounds.danny}>
                      <div className="about-card__profile-pic">
-                       <img src="https://scontent-2.2914.fna.fbcdn.net/hprofile-xap1/v/t1.0-1/p320x320/11083906_879782355398403_4365900148626005748_n.jpg?oh=4ab9247f4a1b1c755eed602fdfda0b3f&oe=559AD4D7" />
+                       <img src="http://i.imgur.com/Dna3Zrt.jpg" />
                      </div>
                    </div>
                    <div className="about-card__bio">
@@ -58,7 +58,7 @@ var AboutContainer = React.createClass({
                 <div className="about-card">
                   <div className="about-card__header" style={cardBackgrounds.garrett}>
                     <div className="about-card__profile-pic">
-                      <img src="https://scontent-2.2914.fna.fbcdn.net/hprofile-xta1/v/t1.0-1/p320x320/22415_1586818871600388_307798074658082305_n.jpg?oh=38e6067d661147d33c6202ed4cddb21f&oe=5597B257" />
+                      <img src="http://i.imgur.com/fdmLqaF.jpg" />
                     </div>
                   </div>
                   <div className="about-card__bio">
@@ -78,7 +78,7 @@ var AboutContainer = React.createClass({
                 <div className="about-card">
                   <div className="about-card__header" style={cardBackgrounds.mark}>
                     <div className="about-card__profile-pic">
-                      <img src="https://scontent-2.2914.fna.fbcdn.net/hprofile-xpa1/v/t1.0-1/p320x320/1504046_10153062479307275_3005911821483377739_n.jpg?oh=cdb5c8a9ed8bbd62a45e9ef3c95bd953&oe=55A1FF12" />
+                      <img src="http://i.imgur.com/L2P3Mtf.jpg" />
                     </div>
                   </div>
                   <div className="about-card__bio">
