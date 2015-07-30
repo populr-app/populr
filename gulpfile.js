@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
 var htmlReplace = require('gulp-html-replace');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
@@ -78,7 +77,6 @@ gulp.task('build', function() {
   })
   .bundle()
   .pipe(source(path.OUT))
-  .pipe(streamify(uglify('bundle.min.js')))
   .pipe(gulp.dest('./client/dist/public/js'))
 });
 
