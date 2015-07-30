@@ -8,15 +8,9 @@ var reactify = require('reactify');
 var streamify = require('gulp-streamify');
 var server = require('gulp-server-livereload');
 var sass = require('gulp-sass');
-var mocha = require('gulp-mocha');
-var jasmine = require('gulp-jasmine');
-var jest = require('gulp-jest');
 var minifyCSS = require('gulp-minify-css');
 var gulpSequence = require('gulp-sequence');
-var shell = require('gulp-shell');
 var autoprefixer = require('gulp-autoprefixer');
-var notify = require('gulp-notify');
-var mocha = require('gulp-mocha');
 
 // Paths
 var path = {
@@ -63,7 +57,6 @@ gulp.task('watch', function() {
 gulp.task('copyIMG', function() {
   gulp.src(path.IMG)
     .pipe(gulp.dest(path.IMG_DIST))
-    .pipe(notify('images copied'));
 });
 
 // Compiles SCSS to CSS and minifies CSS
@@ -75,7 +68,6 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(path.CSS_MIN_OUT))
     .pipe(minifyCSS())
     .pipe(gulp.dest(path.CSS_MIN_OUT))
-    .pipe(notify('Styles compiled and minified!'));
 });
 
 // Build
@@ -88,7 +80,6 @@ gulp.task('build', function() {
   .pipe(source(path.OUT))
   .pipe(streamify(uglify('bundle.min.js')))
   .pipe(gulp.dest('./client/dist/public/js'))
-  .pipe(notify('Build complete!'));
 });
 
 
@@ -112,13 +103,6 @@ gulp.task('replaceHTML', function() {
     }))
     .pipe(gulp.dest(path.DEST));
 });
-
-// JSDoc
-gulp.task('jsdoc', shell.task([
-  './node_modules/jsdoc/jsdoc.js -c conf.json ./server -r README_DOCS.md'
-]));
-
-/* Worker Tasks */
 
 // Runs all 6 of our main scraping tasks, heroku scheduler runs this every 10 minutes
 gulp.task('scrapeAll', gulpSequence('scrapeTwitter', 'scrapeSites', 'updateScores', 'updateTop', 'updateRedis'));
@@ -153,8 +137,6 @@ gulp.task('updateRedis', function() {
   return require('./server/workers/redisUpdater')();
 });
 
-/* Helper Tasks */
-
 // Loads the users in clientData.json to our database
 gulp.task('loadData', function() {
   var data = {body: require('./data/clientData')};
@@ -166,31 +148,6 @@ gulp.task('dropTables', function(){
   require('./server/helpers/droptables')();
 });
 
-// Serverside testing
-gulp.task('mochatest', function() {
-  return gulp.src('./server/serverSpec.js', {read: false})
-    .pipe(mocha());
-});
-
-// React Unit Testing (Jest)
-gulp.task('jest', function() {
-  return gulp.src('_tests_')
-    .pipe(jest({
-      unmockedModulePathPatterns: [
-        'node_modules/react'
-      ],
-      testDirectoryName: 'spec',
-      testPathIgnorePatterns: [
-        'node_modules',
-        'spec/support'
-      ],
-      moduleFileExtensions: [
-        'js',
-        'json',
-        'react'
-      ]
-    }));
-});
 
 //Sequence tasks
 gulp.task('production', ['styles', 'copyIMG', 'build', 'replaceHTML', 'watch']);

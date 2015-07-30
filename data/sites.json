@@ -230,17 +230,5 @@
         "http://Groups.yahoo.com/group/rat_pack_2003/",
         "http://Tracy_prinze.tripod.com/theentertainerswelove/",
         "http://www.tmz.com/celebrity-directory?adid=TMZ_Web_Nav_Celebs"
-    ],
-    "headlines": [
-        "http://api.feedzilla.com/en_us/headlines/music.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/events.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/sports.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/society.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/politics.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/internet.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/top-news.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/world-news.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/celebrities.rss?count=100",
-        "http://api.feedzilla.com/en_us/headlines/entertainment.rss?count=100"
     ]
 }
