@@ -16,8 +16,6 @@ var PeopleController = require('../database/people/controller.js');
 module.exports = function() {
   log('${a}: Starting up...', 'scrapeSites'.cyan);
   return requestHTML(require('../../data/sites.json').sites)
-    .then(requestHeadlines)
-    .then(sortHeadlines)
     .then(grabPeople)
     .then(countOccurences)
     .then(updatePeople)
@@ -93,7 +91,8 @@ function sortHeadlines(headlines) {
   this.headlines = headlines.reverse();
 }
 
-function grabPeople() {
+function grabPeople(html) {
+  this.html = html.join(' ');
   log('${a}: Grabbing list of names', 'scrapeSites'.cyan);
   return People.findAll().then(function(people) {
     var promiseArray = [];
@@ -126,7 +125,6 @@ function countOccurences(people) {
     var countchange = count - person.lastSiteCount || 0;
     person.sites.count = occurrences(html, person.fullName);
     person.sites.countchange = countchange;
-    person.sites.headlines = findHeadlines(person, headlines);
   });
 
   log('${a}: Counting occurences ${b}', 'scrapeSites'.cyan, '[100%]'.magenta);
