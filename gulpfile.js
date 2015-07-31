@@ -137,7 +137,7 @@ gulp.task('updateRedis', function() {
 
 // Loads the users in clientData.json to our database
 gulp.task('loadData', function() {
-  var data = {body: require('./data/clientData')};
+  var data = {body: require('./data/data_withoutFB')};
   return require('./server/database/people/controller').post(data, {send: function() {}});
 });
 
